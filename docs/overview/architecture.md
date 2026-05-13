@@ -1,0 +1,19 @@
+# 2. 개념적 구조
+
+본 규격에서 정의하는 모바일 표준 플랫폼은 개념적으로 그림 1과 같은 구조를 갖는
+다. 단말기 기본 S/W는 통신 기본 기능과 각종 디바이스 드라이버가 포함된다. 그림
+1에서 Extended API는 선택 사양이다.
+Application Programs
+Basic API (MSF/MSP/WIPI-C)
+Extended API (CLDC Core API/MIDP)
+모바일표준플랫폼
+HAL (Handset Adaptation Layer)
+단말기기본소프트웨어
+Handset Hardware
+그림 1 개념적 구조도
+? HAL (Handset Adaptation Layer)
+플랫폼 이식에 있어서 하드웨어 독립성을 지원하기 위한 계층이다. 이를 통해 단말기
+에 대한 추상화가 이루어지고, 하드웨어 독립적으로 플랫폼이 구성된다.
+? 기본 API (BASIC API)
+응용프로그램 개발자가 사용하는 플랫폼에서 지원하는 기본 API 모음이다. C 및 자바
+API를 제시한다.

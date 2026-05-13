@@ -1,0 +1,10 @@
+# Build + serve
+mkdocs>=1.6
+mkdocs-material>=9.5
+mkdocs-awesome-pages-plugin>=2.9
+
+# Conversion scripts
+beautifulsoup4>=4.12
+lxml>=5.0
+pdfplumber>=0.11
+pypdf>=4.0

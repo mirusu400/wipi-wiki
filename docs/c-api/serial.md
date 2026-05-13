@@ -1,0 +1,189 @@
+# 5.1.7. SERIAL
+
+시리얼 통신에 관련한 API 이다. 시리얼 장치는 여러 개가 존재할 수 있으며 각
+장치는 포트번호 0, 1, 2.. 로 접근된다. 플랫폼에서 지원하는 시리얼 포트 개수
+는 MC_knlGetSystemProperty() 에 “MAXSERIALNUM” 을 넘겨주어 구할 수 있다. 시
+리얼 I/O API MC_srlClose() 함수를 제외하고 모두 논블로킹 함수이다. 따라서
+I/O 함수가 호출되었을 때 I/O 를 처리할 수 없으면 M_E_WOULDBLOCK 을 리턴하며
+콜백 등록함수로 콜백을 등록하면 I/O 가능한 시점 혹은 HAL 에서 시리얼 관련 에
+러가 이벤트가 발생하면 불린다.
+참고 항목
+없음
+? SRLWRITECB
+설명
+함수 MC_srlSetWriteCB 에 등록하는 콜백함수. 시리얼로 데이터를 전송할 수 있을
+경우나 HAL 에서 시리얼 에러 이벤트가 플랫폼에 전달되면 불린다.
+프로토타입
+typedef void (*SRLWRITECB)(M_Int32 fd, M_Int32 error, void *param)
+매개 변수
+fd – 포트 식별자
+error – 성공: 0, 실패: M_E_ERROR
+param – 콜백함수를 등록할 때 설정하는 콜백 매개변수
+반환 값
+없음
+부작용
+없음
+참고 항목
+MC_srlSetWriteCB
+? SRLREADCB
+설명
+함수 MC_srlSetReadCB 에 등록하는 콜백함수. 시리얼로 데이터를 읽을 수 있을 경
+우나 HAL 에서 시리얼 에러 이벤트가 플랫폼에 전달되면 불린다.
+프로토타입
+typedef void (*SRLREADCB)(M_Int32 fd, M_Int32 error, void *param)
+매개 변수
+fd – 포트 식별자
+error – 성공: 0, 실패: M_E_ERROR
+param – 콜백함수를 등록할 때 설정하는 콜백 매개변수
+반환 값
+없음
+부작용
+없음
+참고 항목
+MC_srlSetReadCB
+? MC_srlOpen
+설명
+시리얼을 연다. 이 함수로 반환되는 시리얼 포트 식별자는 0 이상이어야 한다. 지
+정되는 포트는 매개변수 param 으로 전달되는 제어문자열에 의해 제어된다. 제어
+문자열은 다음과 같은 문법으로 만들어 져야 한다.
+제어문자열 ::= [제어쌍]
+제어쌍 ::= 제어키 “=” 제어값 *(,제어키 “=” 제어값)
+제어키 ::= 알파벳혹은 숫자문자로 만들어진 문자열
+제어값 ::= 알파벳혹은 숫자문자로 만들어진 문자열
+이 문서에서 정의하는 제어키와 제어값은 아래 표와 같다.
+제어키 제어값 의미 디폴트
+baudrate 9600, 19200, 38400, 속도 115200
+57600, 115200
+parity even, odd, no 패리티 no
+Size 숫자 바이트 크기 8
+Flow hardware, software, 흐름제어 no
+no
+이외의 제어키와 제어값에 대한 정의는 추가될 수 있다. 예를 들어 8 비트, 패리
+티없음, 115200 속도로 하드웨어 흐름제어를 하기 위해 포트를 열 경우 제어문자
+열은 다음과 같다.
+”baudrate=115200,parity=no,size=8,flow=hardware”
+시리얼 포트를 열 때 앞에서 정의한 제어키가 제어문자열에서 빠진다면 디폴트 값
+이 설정된다.
+프로토타입
+M_Int32 MC_srlOpen(M_Int32 port,M_Byte* param)
+매개 변수
+port - 포트 번호(0 ~(최대 포트갯수 - 1)) );
+param – 제어 문자열
+반환 값
+성공
+식별자 반환
+실패
+M_E_NOTSUP - 해당 포트번호 또는 제어문자열에 대한 제어가 지원되지 않
+는 경우
+M_E_INVALID – 제어문자열이 잘 못된 포멧일 경우
+M_E_ISCONN - 해당 포트가 이미 사용되고 있을 경우
+부작용
+없음
+참고 항목
+없음
+? MC_srlWrite
+설명
+시리얼 포트로 데이터를 전송한다. 시스템 내부 요인으로 데이터를 당장 전송하지
+못할 경우 M_E_WOULDBLOCK 을 리턴한다. 이 경우 MC_srlSetWriteCB 로 등록하는
+콜백 내에서 다시 이 함수를 호출하여 데이터를 전송하면 된다. 콜백 내에서 불린
+이 함수는 또 다시 M_E_WOULDBLOCK 을 리턴할 수도 있다.
+프로토타입
+M_Int32 MC_srlWrite(M_Int32 fd, M_Uint8* buf, M_Int32 size)
+매개 변수
+fd - 식별자
+buf - 데이터의 버퍼
+size - 데이타의 크기
+반환 값
+성공
+write된 size
+실패
+M_E_WOULDBLOCK – 현재 데이터를 쓸 수 없을 경우
+M_E_BADFD - 유효 하지 않은 식별자
+M_E_INVALID – 버퍼나 버퍼길이가 잘 못 되었을 경우
+부작용
+없음
+참고 항목
+MC_srlSetWriteCB
+? MC_srlRead
+설명
+시리얼 포트를 통해서 데이터를 읽는다. 읽을 데이터가 없을 경우
+M_E_WOULDBLOCK 을 리턴한다. 이 경우 MC_srlSetReadCB 로 설정된 콜백 내에서 다
+시 이 함수를 호출하여 데이터를 읽으면 된다. 콜백 내에서 불린 이 함수는 또 다
+시 M_E_WOULDBLOCK 을 리턴할 수도 있다.
+프로토타입
+M_Int32 MC_srlRead(M_Int32 fd, M_Uint8* buf, M_Int32 size)
+매개 변수
+fd - 식별자
+buf - 데이터의 버퍼
+size - 데이터의 크기
+반환 값
+성공
+읽은 size
+실패
+M_E_WOULDBLOCK - 읽을 데이터가 없을 경우
+M_E_BADFD - 유효 하지 않은 fd값
+M_E_INVALID – 버퍼나 버퍼 길이가 잘 못 되었을 경우
+부작용
+없음
+참고 항목
+없음
+? MC_srlSetReadCB
+설명
+시리얼 포트를 통해서 데이터를 읽을 수 있는 시점에서 불리는 콜백함수를 등록한
+다. 콜백함수가 불리면 매개변수 param 값이 콜백함수 API 로 전달된다. 등록하는
+콜백함수가 NULL 일 경우 이전에 이 함수로 등록된 콜백이 삭제된다. 이 함수가
+에러를 리턴하면 콜백은 불리지 않는다. 이 함수가 호출되었을 때 시리얼 포트로
+부터 데이터를 읽을 수 있으면 콜백함수가 불린다.
+프로토타입
+M_Int32 MC_srlSetReadCB(M_Int32 fd, SRLREADCB cb, void *param)
+매개 변수
+fd – 포트 식별자
+cb – 콜백함수
+param – 콜백함수가 불릴 때 전달되는 값
+반환 값
+성공
+실패
+M_E_BADFD ? 잘못된 식별자
+M_E_ERROR ? 기타 에러
+부작용
+없음
+참고 항목
+없음
+? MC_srlSetWriteCB
+설명
+시리얼 포트를 통해서 데이터를 전송할 수 있는 시점에서 불리는 콜백함수를 등록
+한다. 콜백함수가 불리면 매개변수 param 값이 콜백함수 API 로 전달된다. 등록하
+는 콜백함수가 NULL 일 경우 이전에 이 함수로 등록된 콜백이 삭제된다. 이 함수
+가 에러를 리턴하면 콜백은 불리지 않는다. 이 함수가 호출되었을 때 시리얼 포트
+로 데이터를 전송할 수 있으면 콜백이 불린다.
+프로토타입
+M_Int32 MC_srlSetWriteCB(M_Int32 fd, SRLWRITECB cb, void *param)
+매개 변수
+fd – 포트 식별자
+cb – 콜백함수
+param – 콜백함수가 불릴 때 전달되는 값
+반환 값
+성공
+실패
+M_E_BADFD – 잘못된 식별자
+M_E_ERROR – 기타 에러
+부작용
+없음
+참고 항목
+없음
+? MC_srlClose
+설명
+시리얼 포트 사용을 종료한다. 시리얼 포트 사용을 종료하면 시리얼 포트에 등록
+되어 있던 모든 콜백함수는 삭제되어 불리지 않게 된다.
+프로토타입
+M_Int32 MC_srlClose(M_Int32 fd)
+매개 변수
+fd - 포트 식별자
+반환 값
+성공
+실패
+M_E_BADFD - 유효 하지 않은 식별자
+부작용
+없음
+참고 항목
+없음

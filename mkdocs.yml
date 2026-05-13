@@ -1,0 +1,120 @@
+site_name: WIPI Wiki
+site_description: WIPI 1.2.1 모바일 표준 플랫폼 API 레퍼런스
+site_url: https://mirusu400.github.io/wipi-wiki/
+site_author: WIPI Wiki contributors
+repo_url: https://github.com/mirusu400/wipi-wiki
+repo_name: mirusu400/wipi-wiki
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  language: ko
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.path
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.action.edit
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 다크 모드로 전환
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 라이트 모드로 전환
+  icon:
+    repo: fontawesome/brands/github
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/mirusu400/wipi-wiki
+  generator: false
+
+plugins:
+  - search:
+      lang: ko
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+      permalink_title: 이 섹션으로의 링크
+
+nav:
+  - 홈: index.md
+  - 개요:
+      - overview/index.md
+      - 1. 서론: overview/introduction.md
+      - 2. 개념적 구조: overview/architecture.md
+      - 3. 플랫폼 일반: overview/platform.md
+  - HAL 규격:
+      - hal/index.md
+      - 4.1 Type Definition: hal/types.md
+      - 4.2 플랫폼 API: hal/platform-api.md
+      - 4.3 System: hal/system.md
+      - 4.4 CALL: hal/call.md
+      - 4.5 HandSet Device: hal/handset.md
+      - 4.6 네트워크: hal/network.md
+      - 4.7 Serial: hal/serial.md
+      - 4.8 MEDIA: hal/media.md
+      - 4.9 TIME: hal/time.md
+      - 4.10 UTILITY: hal/utility.md
+      - 4.11 FILE: hal/file.md
+      - 4.12 InputMethod: hal/input-method.md
+      - 4.13 Font: hal/font.md
+      - 4.14 Frame Buffer: hal/frame-buffer.md
+      - 4.15 Virtual Key: hal/virtual-key.md
+  - C API:
+      - c-api/index.md
+      - 5.1.1 커널: c-api/kernel.md
+      - 5.1.2 그래픽: c-api/graphics.md
+      - 5.1.3 데이터베이스: c-api/database.md
+      - 5.1.4 파일시스템: c-api/filesystem.md
+      - 5.1.5 NETWORK: c-api/network.md
+      - 5.1.6 매체 처리기: c-api/media.md
+      - 5.1.7 SERIAL: c-api/serial.md
+      - 5.1.8 PHONE: c-api/phone.md
+      - 5.1.9 MISC: c-api/misc.md
+      - 5.1.10 UTILITY: c-api/utility.md
+      - 5.1.11 UI Components: c-api/ui-components.md
+      - 5.1.12 표준 C 라이브러리: c-api/c-stdlib.md
+  - Java API: java-api/index.md
+  - 부속서:
+      - appendix/index.md
+      - 6. 참조 문헌: appendix/references.md
+      - 7.1 EUC-KR 확장: appendix/euc-kr-extended.md
+      - 7.2 API 추가/삭제: appendix/api-management.md
+      - 7.3 보안 관련 API: appendix/security.md
+      - 7.4 Media 관련 API: appendix/media-ext.md

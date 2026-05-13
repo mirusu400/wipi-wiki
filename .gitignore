@@ -1,0 +1,21 @@
+# Build output
+site/
+.cache/
+__pycache__/
+*.pyc
+
+# Vendored sources (PDF original + cloned JavaDoc HTML)
+# These are inputs for the conversion scripts; the converted Markdown
+# in docs/ is what gets committed.
+vendor/
+
+# Local virtualenvs
+.venv/
+venv/
+env/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
