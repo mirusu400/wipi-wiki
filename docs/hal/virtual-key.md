@@ -4,42 +4,102 @@
 
 ```c
 int a;
-a = MH_keyGetVirtualCode(MH_KEY_7); // a == MH_VIRGAME_A
+a = MH_keyGetVirtualCode(MH_KEY_7); //
 ```
 
-- 관련 자료형
-
-### // UP 기능 키
+관련 자료형
 
 ```c
-#define MH_VIRUP 1
-// DOWN 기능 키
-#define MH_VIRDOWN 6
-// LEFT 기능 키
-#define MH_VIRLEFT 2
-// RIGHT 기능 키
-#define MH_VIRRIGHT 5
-// FIRE(SEL) 기능 키
-#define MH_VIRFIRE 8
-// GAME1 기능 키
-#define MH_VIRGAME_A 9
-// GAME2 기능 키
-#define MH_VIRGAME_B 10
-// GAME3 기능 키
-#define MH_VIRGAME_C 11
-// GAME4 기능 키
-#define MH_VIRGAME_D 12
-// SIDE UP 기능 키
-#define MH_VIRSIDE_UP 96
-// SIDE DOWN 기능 키
-#define MH_VIRSIDE_DOWN 97
-// SIDE SEL 기능 키
-#define MH_VIRSIDE_SEL 98
-// SIDE CLEAR 기능 키
-#define MH_VIRSIDE_CLEAR 99
+a == MH_VIRGAME_A
 ```
 
-### MH_keyGetVirtualCode
+//  UP 기능 키
+
+```c
+#define	MH_VIRUP
+```
+
+//  DOWN 기능 키
+
+```c
+#define	MH_VIRDOWN
+```
+
+//  LEFT 기능 키
+
+```c
+#define	MH_VIRLEFT
+```
+
+// RIGHT 기능 키
+
+```c
+#define	MH_VIRRIGHT
+```
+
+// FIRE(SEL) 기능 키
+
+```c
+#define	MH_VIRFIRE
+```
+
+// GAME1 기능 키
+
+```c
+#define	MH_VIRGAME_A
+```
+
+// GAME2 기능 키
+
+```c
+#define	MH_VIRGAME_B
+```
+
+// GAME3 기능 키
+
+```c
+#define	MH_VIRGAME_C
+```
+
+// GAME4 기능 키
+
+```c
+#define	MH_VIRGAME_D
+```
+
+// SIDE UP 기능 키
+
+```c
+#define	MH_VIRSIDE_UP
+```
+
+// SIDE
+
+DOWN 기능 키
+
+```c
+#define
+MH_VIRSIDE_DOWN
+```
+
+// SIDE
+
+SEL 기능 키
+
+```c
+#define
+MH_VIRSIDE_SEL
+```
+
+// SIDE
+
+CLEAR 기능 키
+
+```c
+#define
+MH_VIRSIDE_CLEAR
+MH_keyGetVirtualCode
+```
 
 **설명**
 
@@ -53,11 +113,11 @@ M_Int32 MH_keyGetVirtualCode(M_Int32 keyCode)
 
 **매개 변수**
 
-keyCode 폰의 KeyCode값. MH_KeyCode 참조
+keyCode 폰의 KeyCode 값. MH_KeyCode 참조
 
 **반환 값**
 
-[in] Virtual Keyapad
+[in]	Virtual	Keyapad
 
 **부작용**
 
@@ -67,9 +127,9 @@ keyCode 폰의 KeyCode값. MH_KeyCode 참조
 
 없음
 
-### MH_keyGetKeyCode
-
-**설명**
+```c
+MH_keyGetKeyCode 설명
+```
 
 주어진 가상 키의 값에 매핑(mapping)되는 실제 키 값을 가져 온다
 
@@ -81,11 +141,11 @@ M_Int32 MH_keyGetKeyCode(M_Int32 gameAction)
 
 **매개 변수**
 
-[in] gameAction Virtual KeyPad
+[in]	gameAction	Virtual KeyPad
 
 **반환 값**
 
-폰의 KeyCode값. MH_KeyCode 참조.
+폰의 KeyCode 값. MH_KeyCode 참조.
 
 **부작용**
 
@@ -94,3 +154,5 @@ M_Int32 MH_keyGetKeyCode(M_Int32 gameAction)
 **참고 항목**
 
 없음
+
+### API 규격

@@ -2,45 +2,39 @@
 
 ### 그래픽 함수
 
-화면이나 오프 스크린 프레임 버퍼(Off Screen Frame Buffer)에 다양한 그리기를 할 수 있는 API들이다.
+화면이나 오프 스크린 프레임 버퍼(Off Screen Frame Buffer) 에 다양한 그리기를 할 수 있는 API 들이다.
 
 ### 프레임 버퍼
 
-화면 프레임 버퍼나 오프 스크린 프레임 버퍼는 데이타의 포인터와 데이터의 한 줄당 바이트 수(Byte Per Line) 으로 기술된다. 이 기술되는 프레임 버퍼는 MC_GrpFrameBuffer 로 정의되며, 내부에 데이터와 데이터의 한 줄당 바이트수, 폭, 높이를 담고 있다.
+화면 프레임 버퍼나 오프 스크린 프레임 버퍼는 데이타의 포인터와 데이터의 한 줄당 바이트 수(Byte Per Line)으로 기술된다. 이 기술되는 프레임 버퍼는 MC_GrpFrameBuffer 로 정의되며, 내부에 데이터와 데이터의 한 줄당 바이트수, 폭, 높이를 담고 있다.
 
 ### 오프 스크린 프레임 버퍼 생성/소멸
 
-프레임 버퍼는 MC_grpCreateOffScreenFrameBuffer 함수로 생성되거나 MC_grpGetScreenFrameBuffer 함수로 존재하는 화면 프레임 버퍼를 가져 올 수 있다.
-
-생성된 프레임 버퍼는 MC_grpDestoryScreenFrameBuffer함수로 삭제 해주어야 한다.
+프레임 버퍼는 MC_grpCreateOffScreenFrameBuffer 함수로 생성되거나 MC_grpGetScreenFrameBuffer 함수로 존재하는 화면 프레임 버퍼를 가져 올 수 있다. 생성된 프레임 버퍼는 MC_grpDestoryScreenFrameBuffer 함수로 삭제 해주어야 한다.
 
 ### 그래픽 컨텍스트
 
-프레임 버퍼에 그리는 함수에는 대부분 그래픽 컨텍스트가 매개 변수로 넘어간다.
-
-그래픽 컨택스트는 그리기시에 필요한 각종 매개 변수를 저장하는 구조체로써 안 에는 전경색상과 클리핑 영역, 투명정도, 픽셀 연산 함수, 폰트와 스타일, 상대 좌표의 원점Offset)등을 가지고 있다.
+프레임 버퍼에 그리는 함수에는 대부분 그래픽 컨텍스트가 매개 변수로 넘어간다. 그래픽 컨택스트는 그리기시에 필요한 각종 매개 변수를 저장하는 구조체로써 안 에는 전경색상과 클리핑 영역, 투명정도, 픽셀 연산 함수, 폰트와 스타일, 상대 좌표의 원점 Offset)등을 가지고 있다.
 
 각 그래픽 컨텍스트의 값을 변경하기 위해서는 MC_grpSetContext 함수를 사용하여 그 값을 변경한다.
 
-모든 그리기 API에 클리핑 영역이 지정되어 있는 상태에서 그려지며, API에 따라 서 각기 필드값을 사용하거나 사용하지 않을 수 있다.
+모든 그리기 API 에 클리핑 영역이 지정되어 있는 상태에서 그려지며, API 에 따라 서 각기 필드값을 사용하거나 사용하지 않을 수 있다.
 
-그리기 모드는 투명하게 그리기(alpha 모드), XOR 로 그리기(xor 모드) 일반 모드 (둘다 아닌 모드) 가 있으며 각 모드 배타적인 모드이다. 즉, xor 모드로 되어 있 을때 alpha모드로 지정하면 이전에 xor모드는 취소가 된다.
+그리기 모드는 투명하게 그리기(alpha 모드), XOR 로 그리기(xor 모드) 일반 모드 (둘다 아닌 모드) 가 있으며 각 모드 배타적인 모드이다. 즉, xor 모드로 되어 있 을때 alpha 모드로 지정하면 이전에 xor 모드는 취소가 된다.
 
 상대 좌표체계를 지정하면 모든 그리기 좌표는 상대 좌표계에 따라서 변경된다.
 
 ### 이미지 디코딩/인코딩
 
-이미지는 프레임 버퍼와 애니메이션의 여부, 매스크 이미지로 이루어 진다.
+이미지는 프레임 버퍼와 애니메이션의 여부, 매스크 이미지로 이루어 진다. 이미지 포맷은 BMP, PNG 를 지원한다. 먼저 이미지 원본 내용을 버퍼에 로드한 후
 
-이미지 포맷은 BMP, PNG 를 지원한다. 먼저 이미지 원본 내용을 버퍼에 로드한 후 에 이미지 내용을 MC_grpCreateImage 함수를 통하여 이미지 구조체를 생성하면 화면 에 출력할 수 있다. MC_grpDrawImage 함수를 통하면 이미지를 화면에 출력한다. 만 일 animated 이미지라면 MC_grpDecodeNextImage 함수를 사용하여 다음 이미지를 생 성할 수 있다. 다 사용된 이미지는 MC_grpDestoryImage함수를 통하여 삭제한다.
+에 이미지 내용을 MC_grpCreateImage 함수를 통하여 이미지 구조체를 생성하면 화면 에 출력할 수 있다. MC_grpDrawImage 함수를 통하면 이미지를 화면에 출력한다. 만 일 animated 이미지라면 MC_grpDecodeNextImage 함수를 사용하여 다음 이미지를 생 성할 수 있다. 다 사용된 이미지는 MC_grpDestoryImage 함수를 통하여 삭제한다.
 
 MC_grpEncodeImage 함수를 통해서 원하는 프레임 버퍼 영역을 BMP 로 인코딩할 수 있다.
 
 ### 더블 버퍼링
 
-폰의 LCD 는 대부분의 경우 호스트 메모리와 불리되어 있으며 화면의 내용을 갱신 하는데 상당히 많은 시간을 소요한다. 이로 인해서 더블 버퍼링 기법을 사용한다.
-
-화면 프레임 버퍼에 임의의 그림을 그린다 해도 실제적으로 LCD 화면에 출려되지 않고, MC_grpFlushLcd함수를 호출해야만 LCD 화면에 화면 프레임 버퍼의 내용이 출 력된다.
+폰의 LCD 는 대부분의 경우 호스트 메모리와 불리되어 있으며 화면의 내용을 갱신 하는데 상당히 많은 시간을 소요한다. 이로 인해서 더블 버퍼링 기법을 사용한다. 화면 프레임 버퍼에 임의의 그림을 그린다 해도 실제적으로 LCD 화면에 출려되지 않고, MC_grpFlushLcd 함수를 호출해야만 LCD 화면에 화면 프레임 버퍼의 내용이 출 력된다.
 
 ### 듀얼 디스플레이
 
@@ -48,34 +42,32 @@ MC_grpEncodeImage 함수를 통해서 원하는 프레임 버퍼 영역을 BMP �
 
 ### 문자 입력 처리
 
-사용자에 의해서 입력 키를 넘겨 받아서 키 값을 검사하고, 오토마타를 통해서 문 자 조합하여 완성된 문자열버퍼와 조합 중인 문자열 버퍼를 통해 넘겨준다. 입력 가능한 문자열은 오토마타에 의해 결정되며 , 현재 오토마타에서 사용가능한 문자 열은 MC_imGetSurpportModeCount()를 통해서 얻을 수있고, 이때 리턴되는 타입은 스트링 포인터로 그 데이터는 ISO 639 코드에 정의된 표준언어코드를 따른다. 추 가적으로 언어가 대소문자를 구분하는 경우 각 코드에 “/S”,”/L”를 추가하여 사용 할 수 있다. 기타 숫자입력을 위한 언어코드는 “N123”이 사용된다.
+사용자에 의해서 입력 키를 넘겨 받아서 키 값을 검사하고, 오토마타를 통해서 문 자 조합하여 완성된 문자열버퍼와 조합 중인 문자열 버퍼를 통해 넘겨준다. 입력 가능한 문자열은 오토마타에 의해 결정되며 , 현재 오토마타에서 사용가능한 문자 열은 MC_imGetSurpportModeCount() 를 통해서 얻을 수있고, 이때 리턴되는 타입은 스트링 포인터로 그 데이터는 ISO 639 코드에 정의된 표준언어코드를 따른다. 추 가적으로 언어가 대소문자를 구분하는 경우 각 코드에 “/S”,”/L”를 추가하여 사용 할 수 있다. 기타 숫자입력을 위한 언어코드는 “N123”이 사용된다.
 
 **참고 항목**
 
+```c
 MC_GrpContext, MC_GrpFrameBuffer
-
-### MC_GrpPixelOpProc
+MC_GrpPixelOpProc
+```
 
 **프로토타입**
 
 ```c
-typedef M_Int32 (*MC_GrpPixelOpProc)(M_Int32 srcpxl, M_Int32 orgpxl, M_Int32
-param1)
+typedef M_Int32 (*MC_GrpPixelOpProc)(M_Int32 srcpxl, M_Int32 orgpxl, M_Int32 param1)
 ```
 
 **설명**
 
 픽셀 연산(Operation)함수이다.
 
-모든 그리기 함수에서 이 함수를 통한 결과 값이 최종적으로 쓰여지는 값이 된다.
-
-srcpxl 과 orgpxl 을 param1 의 매개 변수로 적절히 계산하여 그 결과 값을 돌려주면 그 값이 프레임 버퍼에 쓰여지는 최종적인 값이 된다. 예를 들면 투명 모드에서 사용되는 함수는 다음과 같이 구성해야 한다.
+모든 그리기 함수에서 이 함수를 통한 결과 값이 최종적으로 쓰여지는 값이 된다. srcpxl 과 orgpxl 을 param1 의 매개 변수로 적절히 계산하여 그 결과 값을 돌려주면 그 값이 프레임 버퍼에 쓰여지는 최종적인 값이 된다. 예를 들면 투명 모드에서 사용되는 함수는 다음과 같이 구성해야 한다.
 
 **매개 변수**
 
 - `srcpxl` — [in] 프레임 버퍼에 있는 픽셀 값
-- `destpxl` — [in] 프레임 버퍼에 쓰려고 하는 픽셀 값
-- `param1` — [in] 함수를 제어하는 매개 변수
+- `destpxl` — [in] 프레임 버퍼에 쓰려고 하는 픽셀 값 param1 - [in] 함수를 제어하는 매개 변수
+
 **반환 값**
 
 최종적으로 프레임 버퍼에 쓰여질 픽셀 값
@@ -94,7 +86,9 @@ return (srcpxl * (255 - param1) + orgpxl * param1) / 255;
 
 없음
 
-### MC_GrpContext
+```c
+MC_GrpContext
+```
 
 **프로토타입**
 
@@ -104,9 +98,13 @@ typedef struct _MC_GrpContext MC_GrpContext
 
 **설명**
 
-그래픽 컨텍스트 그리기 시에 다양한 매개 변수들을 효율적으로 전달하기 위한 구조체이다. 대부분 그리기 함수는 이 구조체를 매개 변수로 받다. 이 구조체에는 그리는데 필요한 매 개 변수 클리핑, 전경색, 폰트, 스타일, 상대 좌표 체계등을 가진다.
+그래픽 컨텍스트
 
-### MC_GRP_DIRECT_COLOR_TYPE
+그리기 시에 다양한 매개 변수들을 효율적으로 전달하기 위한 구조체이다. 대부분 그리기 함수는 이 구조체를 매개 변수로 받다. 이 구조체에는 그리는데 필요한 매 개 변수 클리핑, 전경색, 폰트, 스타일, 상대 좌표 체계등을 가진다.
+
+```c
+MC_GRP_DIRECT_COLOR_TYPE
+```
 
 **프로토타입**
 
@@ -118,7 +116,9 @@ typedef struct _MC_GrpContext MC_GrpContext
 
 팔레트를 사용하지 않는 경우의 컬러 타입. (1 << 0)로 정의한다.
 
-### MC_GRP_GRAY_TYPE
+```c
+MC_GRP_GRAY_TYPE
+```
 
 **프로토타입**
 
@@ -130,7 +130,9 @@ typedef struct _MC_GrpContext MC_GrpContext
 
 흑백 타입. (1 << 1)로 정의한다.
 
-### MC_GRP_COLOR_TYPE
+```c
+MC_GRP_COLOR_TYPE
+```
 
 **프로토타입**
 
@@ -142,37 +144,60 @@ typedef struct _MC_GrpContext MC_GrpContext
 
 컬러 타입. (1 << 2)로 정의한다.
 
-### _MC_GrpDisplayInfo
+## _MC_GrpDisplayInfo
 
 **프로토타입**
 
 ```c
-struct _MC_GrpDisplayInfo
-int m_bpp
-픽셀당 비트수
-int m_depth
-실제적인 픽셀당 사용 비트수
-int m_width
-화면의 픽셀 단위 폭
-int m_height
-화면의 픽셀 단위 높이
-int m_bpl
-프레임 버퍼의 화면의 한 줄당 바이트 수
-int m_colortype
+struct _MC_GrpDisplayInfo int m_bpp
+픽셀당 비트수 int m_depth
+실제적인 픽셀당 사용 비트수 int m_width
+화면의 픽셀 단위 폭 int m_height
+화면의 픽셀 단위 높이 int m_bpl
+프레임 버퍼의 화면의 한 줄당 바이트 수 int m_colortype
 컬러 타입; MC_GRP_DIRECT_COLOR_TYPE, MC_GRP_GRAY_TYPE, MC_GRP_COLOR_TYPE
-int m_redmask
-빨간 색상 매스크
-int m_bluemask
-파랑 색상 매스크
-int m_greenmask
-녹색 색상 매스크
+int m_redmask 빨간 색상 매스크 int m_bluemask 파랑 색상 매스크 int m_greenmask 녹색 색상 매스크
 ```
 
 **설명**
 
-화면 정보 구조체 int m_bpp 픽셀당 비트수 int m_depth 실제적인 픽셀당 사용 비트수 int m_width 화면의 픽셀 단위 폭 int m_height 화면의 픽셀 단위 높이 int m_bpl 프레임 버퍼의 화면의 한 줄당 바이트 수 int m_colortype 컬러 타입; MC_GRP_DIRECT_COLOR_TYPE, MC_GRP_GRAY_TYPE, MC_GRP_COLOR_TYPE int m_redmask 빨간 색상 매스크 int m_bluemask 파랑 색상 매스크 int m_greenmask 녹색 색상 매스크
+화면 정보 구조체
 
-### MC_GrpDisplayInfo
+```c
+int m_bpp 픽셀당 비트수 int m_depth
+```
+
+실제적인 픽셀당 사용 비트수
+
+```c
+int m_width
+```
+
+화면의 픽셀 단위 폭
+
+```c
+int m_height
+```
+
+화면의 픽셀 단위 높이
+
+```c
+int m_bpl
+```
+
+프레임 버퍼의 화면의 한 줄당 바이트 수
+
+```c
+int m_colortype
+```
+
+컬러 타입; MC_GRP_DIRECT_COLOR_TYPE, MC_GRP_GRAY_TYPE, MC_GRP_COLOR_TYPE
+
+```c
+int m_redmask
+빨간 색상 매스크 int m_bluemask 파랑 색상 매스크 int m_greenmask 녹색 색상 매스크
+MC_GrpDisplayInfo
+```
 
 **프로토타입**
 
@@ -184,7 +209,8 @@ typedef struct _MC_GrpDisplayInfo MC_GrpDisplayInfo
 
 화면의 각종 정보를 가진다
 
-- *MC_GrpFrameBuffer
+## *MC_GrpFrameBuffer
+
 **프로토타입**
 
 ```c
@@ -197,7 +223,9 @@ typedef M_Int32 MC_GrpFrameBuffer
 
 내부에 높이와 넓이와 프레임 버퍼 포인터를 가진다.
 
-### MC_GRP_GET_FRAME_BUFFER_POINTER
+```c
+MC_GRP_GET_FRAME_BUFFER_POINTER
+```
 
 **프로토타입**
 
@@ -212,11 +240,14 @@ typedef M_Int32 MC_GrpFrameBuffer
 **매개 변수**
 
 - `a` — [in] MC_GrpFrameBuffer
+
 **반환 값**
 
 프레임 버퍼의 내용이 있는 포인터
 
-### MC_GRP_GET_FRAME_BUFFER_WIDTH
+```c
+MC_GRP_GET_FRAME_BUFFER_WIDTH
+```
 
 **프로토타입**
 
@@ -231,11 +262,14 @@ typedef M_Int32 MC_GrpFrameBuffer
 **매개 변수**
 
 - `a` — [in] MC_GrpFrameBuffer
+
 **반환 값**
 
 프레임 버퍼 포인터
 
-### MC_GRP_GET_FRAME_BUFFER_HEIGHT
+```c
+MC_GRP_GET_FRAME_BUFFER_HEIGHT
+```
 
 **프로토타입**
 
@@ -250,11 +284,14 @@ typedef M_Int32 MC_GrpFrameBuffer
 **매개 변수**
 
 - `a` — [in] MC_GrpFrameBuffer
+
 **반환 값**
 
 프레임 버퍼 높이
 
-### MC_GRP_GET_FRAME_BUFFER_BPL
+```c
+MC_GRP_GET_FRAME_BUFFER_BPL
+```
 
 **프로토타입**
 
@@ -269,11 +306,14 @@ typedef M_Int32 MC_GrpFrameBuffer
 **매개 변수**
 
 - `a` — [in] MC_GrpFrameBuffer
+
 **반환 값**
 
 프레임 버퍼 한줄당 바이트수
 
-### MC_GRP_GET_FRAME_BUFFER_BPP
+```c
+MC_GRP_GET_FRAME_BUFFER_BPP
+```
 
 **프로토타입**
 
@@ -288,11 +328,14 @@ typedef M_Int32 MC_GrpFrameBuffer
 **매개 변수**
 
 - `a` — [in] MC_GrpFrameBuffer
+
 **반환 값**
 
 한 픽셀당 비트수
 
-### MC_GRP_CONTEXT_CLIP_IDX
+```c
+MC_GRP_CONTEXT_CLIP_IDX
+```
 
 **프로토타입**
 
@@ -306,7 +349,9 @@ typedef M_Int32 MC_GrpFrameBuffer
 
 사각형은 왼쪽 상단의 점과 오른쪽 하단의 점으로 기술되며, 왼쪽 상단의 점은 사 각형에 포함되지만, 오른쪽 하단의 점은 사각형에 포함되지 않는다. 0 으로 정의 한다.
 
-### MC_GRP_CONTEXT_FG_PIXEL_IDX
+```c
+MC_GRP_CONTEXT_FG_PIXEL_IDX
+```
 
 **프로토타입**
 
@@ -316,9 +361,11 @@ typedef M_Int32 MC_GrpFrameBuffer
 
 **설명**
 
-전경색 픽셀 값을 지정한다. 1로 정의한다.
+전경색 픽셀 값을 지정한다. 1 로 정의한다.
 
-### MC_GRP_CONTEXT_BG_PIXEL_IDX
+```c
+MC_GRP_CONTEXT_BG_PIXEL_IDX
+```
 
 **프로토타입**
 
@@ -328,9 +375,11 @@ typedef M_Int32 MC_GrpFrameBuffer
 
 **설명**
 
-후경색 픽셀 값을 지정한다. 2로 정의한다.
+후경색 픽셀 값을 지정한다. 2 로 정의한다.
 
-### MC_GRP_CONTEXT_ALPHA_IDX
+```c
+MC_GRP_CONTEXT_ALPHA_IDX
+```
 
 **프로토타입**
 
@@ -344,7 +393,9 @@ typedef M_Int32 MC_GrpFrameBuffer
 
 0 이면 화면에 나오지 않고, 255 이면 화면에 투명하지 않게 출력된다. 4 로 정의 한다.
 
-### MC_GRP_CONTEXT_PIXELOP_IDX
+```c
+MC_GRP_CONTEXT_PIXELOP_IDX
+```
 
 **프로토타입**
 
@@ -354,13 +405,14 @@ typedef M_Int32 MC_GrpFrameBuffer
 
 **설명**
 
-픽셀 연산(Operation)함수를 지정한다. 5로 정의한다.
+픽셀 연산(Operation)함수를 지정한다. 5 로 정의한다.
 
 **참고 항목**
 
+```c
 MC_GrpPixelOpFunc
-
-### MC_GRP_CONTEXT_PIXEL_PARAM1_IDX
+MC_GRP_CONTEXT_PIXEL_PARAM1_IDX
+```
 
 **프로토타입**
 
@@ -374,7 +426,9 @@ MC_GrpPixelOpFunc
 
 픽셀 연산 함수가 불릴때 넘어가는 세번째 파리미터를 지정한다. 6 으로 정의한다.
 
-### MC_GRP_CONTEXT_FONT_IDX
+```c
+MC_GRP_CONTEXT_FONT_IDX
+```
 
 **프로토타입**
 
@@ -386,9 +440,11 @@ MC_GrpPixelOpFunc
 
 폰트 식별자를 지정한다.
 
-MC_getFont함수를 통해서 얻어오는 폰트 식별자를 지정한다. 7로 정의한다.
+MC_getFont 함수를 통해서 얻어오는 폰트 식별자를 지정한다. 7 로 정의한다.
 
-### MC_GRP_CONTEXT_STYLE_IDX
+```c
+MC_GRP_CONTEXT_STYLE_IDX
+```
 
 **프로토타입**
 
@@ -402,7 +458,9 @@ MC_getFont함수를 통해서 얻어오는 폰트 식별자를 지정한다. 7�
 
 MC_GRP_SOLID_STYLE 혹은 MC_GRP_DOTTED_STYLE 둘 중에 하나가 된다. 8 로 정의한 다.
 
-### MC_GRP_CONTEXT_XOR_MODE_IDX
+```c
+MC_GRP_CONTEXT_XOR_MODE_IDX
+```
 
 **프로토타입**
 
@@ -414,9 +472,11 @@ MC_GRP_SOLID_STYLE 혹은 MC_GRP_DOTTED_STYLE 둘 중에 하나가 된다. 8 로
 
 그리기 모드를 지정한다.
 
-그리기시 XOR 로 그릴지 여부를 정의한다. 1 이면 XOR 로 그리고, 그렇지 않으면 일반적인 모드로 그린다. 9로 정의한다.
+그리기시 XOR 로 그릴지 여부를 정의한다. 1 이면 XOR 로 그리고, 그렇지 않으면 일반적인 모드로 그린다. 9 로 정의한다.
 
-### MC_GRP_CONTEXT_OFFSET_IDX
+```c
+MC_GRP_CONTEXT_OFFSET_IDX
+```
 
 **프로토타입**
 
@@ -428,9 +488,11 @@ MC_GRP_SOLID_STYLE 혹은 MC_GRP_DOTTED_STYLE 둘 중에 하나가 된다. 8 로
 
 그리기 상대 좌표의 원점(Offset)을 지정한다.
 
-상대 좌표의 점 좌표를 정수 어레이에 넣어서 지정한다. 10으로 정의한다.
+상대 좌표의 점 좌표를 정수 어레이에 넣어서 지정한다. 10 으로 정의한다.
 
-### MC_GRP_SOLID_STYLE
+```c
+MC_GRP_SOLID_STYLE
+```
 
 **프로토타입**
 
@@ -440,9 +502,11 @@ MC_GRP_SOLID_STYLE 혹은 MC_GRP_DOTTED_STYLE 둘 중에 하나가 된다. 8 로
 
 **설명**
 
-선 그리기시에 동일한 색상으로 그린다. MG_FB_SOLID_STYLE로 정의한다.
+선 그리기시에 동일한 색상으로 그린다. MG_FB_SOLID_STYLE 로 정의한다.
 
-### MC_GRP_DOTTED_STYLE
+```c
+MC_GRP_DOTTED_STYLE
+```
 
 **프로토타입**
 
@@ -452,11 +516,11 @@ MC_GRP_SOLID_STYLE 혹은 MC_GRP_DOTTED_STYLE 둘 중에 하나가 된다. 8 로
 
 **설명**
 
-선 그리기시에 한 점그린후 다음점은 그리지 않는 식으로 반복해서 그린다.
+선 그리기시에 한 점그린후 다음점은 그리지 않는 식으로 반복해서 그린다. MG_FB_DOTTED_STYLE 로 정의한다.
 
-MG_FB_DOTTED_STYLE로 정의한다.
-
-### MC_GRP_FT_SIZE_SMALL
+```c
+MC_GRP_FT_SIZE_SMALL
+```
 
 **프로토타입**
 
@@ -466,9 +530,11 @@ MG_FB_DOTTED_STYLE로 정의한다.
 
 **설명**
 
-작은 폰트 크기를 지정한다. 8로 정의한다.
+작은 폰트 크기를 지정한다. 8 로 정의한다.
 
-### MC_GRP_FT_SIZE_MEDIUM
+```c
+MC_GRP_FT_SIZE_MEDIUM
+```
 
 **프로토타입**
 
@@ -478,9 +544,11 @@ MG_FB_DOTTED_STYLE로 정의한다.
 
 **설명**
 
-중간 폰트 크기를 지정한다. 0으로 정의한다.
+중간 폰트 크기를 지정한다. 0 으로 정의한다.
 
-### MC_GRP_FT_SIZE_LARGE
+```c
+MC_GRP_FT_SIZE_LARGE
+```
 
 **프로토타입**
 
@@ -490,9 +558,11 @@ MG_FB_DOTTED_STYLE로 정의한다.
 
 **설명**
 
-큰 폰트 크기를 지정한다. 16으로 정의한다.
+큰 폰트 크기를 지정한다. 16 으로 정의한다.
 
-### MC_GRP_FT_FACE_SYSTEM
+```c
+MC_GRP_FT_FACE_SYSTEM
+```
 
 **프로토타입**
 
@@ -502,9 +572,11 @@ MG_FB_DOTTED_STYLE로 정의한다.
 
 **설명**
 
-시스템에서 사용하는 폰트 페이스를 지정한다. 0으로 정의한다.
+시스템에서 사용하는 폰트 페이스를 지정한다. 0 으로 정의한다.
 
-### MC_GRP_FT_FACE_MONOSPACE
+```c
+MC_GRP_FT_FACE_MONOSPACE
+```
 
 **프로토타입**
 
@@ -514,9 +586,11 @@ MG_FB_DOTTED_STYLE로 정의한다.
 
 **설명**
 
-각 폰트의 폭이 균일한 폰트 페이스를 지정한다. 32로 정의한다.
+각 폰트의 폭이 균일한 폰트 페이스를 지정한다. 32 로 정의한다.
 
-### MC_GRP_FT_FACE_PROPORTIONAL
+```c
+MC_GRP_FT_FACE_PROPORTIONAL
+```
 
 **프로토타입**
 
@@ -526,9 +600,11 @@ MG_FB_DOTTED_STYLE로 정의한다.
 
 **설명**
 
-각 폰트의 폭이 균일하지 않은 폰트 페이스를 지정한다. 64로 정의한다.
+각 폰트의 폭이 균일하지 않은 폰트 페이스를 지정한다. 64 로 정의한다.
 
-### MC_GRP_FT_STYLE_PLAIN
+```c
+MC_GRP_FT_STYLE_PLAIN
+```
 
 **프로토타입**
 
@@ -538,9 +614,11 @@ MG_FB_DOTTED_STYLE로 정의한다.
 
 **설명**
 
-일반적은 스타일의 폰트를 지정한다. 0으로 정의한다.
+일반적은 스타일의 폰트를 지정한다. 0 으로 정의한다.
 
-### MC_GRP_FT_STYLE_BOLD
+```c
+MC_GRP_FT_STYLE_BOLD
+```
 
 **프로토타입**
 
@@ -550,9 +628,11 @@ MG_FB_DOTTED_STYLE로 정의한다.
 
 **설명**
 
-굵은 스타일의 폰트를 지정한다. 1로 정의한다.
+굵은 스타일의 폰트를 지정한다. 1 로 정의한다.
 
-### MC_GRP_FT_STYLE_ITALIC
+```c
+MC_GRP_FT_STYLE_ITALIC
+```
 
 **프로토타입**
 
@@ -562,9 +642,11 @@ MG_FB_DOTTED_STYLE로 정의한다.
 
 **설명**
 
-기울여진 스타일의 폰트를 지정한다. 2로 정의한다.
+기울여진 스타일의 폰트를 지정한다. 2 로 정의한다.
 
-### MC_GRP_FT_STYLE_UNDERLINE
+```c
+MC_GRP_FT_STYLE_UNDERLINE
+```
 
 **프로토타입**
 
@@ -574,9 +656,11 @@ MG_FB_DOTTED_STYLE로 정의한다.
 
 **설명**
 
-밑줄이 쳐진 스타일의 폰트를 지정한다. 4로 정의한다.
+밑줄이 쳐진 스타일의 폰트를 지정한다. 4 로 정의한다.
 
-### MC_GRP_IMAGE_DONE
+```c
+MC_GRP_IMAGE_DONE
+```
 
 **프로토타입**
 
@@ -586,9 +670,11 @@ MG_FB_DOTTED_STYLE로 정의한다.
 
 **설명**
 
-전체 이미지 소스 디코딩이 끝났음을 알린다. 1로 정의한다.
+전체 이미지 소스 디코딩이 끝났음을 알린다. 1 로 정의한다.
 
-### MC_GRP_FRAME_DONE
+```c
+MC_GRP_FRAME_DONE
+```
 
 **프로토타입**
 
@@ -600,7 +686,9 @@ MG_FB_DOTTED_STYLE로 정의한다.
 
 이미지 소스에서 부터 한 프레임이 이미지가 완성되었음을 알린다. 0 으로 정의한 다.
 
-### MC_GrpImage
+```c
+MC_GrpImage
+```
 
 **프로토타입**
 
@@ -612,7 +700,9 @@ typedef void * MC_GrpImage
 
 이미지이다. 이미지는 내부에 프레임 버퍼와 기타 속성(애니메이션 여부등)가지고 있다.
 
-### MC_GRP_IS_ANIMATED
+```c
+MC_GRP_IS_ANIMATED
+```
 
 **프로토타입**
 
@@ -622,9 +712,11 @@ typedef void * MC_GrpImage
 
 **설명**
 
-애니메이션 여부의 이미지의 속성. 1로 정의한다.
+애니메이션 여부의 이미지의 속성. 1 로 정의한다.
 
-### MC_GRP_ANIMATE_DELAY
+```c
+MC_GRP_ANIMATE_DELAY
+```
 
 **프로토타입**
 
@@ -634,9 +726,11 @@ typedef void * MC_GrpImage
 
 **설명**
 
-애니메이션 지연 단위 이미지의 속성. 2로 정의한다.
+애니메이션 지연 단위 이미지의 속성. 2 로 정의한다.
 
-### MC_GRP_LOOP_COUNT
+```c
+MC_GRP_LOOP_COUNT
+```
 
 **프로토타입**
 
@@ -646,9 +740,11 @@ typedef void * MC_GrpImage
 
 **설명**
 
-애니메이션 루프 카운트 이미지의 속성. 3로 정의한다.
+애니메이션 루프 카운트 이미지의 속성. 3 로 정의한다.
 
-### MC_grpGetImageProperty
+```c
+MC_grpGetImageProperty
+```
 
 **프로토타입**
 
@@ -660,12 +756,49 @@ int MC_grpGetImageProperty(MC_GrpImage img, int index)
 
 이미지의 속성을 돌려준다.
 
-애니메이션 여부 ; 1 이면 애니메이션, 0 이면 애니 MC_GRP_IS_ANIMATED 메이션이 아님 MC_GRP_ANIMATE_DELAY 애니메이션 지연 단위 ; 밀리 세컨드 단위 MC_GRP_LOOP_COUNT 애니메이션 전체 루프 카운트 MC_GRP_IMAGE_WIDTH 이미지의 넓이 MC_GRP_IMAGE_HEIGHT 이미지의 높이 MC_GRP_IMAGE_BPP 픽셀당 비트수(Bit per Pixel)
+```c
+MC_GRP_IS_ANIMATED
+```
+
+애니메이션 여부 ; 1 이면 애니메이션, 0 이면 애니
+
+메이션이 아님
+
+```c
+MC_GRP_ANIMATE_DELAY
+```
+
+애니메이션 지연 단위 ; 밀리 세컨드 단위
+
+```c
+MC_GRP_LOOP_COUNT
+```
+
+애니메이션 전체 루프 카운트
+
+```c
+MC_GRP_IMAGE_WIDTH
+```
+
+이미지의 넓이
+
+```c
+MC_GRP_IMAGE_HEIGHT
+```
+
+이미지의 높이
+
+```c
+MC_GRP_IMAGE_BPP
+```
+
+픽셀당 비트수(Bit per Pixel)
 
 **매개 변수**
 
 - `img` — 이미지
 - `index` — 이미지 속성
+
 **반환 값**
 
 속성 값
@@ -678,12 +811,14 @@ int MC_grpGetImageProperty(MC_GrpImage img, int index)
 
 없음
 
-### MC_grpGetImageFrameBuffer
+```c
+MC_grpGetImageFrameBuffer
+```
 
 **프로토타입**
 
 ```c
-MC_GrpFrameBuffer MC_grpGetImageFrameBuffer(MC_GrpImage img)
+MC_GrpFrameBuffer MC_grpGetImageFrameBuffer( MC_GrpImage  img)
 ```
 
 **설명**
@@ -693,6 +828,7 @@ MC_GrpFrameBuffer MC_grpGetImageFrameBuffer(MC_GrpImage img)
 **매개 변수**
 
 - `img` — 이미지
+
 **반환 값**
 
 이미지의 프레임 버퍼
@@ -705,7 +841,9 @@ MC_GrpFrameBuffer MC_grpGetImageFrameBuffer(MC_GrpImage img)
 
 없음
 
-### MC_grpGetScreenFrameBuffer
+```c
+MC_grpGetScreenFrameBuffer
+```
 
 **프로토타입**
 
@@ -717,12 +855,11 @@ MC_GrpFrameBuffer MC_grpGetScreenFrameBuffer(M_Int32 i)
 
 현재 화면 프레임 버퍼를 얻어 온다.
 
-각 i에 해당하는 화면 프레임 버퍼를 얻어 온다.
+각 i 에 해당하는 화면 프레임 버퍼를 얻어 온다.
 
 **매개 변수**
 
-- `i` — [in] 화면 프레임 버퍼 0 인 경우에 주 LCD 화면 프레임 버퍼이고, 1 인 경우
-에는 외부 보조 LCD화면 프레임 버퍼.
+- `i` — [in] 화면 프레임 버퍼 0 인 경우에 주 LCD 화면 프레임 버퍼이고, 1 인 경우 에는 외부 보조 LCD 화면 프레임 버퍼.
 
 **반환 값**
 
@@ -736,7 +873,9 @@ MC_GrpFrameBuffer MC_grpGetScreenFrameBuffer(M_Int32 i)
 
 없음
 
-### MC_grpDestroyOffScreenFrameBuffer
+```c
+MC_grpDestroyOffScreenFrameBuffer
+```
 
 **프로토타입**
 
@@ -753,6 +892,7 @@ void MC_grpDestroyOffScreenFrameBuffer(MC_GrpFrameBuffer fb)
 **매개 변수**
 
 - `fb` — [in] 파괴할 오프 스크린 프레임 버퍼.
+
 **부작용**
 
 없음
@@ -761,7 +901,9 @@ void MC_grpDestroyOffScreenFrameBuffer(MC_GrpFrameBuffer fb)
 
 없음
 
-### MC_grpCreateOffScreenFrameBuffer
+```c
+MC_grpCreateOffScreenFrameBuffer
+```
 
 **프로토타입**
 
@@ -773,17 +915,19 @@ MC_GrpFrameBuffer MC_grpCreateOffScreenFrameBuffer(M_Int32 w, M_Int32 h)
 
 오프 스크린 프레임 버퍼를 생성한다.
 
-지정된 폭과 높이의 오프 스크린 프레임 버퍼를 메모리에 생성한다. 이때 생성되 는 오프 스크린 프레임 버퍼는 주 화면 LCD와 같은 색상수를 가질 수 있다.
+지정된 폭과 높이의 오프 스크린 프레임 버퍼를 메모리에 생성한다. 이때 생성되 는 오프 스크린 프레임 버퍼는 주 화면 LCD 와 같은 색상수를 가질 수 있다.
 
-w와 h는 0보다는 큰 수이어야 한다.
+w 와 h 는 0 보다는 큰 수이어야 한다.
 
 **매개 변수**
 
 - `w` — [in] 프레임 버퍼의 폭
-- `h` — [in] 프레임 버퍼의 높이
+
+### - [in] 프레임 버퍼의 높이
+
 **반환 값**
 
-새로 생성된 프레임 버퍼; w, h 가 0 보다 작은 경우나 생성시 메모리가 부족하면 NULL을 돌려준다.
+새로 생성된 프레임 버퍼; w, h 가 0 보다 작은 경우나 생성시 메모리가 부족하면 NULL 을 돌려준다.
 
 **부작용**
 
@@ -793,25 +937,26 @@ w와 h는 0보다는 큰 수이어야 한다.
 
 없음
 
-### MC_grpInitContext
+```c
+MC_grpInitContext
+```
 
 **프로토타입**
 
 ```c
-void MC_grpInitContext(MC_GrpContext* pgc)
+void MC_grpInitContext( MC_GrpContext* pgc)
 ```
 
 **설명**
 
 그래픽 컨텍스트를 초기화 한다.
 
-그래픽 컨텍스트의 모든 필드들을 초기화 한다. 폰트, 상대 좌표의 원점, 색상, 스트로크 스타일, Alpha값, XORMode, 클리핑 영역등을 기본값으로 초기화 한다.
-
-폰트는 기본 시스템 폰트가 되고, 색상은 검정색, 그리기 모드는 일반 모드, 클리 핑 영역은 해제되고, 상대 좌표의 원점은 (0, 0)이 된다.
+그래픽 컨텍스트의 모든 필드들을 초기화 한다. 폰트, 상대 좌표의 원점, 색상, 스트로크 스타일, Alpha 값, XORMode, 클리핑 영역등을 기본값으로 초기화 한다. 폰트는 기본 시스템 폰트가 되고, 색상은 검정색, 그리기 모드는 일반 모드, 클리 핑 영역은 해제되고, 상대 좌표의 원점은 (0, 0)이 된다.
 
 **매개 변수**
 
-- `pgc` — [in] 초기화 할 MC_GrpContext의 포인터
+- `pgc` — [in] 초기화 할 MC_GrpContext 의 포인터
+
 **부작용**
 
 없음
@@ -820,7 +965,9 @@ void MC_grpInitContext(MC_GrpContext* pgc)
 
 없음
 
-### MC_grpSetContext
+```c
+MC_grpSetContext
+```
 
 **프로토타입**
 
@@ -834,37 +981,90 @@ void MC_grpSetContext(MC_GrpContext* pgc, M_Int32 index, void* pv)
 
 그래픽 컨텍스트의 특정 부분을 변경한다. index 값에 의해서 pv 에 들어 가는 내 용이 달라진다.
 
-idx 값 pv 값 클리핑 영역으로써 pv 에는 정수의 어레이가 들 어간다. 이때 이 정수의 어레이는 복사된다. 정수 의 어레이 첫번째, 두번째에는 클리핑 사각형의 왼 쪽 상단의 x, y 축 좌표가 들어 가며, 세번째 네번 MC_GRP_CONTEXT_CLIP_IDX 째에는 사각형 오른쪽 하단점의 x, y 축 좌표가 들 어 간다. 이때 왼쪽 상단의 점은 클리핑 영역에 포 함되지만, 오른쪽 하단의 점은 클리핑 영역에 포함 되지 않는다.
+idx 값
 
-MC_GRP_CONTEXT_FG_PIXEL_IDX 전경 픽셀 값을 지정한다.
+pv 값
 
-MC_GRP_CONTEXT_BG_PIXEL_IDX 배경 픽셀 값을 지정한다.
+```c
+MC_GRP_CONTEXT_CLIP_IDX
+```
 
-투명한 정도를 지정한다. 투명정도는 0 에서 부 터 255 의 값으로 0 인 경우는 나타나지 않으며 255 인 경우에는 화면에 불투명하게 나타난다. 투명정 MC_GRP_CONTEXT_ALPHA_IDX 도를 지정하면 내부에서 MC_GRP_CONTEXT_PIXELOP_IDX 와 MC_GRP_CONTEXT_PIXEL_PARAM1_IDX가 지정된다.
+클리핑 영역으로써 pv 에는 정수의 어레이가 들 어간다. 이때 이 정수의 어레이는 복사된다. 정수 의 어레이 첫번째, 두번째에는 클리핑 사각형의 왼 쪽 상단의 x, y 축 좌표가 들어 가며, 세번째 네번 째에는 사각형 오른쪽 하단점의 x, y 축 좌표가 들 어 간다. 이때 왼쪽 상단의 점은 클리핑 영역에 포 함되지만, 오른쪽 하단의 점은 클리핑 영역에 포함
 
-MC_GRP_CONTEXT_FONT_IDX 폰트 식별자를 지정한다.
+되지 않는다.
 
-스트로크 스타일를 지정한다. 값은 MC_GRP_CONTEXT_STYLE_IDX MC_GRP_SOLID_STYLE, MC_GRP_DOTTED_STYLE 중에 하 나 이다.
+```c
+MC_GRP_CONTEXT_FG_PIXEL_IDX
+```
 
-픽셀 연산 함수를 지정한다. 함수의 포인터를 MC_GRP_CONTEXT_PIXELOP_IDX 지정한다.
+전경 픽셀 값을 지정한다.
 
-MC_GRP_CONTEXT_OFFSET_IDX 상대 좌표의 원점을 지정한다. pv 에는 정수의 어레이가 들어간다. 첫번째는 원점의 x 축 좌표, 두 번째에는 원점의 y축 좌표가 지정된다.
+```c
+MC_GRP_CONTEXT_BG_PIXEL_IDX
+```
+
+배경 픽셀 값을 지정한다.
+
+```c
+MC_GRP_CONTEXT_ALPHA_IDX
+```
+
+투명한 정도를 지정한다. 투명정도는 0 에서 부 터 255 의 값으로 0 인 경우는 나타나지 않으며 255 인 경우에는 화면에 불투명하게 나타난다. 투명정 도를	지정하면	내부에서
+
+```c
+MC_GRP_CONTEXT_PIXELOP_IDX	와
+MC_GRP_CONTEXT_PIXEL_PARAM1_IDX 가 지정된다.
+MC_GRP_CONTEXT_FONT_IDX
+```
+
+폰트 식별자를 지정한다.
+
+```c
+MC_GRP_CONTEXT_STYLE_IDX
+```
+
+스트로크	스타일를	지정한다.	값은 MC_GRP_SOLID_STYLE, MC_GRP_DOTTED_STYLE 중에 하
+
+나 이다.
+
+```c
+MC_GRP_CONTEXT_PIXELOP_IDX
+```
+
+픽셀 연산 함수를 지정한다. 함수의 포인터를
+
+지정한다.
+
+```c
+MC_GRP_CONTEXT_OFFSET_IDX
+```
+
+상대 좌표의 원점을 지정한다. pv 에는 정수의
+
+어레이가 들어간다. 첫번째는 원점의 x 축 좌표, 두
+
+번째에는 원점의 y 축 좌표가 지정된다.
 
 **매개 변수**
 
-- `index` — [in] 인덱스; MC_GRP_CONTEXT_CLIP_IDX, MC_GRP_CONTEXT_FG_PIXEL_IDX,
-MC_GRP_CONTEXT_BG_PIXEL_IDX, MC_GRP_CONTEXT_ALPHA_IDX, MC_GRP_CONTEXT_FONT_IDX, MC_GRP_CONTEXT_STYLE_IDX, MC_GRP_CONTEXT_PIXELOP_IDX, MC_GRP_CONTEXT_OFFSET_IDX
+- `index` — [in] 인덱스; MC_GRP_CONTEXT_CLIP_IDX, MC_GRP_CONTEXT_FG_PIXEL_IDX, MC_GRP_CONTEXT_BG_PIXEL_IDX,	MC_GRP_CONTEXT_ALPHA_IDX,
 
+```c
+MC_GRP_CONTEXT_FONT_IDX,	MC_GRP_CONTEXT_STYLE_IDX,
+MC_GRP_CONTEXT_PIXELOP_IDX , MC_GRP_CONTEXT_OFFSET_IDX
+```
 - `pv` — [in] 인덱스에 해당하는 값
+
 **부작용**
 
 없음
 
 **참고 항목**
 
+```c
 MC_GrpContext, MC_GrpGetContext
-
-### MC_grpGetContext
+MC_grpGetContext
+```
 
 **프로토타입**
 
@@ -876,28 +1076,33 @@ void MC_grpGetContext(MC_GrpContext* pgc, M_Int32 index, void* pv)
 
 그래픽 컨텍스트의 값을 구한다.
 
-그래픽 컨텍스트의 특정 부분의 값을 읽어온다. index 값에 의해서 pv 에 들어 가 는 내용이 달라진다. 자세한 내용은 MC_grpSetContext참조.
+그래픽 컨텍스트의 특정 부분의 값을 읽어온다. index 값에 의해서 pv 에 들어 가 는 내용이 달라진다. 자세한 내용은 MC_grpSetContext 참조.
 
 **매개 변수**
 
-- `index` — [in] 인덱스; MC_GRP_CONTEXT_CLIP_IDX, MC_GRP_CONTEXT_FG_PIXEL_IDX,
-MC_GRP_CONTEXT_BG_PIXEL_IDX, MC_GRP_CONTEXT_ALPHA_IDX, MC_GRP_CONTEXT_FONT_IDX, MC_GRP_CONTEXT_STYLE_IDX, MC_GRP_CONTEXT_PIXELOP_IDX, MC_GRP_CONTEXT_OFFSET_IDX
+- `index` — [in] 인덱스; MC_GRP_CONTEXT_CLIP_IDX, MC_GRP_CONTEXT_FG_PIXEL_IDX, MC_GRP_CONTEXT_BG_PIXEL_IDX,	MC_GRP_CONTEXT_ALPHA_IDX,
 
+```c
+MC_GRP_CONTEXT_FONT_IDX,	MC_GRP_CONTEXT_STYLE_IDX,
+MC_GRP_CONTEXT_PIXELOP_IDX , MC_GRP_CONTEXT_OFFSET_IDX
+```
 - `pv` — [out] 인덱스에 해당하는 값
+
 **부작용**
 
 없음
 
 **참고 항목**
 
+```c
 MC_GrpContext, MC_grpSetContext
-
-### MC_grpPutPixel
+MC_grpPutPixel
+```
 
 **프로토타입**
 
 ```c
-void MC_grpPutPixel(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y,
+void	MC_grpPutPixel(MC_GrpFrameBuffer	dst,	M_Int32	x,	M_Int32	y,
 MC_GrpContext* pgc)
 ```
 
@@ -911,10 +1116,9 @@ pgc 가 지정하는 그래픽 컨텍스트가 지정하는 색상과 투명 정
 
 **매개 변수**
 
-- `dst` — [in] 프레임 버퍼
-- `x` — [in] 점의 x축 좌표
-- `y` — [in] 점의 y축 좌표
+- `dst` — [in] 프레임 버퍼 x - [in] 점의 x 축 좌표 y - [in] 점의 y 축 좌표
 - `pgc` — [in] 그래픽 컨텍스트
+
 **부작용**
 
 없음
@@ -923,13 +1127,14 @@ pgc 가 지정하는 그래픽 컨텍스트가 지정하는 색상과 투명 정
 
 없음
 
-### MC_grpDrawLine
+```c
+MC_grpDrawLine
+```
 
 **프로토타입**
 
 ```c
-void MC_grpDrawLine(MC_GrpFrameBuffer dst, M_Int32 x1, M_Int32 y1, M_Int32
-x2, M_Int32 y2, MC_GrpContext* pgc)
+void MC_grpDrawLine(MC_GrpFrameBuffer dst, M_Int32 x1, M_Int32 y1, M_Int32 x2, M_Int32 y2, MC_GrpContext* pgc)
 ```
 
 **설명**
@@ -943,11 +1148,8 @@ pgc 가 지정하는 그래픽 컨텍스트가 지정하는 색상, 스타일과
 **매개 변수**
 
 - `dst` — [in] 프레임 버퍼
-- `x1` — [in] 시작점의 x축 좌표
-- `y1` — [in] 시작점의 y축 좌표
-- `x2` — [in] 끝점의 x축 좌표
-- `y2` — [in] 끝점의 y축 좌표
-- `pgc` — [in] 그래픽 컨텍스트
+- `x1` — [in] 시작점의 x 축 좌표 y1 - [in] 시작점의 y 축 좌표 x2 - [in] 끝점의 x 축 좌표 y2 - [in] 끝점의 y 축 좌표 pgc - [in] 그래픽 컨텍스트
+
 **부작용**
 
 없음
@@ -956,13 +1158,14 @@ pgc 가 지정하는 그래픽 컨텍스트가 지정하는 색상, 스타일과
 
 없음
 
-### MC_grpDrawRect
+```c
+MC_grpDrawRect
+```
 
 **프로토타입**
 
 ```c
-void MC_grpDrawRect(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y, M_Int32 w,
-M_Int32 h, MC_GrpContext* pgc)
+void MC_grpDrawRect(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y, M_Int32 w, M_Int32 h, MC_GrpContext* pgc)
 ```
 
 **설명**
@@ -971,16 +1174,16 @@ M_Int32 h, MC_GrpContext* pgc)
 
 pgc 가 지정하는 그래픽 컨텍스트가 지정하는 색상, 스타일과 투명정도/그리기 모 드로 (x,y) 부터 시작해서 폭 w, 높이 h 인 사각형을 그린다. 이때 (x+w-1,y+h-1) 까지 포함된다.
 
-w나 h가 음수 값이면 화면에 아무것도 그리지 않는다.
+w 나 h 가 음수 값이면 화면에 아무것도 그리지 않는다.
 
 **매개 변수**
 
 - `dst` — [in] 프레임 버퍼
-- `x` — [in] 시작점의 x축 좌표
-- `y` — [in] 시작점의 y축 좌표
-- `w` — [in] 사각형의 폭
-- `h` — [in] 사각형의 높이
-- `pgc` — [in] 그래픽 컨텍스트
+
+### - [in] 시작점의 x 축 좌표 y - [in] 시작점의 y 축 좌표 w - [in] 사각형의 폭
+
+### - [in] 사각형의 높이 pgc - [in] 그래픽 컨텍스트
+
 **부작용**
 
 없음
@@ -989,13 +1192,14 @@ w나 h가 음수 값이면 화면에 아무것도 그리지 않는다.
 
 없음
 
-### MC_grpFillRect
+```c
+MC_grpFillRect
+```
 
 **프로토타입**
 
 ```c
-void MC_grpFillRect(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y, M_Int32 w,
-M_Int32 h, MC_GrpContext* pgc)
+void MC_grpFillRect(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y, M_Int32 w, M_Int32 h, MC_GrpContext* pgc)
 ```
 
 **설명**
@@ -1004,16 +1208,16 @@ M_Int32 h, MC_GrpContext* pgc)
 
 pgc 가 지정하는 그래픽 컨텍스트가 지정하는 색상과 투명정도/그리기 모드로 (x,y) 부터 시작해서 폭 w, 높이 h 인 사각형을 그린다. 이때 (x+w,y+h)까지 포함 됮 않고, (x+w-1, y+h-1)까지 포함된다.
 
-w나 h가 0이하이면 화면에 아무것도 그리지 않는다.
+w 나 h 가 0 이하이면 화면에 아무것도 그리지 않는다.
 
 **매개 변수**
 
 - `dst` — [in] 프레임 버퍼
-- `x` — [in] 시작점의 x축 좌표
-- `y` — [in] 시작점의 y축 좌표
-- `w` — [in] 사각형의 폭
-- `h` — [in] 사각형의 높이
-- `pgc` — [in] 그래픽 컨텍스트
+
+### - [in] 시작점의 x 축 좌표 y - [in] 시작점의 y 축 좌표 w - [in] 사각형의 폭
+
+- `h` — [in] 사각형의 높이 pgc - [in] 그래픽 컨텍스트
+
 **부작용**
 
 없음
@@ -1022,21 +1226,21 @@ w나 h가 0이하이면 화면에 아무것도 그리지 않는다.
 
 없음
 
-### MC_grpCopyFrameBuffer
+```c
+MC_grpCopyFrameBuffer
+```
 
 **프로토타입**
 
 ```c
-void MC_grpCopyFrameBuffer( MC_GrpFrameBuffer dst, M_Int32 dx, M_Int32 dy,
-M_Int32 w, M_Int32 h, MC_GrpFrameBuffer src, M_Int32 sx, M_Int32 sy,
-MC_GrpContext* pgc)
+void MC_grpCopyFrameBuffer( MC_GrpFrameBuffer dst, M_Int32 dx, M_Int32 dy, M_Int32 w, M_Int32 h, MC_GrpFrameBuffer src, M_Int32 sx, M_Int32 sy, MC_GrpContext* pgc)
 ```
 
 **설명**
 
 지정된 프레임 버퍼(Frame Buffer)에 이미지를 그린다.
 
-pgc 가 지정하는 그래픽 컨텍스트가 지정하는 투명정도와 투명색으로 (dx, dy)부 터 시작해서 폭 w, 높이 h인 영역에 img가 가리키는 프레임 버퍼에서 (sx, sy)의 위치의 내용을 복사한다.
+pgc 가 지정하는 그래픽 컨텍스트가 지정하는 투명정도와 투명색으로 (dx, dy)부 터 시작해서 폭 w, 높이 h 인 영역에 img 가 가리키는 프레임 버퍼에서 (sx, sy)의 위치의 내용을 복사한다.
 
 이때 dst 와 src 는 같은 버퍼를 가리키면안된다. 이 경우에는 MC_grpCopyArea 함 수를 사용해야 한다.
 
@@ -1045,36 +1249,33 @@ w 나 h 가 0 이하이거나 복사할 영역이 src 의 영역을 벗어나는
 **매개 변수**
 
 - `dst` — [in] 프레임 버퍼
-- `dx` — [in] 영역의 x축 좌표
-- `dy` — [in] 영역의 y축 좌표
-- `w` — [in] 영역의 폭
+- `dx` — [in] 영역의 x 축 좌표 dy - [in] 영역의 y 축 좌표 w - [in] 영역의 폭
 - `h` — [in] 영역의 높이
-- `src` — [in] 소스 프레임 버퍼의 영역
-- `sx` — [in] 소스 영역의 x축 좌표
-- `sy` — [in] 소스 영역의 y축 좌표
-- `pgc` — [in] 그래픽 컨텍스트
+- `src` — [in] 소스 프레임 버퍼의 영역 sx - [in] 소스 영역의 x 축 좌표
+- `sy` — [in] 소스 영역의 y 축 좌표 pgc - [in] 그래픽 컨텍스트
+
 **부작용**
 
 없음
 
 **참고 항목**
 
+```c
 MC_grpCopyArea
-
-### MC_grpDrawImage
+MC_grpDrawImage
+```
 
 **프로토타입**
 
 ```c
-void MC_grpDrawImage( MC_GrpFrameBuffer dst, M_Int32 dx, M_Int32 dy, M_Int32
-w, M_Int32 h, MC_GrpImage src, M_Int32 sx, M_Int32 sy, MC_GrpContext* pgc)
+void MC_grpDrawImage( MC_GrpFrameBuffer dst, M_Int32 dx, M_Int32 dy, M_Int32 w, M_Int32 h, MC_GrpImage src, M_Int32 sx, M_Int32 sy, MC_GrpContext* pgc)
 ```
 
 **설명**
 
 지정된 프레임 버퍼(Frame Buffer)에 이미지를 그린다.
 
-pgc 가 지정하는 그래픽 컨텍스트가 지정하는 투명정도와 투명색으로 (dx, dy)부 터 시작해서 폭 w, 높이 h인 영역에 img가 가리키는 프레임 버퍼에서 (sx, sy)의 위치의 내용을 복사한다.
+pgc 가 지정하는 그래픽 컨텍스트가 지정하는 투명정도와 투명색으로 (dx, dy)부 터 시작해서 폭 w, 높이 h 인 영역에 img 가 가리키는 프레임 버퍼에서 (sx, sy)의 위치의 내용을 복사한다.
 
 이때 이미지 내부에 매스크 이미지가 있다면 이 매스크 이미지에 의해서 출력되는 내용이 변경된다.
 
@@ -1083,14 +1284,11 @@ w 나 h 가 0 이하이거나 복사할 영역이 src 의 영역을 벗어나거
 **매개 변수**
 
 - `dst` — [in] 프레임 버퍼
-- `dx` — [in] 영역의 x축 좌표
-- `dy` — [in] 영역의 y축 좌표
-- `w` — [in] 영역의 폭
+- `dx` — [in] 영역의 x 축 좌표 dy - [in] 영역의 y 축 좌표 w - [in] 영역의 폭
 - `h` — [in] 영역의 높이
-- `src` — [in] 소스 프레임 버퍼의 영역
-- `sx` — [in] 소스 영역의 x축 좌표
-- `sy` — [in] 소스 영역의 y축 좌표
-- `pgc` — [in] 그래픽 컨텍스트
+- `src` — [in] 소스 프레임 버퍼의 영역 sx - [in] 소스 영역의 x 축 좌표
+- `sy` — [in] 소스 영역의 y 축 좌표 pgc - [in] 그래픽 컨텍스트
+
 **부작용**
 
 없음
@@ -1099,31 +1297,29 @@ w 나 h 가 0 이하이거나 복사할 영역이 src 의 영역을 벗어나거
 
 없음
 
-### MC_grpCopyArea
+```c
+MC_grpCopyArea
+```
 
 **프로토타입**
 
 ```c
-void MC_grpCopyArea(MC_GrpFrameBuffer dst, M_Int32 dx, M_Int32 dy, M_Int32 w,
-M_Int32 h, M_Int32 x, M_Int32 y, MC_GrpContext* pgc)
+void MC_grpCopyArea(MC_GrpFrameBuffer dst, M_Int32 dx, M_Int32 dy, M_Int32 w, M_Int32 h, M_Int32 x, M_Int32 y, MC_GrpContext* pgc)
 ```
 
 **설명**
 
 지정된 프레임의 내용을 자기 자신으로 복사한다.
 
-dst 가 가리키는 프레임 버퍼의 (dx, dy)에 dst의 (x, y)부터 폭 w, 높이 h 의 내 용을 복사한다.
+dst 가 가리키는 프레임 버퍼의 (dx, dy)에 dst 의 (x, y)부터 폭 w, 높이 h 의 내 용을 복사한다.
 
 **매개 변수**
 
 - `dst` — [in] 프레임 버퍼
-- `dx` — [in] 새로 복사되는 이미지의 x축 좌표
-- `dy` — [in] 새로 복사되는 이미지의 y축 좌표
-- `w` — [in] 새로 복사되는 이미지의 폭
-- `h` — [in] 새로 복사되는 이미지의 높이
-- `x` — [in] 복사할 영역의 x축 좌표
-- `y` — [in] 복사할 영역의 y축 좌표
-- `pgc` — [in] 그래픽 컨텍스트
+- `dx` — [in] 새로 복사되는 이미지의 x 축 좌표 dy - [in] 새로 복사되는 이미지의 y 축 좌표 w - [in] 새로 복사되는 이미지의 폭
+- `h` — [in] 새로 복사되는 이미지의 높이 x - [in] 복사할 영역의 x 축 좌표
+- `y` — [in] 복사할 영역의 y 축 좌표 pgc - [in] 그래픽 컨텍스트
+
 **부작용**
 
 없음
@@ -1132,13 +1328,14 @@ dst 가 가리키는 프레임 버퍼의 (dx, dy)에 dst의 (x, y)부터 폭 w, 
 
 없음
 
-### MC_grpDrawArc
+```c
+MC_grpDrawArc
+```
 
 **프로토타입**
 
 ```c
-void MC_grpDrawArc(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y, M_Int32 w,
-M_Int32 h, M_Int32 s, M_Int32 e, MC_GrpContext* pgc)
+void MC_grpDrawArc(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y, M_Int32 w, M_Int32 h, M_Int32 s, M_Int32 e, MC_GrpContext* pgc)
 ```
 
 **설명**
@@ -1147,20 +1344,20 @@ M_Int32 h, M_Int32 s, M_Int32 e, MC_GrpContext* pgc)
 
 pgc 가 지정하는 그래픽 컨텍스트가 지정하는 스타일, 투명정도와 색상/그리기 모 드로 아크를 그린다.
 
-이때 아크는 s 에서 시작해서 e 만큼 그리며, 각도는 0 도가 3 시 방향이 된다. 양 수값은 시계 반대 방향이고, 음수 값은 시계 방향이다 (x,y)가 시작점이고 높이 height, 넓이 width 인 사각형의 중심이 아크의 중심이 된다.된다.
+이때 아크는 s 에서 시작해서 e 만큼 그리며, 각도는 0 도가 3 시 방향이 된다. 양 수값은 시계 반대 방향이고, 음수 값은 시계 방향이다
+
+(x,y)가 시작점이고 높이 height, 넓이 width 인 사각형의 중심이 아크의 중심이 된다.된다.
 
 아크는 drawRect 할 때와 마찬가지로 (x + width, y + height)높이를 가지는 영역 을 차지 한다. 만일 폭이나 높이가 0 보다 작은 경우에 아무것도 그려지지 않는다.
 
 **매개 변수**
 
 - `dst` — [in] 프레임 버퍼
-- `x` — [in] 영역의 x축 좌표
-- `y` — [in] 영역의 y축 좌표
-- `w` — [in] 아크의 폭
+- `x` — [in] 영역의 x 축 좌표 y - [in] 영역의 y 축 좌표 w - [in] 아크의 폭
 - `h` — [in] 아크의 높이
-- `s` — [in] 시작 각도 (0-360단위:도)
-- `e` — [in] 아크의 각도 (0-360단위:도)
-- `pgc` — [in] 그래픽 컨텍스트
+- `s` — [in] 시작 각도 (0-360 단위:도)
+- `e` — [in] 아크의 각도 (0-360 단위:도) pgc - [in] 그래픽 컨텍스트
+
 **부작용**
 
 없음
@@ -1169,13 +1366,14 @@ pgc 가 지정하는 그래픽 컨텍스트가 지정하는 스타일, 투명정
 
 없음
 
-### MC_grpFillArc
+```c
+MC_grpFillArc
+```
 
 **프로토타입**
 
 ```c
-void MC_grpFillArc(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y, M_Int32 w,
-M_Int32 h, M_Int32 s, M_Int32 e, MC_GrpContext* pgc)
+void MC_grpFillArc(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y, M_Int32 w, M_Int32 h, M_Int32 s, M_Int32 e, MC_GrpContext* pgc)
 ```
 
 **설명**
@@ -1184,20 +1382,20 @@ M_Int32 h, M_Int32 s, M_Int32 e, MC_GrpContext* pgc)
 
 pgc 가 지정하는 그래픽 컨텍스트가 지정하는 투명정도와 색상/그리기 모드로 아 크를 칠한다.
 
-이때 아크는 s 에서 시작해서 e 만큼 그리며, 각도는 0 도가 3 시 방향이 된다. 양 수값은 시계 반대 방향이고, 음수 값은 시계 방향이다 아크의 중심은 (x,y)가 시작점이고 높이 height, 넓이 width 인 사각형의 중심이 된다.
+이때 아크는 s 에서 시작해서 e 만큼 그리며, 각도는 0 도가 3 시 방향이 된다. 양 수값은 시계 반대 방향이고, 음수 값은 시계 방향이다
+
+아크의 중심은 (x,y)가 시작점이고 높이 height, 넓이 width 인 사각형의 중심이 된다.
 
 아크는 fillRect 할 때와 마찬가지로 (x + width - 1, y + height - 1)높이를 가 지는 영역을 차지 한다. 만일 폭이나 높이가 0 이하인 경우에 아무것도 그려지지 않는다.
 
 **매개 변수**
 
 - `dst` — [in] 프레임 버퍼
-- `x` — [in] 영역의 x축 좌표
-- `y` — [in] 영역의 y축 좌표
-- `w` — [in] 아크의 폭
+- `x` — [in] 영역의 x 축 좌표 y - [in] 영역의 y 축 좌표 w - [in] 아크의 폭
 - `h` — [in] 아크의 높이
-- `s` — [in] 시작 각도 (0-360단위:도)
-- `e` — [in] 아크의 각도 (0-360단위:도)
-- `pgc` — [in] 그래픽 컨텍스트
+- `s` — [in] 시작 각도 (0-360 단위:도)
+- `e` — [in] 아크의 각도 (0-360 단위:도) pgc - [in] 그래픽 컨텍스트
+
 **부작용**
 
 없음
@@ -1206,13 +1404,14 @@ pgc 가 지정하는 그래픽 컨텍스트가 지정하는 투명정도와 색�
 
 없음
 
-### MC_grpDrawString
+```c
+MC_grpDrawString
+```
 
 **프로토타입**
 
 ```c
-void MC_grpDrawString(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y, const
-M_Char* str, M_Int32 len, MC_GrpContext* pgc)
+void MC_grpDrawString(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y, const M_Char* str, M_Int32 len, MC_GrpContext* pgc)
 ```
 
 **설명**
@@ -1221,19 +1420,17 @@ M_Char* str, M_Int32 len, MC_GrpContext* pgc)
 
 pgc 가 지정하는 그래픽 컨텍스트가 지정하는 투명정도와 색상/그리기 모드와 지 정된 폰트로 문자열을 그린다.
 
-str 은 일반적인 "C" 문자열이 되며 Unicode 를 출력하기 위해서는 drawUnicodeString함수를 사용하십시요.
+str	은	일반적인	"C"	문자열이	되며	Unicode	를	출력하기	위해서는 drawUnicodeString 함수를 사용하십시요.
 
 len 이 -1 이면 문자가 NULL 일때 까지 문자열을 처리하며, len 이 0 이거나 -1 이 아닌 음수이면 화면에 아무것도 출력되지 않는다.
 
 **매개 변수**
 
 - `pd` — [in] 프레임 버퍼
-- `bpl` — [in] 프레임 버퍼의 한 줄당 차지하는 바이트 개수
-- `x` — [in] 문자열의 x축 좌표
-- `y` — [in] 문자열의 baseline의 y축 좌표
-- `str` — [in] "C" 문자열
-- `len` — [in] 문자열의 길이
-- `pgc` — [in] 그래픽 컨텍스트
+- `bpl` — [in] 프레임 버퍼의 한 줄당 차지하는 바이트 개수 x - [in] 문자열의 x 축 좌표
+- `y` — [in] 문자열의 baseline 의 y 축 좌표 str - [in] "C" 문자열
+- `len` — [in] 문자열의 길이 pgc - [in] 그래픽 컨텍스트
+
 **부작용**
 
 없음
@@ -1242,13 +1439,14 @@ len 이 -1 이면 문자가 NULL 일때 까지 문자열을 처리하며, len �
 
 없음
 
-### MC_grpDrawUnicodeString
+```c
+MC_grpDrawUnico deString
+```
 
 **프로토타입**
 
 ```c
-void MC_grpDrawUnicodeString(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y,
-const M_UCode* str, M_Int32 len, MC_GrpContext* pgc)
+void MC_grpDrawUnicodeString(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y, const M_UCode* str, M_Int32 len, MC_GrpContext* pgc)
 ```
 
 **설명**
@@ -1259,16 +1457,18 @@ pgc 가 지정하는 그래픽 컨텍스트가 지정하는 투명정도와 색�
 
 str 은 유니 코드 문자열이 되며 일반 "C" 문자열을 출력하기 위해서 drawString 함수를 사용하십시요. 일반 응용 프로그램에서 이 함수를 제공할 필요는 없지만, 자바 프로그램 작성시에 "C"언어와 혼용하여 작성하는 경우에 보다 빠른 그리기를 위해서 제공한다.
 
-len이 0 이하인 경우에는 아무것도 나타나지 않는다.
+len 이 0 이하인 경우에는 아무것도 나타나지 않는다.
 
 **매개 변수**
 
 - `dst` — [in] 프레임 버퍼
-- `x` — [in] 문자열의 x축 좌표
-- `y` — [in] 문자열의 baseline의 y축 좌표
-- `str` — [in] 유니코드 문자열
-- `len` — [in] 문자열의 길이
-- `pgc` — [in] 그래픽 컨텍스트
+
+### - [in] 문자열의 x 축 좌표
+
+### - [in] 문자열의 baseline 의 y 축 좌표 str - [in] 유니코드 문자열
+
+- `len` — [in] 문자열의 길이 pgc - [in] 그래픽 컨텍스트
+
 **부작용**
 
 없음
@@ -1277,13 +1477,14 @@ len이 0 이하인 경우에는 아무것도 나타나지 않는다.
 
 없음
 
-### MC_grpGetRGBPixels
+```c
+MC_grpGetRGBPixels
+```
 
 **프로토타입**
 
 ```c
-void MC_grpGetRGBPixels(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y, M_Int32
-w, M_Int32 h, M_Uint32* pd, M_Int32 ipl)
+void MC_grpGetRGBPixels(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y, M_Int32 w, M_Int32 h, M_Uint32* pd, M_Int32 ipl)
 ```
 
 **설명**
@@ -1297,13 +1498,13 @@ w, M_Int32 h, M_Uint32* pd, M_Int32 ipl)
 **매개 변수**
 
 - `psrc` — [in] 프레임 버퍼
-- `sbpl` — [in] 프레임 버퍼의 한 줄당 차지하는 바이트 개수
-- `x` — [in] 가져올 영역의 x축 좌표
-- `y` — [in] 가져올 영역의 y축 좌표
-- `w` — [in] 가져올 영역의 폭
-- `h` — [in] 가져올 영역의 높이
-- `pd` — [out] 정수 어레이
+- `sbpl` — [in] 프레임 버퍼의 한 줄당 차지하는 바이트 개수 x - [in] 가져올 영역의 x 축 좌표
+- `y` — [in] 가져올 영역의 y 축 좌표 w - [in] 가져올 영역의 폭
+
+### - [in] 가져올 영역의 높이 pd - [out] 정수 어레이
+
 - `ipl` — [in] 이미지 한 줄당 정수의 개수
+
 **부작용**
 
 없음
@@ -1312,33 +1513,31 @@ w, M_Int32 h, M_Uint32* pd, M_Int32 ipl)
 
 없음
 
-### MC_grpSetRGBPixels
+```c
+MC_grpSetRGBPixels
+```
 
 **프로토타입**
 
 ```c
-void MC_grpSetRGBPixels(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y, M_Int32
-w, M_Int32 h, const M_Uint32* psrc, M_Int32 ibpl, MC_GrpContext* pgc)
+void MC_grpSetRGBPixels(MC_GrpFrameBuffer dst, M_Int32 x, M_Int32 y, M_Int32 w, M_Int32 h, const M_Uint32* psrc, M_Int32 ibpl, MC_GrpContext* pgc)
 ```
 
 **설명**
 
-지정된 프레임 버퍼(Frame Buffer)의 여러 픽셀의 색상을을 동시에 지정한다.
-
-정수 어레이에 저장되어 있는 색상들을 임의 프레임 버퍼 영역에 복사한다. LCD 의 컬러 수에 따라서 색상은 가장 근접한 색상값으로 변경되어 지정된다. 이때 색 상값은 0x00RRGGBB 형태이다.
+지정된 프레임 버퍼(Frame Buffer)의 여러 픽셀의 색상을을 동시에 지정한다. 정수 어레이에 저장되어 있는 색상들을 임의 프레임 버퍼 영역에 복사한다. LCD 의 컬러 수에 따라서 색상은 가장 근접한 색상값으로 변경되어 지정된다. 이때 색 상값은 0x00RRGGBB 형태이다.
 
 가져올 영역이 프레임 버퍼를 벗어 나거나 만일 ibpl 이 w 보다 작은 값이거나 제 대로된 이미지를 복사하지 않는다.
 
 **매개 변수**
 
 - `pd` — [in] 프레임 버퍼
-- `x` — [in] 가져올 영역의 x축 좌표
-- `y` — [in] 가져올 영역의 y축 좌표
-- `w` — [in] 가져올 영역의 폭
-- `h` — [in] 가져올 영역의 높이
-- `pd` — [in] 정수 어레이
-- `ibpl` — [in] 이미지 한 줄당 바이트 수
-- `pgc` — [in] 그래픽 컨텍스트
+
+### - [in] 가져올 영역의 x 축 좌표 y - [in] 가져올 영역의 y 축 좌표 w - [in] 가져올 영역의 폭
+
+- `h` — [in] 가져올 영역의 높이 pd - [in] 정수 어레이
+- `ibpl` — [in] 이미지 한 줄당 바이트 수 pgc - [in] 그래픽 컨텍스트
+
 **부작용**
 
 없음
@@ -1347,32 +1546,30 @@ w, M_Int32 h, const M_Uint32* psrc, M_Int32 ibpl, MC_GrpContext* pgc)
 
 없음
 
-### MC_grpFlushLcd
+```c
+MC_grpFlushLcd
+```
 
 **프로토타입**
 
 ```c
-void MC_grpFlushLcd(M_Int32 i, MC_GrpFrameBuffer frm, M_Int32 x, M_Int32 y,
-M_Int32 w, M_Int32 h)
+void MC_grpFlushLcd(M_Int32 i, MC_GrpFrameBuffer frm, M_Int32 x, M_Int32 y, M_Int32 w, M_Int32 h)
 ```
 
 **설명**
 
 지정된 프레임 버퍼(Frame Buffer)를 LCD 화면에 출력한다.
 
-임의 프레임 버퍼의 내용의 일부분을 LCD 화면에 출력한다. 이때 프레임 버퍼의 한줄당 차지하는 바이트 수와 LCD 의 한줄당 차지하는 바이트 수는 동일해야 한다.
-
-사용자는 여러개의 화면 프레임 버퍼를 사용할 수도 있고, 하나의 화면 프레임 버 퍼만을 사용할 수 있다.
+임의 프레임 버퍼의 내용의 일부분을 LCD 화면에 출력한다. 이때 프레임 버퍼의 한줄당 차지하는 바이트 수와 LCD 의 한줄당 차지하는 바이트 수는 동일해야 한다. 사용자는 여러개의 화면 프레임 버퍼를 사용할 수도 있고, 하나의 화면 프레임 버 퍼만을 사용할 수 있다.
 
 **매개 변수**
 
 - `pd` — [in] 프레임 버퍼
-- `i` — [in] 화면 인덱스(0; 주화면 1; 보조LCD화면)
-- `bpl` — [in] 프레임 버퍼의 한 줄당 차지하는 바이트 개수
-- `x` — [in] 출력할 영역의 x축 좌표
-- `y` — [in] 출력할 영역의 y축 좌표
-- `w` — [in] 출력할 영역의 폭
+- `i` — [in] 화면 인덱스(0; 주화면 1; 보조 LCD 화면)
+- `bpl` — [in] 프레임 버퍼의 한 줄당 차지하는 바이트 개수 x - [in] 출력할 영역의 x 축 좌표
+- `y` — [in] 출력할 영역의 y 축 좌표 w - [in] 출력할 영역의 폭
 - `h` — [in] 출력할 영역의 높이
+
 **부작용**
 
 없음
@@ -1381,7 +1578,9 @@ M_Int32 w, M_Int32 h)
 
 없음
 
-### MC_grpGetPixelFromRGB
+```c
+MC_grpGetPixelFromRGB
+```
 
 **프로토타입**
 
@@ -1395,9 +1594,12 @@ M_Int32 MC_grpGetPixelFromRGB(M_Int32 r, M_Int32 g, M_Int32 b)
 
 **매개 변수**
 
-- `r` — [in] red값(0-255)
-- `g` — [in] green값(0-255)
-- `b` — [in] blue값(0-255)
+- `r` — [in] red 값(0-255)
+
+### - [in] green 값(0-255)
+
+- `b` — [in] blue 값(0-255)
+
 **반환 값**
 
 픽셀 값
@@ -1410,12 +1612,14 @@ M_Int32 MC_grpGetPixelFromRGB(M_Int32 r, M_Int32 g, M_Int32 b)
 
 없음
 
-### MC_grpGetRGBFromPixel
+```c
+MC_grpGetRGBFromPixel
+```
 
 **프로토타입**
 
 ```c
-M_Int32 MC_grpGetRGBFromPixel(M_Int32 pixel, M_Int32 *r, M_Int32 *g, M_Int32
+M_Int32 MC_grpGet RGBFromPixel(M_Int32 pixel, M_Int32 *r, M_Int32 *g, M_Int32
 *b)
 ```
 
@@ -1425,13 +1629,12 @@ M_Int32 MC_grpGetRGBFromPixel(M_Int32 pixel, M_Int32 *r, M_Int32 *g, M_Int32
 
 **매개 변수**
 
-- `pixel` — [in] pixel값
-- `r` — [out] red값(0-255)
-- `g` — [out] green값(0-255)
-- `b` — [out] blue값(0-255)
+- `pixel` — [in] pixel 값
+- `r` — [out] red 값(0-255) g - [out] green 값(0-255) b - [out] blue 값(0-255)
+
 **반환 값**
 
-픽셀 값 pixel과 같음
+픽셀 값 pixel 과 같음
 
 **부작용**
 
@@ -1441,7 +1644,9 @@ M_Int32 MC_grpGetRGBFromPixel(M_Int32 pixel, M_Int32 *r, M_Int32 *g, M_Int32
 
 없음
 
-### MC_grpGetDisplayInfo
+```c
+MC_grpGetDisplayInfo
+```
 
 **프로토타입**
 
@@ -1455,11 +1660,11 @@ M_Int32 MC_grpGetDisplayInfo(M_Int32 i, MC_GrpDisplayInfo* pi)
 
 **매개 변수**
 
-- `i` — [in] 예약된 파라미터; 0을 넣다.
-- `pi` — [out] 화면 정보 구조체
+- `i` — [in] 예약된 파라미터; 0 을 넣다. pi - [out] 화면 정보 구조체
+
 **반환 값**
 
-해당되는 정보 구조체가 있으면 1, 그렇지 않으면 0을 돌려준다.
+해당되는 정보 구조체가 있으면 1, 그렇지 않으면 0 을 돌려준다.
 
 **부작용**
 
@@ -1469,7 +1674,9 @@ M_Int32 MC_grpGetDisplayInfo(M_Int32 i, MC_GrpDisplayInfo* pi)
 
 없음
 
-### MC_grpRepaint
+```c
+MC_grpRepaint
+```
 
 **프로토타입**
 
@@ -1479,17 +1686,15 @@ void MC_grpRepaint(M_Int32 lcd, M_Int32 x, M_Int32 y, M_Int32 w, M_Int32 h)
 
 **설명**
 
-특정 영역에 대해서 paintClet 함수가 불리도록 한다. 이 함수를 부르면, 함수 내 에서 paintClet을 직접 부르지 않고, paintClet이 불릴 수 있도록 응용 프로그램 이벤트 큐에 관련 이벤트를 넣어 준다.
+특정 영역에 대해서 paintClet 함수가 불리도록 한다. 이 함수를 부르면, 함수 내 에서 paintClet 을 직접 부르지 않고, paintClet 이 불릴 수 있도록 응용 프로그램 이벤트 큐에 관련 이벤트를 넣어 준다.
 
 **매개 변수**
 
-- `i` — [in] 화면 프레임 버퍼 0 인 경우에 주 LCD 화면 프레임 버퍼이고, 1 인 경우
-에는 외부 보조 LCD화면 프레임 버퍼.
+- `i` — [in] 화면 프레임 버퍼 0 인 경우에 주 LCD 화면 프레임 버퍼이고, 1 인 경우 에는 외부 보조 LCD 화면 프레임 버퍼.
+- `x` — [in] 영역의 x 축 좌표 y - [in] 영역의 y 축 좌표 w - [in] 영역의 폭
 
-- `x` — [in] 영역의 x축 좌표
-- `y` — [in] 영역의 y축 좌표
-- `w` — [in] 영역의 폭
-- `h` — [in] 영역의 높이
+### - [in] 영역의 높이
+
 **부작용**
 
 없음
@@ -1498,7 +1703,9 @@ void MC_grpRepaint(M_Int32 lcd, M_Int32 x, M_Int32 y, M_Int32 w, M_Int32 h)
 
 없음
 
-### MC_grpGetFont
+```c
+MC_grpGetFont
+```
 
 **프로토타입**
 
@@ -1510,18 +1717,17 @@ M_Int32 MC_grpGetFont(M_Int32 face, M_Int32 size, M_Int32 style)
 
 지정된 폰트와 가장 근접한 시스템 폰트를 돌려준다.
 
-face나 size, style에 제대로된 값이 넘어 오지 않으면 기본 폰트를 돌려준다.
+face 나 size, style 에 제대로된 값이 넘어 오지 않으면 기본 폰트를 돌려준다.
 
 **매개 변수**
 
 - `face` — [in] 폰트 페이스; MC_GRP_FT_FACE_SYSTEM, MC_GRP_FT_FACE_MONOSPACE,
-MC_GRP_FT_FACE_PROPORTIONAL중 하나
 
-- `size` — [in] 폰트 크기; MC_GRP_FT_SIZE_LARGE 이나 MC_GRP_FT_SIZE_MEDIUM,
-MC_GRP_FT_SIZE_SMALL중 하나.
-
-- `style` — [in] 폰트 스타일; MC_GRP_FT_STYLE_PLAIN 이나 MC_GRP_FT_STYLE_ITALIC,
-MC_GRP_FT_STYLE_BOLD, MC_GRP_FT_STYLE_UNDERLINED을 OR한값.
+```c
+MC_GRP_FT_FACE_PROPORTIONAL 중 하나
+```
+- `size` — [in] 폰트 크기; MC_GRP_FT_SIZE_LARGE 이나 MC_GRP_FT_SIZE_MEDIUM, MC_GRP_FT_SIZE_SMALL 중 하나.
+- `style` — [in] 폰트 스타일; MC_GRP_FT_STYLE_PLAIN 이나 MC_GRP_FT_STYLE_ITALIC, MC_GRP_FT_STYLE_BOLD, MC_GRP_FT_STYLE_UNDERLINED 을 OR 한값.
 
 **반환 값**
 
@@ -1535,7 +1741,9 @@ MC_GRP_FT_STYLE_BOLD, MC_GRP_FT_STYLE_UNDERLINED을 OR한값.
 
 없음
 
-### MC_grpGetFontHeight
+```c
+MC_grpGetFontHeight
+```
 
 **프로토타입**
 
@@ -1547,11 +1755,12 @@ M_Int32 MC_grpGetFontHeight(M_Int32 font)
 
 폰트 높이를 돌려준다.
 
-만일 지정된 폰트가 유효하지 않은 값인 경우에 0을 돌려준다.
+만일 지정된 폰트가 유효하지 않은 값인 경우에 0 을 돌려준다.
 
 **매개 변수**
 
 - `font` — [in] 폰트 식별자
+
 **반환 값**
 
 폰트 높이
@@ -1564,7 +1773,9 @@ M_Int32 MC_grpGetFontHeight(M_Int32 font)
 
 없음
 
-### MC_grpGetFontAscent
+```c
+MC_grpGetFontAscent
+```
 
 **프로토타입**
 
@@ -1576,11 +1787,12 @@ M_Int32 MC_grpGetFontAscent(M_Int32 font)
 
 폰트의 어센트(Ascent)를 돌려준다.
 
-만일 지정된 포트가 유효하지 않은 값인 경우에는 0을 돌려준다.
+만일 지정된 포트가 유효하지 않은 값인 경우에는 0 을 돌려준다.
 
 **매개 변수**
 
 - `font` — [in] 폰트 식별자
+
 **반환 값**
 
 폰트의 어센트
@@ -1593,7 +1805,9 @@ M_Int32 MC_grpGetFontAscent(M_Int32 font)
 
 없음
 
-### MC_grpGetFontDescent
+```c
+MC_grpGetFontDescent
+```
 
 **프로토타입**
 
@@ -1605,11 +1819,12 @@ M_Int32 MC_grpGetFontDescent(M_Int32 font)
 
 폰트의 디센트(Descent)를 돌려준다.
 
-만일 지정된 포트가 유효하지 않은 값인 경우에는 0을 돌려준다.
+만일 지정된 포트가 유효하지 않은 값인 경우에는 0 을 돌려준다.
 
 **매개 변수**
 
 - `font` — [in] 폰트 식별자
+
 **반환 값**
 
 폰트의 디센트
@@ -1622,7 +1837,9 @@ M_Int32 MC_grpGetFontDescent(M_Int32 font)
 
 없음
 
-### MC_grpGetStringWidth
+```c
+MC_grpGetStringWidth
+```
 
 **프로토타입**
 
@@ -1634,14 +1851,12 @@ M_Int32 MC_grpGetStringWidth(M_Int32 font, const M_Uint8* str, M_Int32 len)
 
 문자열의 화면상의 폭을 얻어 온다.
 
-지정된 폰트로 문자를 화면상에 출력하였을때 화면에서 차지하는 폭을 돌려준다.
-
-만일 len 값이 -1 이면 문자열끝(NULL 문자가 나타나는 곳까지)까지 의 폭을 돌려 준다.
+지정된 폰트로 문자를 화면상에 출력하였을때 화면에서 차지하는 폭을 돌려준다. 만일 len 값이 -1 이면 문자열끝(NULL 문자가 나타나는 곳까지)까지 의 폭을 돌려 준다.
 
 **매개 변수**
 
-- `font` — [in] 폰트 식별자
-- `str` — [in] 문자열
+- `font` — [in] 폰트 식별자 str - [in] 문자열
+
 len [in] 문자열의 길이
 
 **반환 값**
@@ -1656,13 +1871,14 @@ len [in] 문자열의 길이
 
 없음
 
-### MC_grpGetUnicodeStringWidth
+```c
+MC_grpGetUnicodeStringWidth
+```
 
 **프로토타입**
 
 ```c
-M_Int32 MC_grpGetUnicodeStringWidth(M_Int32 font, const M_UCode* str,
-M_Int32 len)
+M_Int32 MC_grpGetUnicodeStringWidth(M_Int32	font, const	M_UCode*	str, M_Int32 len)
 ```
 
 **설명**
@@ -1675,8 +1891,8 @@ M_Int32 len)
 
 **매개 변수**
 
-- `font` — [in] 폰트
-- `str` — [in] 문자열
+- `font` — [in] 폰트 str - [in] 문자열
+
 len [in] 문자열의 길이
 
 **반환 값**
@@ -1691,13 +1907,14 @@ len [in] 문자열의 길이
 
 없음
 
-### MC_grpCreateImage
+```c
+MC_grpCreateImage
+```
 
 **프로토타입**
 
 ```c
-M_Int32 MC_grpCreateImage(MC_GrpImage *newImg, M_Uint32 bufID, M_Int32 off,
-M_Int32 len)
+M_Int32 MC_grpCreateImage(MC_GrpImage *newImg, M_Uint32 bufID, M_Int32 off, M_Int32 len)
 ```
 
 **설명**
@@ -1706,18 +1923,16 @@ M_Int32 len)
 
 이미지 데이타(PNG, GIF, Animated-GIF, BMP 포맷)를 가지고 있는 버퍼를 넘겨서 이미지 구조체를 초기화 한다.
 
-이 함수를 부르면 맨처음 이미지가 생성된다. 만일 이미지가 제대로 생성되지 않 았다면 NULL을 돌려준다.
+이 함수를 부르면 맨처음 이미지가 생성된다. 만일 이미지가 제대로 생성되지 않 았다면 NULL 을 돌려준다.
 
-매개 변수로 넘기는 buf 는 이미지 함수내에서 자동으로 해제 시켜준다. 그러므로 MC_knlCalloc으로 생성된 버퍼의 ID이어야 한다. 해제 시키는 시점은 애니메이션 이미지가 아닌 경우에 초기 한장 프레임을 완성 시킨후 해제되며, 애니메이션 이 미지인 경우에는 MC_grpDestroyImage함수가 호출되면 그때 해제 된다.
+매개 변수로 넘기는 buf 는 이미지 함수내에서 자동으로 해제 시켜준다. 그러므로 MC_knlCalloc 으로 생성된 버퍼의 ID 이어야 한다. 해제 시키는 시점은 애니메이션 이미지가 아닌 경우에 초기 한장 프레임을 완성 시킨후 해제되며, 애니메이션 이 미지인 경우에는 MC_grpDestroyImage 함수가 호출되면 그때 해제 된다.
 
 **매개 변수**
 
-- `newImg` — [out] 새로 생성된 이미지 ; 오류시 NULL로 세팅된다.
-- `bufID` — [in] 이미지 데이타를 가지고 있는 버퍼로써 MC_knlCalloc 으로 할당된
-버퍼ID이어야 함
+- `newImg` — [out] 새로 생성된 이미지 ; 오류시 NULL 로 세팅된다.
+- `bufID` — [in] 이미지 데이타를 가지고 있는 버퍼로써 MC_knlCalloc 으로 할당된 버퍼 ID 이어야 함
+- `off` — [in] 이미지 데이타의 시작 부분 len - [in] 이미지 데이타의 길이
 
-- `off` — [in] 이미지 데이타의 시작 부분
-- `len` — [in] 이미지 데이타의 길이
 **반환 값**
 
 MC_GRP_IMAGE_DONE : 오류없이 이미지가 디코딩 되었을때 M_E_NOMEMORY : 이미지를 생성하는데 메모리가 부족할때 M_E_BADFORMAT : 이미지 포맷이 잘못되었을때
@@ -1730,7 +1945,9 @@ MC_GRP_IMAGE_DONE : 오류없이 이미지가 디코딩 되었을때 M_E_NOMEMOR
 
 없음
 
-### MC_grpDestroyImage
+```c
+MC_grpDestroyImage
+```
 
 **프로토타입**
 
@@ -1745,6 +1962,7 @@ void MC_grpDestroyImage(MC_GrpImage img)
 **매개 변수**
 
 - `img` — 삭제할 이미지
+
 **부작용**
 
 없음
@@ -1753,12 +1971,14 @@ void MC_grpDestroyImage(MC_GrpImage img)
 
 없음
 
-### MC_grpDecodeNextImage
+```c
+MC_grpDecodeNextImage
+```
 
 **프로토타입**
 
 ```c
-M_Int32 MC_grpDecodeNextImage(MC_GrpImage dst)
+M_Int32 MC_grpDecodeNextImage(MC_GrpImage  dst)
 ```
 
 **설명**
@@ -1772,11 +1992,16 @@ M_Int32 MC_grpDecodeNextImage(MC_GrpImage dst)
 **매개 변수**
 
 - `dst` — [out] 이미지 타겟 구조체
+
 **반환 값**
 
 다음 중의 한 값이 된다.
 
-MC_GRP_FRAME_DONE : 오류없이 이미지가 디코딩 되었을때 MC_GRP_IMAGE_DONE : 오류없이 이미지가 디코딩 되었으며, 더이상의 디코딩할 이 미지가 남아 있지 않을때 M_E_NOMEMORY : 이미지를 생성하는데 메모리가 부족할때 M_E_BADFORMAT : 이미지 포맷이 잘못되었을때
+MC_GRP_FRAME_DONE : 오류없이 이미지가 디코딩 되었을때
+
+MC_GRP_IMAGE_DONE : 오류없이 이미지가 디코딩 되었으며, 더이상의 디코딩할 이 미지가 남아 있지 않을때
+
+M_E_NOMEMORY : 이미지를 생성하는데 메모리가 부족할때 M_E_BADFORMAT : 이미지 포맷이 잘못되었을때
 
 **부작용**
 
@@ -1786,29 +2011,28 @@ MC_GRP_FRAME_DONE : 오류없이 이미지가 디코딩 되었을때 MC_GRP_IMAG
 
 없음
 
-### MC_grpEncodeImage
+```c
+MC_grpEncodeImage
+```
 
 **프로토타입**
 
 ```c
-M_Int16 MC_grpEncodeImage(MC_GrpFrameBuffer src, M_Int32 x , M_Int32 y,
-M_Int32 w, M_Int32 h, M_Int32* len)
+M_Int16 MC_grpEncodeImage(MC_GrpFrameBuffer src, M_Int32 x, M_Int32 y, M_Int32 w, M_Int32 h, M_Int32* len)
 ```
 
 **설명**
 
 지정된 프레임버퍼의 일정 영역을 그래픽 파일 포맷으로 인코딩한다.
 
-지정한 프레임버퍼의 일정 영역을 BMP 파일 포맷으로 인코딩해서 리턴한다. 리턴 된 이미지 버퍼의 크기는 len 파라미터로 얻어온다. 리턴된 값은 MC_knlCalloc 에 의해서 생성된 버퍼ID이다.
+지정한 프레임버퍼의 일정 영역을 BMP 파일 포맷으로 인코딩해서 리턴한다. 리턴 된 이미지 버퍼의 크기는 len 파라미터로 얻어온다. 리턴된 값은 MC_knlCalloc 에 의해서 생성된 버퍼 ID 이다.
 
 **매개 변수**
 
-- `src` — [in] 이미지 소스 구조체
-- `x` — [in] 영역의 시작 x축 좌표
-- `y` — [in] 영역의 시작 y축 좌표
-- `w` — [in] 영역의 폭
+- `src` — [in] 이미지 소스 구조체 x - [in] 영역의 시작 x 축 좌표 y - [in] 영역의 시작 y 축 좌표 w - [in] 영역의 폭
 - `h` — [in] 영역의 높이
 - `len` — [out] 인코딩된 이미지 버퍼의 크기
+
 **반환 값**
 
 인코딩된 이미지 버퍼 ID, 실패하면 NULL
@@ -1821,27 +2045,26 @@ M_Int32 w, M_Int32 h, M_Int32* len)
 
 없음
 
-### MC_grpPostEvent
+```c
+MC_grpPostEvent
+```
 
 **프로토타입**
 
 ```c
-M_Int32 MC_grpPostEvent(M_Int32 id, M_Int32 type, M_Int32 param1, M_Int32
-param2)
+M_Int32 MC_grpPostEvent(M_Int32 id, M_Int32 type, M_Int32 param1, M_Int32 param2)
 ```
 
 **설명**
 
 지정한 응용 프로그램의 이벤트 큐에 이벤트를 넣다.
 
-지정한 응용 프로그램이 이벤트를 받을 수 있도록 이벤트 큐에 이벤트를 넣다. 지 정한 응용 프로그램에는 해당 이벤트가 발생하여 handleCletEvent 함수가 호출되 고. 각 parameter는 type, param1, param2가 된다.
+지정한 응용 프로그램이 이벤트를 받을 수 있도록 이벤트 큐에 이벤트를 넣다. 지 정한 응용 프로그램에는 해당 이벤트가 발생하여 handleCletEvent 함수가 호출되 고. 각 parameter 는 type, param1, param2 가 된다.
 
 **매개 변수**
 
-- `id` — [in] 응용 프로그램 식별자
-- `type` — [in] 이벤트 타입
-- `param1` — [in] 매개 변수1
-- `param2` — [in] 매개 변수2
+- `id` — [in] 응용 프로그램 식별자 type - [in] 이벤트 타입 param1 - [in] 매개 변수 1 param2 - [in] 매개 변수 2
+
 **반환 값**
 
 성공시 1, 실패시 0
@@ -1854,13 +2077,12 @@ param2)
 
 없음
 
-### MC_grpDrawPolygon
+## MC_grpDrawPolygon
 
 **프로토타입**
 
 ```c
-void MC_grpDrawPolygon( MC_GrpFrameBuffer dst, M_INT32* xPoints, M_INT32*
-yPoints, M_Int32 nPoints, MC_GrpContext* pgc)
+void MC_grpDrawPolygon( MC_GrpFrameBuffer dst, M_INT32* xPoints, M_INT32* yPoints, M_Int32 nPoints, MC_GrpContext* pgc)
 ```
 
 **설명**
@@ -1869,11 +2091,12 @@ yPoints, M_Int32 nPoints, MC_GrpContext* pgc)
 
 **매개 변수**
 
-- `dst` — [in] 프레임 버퍼
-- `xPoints` — [in] x좌표 배열
-- `yPoints` — [in] y좌표 배열
-- `nPoints` — [in] 꼭지점의 개수
-- `pgc` — [in] 그래픽 컨텍스트
+- `dst` — [in] 프레임 버퍼 xPoints – [in] x 좌표 배열 yPoints – [in] y 좌표 배열 nPoints – [in] 꼭지점의 개수
+
+```c
+pgc - [in] 그래픽 컨텍스트
+```
+
 **반환 값**
 
 없음
@@ -1884,28 +2107,31 @@ yPoints, M_Int32 nPoints, MC_GrpContext* pgc)
 
 **참고 항목**
 
+```c
 MC_grpDrawFillPolygon
+```
 
-### MC_grpFillPolygon
+## MC_grpFillPolygon
 
 **프로토타입**
 
 ```c
-void MC_ grpDrawFillPolygon( MC_GrpFrameBuffer dst , M_INT32* xPoints,
-M_INT32* yPoints, M_INT32 nPoints, MC_GrpContext* pgc)
+void	MC_grpDrawFillPolygon(	MC_GrpFrameBuffer	dst,	M_INT32*	xPoints, M_INT32* yPoints, M_INT32 nPoints, MC_GrpContext* pgc)
 ```
 
 **설명**
 
+```c
 임의의 꼭지점을 갖는 채워진 다각형을 그린다
+```
 
 **매개 변수**
 
-- `dst` — [in] 프레임 버퍼
-- `xPoints` — [in] x좌표 배열
-- `yPoints` — [in] y좌표 배열
-- `nPoints` — [in] 꼭지점의 개수
-- `Pgc` — [in] 그래픽 컨텍스트
+```c
+dst - [in] 프레임 버퍼 xPoints – [in] x좌표 배열 yPoints – [in] y좌표 배열 nPoints – [in] 꼭지점의 개수
+Pgc – [in] 그래픽 컨텍스트
+```
+
 **반환 값**
 
 없음
@@ -1916,9 +2142,10 @@ M_INT32* yPoints, M_INT32 nPoints, MC_GrpContext* pgc)
 
 **참고 항목**
 
+```c
 MC_grpDrawPolygon
-
-### MC_imGetSurpportModeCount
+MC_imGetSurpportModeCount
+```
 
 **프로토타입**
 
@@ -1936,13 +2163,17 @@ M_Int32 MC_imGetSurpportModeCount()
 
 **반환 값**
 
-입력모드의 수 부작용 없음
+입력모드의 수 부작용
+
+없음
 
 **참고 항목**
 
 없음
 
-### MC_imGetSupportedModes
+```c
+MC_imGetSupportedModes
+```
 
 **프로토타입**
 
@@ -1970,7 +2201,9 @@ M_Char** MC_imGetSupportedModes()
 
 없음
 
-### MC_imSetCurrentMode
+```c
+MC_imSetCurrentMode
+```
 
 **프로토타입**
 
@@ -1984,7 +2217,9 @@ M_Int32 MC_imSetCurrentMode (M_Int32 mode)
 
 **매개 변수**
 
+```c
 mode[in] 입력모드
+```
 
 **반환 값**
 
@@ -1998,7 +2233,10 @@ mode[in] 입력모드
 
 없음
 
-- MC_imGetCurrentMode()
+```c
+MC_imGetCurrentMode()
+```
+
 **프로토타입**
 
 ```c
@@ -2011,22 +2249,28 @@ M_Int32 MC_imGetCurrentMode()
 
 **매개 변수**
 
+```c
 없음
+```
 
 **반환 값**
 
+```c
 오토마타의 현재 입력모드
+```
 
 **참고 항목**
 
 없음
 
-### MC_imHandleInput
+```c
+MC_imHandleInput
+```
 
 **프로토타입**
 
 ```c
-M_Int32 MC_imHandleInput (char key, M_Int32 type,char *buf1,M_Int32
+M_Int32	MC_imHandleInput	(char	key,	M_Int32	type,char	*buf1,M_Int32
 *size1,char *buf2,M_Int32 *size2)
 ```
 
@@ -2036,9 +2280,15 @@ M_Int32 MC_imHandleInput (char key, M_Int32 type,char *buf1,M_Int32
 
 **매개 변수**
 
-key [in] 입력된 키값 (MH_KeyCode에 정의된 것, MH_IMA_FLUSH) type [in] 입력된 키 타입 (MH_Event에 정의된 것.) buf1 [out] 완성된 문자열버퍼 size1 [in] 완성된 문자열 버퍼의 크기 buf2 [out] 조합중인 문자열버퍼 size2 [in] 조합중인 문자열 버퍼의 크기
+key [in] 입력된 키값 (MH_KeyCode에 정의된 것, MH_IMA_FLUSH) type [in] 입력된 키 타입 (MH_Event에 정의된 것.)
+
+buf1 [out] 완성된 문자열버퍼
+
+size1 [in] 완성된 문자열 버퍼의 크기 buf2 [out] 조합중인 문자열버퍼
 
 **반환 값**
+
+size2 [in] 조합중인 문자열 버퍼의 크기
 
 없음
 

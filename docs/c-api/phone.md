@@ -6,9 +6,9 @@
 
 없음
 
-### MC_phnCallPlace
-
-**설명**
+```c
+MC_phnCallPlace 설명
+```
 
 전화를 건다.
 
@@ -21,9 +21,12 @@ M_Int32 MC_phnCallPlace(M_Byte* phonenumber)
 **매개 변수**
 
 - `phonenumber` — 전화번호 문자열(마지막은 NULL)
+
 **반환 값**
 
-성공 실패 M_E_ERROR(전화를 걸 수 없음)
+성공
+
+실패
 
 **부작용**
 
@@ -32,3 +35,5 @@ M_Int32 MC_phnCallPlace(M_Byte* phonenumber)
 **참고 항목**
 
 없음
+
+M_E_ERROR(전화를 걸 수 없음)
