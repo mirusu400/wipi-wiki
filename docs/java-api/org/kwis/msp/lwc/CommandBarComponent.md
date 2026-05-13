@@ -21,16 +21,9 @@ Command 컴포넌트.
  사용자로 부터 명령을 선택 받습니다.
  Active된 Index의 초기값은 -1입니다.
 
-======== INNER CLASS SUMMARY ======== 
- =========== FIELD SUMMARY ===========
-
 Fields inherited from class org.kwis.msp.lwc. Component bg , evtListener , evtListenerObj , fg , FOCUS_NOTIFY , h , HAS_FOCUS_MASK , INPUT_MASK , KEY_NOTIFY , KEY_PRESSED , KEY_RELEASED , KEY_REPEATED , KEY_TYPED , LAYOUT_BOTTOM , LAYOUT_HCENTER , LAYOUT_LEFT , LAYOUT_RIGHT , LAYOUT_TOP , LAYOUT_VCENTER , mask , parent , POINT_DRAGGED , POINT_PRESSED , POINT_RELEASED , POINTER_NOTIFY , POS_MASK , PREFER_SIZE_MASK , prefH , prefW , SHOW_NOTIFY , SIZE_MASK , VALID_MASK , w , x , y
 
-======== CONSTRUCTOR SUMMARY ========
-
 Constructor Summary CommandBarComponent () 커맨드 바 컴포넌트를 생성합니다.
-
-========== METHOD SUMMARY ===========
 
 Method Summary int addCommand ( Command cmd) 커맨드를 하나 추가 시킵니다. int getActiveIndex () 선택된 커맨드의 인덱스를 돌려줍니다. Command getCommand (int index) 커맨드를 돌려줍니다. int getPreferredHeight () 컴포넌트의 적절한 높이를 결정합니다. int getPreferredHeight (int w) 컴포넌트의 적절한 높이를 결정합니다. int getPreferredWidth () 컴포넌트의 적절한 폭을 결정합니다. int getSize () 등록된 커맨드의 개수를 구합니다 protected  boolean keyNotify (int type,
  int chr) 키 입력을 받으면 호출됩니다. void paintContent ( Graphics g) 내부를 칠합니다. protected  boolean pointerNotify (int type,
@@ -41,16 +34,11 @@ Methods inherited from class org.kwis.msp.lwc. Component calcPreferredSize , can
 
 Methods inherited from class java.lang. Object equals , getClass , hashCode , notify , notifyAll , wait , wait , wait
 
-============ FIELD DETAIL =========== 
- ========= CONSTRUCTOR DETAIL ========
-
 Constructor Detail
 
 ### CommandBarComponent
 
 - 커맨드 바 컴포넌트를 생성합니다.
-
-============ METHOD DETAIL ==========
 
 Method Detail
 
@@ -190,13 +178,7 @@ Method Detail
 - `g` - 칠할 Graphics.
 
 **See Also:**
-- ``Graphics``
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 생성자 요약
+- ``Graphics``## 생성자 요약
 
 - CommandBarComponent () 커맨드 바 컴포넌트를 생성합니다.
 

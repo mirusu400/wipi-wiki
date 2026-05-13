@@ -16,16 +16,9 @@ java.lang.Object
 
 바이트 입력 스트림을 문자 스트림으로 변환해주는 클래스.
 
-======== INNER CLASS SUMMARY ======== 
- =========== FIELD SUMMARY ===========
-
 Fields inherited from class java.io. Reader lock
 
-======== CONSTRUCTOR SUMMARY ========
-
 Constructor Summary InputStreamReader ( InputStream in) 새로운 객체를 생성한다. InputStreamReader ( InputStream in, String encoding_name) 특정 디코더를 사용하는 새로운 객체를 생성한다.
-
-========== METHOD SUMMARY ===========
 
 Method Summary void close () 입력 스트림을 닫는다. void mark (int readAheadLimit) mark를 설정한다. boolean markSupported () mark 기능을 지원하는지 여부를 구한다. int read () 한 문자를 읽는다. int read (char[] buf,
  int offset,
@@ -34,9 +27,6 @@ Method Summary void close () 입력 스트림을 닫는다. void mark (int read
 Methods inherited from class java.io. Reader read
 
 Methods inherited from class java.lang. Object equals , getClass , hashCode , notify , notifyAll , toString , wait , wait , wait
-
-============ FIELD DETAIL =========== 
- ========= CONSTRUCTOR DETAIL ========
 
 Constructor Detail
 
@@ -52,8 +42,6 @@ Constructor Detail
 
 **Throws:**
 - `UnsupportedEncodingException` - encoding_name이 지원할 수 없는 방식일 때 발생.
-
-============ METHOD DETAIL ==========
 
 Method Detail
 
@@ -138,13 +126,7 @@ Method Detail
 - `close` in class `Reader`
 
 **Throws:**
-- `IOException` -
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 생성자 요약
+- `IOException` -## 생성자 요약
 
 - InputStreamReader ( InputStream in) 새로운 객체를 생성한다.
 - InputStreamReader ( InputStream in, String encoding_name) 특정 디코더를 사용하는 새로운 객체를 생성한다.

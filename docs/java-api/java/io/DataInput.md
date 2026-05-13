@@ -108,13 +108,7 @@ public void readFully(byte[] b)
 - 문자열.
 
 **Throws:**
-- `IOException` -
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 메서드 요약
+- `IOException` -## 메서드 요약
 
 - `boolean readBoolean ()` — 입력 스트림에서 한 바이트를 읽은 뒤 0이 아니면 true 0이면 false를 리턴한다.
 - `byte readByte ()` — 입력 스트림에서 한 바이트를 읽는다.

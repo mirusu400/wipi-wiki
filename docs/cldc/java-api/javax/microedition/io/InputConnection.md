@@ -23,12 +23,6 @@ public InputStream openInputStream()
 **Throws:**
 - `IOException` - I/O 오류가 발생한 경우
 
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========
-
 ## 메서드 요약
 
 - `DataInputStream openDataInputStream ()` — 연결의 데이터 입력 스트림을 열고 반환합니다.

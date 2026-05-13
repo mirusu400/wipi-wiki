@@ -16,16 +16,9 @@ java.lang.Object
 
 스택 구조체을 위한 클래스.
 
-======== INNER CLASS SUMMARY ======== 
- =========== FIELD SUMMARY ===========
-
 Fields inherited from class java.util. Vector capacityIncrement , elementCount , elementData
 
-======== CONSTRUCTOR SUMMARY ========
-
 Constructor Summary Stack () 새로운 스택 객체를 만든다.
-
-========== METHOD SUMMARY ===========
 
 Method Summary boolean empty () 스택이 비었는지 여부를 구한다. Object peek () 스택 맨위 객체를 스택에서 제거하지 않고 구한다. Object pop () 스택에 객체를 pop한다. Object push ( Object item) 스택에 객체를 push한다. int search ( Object o) 특정 객체가 스택 맨위에서 부터 몇번째에 위치하는지 구한다.
 
@@ -33,16 +26,11 @@ Methods inherited from class java.util. Vector addElement , capacity , contains 
 
 Methods inherited from class java.lang. Object equals , getClass , hashCode , notify , notifyAll , wait , wait , wait
 
-============ FIELD DETAIL =========== 
- ========= CONSTRUCTOR DETAIL ========
-
 Constructor Detail
 
 ### Stack
 
 - 새로운 스택 객체를 만든다.
-
-============ METHOD DETAIL ==========
 
 Method Detail
 
@@ -78,13 +66,7 @@ Method Detail
 ### search
 
 **Returns:**
-- 스택 맨위로 부터 객체의 위치까지 offset 없으면 -1.
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 생성자 요약
+- 스택 맨위로 부터 객체의 위치까지 offset 없으면 -1.## 생성자 요약
 
 - Stack () 새로운 스택 객체를 만든다.
 

@@ -17,13 +17,7 @@ public void changed(Component cmp,
 ``CheckboxGroup.setChangeListener(org.kwis.msp.lwc.ChangeListener, java.lang.Object)``, 
 ``ListComponent.setChangeListener(org.kwis.msp.lwc.ChangeListener, java.lang.Object)``, 
 ``ListComponent.setChangeListener(org.kwis.msp.lwc.ChangeListener, java.lang.Object)``, 
-``ProgressComponent.setChangeListener(org.kwis.msp.lwc.ChangeListener, java.lang.Object)``
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 메서드 요약
+``ProgressComponent.setChangeListener(org.kwis.msp.lwc.ChangeListener, java.lang.Object)``## 메서드 요약
 
 - `void changed ( Component cmp, Object o)` — ChangeListener를 설정한 Component에서 CHANGE 이벤트가 발생한 경우 불리게 됩니다.
 

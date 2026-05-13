@@ -28,20 +28,13 @@ Annunciator를 나타내기 위한 컴포넌트.
 - ``ShellComponent``, 
 ``ContainerComponent``
 
-======== INNER CLASS SUMMARY ======== 
- =========== FIELD SUMMARY ===========
-
 Fields inherited from class org.kwis.msp.lwc. ShellComponent cd , cmpCommand , cmpTitle , cmpWork , RESIZE_MASK
 
 Fields inherited from class org.kwis.msp.lwc. ContainerComponent cmpFocus , cmps , insetBottom , insetLeft , insetRight , insetTop , ncomp , offsetX , offsetY , useFrame
 
 Fields inherited from class org.kwis.msp.lwc. Component bg , evtListener , evtListenerObj , fg , FOCUS_NOTIFY , h , HAS_FOCUS_MASK , INPUT_MASK , KEY_NOTIFY , KEY_PRESSED , KEY_RELEASED , KEY_REPEATED , KEY_TYPED , LAYOUT_BOTTOM , LAYOUT_HCENTER , LAYOUT_LEFT , LAYOUT_RIGHT , LAYOUT_TOP , LAYOUT_VCENTER , mask , parent , POINT_DRAGGED , POINT_PRESSED , POINT_RELEASED , POINTER_NOTIFY , POS_MASK , PREFER_SIZE_MASK , prefH , prefW , SHOW_NOTIFY , SIZE_MASK , VALID_MASK , w , x , y
 
-======== CONSTRUCTOR SUMMARY ========
-
 Constructor Summary AnnunciatorComponent (boolean bTrans)
-
-========== METHOD SUMMARY ===========
 
 Method Summary void addComponent (int idx, Component cmp) 자식 컴포넌트를 하나 추가합니다. void hide () 컴포넌트를 화면에서 삭제 합니다. void layout () 하위 컴포넌트의 크기와 위치를 결정합니다. protected  void paint ( Graphics g) void removeComponent ( Component cmp) 지정된 순서의 컴포넌트를 삭제합니다.
 
@@ -55,14 +48,9 @@ Methods inherited from class org.kwis.msp.lwc. Component calcPreferredSize , can
 
 Methods inherited from class java.lang. Object equals , getClass , hashCode , notify , notifyAll , wait , wait , wait
 
-============ FIELD DETAIL =========== 
- ========= CONSTRUCTOR DETAIL ========
-
 Constructor Detail
 
 ### AnnunciatorComponent
-
-============ METHOD DETAIL ==========
 
 Method Detail
 
@@ -113,13 +101,7 @@ Method Detail
 ### paint
 
 **Overrides:**
-- `paint` in class `ContainerComponent`
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 생성자 요약
+- `paint` in class `ContainerComponent`## 생성자 요약
 
 - AnnunciatorComponent (boolean bTrans)
 

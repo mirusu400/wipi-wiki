@@ -70,13 +70,7 @@ public InputStream getInputStream()
 - 새로 연결된 소켓
 
 **Throws:**
-- `IOException` - 서버 기능을 지원하는 소켓이 아니거나 I/O 에러가 발생할 경우
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 메서드 요약
+- `IOException` - 서버 기능을 지원하는 소켓이 아니거나 I/O 에러가 발생할 경우## 메서드 요약
 
 - `Socket accept ()` — 서버 기능을 지원하는 소켓이 새롭게 연결된 소켓을 리턴한다.
 - `void close ()` — 소켓을 닫는다. stream 소켓일 경우 만약 getInputStream() 이나 getOutputStream() 으로 InputStream 혹은 OutputStream 을 리턴한 경우 소켓이 완전히 닫히기 위해서는 이 메쏘드와 함께 InputStream 혹은 OutputStream 의 close() 메쏘드가 불려 져야 한다.

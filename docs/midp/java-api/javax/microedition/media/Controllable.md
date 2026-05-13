@@ -36,12 +36,6 @@ public Control[] getControls()
 자세한 내용은 ``Player``를 
 참조하십시오.
 
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========
-
 ## 메서드 요약
 
 - `Control getControl ( String controlType)` — 지정된 Control 인터페이스를 구현하는 객체를 가져옵니다.

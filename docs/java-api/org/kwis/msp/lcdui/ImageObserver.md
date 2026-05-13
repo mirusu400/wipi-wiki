@@ -16,23 +16,13 @@ public static final int FRAME_END
 
 ### OUT_OF_MEMORY
 
-========= CONSTRUCTOR DETAIL ========
-
-============ METHOD DETAIL ==========
-
 Method Detail
 
 ### notify
 
 **See Also:**
 - ``Image.loadImage(java.lang.String, org.kwis.msp.lcdui.ImageObserver)``, 
-``Image.play(org.kwis.msp.lcdui.ImageObserver)``
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 필드 요약
+``Image.play(org.kwis.msp.lcdui.ImageObserver)``## 필드 요약
 
 - `static int DECODE_ERROR`
 - `static int FRAME_END`

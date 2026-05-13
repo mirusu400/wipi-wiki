@@ -12,13 +12,7 @@ public boolean filter(byte[] data)
 - `data` - 레코드에 저장된 데이터를 나타내는 바이트 어레이
 
 **Returns:**
-- 해당 레코드가 정렬에 포함된다면 true, 아니면 false
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 메서드 요약
+- 해당 레코드가 정렬에 포함된다면 true, 아니면 false## 메서드 요약
 
 - `boolean filter (byte[] data)` — 정렬에 사용할 레코드를 제한하는 메쏘드입니다.
 

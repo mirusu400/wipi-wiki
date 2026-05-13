@@ -129,12 +129,6 @@ public void readFully(byte[] b)
 - `UTFDataFormatException` - 바이트가 문자열의 유효한 
  UTF-8 인코딩을 나타내지 않는 경우
 
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========
-
 ## 메서드 요약
 
 - `boolean readBoolean ()` — 1바이트의 입력을 읽어 이 바이트가 0이 아니면 true , 0이면 false 를 반환합니다.

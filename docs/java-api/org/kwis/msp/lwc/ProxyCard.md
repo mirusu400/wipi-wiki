@@ -14,12 +14,7 @@ java.lang.Object
 
 **extends Card:**
 
-======== INNER CLASS SUMMARY ======== 
- =========== FIELD SUMMARY ===========
-
 Fields inherited from class org.kwis.msp.lcdui. Card bTrans , h , w , x , y
-
-======== CONSTRUCTOR SUMMARY ========
 
 Constructor Summary ProxyCard ( ContainerComponent cmp) ProxyCard ( ContainerComponent cmp,
  boolean bTrans) ProxyCard ( ContainerComponent cmp,
@@ -33,8 +28,6 @@ Constructor Summary ProxyCard ( ContainerComponent cmp) ProxyCard ( ContainerCom
  int h,
  boolean bTrans)
 
-========== METHOD SUMMARY ===========
-
 Method Summary protected  boolean keyNotify (int type,
  int chr) 사용자 키 입력이 생성되면 불립니다. protected  void paint ( Graphics g) Card의 내용을 그려줍니다. protected  boolean pointerNotify (int type,
  int x,
@@ -45,9 +38,6 @@ Methods inherited from class org.kwis.msp.lcdui. Card getDisplay , getHeight , g
 
 Methods inherited from class java.lang. Object equals , getClass , hashCode , notify , notifyAll , toString , wait , wait , wait
 
-============ FIELD DETAIL =========== 
- ========= CONSTRUCTOR DETAIL ========
-
 Constructor Detail
 
 ### ProxyCard
@@ -57,8 +47,6 @@ Constructor Detail
 ### ProxyCard
 
 ### ProxyCard
-
-============ METHOD DETAIL ==========
 
 Method Detail
 
@@ -112,13 +100,7 @@ Method Detail
 - Following copied from class: `org.kwis.msp.lcdui.Card`
 
 **Parameters:**
-- `bShow` - 보이는지 안보이는지 여부
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 생성자 요약
+- `bShow` - 보이는지 안보이는지 여부## 생성자 요약
 
 - ProxyCard ( ContainerComponent cmp)
 - ProxyCard ( ContainerComponent cmp,

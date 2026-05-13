@@ -22,12 +22,6 @@ public void recordAdded(RecordStore recordStore,
 **Parameters:**
 - `recordId` - 삭제된 레코드의 recordId
 
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========
-
 ## 메서드 요약
 
 - `void recordAdded ( RecordStore recordStore, int recordId)` — 레코드가 레코드 저장소에 추가되었을 때 호출됩니다.

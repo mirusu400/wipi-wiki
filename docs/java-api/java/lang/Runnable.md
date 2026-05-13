@@ -8,13 +8,7 @@ public void run()
 
 ## 설명
 
-- Thread.start에 의해 run메소스가 호출된다.
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 메서드 요약
+- Thread.start에 의해 run메소스가 호출된다.## 메서드 요약
 
 - `void run ()` — Thread.start에 의해 run메소스가 호출된다.
 

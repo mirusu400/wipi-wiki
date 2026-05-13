@@ -21,10 +21,6 @@ public static final int EQUIVALENT
 - 레코드 정렬이나 검색시 파라미터로 받은 
  두번째 레코드가 첫번째 레코드 다음에 온다는 의미입니다.
 
-========= CONSTRUCTOR DETAIL ========
-
-============ METHOD DETAIL ==========
-
 Method Detail
 
 ### compare
@@ -39,13 +35,7 @@ Method Detail
  (즉 `data1`이 `data2`를 따르는 순서이면)
  `DataComparator.FOLLOWS`,
  `data1` 다음에 `data2`가 오는 순서이면 
- `DataComparator.PRECEDES`
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 필드 요약
+ `DataComparator.PRECEDES`## 필드 요약
 
 - `static int EQUIVALENT` — 레코드 정렬이나 검색시 파라미터로 받은 두개의 레코드가 순서상 같다는 의미입니다.
 - `static int FOLLOWS` — 레코드 정렬이나 검색시 파라미터로 받은 첫번째 레코드가 두번째 레코드 다음에 온다는 의미입니다.

@@ -11,12 +11,6 @@ public void itemStateChanged(Item item)
 **Parameters:**
 - `item` - 변경된 항목
 
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========
-
 ## 메서드 요약
 
 - `void itemStateChanged ( Item item)` — 사용자가 Item 의 내부 상태를 변경할 때 호출됩니다.

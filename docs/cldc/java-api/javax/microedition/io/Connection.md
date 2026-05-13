@@ -12,12 +12,6 @@ public void close()
 **Throws:**
 - `IOException` - I/O 오류가 발생한 경우
 
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========
-
 ## 메서드 요약
 
 - `void close ()` — 연결을 닫습니다.

@@ -117,12 +117,6 @@ public void write(int b)
 **Throws:**
 - `IOException` - I/O 오류가 발생한 경우
 
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========
-
 ## 메서드 요약
 
 - `void write (byte[] b)` — 배열 b 의 모든 바이트를 출력 스트림에 씁니다.

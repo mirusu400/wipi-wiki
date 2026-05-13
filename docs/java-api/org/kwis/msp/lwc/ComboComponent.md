@@ -26,16 +26,9 @@ java.lang.Object
  `ChangeListener`를 등록하여 사용할 수 있으며, 팝업메뉴에서 새로운 항목을
  선택시 `ChangeListener`의 `changed` 메소드를 호출하게됩니다.
 
-======== INNER CLASS SUMMARY ======== 
- =========== FIELD SUMMARY ===========
-
 Fields inherited from class org.kwis.msp.lwc. Component bg , evtListener , evtListenerObj , fg , FOCUS_NOTIFY , h , HAS_FOCUS_MASK , INPUT_MASK , KEY_NOTIFY , KEY_PRESSED , KEY_RELEASED , KEY_REPEATED , KEY_TYPED , LAYOUT_BOTTOM , LAYOUT_HCENTER , LAYOUT_LEFT , LAYOUT_RIGHT , LAYOUT_TOP , LAYOUT_VCENTER , mask , parent , POINT_DRAGGED , POINT_PRESSED , POINT_RELEASED , POINTER_NOTIFY , POS_MASK , PREFER_SIZE_MASK , prefH , prefW , SHOW_NOTIFY , SIZE_MASK , VALID_MASK , w , x , y
 
-======== CONSTRUCTOR SUMMARY ========
-
 Constructor Summary ComboComponent () ComboComponent 의 인스턴스를 생성합니다.
-
-========== METHOD SUMMARY ===========
 
 Method Summary int append ( String str) 주어진 문자데이타로 팝업메뉴의 새로운 항목을 생성하여 팝업메뉴 리스트의 맨 아래
  위치에 추가합니다. void delete (int index) 팝업메뉴 리스트의 주어진 index 위치에 있는 항목을 삭제합니다. int getPreferredHeight () 컴포넌트의 적절한 높이를 결정합니다. int getPreferredHeight (int w) 컴포넌트의 적절한 높이를 결정합니다. int getPreferredWidth () 컴포넌트의 적절한 폭을 결정합니다. int getSelectedIndex () 팝업메뉴 리스트의 항목들 중 선택되어 있는 항목의 인덱스를 구합니다 int getSize () ComboComponent 의 팝업메뉴 리스트 항목들의 개수를 구합니다. String getString () 현재 선택되어 있는 항목의 문자열을 구합니다. int insert (int index, String str) 주어진 index 위치에 주어진 문자데이타로 팝업메뉴의 새로운 항목을
@@ -48,16 +41,11 @@ Methods inherited from class org.kwis.msp.lwc. Component calcPreferredSize , can
 
 Methods inherited from class java.lang. Object equals , getClass , hashCode , notify , notifyAll , wait , wait , wait
 
-============ FIELD DETAIL =========== 
- ========= CONSTRUCTOR DETAIL ========
-
 Constructor Detail
 
 ### ComboComponent
 
 - `ComboComponent`의 인스턴스를 생성합니다.
-
-============ METHOD DETAIL ==========
 
 Method Detail
 
@@ -196,10 +184,6 @@ Method Detail
 
 **Throws:**
 - `IndexOutOfBoundsException` - 인덱스 값이 잘못 지정된 경우
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
 
 ## 생성자 요약
 

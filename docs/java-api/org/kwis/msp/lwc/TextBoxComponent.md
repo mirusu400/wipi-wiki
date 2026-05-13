@@ -34,11 +34,7 @@ java.lang.Object
 - ``TextComponent``, 
 ``TextFieldComponent``
 
-======== INNER CLASS SUMMARY ========
-
 Inner classes inherited from class org.kwis.msp.lwc. TextComponent TextComponent.ModeViewer
-
-=========== FIELD SUMMARY ===========
 
 Field Summary protected  boolean isWide 전체 화면을 사용한 문자 입력 상태.
 
@@ -46,15 +42,11 @@ Fields inherited from class org.kwis.msp.lwc. TextComponent charCount , constChe
 
 Fields inherited from class org.kwis.msp.lwc. Component bg , evtListener , evtListenerObj , fg , FOCUS_NOTIFY , h , HAS_FOCUS_MASK , INPUT_MASK , KEY_NOTIFY , KEY_PRESSED , KEY_RELEASED , KEY_REPEATED , KEY_TYPED , LAYOUT_BOTTOM , LAYOUT_HCENTER , LAYOUT_LEFT , LAYOUT_RIGHT , LAYOUT_TOP , LAYOUT_VCENTER , mask , parent , POINT_DRAGGED , POINT_PRESSED , POINT_RELEASED , POINTER_NOTIFY , POS_MASK , PREFER_SIZE_MASK , prefH , prefW , SHOW_NOTIFY , SIZE_MASK , VALID_MASK , w , x , y
 
-======== CONSTRUCTOR SUMMARY ========
-
 Constructor Summary TextBoxComponent ( String data,
  int constraints) 주어진 문자 데이타와 입력 제한자로 TextComponent 의 인스턴스를
  생성합니다. TextBoxComponent ( String data,
  int constraints,
  int h) 주어진 문자 데이타와 입력 제한자,컴포넌트의 높이값으로 TextComponent 의 인스턴스를 생성합니다.
-
-========== METHOD SUMMARY ===========
 
 Method Summary void configure (int x,
  int y,
@@ -73,16 +65,12 @@ Methods inherited from class org.kwis.msp.lwc. Component calcPreferredSize , can
 
 Methods inherited from class java.lang. Object equals , getClass , hashCode , notify , notifyAll , wait , wait , wait
 
-============ FIELD DETAIL ===========
-
 Field Detail
 
 ### isWide
 
 - 전체 화면을 사용한 문자 입력 상태. `true`면 전체 화면을 사용한
  문자 입력상태입니다. 기본값은 `false`
-
-========= CONSTRUCTOR DETAIL ========
 
 Constructor Detail
 

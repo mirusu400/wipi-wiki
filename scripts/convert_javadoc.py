@@ -23,13 +23,17 @@ import sys
 import re
 import os
 from pathlib import Path
-from bs4 import BeautifulSoup, NavigableString, Tag
+from bs4 import BeautifulSoup, Comment, NavigableString, Tag
 
 
 # -------------------- HTML helpers --------------------
 
 def strip_nav(soup: BeautifulSoup) -> None:
     """Remove navigation chrome that javadoc puts on every page."""
+    # HTML comments (e.g. ``<!-- ===== START OF NAVBAR ===== -->``) leak into
+    # NavigableString sweeps further down; drop them up front.
+    for c in soup.find_all(string=lambda s: isinstance(s, Comment)):
+        c.extract()
     # Top/bottom nav bars
     for sel in (
         {"name": "navbar_top"}, {"name": "navbar_top_firstrow"},

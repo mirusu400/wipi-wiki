@@ -55,20 +55,6 @@ MIDP 2.0에서는 읽기/쓰기 표시기와
 **Since:**
 - MIDP 1.0
 
-======== NESTED CLASS SUMMARY ======== 
- =========== FIELD SUMMARY =========== 
- ======== CONSTRUCTOR SUMMARY ======== 
- ========== METHOD SUMMARY ===========
-
 Methods inherited from class javax.microedition.lcdui. Displayable addCommand , getHeight , getTicker , getTitle , getWidth , isShown , removeCommand , setCommandListener , setTicker , setTitle , sizeChanged
 
 Methods inherited from class java.lang. Object equals , getClass , hashCode , notify , notifyAll , toString , wait , wait , wait
-
-============ FIELD DETAIL =========== 
- ========= CONSTRUCTOR DETAIL ======== 
- ============ METHOD DETAIL ========== 
- ========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========

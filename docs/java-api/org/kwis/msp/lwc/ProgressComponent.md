@@ -21,18 +21,11 @@ java.lang.Object
  기본적으로 step값은 1로 되어 있으며 setStep함수에 의해 변경 가능합니다.
  ProgressComponent의 최소값은 0으로 고정되어 있으며 최대값만 변경 가능합니다.
 
-======== INNER CLASS SUMMARY ======== 
- =========== FIELD SUMMARY ===========
-
 Fields inherited from class org.kwis.msp.lwc. Component bg , evtListener , evtListenerObj , fg , FOCUS_NOTIFY , h , HAS_FOCUS_MASK , INPUT_MASK , KEY_NOTIFY , KEY_PRESSED , KEY_RELEASED , KEY_REPEATED , KEY_TYPED , LAYOUT_BOTTOM , LAYOUT_HCENTER , LAYOUT_LEFT , LAYOUT_RIGHT , LAYOUT_TOP , LAYOUT_VCENTER , mask , parent , POINT_DRAGGED , POINT_PRESSED , POINT_RELEASED , POINTER_NOTIFY , POS_MASK , PREFER_SIZE_MASK , prefH , prefW , SHOW_NOTIFY , SIZE_MASK , VALID_MASK , w , x , y
-
-======== CONSTRUCTOR SUMMARY ========
 
 Constructor Summary ProgressComponent (boolean bInteractive,
  int max) 생성자함수 
  0을 최소값으로 하는 새로운 프로그래스 콤포넌트를 만든다.
-
-========== METHOD SUMMARY ===========
 
 Method Summary int getMaxValue () 설정되어 있는 최대값을 구하는 함수. int getPreferredHeight () 컴포넌트의 적절한 높이를 결정합니다. int getPreferredHeight (int w) 컴포넌트의 적절한 높이를 결정합니다. int getPreferredWidth () 컴포넌트의 적절한 폭을 결정합니다. int getStep () 프로그래스바의 증감 단위를 구합니다 int getValue () 프로그래스의 설정되어 있는 현재 값을 구하는 함수. boolean keyNotify (int type,
  int key) 키 입력을 받으면 호출됩니다. void paintContent ( Graphics g) 내부를 칠합니다. void setChangeListener ( ChangeListener listener, Object obj) void setMargin (int top,
@@ -46,17 +39,12 @@ Methods inherited from class org.kwis.msp.lwc. Component calcPreferredSize , can
 
 Methods inherited from class java.lang. Object equals , getClass , hashCode , notify , notifyAll , wait , wait , wait
 
-============ FIELD DETAIL =========== 
- ========= CONSTRUCTOR DETAIL ========
-
 Constructor Detail
 
 ### ProgressComponent
 
 **Parameters:**
 - `max` - 프로그래스의 최대값을 설정한다.
-
-============ METHOD DETAIL ==========
 
 Method Detail
 
@@ -177,13 +165,7 @@ Method Detail
  `true`를 넘겨 줍니다. 그렇지 않았다면 `false`를
  돌려줍니다.
 
-### setChangeListener
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 생성자 요약
+### setChangeListener## 생성자 요약
 
 - ProgressComponent (boolean bInteractive,
  int max) 생성자함수 

@@ -51,22 +51,12 @@ public static final String STARTED
 **See Also:**
 - `Constant Field Values`
 
-========= CONSTRUCTOR DETAIL ========
-
-============ METHOD DETAIL ==========
-
 Method Detail
 
 ### playerUpdate
 
 **Parameters:**
 - `eventData` - 연관된 이벤트 데이터
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========
 
 ## 필드 요약
 

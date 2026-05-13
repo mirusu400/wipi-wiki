@@ -34,12 +34,6 @@ WTLS(WAP 199)가 연결에 사용되면
 - 사용 중인 암호 제품군 이름이 포함된 
 `String`
 
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========
-
 ## 메서드 요약
 
 - `String getCipherSuite ()` — 연결에 사용 중인 암호 제품군의 이름을 반환합니다.

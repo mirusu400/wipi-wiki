@@ -13,12 +13,6 @@ public void commandAction(Command c,
 - `d` - 이 이벤트가 발생한 
 `Displayable`
 
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========
-
 ## 메서드 요약
 
 - `void commandAction ( Command c, Displayable d)` — 명령 이벤트가 Displayable d 에 발생했음을 나타냅니다.

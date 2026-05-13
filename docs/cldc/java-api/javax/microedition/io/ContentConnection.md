@@ -25,12 +25,6 @@ public String getType()
  길이 또는 내용 길이를 알 수 없는 경우 
  `-1`
 
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========
-
 ## 메서드 요약
 
 - `String getEncoding ()` — 연결된 자원이 제공하는 내용의 인코딩을 설명하는 문자열을 반환합니다.

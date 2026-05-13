@@ -54,22 +54,12 @@ public static final int ERROR
 
 값은 7 입니다.
 
-========= CONSTRUCTOR DETAIL ========
-
-============ METHOD DETAIL ==========
-
 Method Detail
 
 ### playUpdate
 
 **Parameters:**
-- `parm` - 각 event에 추가 전달값이 있을 경우 사용
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 필드 요약
+- `parm` - 각 event에 추가 전달값이 있을 경우 사용## 필드 요약
 
 - `static int END_OF_DATA` — 재생데이타의 마지막에 도달함 값은 1 입니다.
 - `static int ERROR` — 에러가 발생 값은 -1 입니다.

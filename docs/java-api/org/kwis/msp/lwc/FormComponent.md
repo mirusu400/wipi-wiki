@@ -30,18 +30,11 @@ java.lang.Object
  내부의 컴포넌트가 많으면 자동적으로 scrollbar가 생성되도록
  되어 있습니다.
 
-======== INNER CLASS SUMMARY ======== 
- =========== FIELD SUMMARY ===========
-
 Fields inherited from class org.kwis.msp.lwc. ContainerComponent cmpFocus , cmps , insetBottom , insetLeft , insetRight , insetTop , ncomp , offsetX , offsetY , useFrame
 
 Fields inherited from class org.kwis.msp.lwc. Component bg , evtListener , evtListenerObj , fg , FOCUS_NOTIFY , h , HAS_FOCUS_MASK , INPUT_MASK , KEY_NOTIFY , KEY_PRESSED , KEY_RELEASED , KEY_REPEATED , KEY_TYPED , LAYOUT_BOTTOM , LAYOUT_HCENTER , LAYOUT_LEFT , LAYOUT_RIGHT , LAYOUT_TOP , LAYOUT_VCENTER , mask , parent , POINT_DRAGGED , POINT_PRESSED , POINT_RELEASED , POINTER_NOTIFY , POS_MASK , PREFER_SIZE_MASK , prefH , prefW , SHOW_NOTIFY , SIZE_MASK , VALID_MASK , w , x , y
 
-======== CONSTRUCTOR SUMMARY ========
-
 Constructor Summary FormComponent () 폼 컴포넌트를 생성합니다. FormComponent (boolean bVertical) 폼 컴포넌트를 생성합니다.
-
-========== METHOD SUMMARY ===========
 
 Method Summary protected  void calcPreferredSize (int cw) 컴포넌트의 적절한 크기를 계산합니다. void focusNotify (boolean b) 포커스를 받으면 호출됩니다. int getGab () 컴포넌트 간의 간격을 돌려줍니다. protected Component getNextTraversalComponent () 포커스 가질 수 있는 다음 컴포넌트를 돌려줍니다. boolean getPacked () 자식 컴포넌트의 폭을 맞출것인지 여부를 돌려줍니다. protected Component getPrevTraversalComponent () 포커스 가질 수 있는 이전 컴포넌트를 돌려줍니다. protected  boolean keyNotify (int type,
  int key) 키 입력을 받으면 호출됩니다. void layout () 하위 컴포넌트의 크기와 위치를 결정합니다. protected  void layoutChildHorizontal () protected  void layoutChildVertical () void paint ( Graphics g) void removeAllComponents () 모든 컴포넌트를 삭제합니다. protected  boolean scrollTo (int dx,
@@ -54,9 +47,6 @@ Methods inherited from class org.kwis.msp.lwc. Component canHandleInput , config
 
 Methods inherited from class java.lang. Object equals , getClass , hashCode , notify , notifyAll , wait , wait , wait
 
-============ FIELD DETAIL =========== 
- ========= CONSTRUCTOR DETAIL ========
-
 Constructor Detail
 
 ### FormComponent
@@ -66,8 +56,6 @@ Constructor Detail
 ### FormComponent
 
 - 폼 컴포넌트를 생성합니다.
-
-============ METHOD DETAIL ==========
 
 Method Detail
 

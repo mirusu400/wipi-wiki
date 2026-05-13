@@ -10,22 +10,12 @@ public static final int FOCUS_CHANGE
 
 ### SELECT
 
-========= CONSTRUCTOR DETAIL ========
-
-============ METHOD DETAIL ==========
-
 Method Detail
 
 ### commandAction
 
 **Parameters:**
-- `type` - 커맨드 선택시 SELECT, 커맨드 포커스 변경시 FOCUS_CHANGE
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 필드 요약
+- `type` - 커맨드 선택시 SELECT, 커맨드 포커스 변경시 FOCUS_CHANGE## 필드 요약
 
 - `static int FOCUS_CHANGE`
 - `static int SELECT`

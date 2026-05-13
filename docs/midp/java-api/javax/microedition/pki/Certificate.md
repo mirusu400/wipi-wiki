@@ -60,12 +60,6 @@ public String getSubject()
 일련 번호를 포함하는 문자열. 
 일련 번호가 없는 경우 `null`이 반환됩니다.
 
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========
-
 ## 메서드 요약
 
 - `String getIssuer ()` — 이 인증서 발행인의 이름을 가져옵니다.

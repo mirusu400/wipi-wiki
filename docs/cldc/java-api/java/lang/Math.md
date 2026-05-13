@@ -173,7 +173,6 @@ public static double ceil(double a)
 
 **Parameters:**
 - `a` - `double` 값
-@return the value &lceil;&nbsp;<code>a</code>&nbsp;&rceil;.
 
 **Returns:**
 - 인자보다 작지 않고 연산 정수와 같은 
@@ -191,7 +190,6 @@ public static double floor(double a)
 
 **Parameters:**
 - `a` - `double` 값
-@return the value &lfloor;&nbsp;<code>a</code>&nbsp;&rfloor;.
 
 **Returns:**
 - 인자보다 크지 않고 연산 정수와 같은 
@@ -486,7 +484,6 @@ public static double ceil(double a)
 
 **Parameters:**
 - `a` - `double` 값
-@return the value &lceil;&nbsp;<code>a</code>&nbsp;&rceil;.
 
 **Returns:**
 - 인자보다 작지 않고 연산 정수와 같은 
@@ -504,7 +501,6 @@ public static double floor(double a)
 
 **Parameters:**
 - `a` - `double` 값
-@return the value &lfloor;&nbsp;<code>a</code>&nbsp;&rfloor;.
 
 **Returns:**
 - 인자보다 크지 않고 연산 정수와 같은 

@@ -33,11 +33,7 @@ java.lang.Object
 - ``TextComponent``, 
 ``TextBoxComponent``
 
-======== INNER CLASS SUMMARY ========
-
 Inner classes inherited from class org.kwis.msp.lwc. TextComponent TextComponent.ModeViewer
-
-=========== FIELD SUMMARY ===========
 
 Field Summary protected ShellComponent tShell 전체화면 전환시 사용
 
@@ -45,13 +41,9 @@ Fields inherited from class org.kwis.msp.lwc. TextComponent charCount , constChe
 
 Fields inherited from class org.kwis.msp.lwc. Component bg , evtListener , evtListenerObj , fg , FOCUS_NOTIFY , h , HAS_FOCUS_MASK , INPUT_MASK , KEY_NOTIFY , KEY_PRESSED , KEY_RELEASED , KEY_REPEATED , KEY_TYPED , LAYOUT_BOTTOM , LAYOUT_HCENTER , LAYOUT_LEFT , LAYOUT_RIGHT , LAYOUT_TOP , LAYOUT_VCENTER , mask , parent , POINT_DRAGGED , POINT_PRESSED , POINT_RELEASED , POINTER_NOTIFY , POS_MASK , PREFER_SIZE_MASK , prefH , prefW , SHOW_NOTIFY , SIZE_MASK , VALID_MASK , w , x , y
 
-======== CONSTRUCTOR SUMMARY ========
-
 Constructor Summary TextFieldComponent ( String data,
  int constraint) 주어진 문자 데이타와 입력 제한자로 TextㄹFieldComponent 의
  인스턴스를 생성합니다.
-
-========== METHOD SUMMARY ===========
 
 Method Summary void configure (int x,
  int y,
@@ -70,15 +62,11 @@ Methods inherited from class org.kwis.msp.lwc. Component calcPreferredSize , can
 
 Methods inherited from class java.lang. Object equals , getClass , hashCode , notify , notifyAll , wait , wait , wait
 
-============ FIELD DETAIL ===========
-
 Field Detail
 
 ### tShell
 
 - 전체화면 전환시 사용
-
-========= CONSTRUCTOR DETAIL ========
 
 Constructor Detail
 
@@ -86,8 +74,6 @@ Constructor Detail
 
 **Parameters:**
 - `constraints` - 문자 입력 형태
-
-============ METHOD DETAIL ==========
 
 Method Detail
 

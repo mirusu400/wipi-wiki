@@ -97,13 +97,7 @@ public void write(int b)
 - `str` - 출력할 문자열.
 
 **Throws:**
-- `IOException` -
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 메서드 요약
+- `IOException` -## 메서드 요약
 
 - `void write (byte[] b)` — 바이트 배열 전체를 출력한다.
 - `void write (byte[] b, int off, int len)` — 바이트 배열의 일부분을 출력한다.

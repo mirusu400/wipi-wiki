@@ -17,13 +17,7 @@ public boolean hasMoreElements()
 - 다음 순서의 객체.
 
 **Throws:**
-- `NoSuchElementException` - 더 이상 객체가 없을 때 발생.
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 메서드 요약
+- `NoSuchElementException` - 더 이상 객체가 없을 때 발생.## 메서드 요약
 
 - `boolean hasMoreElements ()` — Enumeration안에 남아있는 객체가 있는지 여부를 구한다.
 - `Object nextElement ()` — Enumeration에서 다음 객체를 구한다.

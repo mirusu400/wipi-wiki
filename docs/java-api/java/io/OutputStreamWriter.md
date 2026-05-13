@@ -17,16 +17,9 @@ java.lang.Object
 Unicode로 된 내부 문자열을 KSC5601과 같은 형식의 문자열로
  변환하여 출력하는 출력 스트림이다.
 
-======== INNER CLASS SUMMARY ======== 
- =========== FIELD SUMMARY ===========
-
 Fields inherited from class java.io. Writer lock
 
-======== CONSTRUCTOR SUMMARY ========
-
 Constructor Summary OutputStreamWriter ( OutputStream out) 새로운 출력스트림을 생성한다. OutputStreamWriter ( OutputStream out, String encoding_scheme) 새로운 출력스트림을 생성한다.
-
-========== METHOD SUMMARY ===========
 
 Method Summary void close () 출력스트림을 닫는다. void flush () 출력된 정보 중 중간 버퍼에 남아있는 내용을 모두 실제로 출력한다. void write (char c) 한 문자를 출력한다. void write (char[] buf,
  int offset,
@@ -37,9 +30,6 @@ Method Summary void close () 출력스트림을 닫는다. void flush () 출력�
 Methods inherited from class java.io. Writer write , write
 
 Methods inherited from class java.lang. Object equals , getClass , hashCode , notify , notifyAll , toString , wait , wait , wait
-
-============ FIELD DETAIL =========== 
- ========= CONSTRUCTOR DETAIL ========
 
 Constructor Detail
 
@@ -55,8 +45,6 @@ Constructor Detail
 
 **Throws:**
 - `UnsupportedEncodingException` - 지원하지 않는 인코딩 방식.
-
-============ METHOD DETAIL ==========
 
 Method Detail
 
@@ -115,13 +103,7 @@ Method Detail
 - `len` - 출력할 문자 갯수.
 
 **Throws:**
-- `IOException` -
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 생성자 요약
+- `IOException` -## 생성자 요약
 
 - OutputStreamWriter ( OutputStream out) 새로운 출력스트림을 생성한다.
 - OutputStreamWriter ( OutputStream out, String encoding_scheme) 새로운 출력스트림을 생성한다.

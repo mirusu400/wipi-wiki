@@ -42,12 +42,6 @@ public void setMute(boolean mute)
 **See Also:**
 - ``setLevel(int)``
 
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========
-
 ## 메서드 요약
 
 - `int getLevel ()` — 현재 볼륨 수준 설정을 가져옵니다.

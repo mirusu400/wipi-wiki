@@ -18,24 +18,14 @@ java.lang.Object
 두개의 레코드를 문자열로 비교하는 클래스입니다.
  데이터베이스의 `sortRecord`메쏘드를 호출할 때 필요합니다.
 
-======== INNER CLASS SUMMARY ======== 
- =========== FIELD SUMMARY ===========
-
 Fields inherited from interface org.kwis.msp.db. DataComparator EQUIVALENT , FOLLOWS , PRECEDES
 
-======== CONSTRUCTOR SUMMARY ========
-
 Constructor Summary DataComparatorString (int offset) 두개의 레코드를 문자열로 비교하는 클래스입니다.
-
-========== METHOD SUMMARY ===========
 
 Method Summary int compare (byte[] data1,
  byte[] data2) 레코드를 비교하는 메쏘드(비교자, comparator)입니다.
 
 Methods inherited from class java.lang. Object equals , getClass , hashCode , notify , notifyAll , toString , wait , wait , wait
-
-============ FIELD DETAIL =========== 
- ========= CONSTRUCTOR DETAIL ========
 
 Constructor Detail
 
@@ -43,8 +33,6 @@ Constructor Detail
 
 **Parameters:**
 - `offset` - 레코드에서 비교할 문자열이 시작되는 바이트 오프셋
-
-============ METHOD DETAIL ==========
 
 Method Detail
 
@@ -66,13 +54,7 @@ Method Detail
  (즉 `data1`이 `data2`를 따르는 순서이면)
  `DataComparator.FOLLOWS`,
  `data1` 다음에 `data2`가 오는 순서이면 
- `DataComparator.PRECEDES`
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 생성자 요약
+ `DataComparator.PRECEDES`## 생성자 요약
 
 - DataComparatorString (int offset) 두개의 레코드를 문자열로 비교하는 클래스입니다.
 

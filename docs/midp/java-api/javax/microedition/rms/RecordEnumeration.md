@@ -120,12 +120,6 @@ MIDlet이 RecordEnumeration이 호출된 다음에
 즉각적인 자원 요구 사항을 최소화하기 위해 
 이 메소드가 수동으로 사용됩니다.
 
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========
-
 ## 메서드 요약
 
 - `void destroy ()` — 이 RecordEnumeration에서 사용하는 내부 자원을 해제합니다.

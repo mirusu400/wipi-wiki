@@ -14,13 +14,7 @@ public void notifyEvent(int type,
 - `param2` - 이벤트 파라미터
 
 **See Also:**
-- ``Display.addJletEventListener(org.kwis.msp.lcdui.JletEventListener)``
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 메서드 요약
+- ``Display.addJletEventListener(org.kwis.msp.lcdui.JletEventListener)``## 메서드 요약
 
 - `void notifyEvent (int type, int param1, int param2)` — 응용 프로그램 이벤트가 발생하면 불립니다.
 

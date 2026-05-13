@@ -31,19 +31,12 @@ java.lang.Object
 **See Also:**
 - ``CheckboxGroup``
 
-======== INNER CLASS SUMMARY ======== 
- =========== FIELD SUMMARY ===========
-
 Fields inherited from class org.kwis.msp.lwc. LabelComponent layout , m_ft , m_image , m_str
 
 Fields inherited from class org.kwis.msp.lwc. Component bg , evtListener , evtListenerObj , fg , FOCUS_NOTIFY , h , HAS_FOCUS_MASK , INPUT_MASK , KEY_NOTIFY , KEY_PRESSED , KEY_RELEASED , KEY_REPEATED , KEY_TYPED , LAYOUT_BOTTOM , LAYOUT_HCENTER , LAYOUT_LEFT , LAYOUT_RIGHT , LAYOUT_TOP , LAYOUT_VCENTER , mask , parent , POINT_DRAGGED , POINT_PRESSED , POINT_RELEASED , POINTER_NOTIFY , POS_MASK , PREFER_SIZE_MASK , prefH , prefW , SHOW_NOTIFY , SIZE_MASK , VALID_MASK , w , x , y
 
-======== CONSTRUCTOR SUMMARY ========
-
 Constructor Summary CheckboxComponent ( String str, Image img) 새로운 CheckboxComponent 를 생성합니다. CheckboxComponent ( String str, Image img,
  boolean bSet) 새로운 CheckboxComponent 를 생성합니다. CheckboxComponent ( String str, Image img, CheckboxGroup cb) 새로운 CheckboxComponent 를 생성합니다.
-
-========== METHOD SUMMARY ===========
 
 Method Summary boolean getState () CheckboxComponent 의 선택상태를 구합니다. boolean keyNotify (int type,
  int key) 키 입력을 받으면 호출됩니다. void paintContent ( Graphics g) 내부를 칠합니다. void setChangeListener ( ChangeListener listener, Object obj) CheckboxComponent 에 ChangeListener 를 등록 합니다. void setState (boolean bState) CheckboxComponent 의 선택상태를 변경합니다.
@@ -53,9 +46,6 @@ Methods inherited from class org.kwis.msp.lwc. LabelComponent calcPreferredSize 
 Methods inherited from class org.kwis.msp.lwc. Component canHandleInput , configure , focusNotify , getBackground , getCard , getForeground , getHeight , getPreferredHeight , getPreferredHeight , getPreferredWidth , getWidth , getX , getXOnScreen , getY , getYOnScreen , hasFocus , invalidate , isShown , isValid , layout , pointerNotify , processEvent , repaint , repaint , serviceRepaints , setBackground , setEventListener , setFocus , setForeground , showNotify , toString , validate
 
 Methods inherited from class java.lang. Object equals , getClass , hashCode , notify , notifyAll , wait , wait , wait
-
-============ FIELD DETAIL =========== 
- ========= CONSTRUCTOR DETAIL ========
 
 Constructor Detail
 
@@ -86,8 +76,6 @@ Constructor Detail
 `#CheckboxComponent(String, Image, CheckboxGroup, boolean)`, 
 ``setState(boolean)``, 
 ``CheckboxGroup``
-
-============ METHOD DETAIL ==========
 
 Method Detail
 
@@ -138,13 +126,7 @@ Method Detail
 - `obj` - Listener가 불려질때 넘겨 받을 Object (확장 파라메터)
 
 **See Also:**
-- ``CheckboxGroup.setChangeListener(org.kwis.msp.lwc.ChangeListener, java.lang.Object)``
-
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========## 생성자 요약
+- ``CheckboxGroup.setChangeListener(org.kwis.msp.lwc.ChangeListener, java.lang.Object)``## 생성자 요약
 
 - CheckboxComponent ( String str, Image img) 새로운 CheckboxComponent 를 생성합니다.
 - CheckboxComponent ( String str, Image img,

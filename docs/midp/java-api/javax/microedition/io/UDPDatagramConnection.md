@@ -30,12 +30,6 @@ public String getLocalAddress()
 **See Also:**
 - ``ServerSocketConnection``
 
-========= END OF CLASS DATA =========
-
-========== START OF NAVBAR ==========
-
-=========== END OF NAVBAR ===========
-
 ## 메서드 요약
 
 - `String getLocalAddress ()` — 데이터그램 연결이 바운드되는 로컬 주소를 가져옵니다.
