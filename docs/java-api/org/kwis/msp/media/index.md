@@ -2,8 +2,7 @@
 
 ## Interface Summary
 
-- [PlayListener](PlayListener.md) — 이 인터페이스는 메디아 재생기의 상태변화를 알고자 하는 응용프로그램에서
-쓰입니다.
+- [PlayListener](PlayListener.md) — 이 인터페이스는 메디아 재생기의 상태변화를 알고자 하는 응용프로그램에서 쓰입니다.
 
 ## Class Summary
 

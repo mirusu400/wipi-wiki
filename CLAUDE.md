@@ -12,7 +12,7 @@
 
 소스는 두 가지:
 1. **PDF**: `vendor/WIPI_V1_2_1_final_ST1_2_1_.pdf` (939페이지 한국어 규격서, 1.9 MB, C언어 API)
-2. **JavaDoc HTML**: [nikita36078/J2ME_Docs](https://github.com/nikita36078/J2ME_Docs)의 `docs/WIPI_API_1_1_1/` 폴더, JAVA API
+2. **JavaDoc HTML**: WIPI 1.1.1 Java API JavaDoc 디렉토리 (`vendor/wipi_api_1_1_1/`)
 
 결과물:
 - MkDocs Material 사이트 → GitHub Pages 배포
@@ -319,12 +319,11 @@ wipi-wiki/
 사용자가 `vendor/WIPI_V1_2_1_final_ST1_2_1_.pdf`로 직접 배치. 파일이 `.gitignore`되어 있어 repo에 안 들어감.
 
 ### JavaDoc HTML
-```bash
-mkdir -p vendor
-git clone --depth 1 --filter=blob:none --sparse \
-    https://github.com/nikita36078/J2ME_Docs.git vendor/j2me_docs
-cd vendor/j2me_docs && git sparse-checkout set "docs/WIPI_API_1_1_1" && cd ../..
-```
+표준 규격에 동봉된 원본 JavaDoc 디렉토리를 사용자가 직접 배치한다.
+
+- `vendor/wipi_api_1_1_1/` — WIPI 1.1.1 Java API JavaDoc
+- `vendor/cldc-1_1-fr-spec-ko/javadocs/` — CLDC 1.1 Appendix2 (zip 풀어둘 것)
+- `vendor/midpng-javadoc-final/javadoc/` — MIDP 2.0 JavaDoc
 
 ---
 

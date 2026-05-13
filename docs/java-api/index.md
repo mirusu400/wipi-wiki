@@ -1,6 +1,6 @@
 # Java API Reference
 
-WIPI 1.2.1 JavaDoc을 Markdown으로 재구성한 레퍼런스입니다. 원본 JavaDoc은 [nikita36078/J2ME_Docs](https://github.com/nikita36078/J2ME_Docs) 에서 가져왔습니다.
+JavaDoc HTML 을 Markdown 으로 재구성한 레퍼런스입니다.
 
 ## 패키지 목록
 

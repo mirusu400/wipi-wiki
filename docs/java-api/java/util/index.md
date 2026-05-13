@@ -6,8 +6,7 @@
 
 ## Class Summary
 
-- [Calendar](Calendar.md) — 연도,월,일,요일 등의 정보를 얻기 위한 캘린더 클래스들이
- 상속받아야 할 추상 클래스.
+- [Calendar](Calendar.md) — 연도,월,일,요일 등의 정보를 얻기 위한 캘린더 클래스들이 상속받아야 할 추상 클래스.
 - [Date](Date.md) — millisecond단위로 특정 시간을 나타내는 클래스
 - [GregorianCalendar](GregorianCalendar.md) — 그레고리안 역법을 이용한 캘랜더 클래스.
 - [Hashtable](Hashtable.md) — 해쉬 테이블을 지원하는 클래스.

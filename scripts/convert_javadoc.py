@@ -452,7 +452,7 @@ def convert_package_summary(html: str, pkg: str) -> tuple[str, list[str]]:
             if len(tds) >= 2:
                 link = tds[0].find("a")
                 name = text_of(link) if link else text_of(tds[0])
-                desc = text_of(tds[1])
+                desc = re.sub(r"\s+", " ", text_of(tds[1])).strip()
                 if name:
                     classes.append(name)
                     out.append(f"- [{name}]({name}.md) — {desc}")
@@ -483,9 +483,7 @@ def main(src: str, dst: str) -> None:
     print(f"[javadoc] {len(pkg_list)} packages")
 
     index_lines = ["# Java API Reference\n",
-                   "WIPI 1.2.1 JavaDoc을 Markdown으로 재구성한 레퍼런스입니다. "
-                   "원본 JavaDoc은 [nikita36078/J2ME_Docs](https://github.com/nikita36078/J2ME_Docs) "
-                   "에서 가져왔습니다.\n",
+                   "JavaDoc HTML 을 Markdown 으로 재구성한 레퍼런스입니다.\n",
                    "## 패키지 목록\n"]
 
     total_classes = 0
@@ -499,19 +497,23 @@ def main(src: str, dst: str) -> None:
         # Convert package summary
         md, classes = convert_package_summary(read_html(summary_html), pkg)
 
-        # Filter to classes whose HTML actually exists (e.g. MIDP listings
-        # include CLDC-inherited classes that aren't redocumented here).
+        # MIDP package-summary lists CLDC-inherited classes that aren't
+        # redocumented here. Demote those link lines to plain-text bullets so
+        # the listing remains complete but mkdocs strict mode doesn't complain
+        # about missing targets.
         present_classes = [c for c in classes if (pkg_path / f"{c}.html").exists()]
         missing = set(classes) - set(present_classes)
         if missing:
-            # Drop link lines pointing at missing classes so strict build passes.
-            kept_lines: list[str] = []
+            rewritten: list[str] = []
+            link_re = re.compile(r"^- \[([^\]]+)\]\(([^)]+)\.md\)(\s+—\s+.*)?$")
             for line in md.splitlines():
-                m = re.match(r"^- \[([^\]]+)\]\(([^)]+)\.md\)", line)
+                m = link_re.match(line)
                 if m and m.group(1) in missing:
-                    continue
-                kept_lines.append(line)
-            md = "\n".join(kept_lines)
+                    tail = m.group(3) or ""
+                    rewritten.append(f"- `{m.group(1)}`{tail}")
+                else:
+                    rewritten.append(line)
+            md = "\n".join(rewritten)
 
         # Write package-level index
         pkg_index = dst_path / pkg.replace(".", "/") / "index.md"
