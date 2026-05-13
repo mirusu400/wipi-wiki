@@ -1,8 +1,14 @@
 # 4.1. TYPE DEFINITION
 
 변수 타입을 정의한다.
+
+```c
 typedef unsigned char M_Boolean // unsigned 8bit. TRUE 또는 FALSE 를
+```
+
 CHECK한다.
+
+```c
 typedef unsigned int M_Uint32 // unsigned 32 bit type
 typedef unsigned short M_Uint16 // unsigned 16bit type
 typedef unsigned char M_Uint8 // unsigned 8bit type, unsigned char
@@ -26,3 +32,4 @@ typedef M_Uint32 M_Addr // unsigned 32bit. unsigned int type
 #define TRUE 1 //TRUE정의
 #define FALSE 0 //FALSE정의
 #define inline __inline //inline정의
+```

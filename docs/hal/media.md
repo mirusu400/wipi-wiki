@@ -1,10 +1,12 @@
 # 4.8. MEDIA
 
-미디어를 지원하기 위한 API 들이다. 미디어장치는 데이터를 스트립으로 생산/소
-비하는 장치들을 말한다. 이런 장치에는 사운드장치, vocoder 장치, 카메라장치등
-이 있을 수 있다.
-? 관련 자료형
-// 톤 값
+미디어를 지원하기 위한 API 들이다. 미디어장치는 데이터를 스트립으로 생산/소 비하는 장치들을 말한다. 이런 장치에는 사운드장치, vocoder 장치, 카메라장치등 이 있을 수 있다.
+
+- 관련 자료형
+
+### // 톤 값
+
+```c
 typedef enum MH_mdaToneType {
 MH_SND_TONE_0 = 0, // DTMF for 0 key
 MH_SND_TONE_1, // DTMF for 1 key
@@ -88,106 +90,100 @@ M_Int32 size; /* MH_MDAEV_MEDIA_EMPTY , MH_MDAEV_TONE_EMPTY 인 경
 MH_MDAEV_MEDIA_FULL 인 경우, 미디어장치 내부버퍼에 녹음된 데이터 양
 */
 } MH_MediaEvent;
-? MH_mdaTonePlay
-설명
-여러 개의 Tone 을 순서에 따라 연주한다. 이 함수는 톤 배열을 운영체제의 톤
-재생 버퍼에 싣고 그 실은 양을 리턴한다. 톤 재생버퍼의 데이터가 모두 비워지기
-전 적절한 시점에 이벤트(MH_MDAEV_TONE_EMPTY)를 플랫폼에 전달해야 한다[적절한
-시점이란 플랫폼이 이벤트(MH_MDAEV_TONE_EMPTY)를 받고 데이터를 톤 재생버퍼에
-복사하는 시간이상의 데이터가 남아있는 시점]. 만일 재생중 문제가 발생한 경우
-운영체제는 플랫폼에 MH_MDAEV_TONE_ERROR 이벤트를 전달해야 한다. 톤재생기는
-mdaID number 0 을 사용하고, 이벤트(MH_MDAEV_TONE_EMPTY)를 플랫폼에 전달시
-MH_MediaEvent 구조체의 mdaID field 가 0 으로 채워져야한다. pause/resume 을 지
-원하는 톤재생기인 경우, MH_mdaTonePlay 는 데이터를 사운드장치에 복사후 일시
-멈춤 상태가 되고, 재생은 MH_mdaResume 이 불린 시점부터 일어나야 한다.
-pause/resume 을 지원하지 않는 톤재생기일 경우에는 MH_mdaTonePlay 는 데이터를
-사운드장치에 복사하고, 곧 바로 재생도 시작되어야한다. 스트리밍을 지원하지 않
-는 톤재생기일 경우, 재생중 MH_ MH_mdaTonePlay 가 호출되면 에러값을 반환한다.
+```
+
+### MH_mdaTonePlay
+
+**설명**
+
+여러 개의 Tone 을 순서에 따라 연주한다. 이 함수는 톤 배열을 운영체제의 톤 재생 버퍼에 싣고 그 실은 양을 리턴한다. 톤 재생버퍼의 데이터가 모두 비워지기 전 적절한 시점에 이벤트(MH_MDAEV_TONE_EMPTY)를 플랫폼에 전달해야 한다[적절한 시점이란 플랫폼이 이벤트(MH_MDAEV_TONE_EMPTY)를 받고 데이터를 톤 재생버퍼에 복사하는 시간이상의 데이터가 남아있는 시점]. 만일 재생중 문제가 발생한 경우 운영체제는 플랫폼에 MH_MDAEV_TONE_ERROR 이벤트를 전달해야 한다. 톤재생기는 mdaID number 0 을 사용하고, 이벤트(MH_MDAEV_TONE_EMPTY)를 플랫폼에 전달시 MH_MediaEvent 구조체의 mdaID field 가 0 으로 채워져야한다. pause/resume 을 지 원하는 톤재생기인 경우, MH_mdaTonePlay 는 데이터를 사운드장치에 복사후 일시 멈춤 상태가 되고, 재생은 MH_mdaResume 이 불린 시점부터 일어나야 한다.
+
+pause/resume 을 지원하지 않는 톤재생기일 경우에는 MH_mdaTonePlay 는 데이터를 사운드장치에 복사하고, 곧 바로 재생도 시작되어야한다. 스트리밍을 지원하지 않 는 톤재생기일 경우, 재생중 MH_ MH_mdaTonePlay 가 호출되면 에러값을 반환한다.
+
 톤 재상기는 미디어 디바이스 식별자로 0을 사용한다.
-프로토타입
+
+**프로토타입**
+
+```c
 M_Int32 MH_mdaTonePlay (MH_mdaToneType tone[], M_Int32 duration[], M_Int32
 number)
-매개변수
-[in] tones 연주할 톤 구조체 배열에 대한 포인터
-[in] duration 연주할 시간에 대한 배열 포인터(시간 단위는 ms)
-[in] number 톤구조체의 개수
-반환값
-성공
-시스템 톤 재생 버퍼에 실린 톤 개수.
-실패
-M_E_INUSE – 이미 재생중에 있음
-M_E_ERROR - 기타 에러가 발생할 경우
-부작용
-없음
-참고항목
-없음
-? MH_mdaFreqTonePlay
-설명
-여러 개의 Tone 을 순서에 따라 연주한다. 이 함수는 톤 배열을 운영체제의 톤
-재생 버퍼에 싣고 그 실은 양을 리턴한다. 톤 재생버퍼의 데이터가 모두 비워지기
-전 적절한 시점에 이벤트(MH_MDAEV_TONE_EMPTY)를 플랫폼에 전달해야 한다[적절한
-시점이란 플랫폼이 이벤트(MH_MDAEV_TONE_EMPTY)를 받고 데이터를 톤 재생버퍼에
-복사하는 시간이상의 데이터가 남아있는 시점]. 만일 재생중 문제가 발생한 경우
-운영체제는 플랫폼에 MH_MDAEV_TONE_ERROR 이벤트를 전달해야 한다. 프리퀀시톤재
-생기는 mdaID number 0 을 사용하고, 이벤트(MH_MDAEV_TONE_EMPTY)를 플랫폼에 전
-달시 MH_MediaEvent 구조체의 mdaID field 가 0 로 채워져야한다. pause/resume 을
-지원하는 톤재생기인 경우, MH_mdaTonePlay 는 데이터를 사운드장치에 복사후 일
-시멈춤 상태가 되고, 재생은 MH_mdaResume 이 불린 시점부터 일어나야 한다.
-pause/resume 을 지원하지 않는 톤재생기일 경우에는 MH_mdaFreqTonePlay 는 데이
-터를 사운드장치에 복사하고, 곧 바로 재생도 시작되어야한다. 스트리밍을 지원하
-지 않는 톤재생기일 경우, 재생중 MH_ MH_mdaFreqTonePlay 가 호출되면 에러값을
-반환한다. 프리퀀시 톤재생기는 미디어 디바이스 식별자로 0을 사용한다.
-프로토타입
+```
+
+**매개 변수**
+
+[in] tones 연주할 톤 구조체 배열에 대한 포인터 [in] duration 연주할 시간에 대한 배열 포인터(시간 단위는 ms) [in] number 톤구조체의 개수
+
+**반환 값**
+
+성공 시스템 톤 재생 버퍼에 실린 톤 개수.
+
+실패 M_E_INUSE – 이미 재생중에 있음 M_E_ERROR - 기타 에러가 발생할 경우
+
+**부작용**
+
+없음 참고항목 없음
+
+### MH_mdaFreqTonePlay
+
+**설명**
+
+여러 개의 Tone 을 순서에 따라 연주한다. 이 함수는 톤 배열을 운영체제의 톤 재생 버퍼에 싣고 그 실은 양을 리턴한다. 톤 재생버퍼의 데이터가 모두 비워지기 전 적절한 시점에 이벤트(MH_MDAEV_TONE_EMPTY)를 플랫폼에 전달해야 한다[적절한 시점이란 플랫폼이 이벤트(MH_MDAEV_TONE_EMPTY)를 받고 데이터를 톤 재생버퍼에 복사하는 시간이상의 데이터가 남아있는 시점]. 만일 재생중 문제가 발생한 경우 운영체제는 플랫폼에 MH_MDAEV_TONE_ERROR 이벤트를 전달해야 한다. 프리퀀시톤재 생기는 mdaID number 0 을 사용하고, 이벤트(MH_MDAEV_TONE_EMPTY)를 플랫폼에 전 달시 MH_MediaEvent 구조체의 mdaID field 가 0 로 채워져야한다. pause/resume 을 지원하는 톤재생기인 경우, MH_mdaTonePlay 는 데이터를 사운드장치에 복사후 일 시멈춤 상태가 되고, 재생은 MH_mdaResume 이 불린 시점부터 일어나야 한다.
+
+pause/resume 을 지원하지 않는 톤재생기일 경우에는 MH_mdaFreqTonePlay 는 데이 터를 사운드장치에 복사하고, 곧 바로 재생도 시작되어야한다. 스트리밍을 지원하 지 않는 톤재생기일 경우, 재생중 MH_ MH_mdaFreqTonePlay 가 호출되면 에러값을 반환한다. 프리퀀시 톤재생기는 미디어 디바이스 식별자로 0을 사용한다.
+
+**프로토타입**
+
+```c
 M_Int32 MH_mdaFreqTonePlay (M_Int32 hiFreq[], M_Int32 lowFreq[], M_Int32
 duration[], M_Int32 number)
-매개변수
-[in] hiFreq 연주할 고주파 톤 구조체 배열에 대한 포인터
-[in] lowFreq 연주할 저주파 톤 구조체 배열에 대한 포인터
-[in] duration 연주할 시간에 대한 배열 포인터 (시간 단위는 ms)
-[in] number 톤구조체의 개수
-반환값
-성공
-시스템 톤 재생 버퍼에 실린 톤 개수.
-실패
-M_E_INUSE – 이미 재생중에 있음
-M_E_ERROR - 기타 에러가 발생할 경우
-부작용
-없음
-참고항목
-없음
-? MH_mdaGetDeviceID
-설명
-미디어 장치의 식별자를 구한다. 운영체제에서 지원하는 미디어 장치 이름들은
-MH_sysGetInformation()으로 구할 수 있다. MH_sysGetInformation의 command매개
-변수 중 “MEDIADEVICES” 로 얻어진 문자열이 이름으로 사용될 수 있다. 톤재생기
-와 프리퀀시톤재생기는 mdaID number 0 을 사용하므로 이 함수에서 부여하는
-mdaID number는 0보다 큰 숫자를 부여해야 한다.
-프로토타입
+```
+
+**매개 변수**
+
+[in] hiFreq 연주할 고주파 톤 구조체 배열에 대한 포인터 [in] lowFreq 연주할 저주파 톤 구조체 배열에 대한 포인터 [in] duration 연주할 시간에 대한 배열 포인터 (시간 단위는 ms) [in] number 톤구조체의 개수
+
+**반환 값**
+
+성공 시스템 톤 재생 버퍼에 실린 톤 개수.
+
+실패 M_E_INUSE – 이미 재생중에 있음 M_E_ERROR - 기타 에러가 발생할 경우
+
+**부작용**
+
+없음 참고항목 없음
+
+### MH_mdaGetDeviceID
+
+**설명**
+
+미디어 장치의 식별자를 구한다. 운영체제에서 지원하는 미디어 장치 이름들은 MH_sysGetInformation()으로 구할 수 있다. MH_sysGetInformation의 command매개 변수 중 “MEDIADEVICES” 로 얻어진 문자열이 이름으로 사용될 수 있다. 톤재생기 와 프리퀀시톤재생기는 mdaID number 0 을 사용하므로 이 함수에서 부여하는 mdaID number는 0보다 큰 숫자를 부여해야 한다.
+
+**프로토타입**
+
+```c
 M_Int32 MH_mdaGetDeviceID(M_Char* devName)
-매개변수
+```
+
+**매개 변수**
+
 [in] devName 사운드 장치 이름
-반환값
-성공
-미디어 장치 식별자
-실패
-M_E_NOTSUP – 지원하지 않는 장치 이름
-부작용
-없음
-참고항목
-MH_sysGetInformation
-? MH_mdaGetDeviceInfo
-설명
+
+**반환 값**
+
+성공 미디어 장치 식별자 실패 M_E_NOTSUP – 지원하지 않는 장치 이름
+
+**부작용**
+
+없음 참고항목 MH_sysGetInformation
+
+### MH_mdaGetDeviceInfo
+
+**설명**
+
 미디어 장치의 특성을 구한다. 장치 식별자 0은, 프리퀀시 톤재생기를 나타낸다.
-1. MH_MDAINFO_STREAM_PLAY bit 는 미디어 장치기 스트리밍 재생을 지원하는
-것을 말한다. 이것은 미디어 재생중에 MH_mdaWriteData(장치 식별자가 0
-인경우, MH_mdaTonePlay, MH_mdaFreqTonePlay)로 새로운 데이터를 사운드
-장치에 복사할 수 있는 것을 말하며, 사운드 장치는 기존데이타에 연속적
-으로 새로운 데이터를 재생할 수 있어야 한다. 스트리밍을 지원할 경우에
-는 MH_MDAINFO_CALL_BY_REFERENCE bit가 설정되어서는 안된다.
-2. MH_MDAINFO_CALL_BY_REFERENCE bit는 MH_mdaWriteData(장치 식
-별자가 0인경우, MH_mdaTonePlay, MH_mdaFreqTonePlay)로 전달되는
-데이터버퍼를 미디어장치가 내부버퍼에 복사하지 않고 그대로 사용함을
-의미한다. 이 bit가 설정되지 않으면 전달되는 데이터가 내부버퍼에 복사
-되어 사용됨을 의미한다.
-3. MH_MDAINFO_PAUSE_RESUME bit는 미디어 장치가 pause/resume기능
-을 지원함을 의미한다.
+
+1. MH_MDAINFO_STREAM_PLAY bit 는 미디어 장치기 스트리밍 재생을 지원하는 것을 말한다. 이것은 미디어 재생중에 MH_mdaWriteData(장치 식별자가 0 인경우, MH_mdaTonePlay, MH_mdaFreqTonePlay)로 새로운 데이터를 사운드 장치에 복사할 수 있는 것을 말하며, 사운드 장치는 기존데이타에 연속적 으로 새로운 데이터를 재생할 수 있어야 한다. 스트리밍을 지원할 경우에 는 MH_MDAINFO_CALL_BY_REFERENCE bit가 설정되어서는 안된다.
+
+2. MH_MDAINFO_CALL_BY_REFERENCE bit는 MH_mdaWriteData(장치 식 별자가 0인경우, MH_mdaTonePlay, MH_mdaFreqTonePlay)로 전달되는 데이터버퍼를 미디어장치가 내부버퍼에 복사하지 않고 그대로 사용함을 의미한다. 이 bit가 설정되지 않으면 전달되는 데이터가 내부버퍼에 복사 되어 사용됨을 의미한다.
+
+3. MH_MDAINFO_PAUSE_RESUME bit는 미디어 장치가 pause/resume기능 을 지원함을 의미한다.
