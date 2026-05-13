@@ -362,14 +362,7 @@ public int substringWidth(String str,
 - 문자열의 폭
 
 **Throws:**
-- `NullPointerException` - str이 `null`인 경우.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `NullPointerException` - str이 `null`인 경우.## 메서드 상세
 
 ### getFont
 

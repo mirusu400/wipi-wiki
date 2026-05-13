@@ -82,14 +82,7 @@ public String toString()
 - `toString` in class `Object`
 
 **Returns:**
-- value값이 참이면 `true` 거짓이면 `false` 문자열.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- value값이 참이면 `true` 거짓이면 `false` 문자열.## 메서드 상세
 
 ### booleanValue
 

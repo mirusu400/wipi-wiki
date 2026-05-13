@@ -292,14 +292,7 @@ public static String getPrgName()
 ```
 
 **Returns:**
-- 프로그램 이름
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+- 프로그램 이름## 생성자 상세
 
 ### Kernel
 
@@ -449,14 +442,7 @@ public static String getPrgName()
 ```
 
 **Returns:**
-- 프로그램 이름
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- 프로그램 이름## 메서드 상세
 
 ### execute
 

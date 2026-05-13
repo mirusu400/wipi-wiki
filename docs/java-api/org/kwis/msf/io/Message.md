@@ -226,14 +226,7 @@ public void setDate(Date date)
 ```
 
 **Parameters:**
-- `date` - java.util.Date 형의 전송시간
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `date` - java.util.Date 형의 전송시간## 메서드 상세
 
 ### getIndex
 

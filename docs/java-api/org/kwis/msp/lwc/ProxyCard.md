@@ -118,14 +118,7 @@ Method Detail
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 요약
+=========== END OF NAVBAR ===========## 생성자 요약
 
 - ProxyCard ( ContainerComponent cmp)
 - ProxyCard ( ContainerComponent cmp,
@@ -254,14 +247,7 @@ protected void showNotify(boolean bShow)
 - Following copied from class: `org.kwis.msp.lcdui.Card`
 
 **Parameters:**
-- `bShow` - 보이는지 안보이는지 여부
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `bShow` - 보이는지 안보이는지 여부## 메서드 상세
 
 ### paint
 

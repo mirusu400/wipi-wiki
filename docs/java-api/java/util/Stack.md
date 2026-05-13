@@ -84,14 +84,7 @@ Method Detail
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 요약
+=========== END OF NAVBAR ===========## 생성자 요약
 
 - Stack () 새로운 스택 객체를 만든다.
 
@@ -165,14 +158,7 @@ public int search(Object o)
 ```
 
 **Returns:**
-- 스택 맨위로 부터 객체의 위치까지 offset 없으면 -1.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- 스택 맨위로 부터 객체의 위치까지 offset 없으면 -1.## 메서드 상세
 
 ### push
 

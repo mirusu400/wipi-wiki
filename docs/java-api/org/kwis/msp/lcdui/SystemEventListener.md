@@ -20,14 +20,7 @@ public void notifySystemEvent(int type,
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 요약
+=========== END OF NAVBAR ===========## 메서드 요약
 
 - `void notifySystemEvent (int type, int event, int parm1, int parm2)` — 시스템 이벤트가 발생하면 불립니다.
 

@@ -19,14 +19,7 @@ public boolean eventNotify(int type,
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 요약
+=========== END OF NAVBAR ===========## 메서드 요약
 
 - `boolean eventNotify (int type, int arg1, int arg2, int arg3, Object obj)` — 컴포넌트에서 Key, Show, Focus, Pointer이벤트가 발생한경우 이 함수를 호출하여 줍니다.
 

@@ -187,14 +187,7 @@ public static void yield()
 ```
 
 - 현재 수행되는 쓰레드가 다른 쓰레드가 실행되도록 자신의
- 순번을 양보한다.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+ 순번을 양보한다.## 생성자 상세
 
 ### Thread
 
@@ -318,14 +311,7 @@ public static void yield()
 ```
 
 - 현재 수행되는 쓰레드가 다른 쓰레드가 실행되도록 자신의
- 순번을 양보한다.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+ 순번을 양보한다.## 메서드 상세
 
 ### activeCount
 

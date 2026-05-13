@@ -129,14 +129,7 @@ public final void wait(long ms,
 - `ns` - Int타입의 timeout nanoseconds 시간.
 
 **Throws:**
-- `InterruptedException` - 다른 쓰레드가 현 쓰레드를 interrupt했을 때 발생.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `InterruptedException` - 다른 쓰레드가 현 쓰레드를 interrupt했을 때 발생.## 메서드 상세
 
 ### equals
 

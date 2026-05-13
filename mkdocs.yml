@@ -78,7 +78,7 @@ nav:
       - overview/index.md
       - 1. 서론: overview/introduction.md
       - 2. 개념적 구조: overview/architecture.md
-      - 3. 플랫폼 일반: overview/platform.md
+      - 3. 주요 기능 규격: overview/platform.md
   - HAL 규격:
       - hal/index.md
       - 4.1 Type Definition: hal/types.md
@@ -111,6 +111,18 @@ nav:
       - 5.1.11 UI Components: c-api/ui-components.md
       - 5.1.12 표준 C 라이브러리: c-api/c-stdlib.md
   - Java API: java-api/index.md
+  - CLDC 1.1:
+      - cldc/index.md
+      - 규격서: cldc/spec.md
+      - Java API: cldc/java-api/index.md
+  - MIDP 2.0:
+      - midp/index.md
+      - 개요: midp/overview.md
+      - OTA 규격: midp/ota-spec.md
+      - 보안 정책 (GSM/UMTS): midp/security-gsm.md
+      - 보안 정책 (RP): midp/security-rp.md
+      - 라이선스: midp/license.md
+      - Java API: midp/java-api/index.md
   - 부속서:
       - appendix/index.md
       - 6. 참조 문헌: appendix/references.md

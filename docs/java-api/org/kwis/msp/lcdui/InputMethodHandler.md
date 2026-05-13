@@ -144,14 +144,7 @@ public void setSymbolPosition(int x,
 - `h` - height값.
 
 **Throws:**
-- `IllegalArgumentException` - `w,h`값이 '0'이하값인 경우
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `IllegalArgumentException` - `w,h`값이 '0'이하값인 경우## 메서드 상세
 
 ### getCurrentModeCode
 

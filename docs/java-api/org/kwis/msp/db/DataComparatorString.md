@@ -72,14 +72,7 @@ Method Detail
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 요약
+=========== END OF NAVBAR ===========## 생성자 요약
 
 - DataComparatorString (int offset) 두개의 레코드를 문자열로 비교하는 클래스입니다.
 
@@ -121,14 +114,7 @@ public int compare(byte[] data1,
  (즉 `data1`이 `data2`를 따르는 순서이면)
  `DataComparator.FOLLOWS`,
  `data1` 다음에 `data2`가 오는 순서이면 
- `DataComparator.PRECEDES`
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+ `DataComparator.PRECEDES`## 메서드 상세
 
 ### compare
 

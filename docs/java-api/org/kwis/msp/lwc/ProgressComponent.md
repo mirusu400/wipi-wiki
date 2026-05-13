@@ -183,14 +183,7 @@ Method Detail
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 요약
+=========== END OF NAVBAR ===========## 생성자 요약
 
 - ProgressComponent (boolean bInteractive,
  int max) 생성자함수 
@@ -396,14 +389,7 @@ public boolean keyNotify(int type,
 ```java
 public void setChangeListener(ChangeListener listener,
                               Object obj)
-```
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+```## 메서드 상세
 
 ### setStep
 

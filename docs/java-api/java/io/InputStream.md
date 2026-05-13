@@ -152,14 +152,7 @@ public void reset()
 ```
 
 **Throws:**
-- `IOException` -
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `IOException` -## 메서드 상세
 
 ### read
 

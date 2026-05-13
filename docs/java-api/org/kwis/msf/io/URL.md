@@ -42,14 +42,7 @@ public static Socket find(String url)
 ```
 
 **Throws:**
-- `SchemeNotFoundException` - 소켓을 생성하지 못할 경우
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `SchemeNotFoundException` - 소켓을 생성하지 못할 경우## 메서드 상세
 
 ### find
 

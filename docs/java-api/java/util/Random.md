@@ -76,14 +76,7 @@ public long nextLong()
 ```
 
 **Returns:**
-- Long형의 새로운 난수.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- Long형의 새로운 난수.## 메서드 상세
 
 ### setSeed
 

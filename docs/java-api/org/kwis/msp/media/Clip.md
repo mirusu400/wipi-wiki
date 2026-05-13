@@ -378,14 +378,7 @@ public boolean playUpdate(int event,
 ```
 
 **Parameters:**
-- `parm` - 각 event에 추가 전달값이 있을 경우 사용
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+- `parm` - 각 event에 추가 전달값이 있을 경우 사용## 생성자 상세
 
 ### Clip
 
@@ -609,14 +602,7 @@ public boolean playUpdate(int event,
 ```
 
 **Parameters:**
-- `parm` - 각 event에 추가 전달값이 있을 경우 사용
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `parm` - 각 event에 추가 전달값이 있을 경우 사용## 메서드 상세
 
 ### getPlayerID
 

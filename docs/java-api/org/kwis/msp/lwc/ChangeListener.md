@@ -23,14 +23,7 @@ public void changed(Component cmp,
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 요약
+=========== END OF NAVBAR ===========## 메서드 요약
 
 - `void changed ( Component cmp, Object o)` — ChangeListener를 설정한 Component에서 CHANGE 이벤트가 발생한 경우 불리게 됩니다.
 

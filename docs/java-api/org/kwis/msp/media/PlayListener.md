@@ -69,14 +69,7 @@ Method Detail
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 필드 요약
+=========== END OF NAVBAR ===========## 필드 요약
 
 - `static int END_OF_DATA` — 재생데이타의 마지막에 도달함 값은 1 입니다.
 - `static int ERROR` — 에러가 발생 값은 -1 입니다.
@@ -182,14 +175,7 @@ public void playUpdate(Clip clip,
 ```
 
 **Parameters:**
-- `parm` - 각 event에 추가 전달값이 있을 경우 사용
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `parm` - 각 event에 추가 전달값이 있을 경우 사용## 메서드 상세
 
 ### playUpdate
 

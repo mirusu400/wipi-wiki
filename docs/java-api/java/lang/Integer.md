@@ -283,14 +283,7 @@ public static Integer valueOf(String s,
 - s가 radix진법으로 변환된 정수값.
 
 **Throws:**
-- `NumberFormatException` - 문자열이 변환될 수 없울 때 발생.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+- `NumberFormatException` - 문자열이 변환될 수 없울 때 발생.## 생성자 상세
 
 ### Integer
 
@@ -513,14 +506,7 @@ public static Integer valueOf(String s,
 - s가 radix진법으로 변환된 정수값.
 
 **Throws:**
-- `NumberFormatException` - 문자열이 변환될 수 없울 때 발생.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `NumberFormatException` - 문자열이 변환될 수 없울 때 발생.## 메서드 상세
 
 ### equals
 

@@ -32,14 +32,7 @@ Method Detail
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 필드 요약
+=========== END OF NAVBAR ===========## 필드 요약
 
 - `static int DECODE_ERROR`
 - `static int FRAME_END`
@@ -92,14 +85,7 @@ public void notify(Image img,
 
 **See Also:**
 - ``Image.loadImage(java.lang.String, org.kwis.msp.lcdui.ImageObserver)``, 
-``Image.play(org.kwis.msp.lcdui.ImageObserver)``
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+``Image.play(org.kwis.msp.lcdui.ImageObserver)``## 메서드 상세
 
 ### notify
 

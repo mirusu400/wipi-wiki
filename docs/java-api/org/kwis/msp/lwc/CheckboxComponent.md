@@ -144,14 +144,7 @@ Method Detail
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 요약
+=========== END OF NAVBAR ===========## 생성자 요약
 
 - CheckboxComponent ( String str, Image img) 새로운 CheckboxComponent 를 생성합니다.
 - CheckboxComponent ( String str, Image img,
@@ -282,14 +275,7 @@ public void setChangeListener(ChangeListener listener,
 - `obj` - Listener가 불려질때 넘겨 받을 Object (확장 파라메터)
 
 **See Also:**
-- ``CheckboxGroup.setChangeListener(org.kwis.msp.lwc.ChangeListener, java.lang.Object)``
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- ``CheckboxGroup.setChangeListener(org.kwis.msp.lwc.ChangeListener, java.lang.Object)``## 메서드 상세
 
 ### setState
 

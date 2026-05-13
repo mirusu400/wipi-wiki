@@ -202,14 +202,7 @@ public static int digit(char ch,
 - `radix` - 변환시 사용할 진법.
 
 **Returns:**
-- 문자에 해당하는 정수값.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+- 문자에 해당하는 정수값.## 생성자 상세
 
 ### Character
 
@@ -339,14 +332,7 @@ public static int digit(char ch,
 - `radix` - 변환시 사용할 진법.
 
 **Returns:**
-- 문자에 해당하는 정수값.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- 문자에 해당하는 정수값.## 메서드 상세
 
 ### charValue
 

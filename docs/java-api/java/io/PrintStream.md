@@ -257,14 +257,7 @@ public void println(Object x)
 ```
 
 **Parameters:**
-- `x` - 출력할 객체.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `x` - 출력할 객체.## 메서드 상세
 
 ### flush
 

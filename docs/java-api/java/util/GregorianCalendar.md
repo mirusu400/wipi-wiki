@@ -211,14 +211,7 @@ public boolean isLeapYear(int year)
 - `year` - 검토하고자 하는 년도.
 
 **Returns:**
-- 윤년이면 true 아니면 false.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+- 윤년이면 true 아니면 false.## 생성자 상세
 
 ### GregorianCalendar
 
@@ -374,14 +367,7 @@ public boolean isLeapYear(int year)
 - `year` - 검토하고자 하는 년도.
 
 **Returns:**
-- 윤년이면 true 아니면 false.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- 윤년이면 true 아니면 false.## 메서드 상세
 
 ### after
 

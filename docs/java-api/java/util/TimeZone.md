@@ -156,14 +156,7 @@ public String toString()
 - `toString` in class `Object`
 
 **Returns:**
-- 현 객체를 설명할 수 있는 문자열.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- 현 객체를 설명할 수 있는 문자열.## 메서드 상세
 
 ### initialize
 

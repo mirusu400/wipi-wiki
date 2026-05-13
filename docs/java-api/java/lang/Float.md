@@ -228,14 +228,7 @@ public static int floatToIntBits(float value)
 
 ```java
 public static float intBitsToFloat(int bits)
-```
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+```## 생성자 상세
 
 ### Float
 
@@ -387,14 +380,7 @@ public static int floatToIntBits(float value)
 
 ```java
 public static float intBitsToFloat(int bits)
-```
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+```## 메서드 상세
 
 ### toString
 

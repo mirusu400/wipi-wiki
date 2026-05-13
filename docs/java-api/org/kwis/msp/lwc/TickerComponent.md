@@ -222,14 +222,7 @@ public void paintContent(Graphics g)
 - `g` - 칠할 Graphics.
 
 **See Also:**
-- ``Graphics``
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+- ``Graphics``## 생성자 상세
 
 ### TickerComponent
 
@@ -383,14 +376,7 @@ public void paintContent(Graphics g)
 - `g` - 칠할 Graphics.
 
 **See Also:**
-- ``Graphics``
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- ``Graphics``## 메서드 상세
 
 ### setString
 

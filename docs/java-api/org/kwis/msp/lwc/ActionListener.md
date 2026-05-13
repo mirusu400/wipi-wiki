@@ -16,14 +16,7 @@ public void action(Component cmp,
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 요약
+=========== END OF NAVBAR ===========## 메서드 요약
 
 - `void action ( Component cmp, Object o)` — 버튼이나 리스트에서 action이 발생하면 불립니다.
 

@@ -150,14 +150,7 @@ public void write(String str,
 - `len` - 출력할 문자 갯수.
 
 **Throws:**
-- `IOException` -
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+- `IOException` -## 생성자 상세
 
 ### Writer
 
@@ -264,14 +257,7 @@ public void write(String str,
 - `len` - 출력할 문자 갯수.
 
 **Throws:**
-- `IOException` -
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `IOException` -## 메서드 상세
 
 ### close
 

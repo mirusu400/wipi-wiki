@@ -1,0 +1,358 @@
+# Class Short
+
+`package java.lang`
+
+```
+java.lang.Object
+  |
+  +--java.lang.Short
+```
+
+## 설명
+
+**extends Object:**
+
+Short 클래스는 short 값의 표준 래퍼입니다.
+
+**Since:**
+- JDK1.1, CLDC 1.0
+
+## 필드 요약
+
+- `static short MAX_VALUE` — Short가 가질 수 있는 최대값
+- `static short MIN_VALUE` — Short가 가질 수 있는 최소값
+
+## 생성자 요약
+
+- Short (short value) 지정된 short 값으로 초기화되는 Short 객체를 구성합니다.
+
+## 메서드 요약
+
+- `boolean equals ( Object obj)` — 이 객체를 지정된 객체와 비교합니다.
+- `int hashCode ()` — 이 Short의 해시 코드를 반환합니다.
+- `static short parseShort ( String s)` — 지정된 문자열이 한 short를 나타내는 경우 해당 short의 값을 반환합니다.
+- `static short parseShort ( String s, int radix)` — 지정된 문자열이 short를 나타내는 경우 두 번째 인자로 지정된 기수의 해당 short 값을 반환합니다.
+- `short shortValue ()` — 이 Short 값을 short로 반환합니다.
+- `String toString ()` — 이 Short의 값을 나타내는 문자열 객체를 반환합니다.
+
+## 필드 상세
+
+### MIN_VALUE
+
+```java
+public static final short MIN_VALUE
+```
+
+**See Also:**
+- `Constant Field Values`
+
+### MAX_VALUE
+
+```java
+public static final short MAX_VALUE
+```
+
+**See Also:**
+- `Constant Field Values`
+
+### Short
+
+```java
+public Short(short value)
+```
+
+- 지정된 short 값으로 초기화되는 Short 객체를 구성합니다.
+
+**Parameters:**
+- `value` - Short의 초기 값
+
+### parseShort
+
+```java
+public static short parseShort(String s)
+                        throws NumberFormatException
+```
+
+**Parameters:**
+- `s` - 해당 short를 포함하는 문자열
+
+**Returns:**
+- 지정된 문자열이 나타내는 short 값
+
+**Throws:**
+- `NumberFormatException` - 문자열에 구문 분석 가능한 
+ short가 없는 경우
+
+### parseShort
+
+```java
+public static short parseShort(String s,
+                               int radix)
+                        throws NumberFormatException
+```
+
+**Parameters:**
+- `radix` - 사용되는 기수
+
+**Returns:**
+- 지정된 문자가 나타내는 
+ 지정된 기수의 short 값
+
+**Throws:**
+- `NumberFormatException` - 문자열에 
+ 구문 분석 가능한 short가 없는 경우
+
+### shortValue
+
+```java
+public short shortValue()
+```
+
+**Returns:**
+- 이 Short 값(short)
+
+### toString
+
+```java
+public String toString()
+```
+
+**Overrides:**
+- `toString` in class `Object`
+
+**Returns:**
+- 객체의 문자열 표현
+
+### hashCode
+
+```java
+public int hashCode()
+```
+
+**Overrides:**
+- `hashCode` in class `Object`
+
+**Returns:**
+- 이 객체의 해시 코드 값
+
+**See Also:**
+- ``Object.equals(java.lang.Object)``, 
+``Hashtable``
+
+### equals
+
+```java
+public boolean equals(Object obj)
+```
+
+**Overrides:**
+- `equals` in class `Object`
+
+**Parameters:**
+- `obj` - 비교할 객체
+
+**Returns:**
+- 두 객체가 동일하면 true, 다르면 false
+
+**See Also:**
+- ``Boolean.hashCode()``, 
+``Hashtable``
+
+## 생성자 상세
+
+### Short
+
+```java
+public Short(short value)
+```
+
+- 지정된 short 값으로 초기화되는 Short 객체를 구성합니다.
+
+**Parameters:**
+- `value` - Short의 초기 값
+
+### parseShort
+
+```java
+public static short parseShort(String s)
+                        throws NumberFormatException
+```
+
+**Parameters:**
+- `s` - 해당 short를 포함하는 문자열
+
+**Returns:**
+- 지정된 문자열이 나타내는 short 값
+
+**Throws:**
+- `NumberFormatException` - 문자열에 구문 분석 가능한 
+ short가 없는 경우
+
+### parseShort
+
+```java
+public static short parseShort(String s,
+                               int radix)
+                        throws NumberFormatException
+```
+
+**Parameters:**
+- `radix` - 사용되는 기수
+
+**Returns:**
+- 지정된 문자가 나타내는 
+ 지정된 기수의 short 값
+
+**Throws:**
+- `NumberFormatException` - 문자열에 
+ 구문 분석 가능한 short가 없는 경우
+
+### shortValue
+
+```java
+public short shortValue()
+```
+
+**Returns:**
+- 이 Short 값(short)
+
+### toString
+
+```java
+public String toString()
+```
+
+**Overrides:**
+- `toString` in class `Object`
+
+**Returns:**
+- 객체의 문자열 표현
+
+### hashCode
+
+```java
+public int hashCode()
+```
+
+**Overrides:**
+- `hashCode` in class `Object`
+
+**Returns:**
+- 이 객체의 해시 코드 값
+
+**See Also:**
+- ``Object.equals(java.lang.Object)``, 
+``Hashtable``
+
+### equals
+
+```java
+public boolean equals(Object obj)
+```
+
+**Overrides:**
+- `equals` in class `Object`
+
+**Parameters:**
+- `obj` - 비교할 객체
+
+**Returns:**
+- 두 객체가 동일하면 true, 다르면 false
+
+**See Also:**
+- ``Boolean.hashCode()``, 
+``Hashtable``
+
+## 메서드 상세
+
+### parseShort
+
+```java
+public static short parseShort(String s)
+                        throws NumberFormatException
+```
+
+**Parameters:**
+- `s` - 해당 short를 포함하는 문자열
+
+**Returns:**
+- 지정된 문자열이 나타내는 short 값
+
+**Throws:**
+- `NumberFormatException` - 문자열에 구문 분석 가능한 
+ short가 없는 경우
+
+### parseShort
+
+```java
+public static short parseShort(String s,
+                               int radix)
+                        throws NumberFormatException
+```
+
+**Parameters:**
+- `radix` - 사용되는 기수
+
+**Returns:**
+- 지정된 문자가 나타내는 
+ 지정된 기수의 short 값
+
+**Throws:**
+- `NumberFormatException` - 문자열에 
+ 구문 분석 가능한 short가 없는 경우
+
+### shortValue
+
+```java
+public short shortValue()
+```
+
+**Returns:**
+- 이 Short 값(short)
+
+### toString
+
+```java
+public String toString()
+```
+
+**Overrides:**
+- `toString` in class `Object`
+
+**Returns:**
+- 객체의 문자열 표현
+
+### hashCode
+
+```java
+public int hashCode()
+```
+
+**Overrides:**
+- `hashCode` in class `Object`
+
+**Returns:**
+- 이 객체의 해시 코드 값
+
+**See Also:**
+- ``Object.equals(java.lang.Object)``, 
+``Hashtable``
+
+### equals
+
+```java
+public boolean equals(Object obj)
+```
+
+**Overrides:**
+- `equals` in class `Object`
+
+**Parameters:**
+- `obj` - 비교할 객체
+
+**Returns:**
+- 두 객체가 동일하면 true, 다르면 false
+
+**See Also:**
+- ``Boolean.hashCode()``, 
+``Hashtable``

@@ -121,14 +121,7 @@ Method Detail
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 요약
+=========== END OF NAVBAR ===========## 생성자 요약
 
 - OutputStreamWriter ( OutputStream out) 새로운 출력스트림을 생성한다.
 - OutputStreamWriter ( OutputStream out, String encoding_scheme) 새로운 출력스트림을 생성한다.
@@ -256,14 +249,7 @@ public void write(String str,
 - `len` - 출력할 문자 갯수.
 
 **Throws:**
-- `IOException` -
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `IOException` -## 메서드 상세
 
 ### close
 

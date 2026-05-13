@@ -334,14 +334,7 @@ public String toString()
 public void trimToSize()
 ```
 
-- 벡터를 저장하기 위한 버퍼에서 사용하지 않는 공간을 제거한다
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+- 벡터를 저장하기 위한 버퍼에서 사용하지 않는 공간을 제거한다## 생성자 상세
 
 ### Vector
 
@@ -601,14 +594,7 @@ public String toString()
 public void trimToSize()
 ```
 
-- 벡터를 저장하기 위한 버퍼에서 사용하지 않는 공간을 제거한다
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- 벡터를 저장하기 위한 버퍼에서 사용하지 않는 공간을 제거한다## 메서드 상세
 
 ### addElement
 

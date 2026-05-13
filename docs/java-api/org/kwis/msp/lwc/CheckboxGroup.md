@@ -85,14 +85,7 @@ public void setChangeListener(ChangeListener listener,
 **See Also:**
 - `CheckboxComponent#CheckboxComponent(String, Image, CheckboxGroup, boolean)`, 
 ``CheckboxComponent.CheckboxComponent(String, Image, CheckboxGroup)``, 
-``CheckboxComponent.setChangeListener(org.kwis.msp.lwc.ChangeListener, java.lang.Object)``
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+``CheckboxComponent.setChangeListener(org.kwis.msp.lwc.ChangeListener, java.lang.Object)``## 메서드 상세
 
 ### select
 

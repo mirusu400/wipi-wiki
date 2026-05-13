@@ -109,14 +109,7 @@ public static int identityHashCode(Object o)
 - `o` - 해쉬코드를 구하고자 하는 객체.
 
 **Returns:**
-- o에 해당하는 해쉬코드 정수 값.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- o에 해당하는 해쉬코드 정수 값.## 메서드 상세
 
 ### arraycopy
 

@@ -200,14 +200,7 @@ public int read(byte[] buf,
 - `len` - 읽고자 하는 갯수.
 
 **Returns:**
-- 읽을 내용이 없으면 -1 아니면 실제 읽은 갯수.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+- 읽을 내용이 없으면 -1 아니면 실제 읽은 갯수.## 생성자 상세
 
 ### ByteArrayInputStream
 
@@ -332,14 +325,7 @@ public int read(byte[] buf,
 - `len` - 읽고자 하는 갯수.
 
 **Returns:**
-- 읽을 내용이 없으면 -1 아니면 실제 읽은 갯수.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- 읽을 내용이 없으면 -1 아니면 실제 읽은 갯수.## 메서드 상세
 
 ### close
 

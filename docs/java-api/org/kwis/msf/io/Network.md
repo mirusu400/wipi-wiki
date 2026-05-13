@@ -46,14 +46,7 @@ public static int connect()
 public static void disconnect()
 ```
 
-- TCP/IO 인터넷 접근을 종료한다.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- TCP/IO 인터넷 접근을 종료한다.## 메서드 상세
 
 ### connect
 

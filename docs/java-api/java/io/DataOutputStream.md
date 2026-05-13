@@ -286,14 +286,7 @@ public final void writeUTF(String s)
 - `str` - 출력할 문자열.
 
 **Throws:**
-- `IOException` -
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+- `IOException` -## 생성자 상세
 
 ### DataOutputStream
 
@@ -517,14 +510,7 @@ public final void writeUTF(String s)
 - `str` - 출력할 문자열.
 
 **Throws:**
-- `IOException` -
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `IOException` -## 메서드 상세
 
 ### write
 

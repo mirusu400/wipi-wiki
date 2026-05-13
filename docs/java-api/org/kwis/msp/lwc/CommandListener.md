@@ -25,14 +25,7 @@ Method Detail
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 필드 요약
+=========== END OF NAVBAR ===========## 필드 요약
 
 - `static int FOCUS_CHANGE`
 - `static int SELECT`
@@ -64,14 +57,7 @@ public void commandAction(Command c,
 ```
 
 **Parameters:**
-- `type` - 커맨드 선택시 SELECT, 커맨드 포커스 변경시 FOCUS_CHANGE
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `type` - 커맨드 선택시 SELECT, 커맨드 포커스 변경시 FOCUS_CHANGE## 메서드 상세
 
 ### commandAction
 

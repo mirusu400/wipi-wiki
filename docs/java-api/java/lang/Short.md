@@ -138,14 +138,7 @@ public String toString()
 - `toString` in class `Object`
 
 **Returns:**
-- 현 객체값을 10진수로 변환한 문자열.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+- 현 객체값을 10진수로 변환한 문자열.## 생성자 상세
 
 ### Short
 
@@ -235,14 +228,7 @@ public String toString()
 - `toString` in class `Object`
 
 **Returns:**
-- 현 객체값을 10진수로 변환한 문자열.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- 현 객체값을 10진수로 변환한 문자열.## 메서드 상세
 
 ### equals
 

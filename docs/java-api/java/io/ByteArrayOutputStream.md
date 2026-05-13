@@ -132,14 +132,7 @@ public void write(byte[] buffer,
 - `write` in class `OutputStream`
 
 **Parameters:**
-- `add` - 출력될 갯수.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+- `add` - 출력될 갯수.## 생성자 상세
 
 ### ByteArrayOutputStream
 
@@ -220,14 +213,7 @@ public void write(byte[] buffer,
 - `write` in class `OutputStream`
 
 **Parameters:**
-- `add` - 출력될 갯수.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `add` - 출력될 갯수.## 메서드 상세
 
 ### toString
 

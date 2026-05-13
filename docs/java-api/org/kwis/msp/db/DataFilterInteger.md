@@ -100,14 +100,7 @@ public boolean filter(byte[] data)
 - `data` - 레코드에 저장된 데이터를 나타내는 바이트 어레이
 
 **Returns:**
-- 해당 레코드가 정렬에 포함된다면 true, 아니면 false
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+- 해당 레코드가 정렬에 포함된다면 true, 아니면 false## 생성자 상세
 
 ### DataFilterInteger
 
@@ -142,14 +135,7 @@ public boolean filter(byte[] data)
 - `data` - 레코드에 저장된 데이터를 나타내는 바이트 어레이
 
 **Returns:**
-- 해당 레코드가 정렬에 포함된다면 true, 아니면 false
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- 해당 레코드가 정렬에 포함된다면 true, 아니면 false## 메서드 상세
 
 ### filter
 

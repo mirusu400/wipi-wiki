@@ -103,14 +103,7 @@ public void write(int b)
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 요약
+=========== END OF NAVBAR ===========## 메서드 요약
 
 - `void write (byte[] b)` — 바이트 배열 전체를 출력한다.
 - `void write (byte[] b, int off, int len)` — 바이트 배열의 일부분을 출력한다.

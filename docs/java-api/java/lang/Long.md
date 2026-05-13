@@ -179,14 +179,7 @@ public static String toString(long i,
 - `redix` - 변환 진법.
 
 **Returns:**
-- i가 변환된 radix진수 문자열.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+- i가 변환된 radix진수 문자열.## 생성자 상세
 
 ### Long
 
@@ -313,14 +306,7 @@ public static String toString(long i,
 - `redix` - 변환 진법.
 
 **Returns:**
-- i가 변환된 radix진수 문자열.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- i가 변환된 radix진수 문자열.## 메서드 상세
 
 ### equals
 

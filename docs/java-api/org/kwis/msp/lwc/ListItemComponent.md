@@ -84,14 +84,7 @@ Method Detail
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 요약
+=========== END OF NAVBAR ===========## 생성자 요약
 
 - ListItemComponent ( String str) 주어진 문자열로 ListItemComponent 의 인스턴스를 생성합니다.
 - ListItemComponent ( String str, Image img) ListItemComponent 의 인스턴스를 생성합니다.
@@ -150,14 +143,7 @@ public boolean getState()
 ```
 
 **Returns:**
-- 선택된 상태면 `true`, 선택안된 상태면 `false`
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- 선택된 상태면 `true`, 선택안된 상태면 `false`## 메서드 상세
 
 ### setState
 

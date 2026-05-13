@@ -88,14 +88,7 @@ public int hashCode()
 - `hashCode` in class `Object`
 
 **Returns:**
-- 정수형의 해쉬코드.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- 정수형의 해쉬코드.## 메서드 상세
 
 ### getTime
 

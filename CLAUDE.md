@@ -85,7 +85,7 @@ PDF의 목차 (이미 추출해서 확인함):
 ```
 1. 서론                     → docs/overview/introduction.md
 2. 개념적 구조              → docs/overview/architecture.md
-3. 플랫폼 일반 사항         → docs/overview/platform.md
+3. 주요 기능 규격         → docs/overview/platform.md
 
 4. HAL 규격
   4.1 Type Definition       → docs/hal/types.md

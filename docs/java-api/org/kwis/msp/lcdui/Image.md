@@ -241,14 +241,7 @@ public static void stopImage(ImageObserver io)
 ```
 
 **Parameters:**
-- `io` - 삭제할 이미지에 대응하는 `ImageObserver`
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `io` - 삭제할 이미지에 대응하는 `ImageObserver`## 메서드 상세
 
 ### createImage
 

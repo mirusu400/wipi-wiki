@@ -20,14 +20,7 @@ public void notifyEvent(int type,
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 요약
+=========== END OF NAVBAR ===========## 메서드 요약
 
 - `void notifyEvent (int type, int param1, int param2)` — 응용 프로그램 이벤트가 발생하면 불립니다.
 

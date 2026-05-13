@@ -138,14 +138,7 @@ public byte byteValue()
 ```
 
 **Returns:**
-- 현 객체의 값.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+- 현 객체의 값.## 생성자 상세
 
 ### Byte
 
@@ -235,14 +228,7 @@ public byte byteValue()
 ```
 
 **Returns:**
-- 현 객체의 값.
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- 현 객체의 값.## 메서드 상세
 
 ### hashCode
 

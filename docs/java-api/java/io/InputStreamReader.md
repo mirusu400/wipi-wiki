@@ -144,14 +144,7 @@ Method Detail
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 요약
+=========== END OF NAVBAR ===========## 생성자 요약
 
 - InputStreamReader ( InputStream in) 새로운 객체를 생성한다.
 - InputStreamReader ( InputStream in, String encoding_name) 특정 디코더를 사용하는 새로운 객체를 생성한다.
@@ -314,14 +307,7 @@ public void close()
 - `close` in class `Reader`
 
 **Throws:**
-- `IOException` -
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `IOException` -## 메서드 상세
 
 ### ready
 

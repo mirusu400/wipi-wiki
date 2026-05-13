@@ -231,14 +231,7 @@ public void setLayout(int layout)
 ``Component.LAYOUT_HCENTER``, 
 ``Component.LAYOUT_TOP``, 
 `Component#LYAOUT_VCENTER`, 
-``Component.LAYOUT_BOTTOM``
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 상세
+``Component.LAYOUT_BOTTOM``## 생성자 상세
 
 ### LabelComponent
 
@@ -381,14 +374,7 @@ public void setLayout(int layout)
 ``Component.LAYOUT_HCENTER``, 
 ``Component.LAYOUT_TOP``, 
 `Component#LYAOUT_VCENTER`, 
-``Component.LAYOUT_BOTTOM``
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+``Component.LAYOUT_BOTTOM``## 메서드 상세
 
 ### setLabel
 

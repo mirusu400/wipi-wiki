@@ -387,6 +387,33 @@ def _detail_to_md(anchor: Tag) -> str:
     return "\n\n".join(p for p in out if p.strip()) + "\n"
 
 
+AROMASOFT_FOOTER = re.compile(
+    r"\n*\*\*\*AromaSoft Corp\. Proprietary and Confidential\*\*\*\s*\n+"
+    r"\*\(C\)opyright \d{4} AromaSoft Corp\. All right reserved\.\s*\n"
+    r"Contact : \[contact@aromasoft\.com\]\(mailto:contact@aromasoft\.com\)\*"
+)
+
+
+def strip_interior_footers(md: str) -> str:
+    """Remove AromaSoft copyright footer blocks that appear mid-document.
+
+    The source JavaDoc repeats the same footer on every class section. We keep
+    only the trailing occurrence so each Markdown page ends with one footer.
+    """
+    matches = list(AROMASOFT_FOOTER.finditer(md))
+    if len(matches) <= 1:
+        return md
+    parts: list[str] = []
+    cursor = 0
+    for m in matches[:-1]:
+        parts.append(md[cursor:m.start()])
+        cursor = m.end()
+        while cursor < len(md) and md[cursor] == "\n":
+            cursor += 1
+    parts.append(md[cursor:])
+    return re.sub(r"\n{3,}", "\n\n", "".join(parts))
+
+
 def convert_package_summary(html: str, pkg: str) -> tuple[str, list[str]]:
     """Returns (markdown, list_of_class_names_found)."""
     soup = BeautifulSoup(html, "lxml")
@@ -440,6 +467,17 @@ def main(src: str, dst: str) -> None:
     dst_path = Path(dst)
     dst_path.mkdir(parents=True, exist_ok=True)
 
+    def read_html(path: Path) -> str:
+        data = path.read_bytes()
+        m = re.search(rb"charset\s*=\s*['\"]?([\w-]+)", data[:2048], re.IGNORECASE)
+        enc = m.group(1).decode("ascii").lower() if m else "utf-8"
+        if enc in ("euc-kr", "euckr", "ks_c_5601-1987"):
+            enc = "cp949"
+        try:
+            return data.decode(enc)
+        except UnicodeDecodeError:
+            return data.decode("cp949", errors="replace")
+
     pkg_list = (src_path / "package-list").read_text().strip().splitlines()
     pkg_list = [p.strip() for p in pkg_list if p.strip()]
     print(f"[javadoc] {len(pkg_list)} packages")
@@ -459,22 +497,35 @@ def main(src: str, dst: str) -> None:
             continue
 
         # Convert package summary
-        md, classes = convert_package_summary(summary_html.read_text(encoding="utf-8"), pkg)
+        md, classes = convert_package_summary(read_html(summary_html), pkg)
+
+        # Filter to classes whose HTML actually exists (e.g. MIDP listings
+        # include CLDC-inherited classes that aren't redocumented here).
+        present_classes = [c for c in classes if (pkg_path / f"{c}.html").exists()]
+        missing = set(classes) - set(present_classes)
+        if missing:
+            # Drop link lines pointing at missing classes so strict build passes.
+            kept_lines: list[str] = []
+            for line in md.splitlines():
+                m = re.match(r"^- \[([^\]]+)\]\(([^)]+)\.md\)", line)
+                if m and m.group(1) in missing:
+                    continue
+                kept_lines.append(line)
+            md = "\n".join(kept_lines)
+
         # Write package-level index
         pkg_index = dst_path / pkg.replace(".", "/") / "index.md"
         pkg_index.parent.mkdir(parents=True, exist_ok=True)
         pkg_index.write_text(md, encoding="utf-8")
         index_lines.append(f"- [`{pkg}`]({pkg.replace('.', '/')}/index.md) "
-                           f"({len(classes)} classes)")
+                           f"({len(present_classes)} classes)")
 
-        # Convert each class
-        for class_name in classes:
+        # Convert each present class
+        for class_name in present_classes:
             class_html = pkg_path / f"{class_name}.html"
-            if not class_html.exists():
-                # may have generic angle brackets or inner-class issues — best effort
-                continue
-            md_class = convert_class_page(class_html.read_text(encoding="utf-8"),
+            md_class = convert_class_page(read_html(class_html),
                                           pkg, class_name)
+            md_class = strip_interior_footers(md_class)
             out_file = dst_path / pkg.replace(".", "/") / f"{class_name}.md"
             out_file.write_text(md_class, encoding="utf-8")
             total_classes += 1

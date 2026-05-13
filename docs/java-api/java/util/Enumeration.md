@@ -23,14 +23,7 @@ public boolean hasMoreElements()
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 요약
+=========== END OF NAVBAR ===========## 메서드 요약
 
 - `boolean hasMoreElements ()` — Enumeration안에 남아있는 객체가 있는지 여부를 구한다.
 - `Object nextElement ()` — Enumeration에서 다음 객체를 구한다.

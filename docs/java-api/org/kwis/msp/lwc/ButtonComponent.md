@@ -143,14 +143,7 @@ Method Detail
 
 ========== START OF NAVBAR ==========
 
-=========== END OF NAVBAR ===========
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 생성자 요약
+=========== END OF NAVBAR ===========## 생성자 요약
 
 - ButtonComponent () 버튼을 생성합니다.
 - ButtonComponent ( String str, Image img) 지정된 Image와 문자열을 버튼을 생성합니다.
@@ -316,14 +309,7 @@ protected void calcPreferredSize(int w)
 - **Description copied from class: `Component`**
 
 **Overrides:**
-- `calcPreferredSize` in class `Component`
-
-***AromaSoft Corp. Proprietary and Confidential***
-
-*(C)opyright 2003 AromaSoft Corp. All right reserved. 
-Contact : [contact@aromasoft.com](mailto:contact@aromasoft.com)*
-
-## 메서드 상세
+- `calcPreferredSize` in class `Component`## 메서드 상세
 
 ### setFont
 
