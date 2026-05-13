@@ -55,3 +55,9 @@
 - [Error](Error.md) — Error 는 합리적 응용 프로그램이라면 파악하려고 시도해서는 안 되는 심각한 문제를 나타내는 Throwable 의 서브 클래스입니다.
 - [OutOfMemoryError](OutOfMemoryError.md) — Java 가상 머신이 메모리 부족으로 객체를 할당할 수 없으며 가비지 컬렉터에서 추가 메모리를 제공할 수 없는 경우에 발생합니다.
 - [VirtualMachineError](VirtualMachineError.md) — Java 가상 머신에 장애가 발생했거나 계속 작동하는 데 필요한 자원이 떨어졌음을 나타냅니다.
+
+## 기타
+
+- [Double](Double.md)
+- [Float](Float.md)
+- [NoClassDefFoundError](NoClassDefFoundError.md)

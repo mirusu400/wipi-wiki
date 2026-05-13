@@ -40,3 +40,15 @@
 - [IndexOutOfBoundsException](IndexOutOfBoundsException.md) — Vector나 문자열, 배열 같이 인데스를 통해 접근가는한 객체에 범위 밖의 인덱스를 사용할 때 발생하는 exception 클래스.
 - [InstantiationException](InstantiationException.md) — newInstace를 통해 객체를 생성할 때 클래스가 추상 클래스나 인터페이스일 때 발생하는 exception 클래스.
 - [InterruptedException](InterruptedException.md) — 한 쓰레드가 wait,sleep,pause瑛
+
+## 기타
+
+- [Error](Error.md)
+- [NegativeArraySizeException](NegativeArraySizeException.md)
+- [NullPointerException](NullPointerException.md)
+- [NumberFormatException](NumberFormatException.md)
+- [OutOfMemoryError](OutOfMemoryError.md)
+- [RuntimeException](RuntimeException.md)
+- [SecurityException](SecurityException.md)
+- [StringIndexOutOfBoundsException](StringIndexOutOfBoundsException.md)
+- [VirtualMachineError](VirtualMachineError.md)

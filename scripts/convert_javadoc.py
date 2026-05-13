@@ -519,6 +519,25 @@ def main(src: str, dst: str) -> None:
                     rewritten.append(line)
             md = "\n".join(rewritten)
 
+        # Some packages have class HTML files that aren't listed in any
+        # summary table (e.g. MIDP IllegalStateException, CLDC Double/Float,
+        # WIPI inner classes / undocumented Throwables). Pick them up by
+        # scanning the package directory itself.
+        meta_files = {
+            "package-summary.html", "package-frame.html",
+            "package-tree.html", "package-use.html",
+        }
+        dir_classes = sorted(
+            p.stem for p in pkg_path.glob("*.html")
+            if p.name not in meta_files
+        )
+        extra = [c for c in dir_classes if c not in present_classes]
+        if extra:
+            present_classes = present_classes + extra
+            md = md.rstrip() + "\n\n## 기타\n\n" + "\n".join(
+                f"- [{c}]({c}.md)" for c in extra
+            ) + "\n"
+
         # Write package-level index
         pkg_index = dst_path / pkg.replace(".", "/") / "index.md"
         pkg_index.parent.mkdir(parents=True, exist_ok=True)

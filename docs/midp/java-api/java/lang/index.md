@@ -15,8 +15,8 @@
 - [Byte](../../../../cldc/java-api/java/lang/Byte.md) — Byte 클래스는 바이트 값의 표준 래퍼입니다.
 - [Character](../../../../cldc/java-api/java/lang/Character.md) — Character 클래스는 프리미티브 유형의 char 값을 객체에 포함합니다.
 - [Class](../../../../cldc/java-api/java/lang/Class.md) — Class 클래스의 인스턴스는 실행 중인 Java 응용 프로그램의 클래스와 인터페이스를 나타냅니다.
-- `Double` — Double 클래스는 프리미티브 유형의 double 값을 객체에 포함합니다.
-- `Float` — Float 클래스는 프리미티브 유형의 float 값을 객체에 포함합니다.
+- [Double](../../../../cldc/java-api/java/lang/Double.md) — Double 클래스는 프리미티브 유형의 double 값을 객체에 포함합니다.
+- [Float](../../../../cldc/java-api/java/lang/Float.md) — Float 클래스는 프리미티브 유형의 float 값을 객체에 포함합니다.
 - [Integer](../../../../cldc/java-api/java/lang/Integer.md) — Integer 클래스는 프리미티브 유형의 int 값을 객체에 포함합니다.
 - [Long](../../../../cldc/java-api/java/lang/Long.md) — Long 클래스는 프리미티브 유형의 long 값을 객체에 포함합니다.
 - [Math](../../../../cldc/java-api/java/lang/Math.md) — Math 클래스에는 기본 수식 작업을 수행하기 위한 메소드가 포함되어 있습니다.
@@ -54,6 +54,10 @@
 ## Error Summary
 
 - [Error](../../../../cldc/java-api/java/lang/Error.md) — Error 는 합리적 응용 프로그램이라면 파악하려고 시도해서는 안 되는 심각한 문제를 나타내는 Throwable 의 서브 클래스입니다.
-- `NoClassDefFoundError` — Java 가상 머신이 클래스 정의를 정상적인 메소드 호출의 일부나 new 표현식을 사용한 새 인스턴스 작성 과정의 일부로 로드하려고 시도하지만 클래스 정의를 찾을 수 없는 경우에 발생합니다.
+- [NoClassDefFoundError](../../../../cldc/java-api/java/lang/NoClassDefFoundError.md) — Java 가상 머신이 클래스 정의를 정상적인 메소드 호출의 일부나 new 표현식을 사용한 새 인스턴스 작성 과정의 일부로 로드하려고 시도하지만 클래스 정의를 찾을 수 없는 경우에 발생합니다.
 - [OutOfMemoryError](../../../../cldc/java-api/java/lang/OutOfMemoryError.md) — Java 가상 머신이 메모리 부족으로 객체를 할당할 수 없으며 가비지 컬렉터에서 추가 메모리를 제공할 수 없는 경우에 발생합니다.
 - [VirtualMachineError](../../../../cldc/java-api/java/lang/VirtualMachineError.md) — Java 가상 머신에 장애가 발생했거나 계속 작동하는 데 필요한 자원이 떨어졌음을 나타냅니다.
+
+## 기타
+
+- [IllegalStateException](IllegalStateException.md)

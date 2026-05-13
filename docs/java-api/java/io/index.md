@@ -23,3 +23,10 @@
 
 - [EOFException](EOFException.md) — 입력 스트림에서 더 이상 읽을 정보가 없을 때 발생하는 exception 클래스.
 - [InterruptedIOException](InterruptedIOException.md) — 입출력 동작이 쓰레드의 갑작스러운 종료 등과 같은 이유로 중단瑛
+
+## 기타
+
+- [IOException](IOException.md)
+- [UTFDataFormatException](UTFDataFormatException.md)
+- [UnavailableException](UnavailableException.md)
+- [UnsupportedEncodingException](UnsupportedEncodingException.md)

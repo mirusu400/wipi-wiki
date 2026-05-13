@@ -4,7 +4,7 @@ JavaDoc HTML 을 Markdown 으로 재구성한 레퍼런스입니다.
 
 ## 패키지 목록
 
-- [`java.lang`](java/lang/index.md) (0 classes)
+- [`java.lang`](java/lang/index.md) (1 classes)
 - [`java.util`](java/util/index.md) (2 classes)
 - [`javax.microedition.io`](javax/microedition/io/index.md) (10 classes)
 - [`javax.microedition.lcdui`](javax/microedition/lcdui/index.md) (27 classes)

@@ -35,3 +35,7 @@
 - [TextComponent](TextComponent.md) — 텍스트 출력 및 입력 수정 삭제를 위한 추상 클래스입니다.
 - [TextFieldComponent](TextFieldComponent.md) — TextFieldComponentTextComponent 를 상속한 클래스로 한 라인에서 문자 편집을 합니다.
 - [TickerComponent](TickerComponent.md) — TickerComponent 는 문자열과 이미지로 구성되면 우측에서 좌측으로 움직이는 컴포넌트입니다.
+
+## 기타
+
+- [TextComponent.ModeViewer](TextComponent.ModeViewer.md)
