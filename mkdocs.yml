@@ -114,6 +114,7 @@ nav:
   - CLDC 1.1:
       - cldc/index.md
       - 규격서: cldc/spec.md
+      - 바이트 코드 검사기: cldc/verifier.md
       - Java API: cldc/java-api/index.md
   - MIDP 2.0:
       - midp/index.md
