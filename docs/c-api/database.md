@@ -128,18 +128,17 @@ M_Int32 MC_dbDeleteDataBase(M_Char* dataBaseName, M_Int32 mode)
 
 **참고 항목**
 
+`MC_dbCloseDataBase`, `MC_fsOpen`
 
-```c
-MC_dbCloseDataBase
-MC_fsOpen
-MC_dbInsertRecord 설명
-```
+### MC_dbInsertRecord
+
+**설명**
 
 새로운 레코드를 데이터베이스에 추가한다.
 
 버퍼에 저장된 데이터를 하나의 레코드로 데이터베이스에 저장한다. 저장할 버퍼 의 크기가 데이터베이스를 생성할 때 지정한 레코드 크기보다 작으면, 남는 영역 에 쓰레기값(garbage)이 저장되어 있을 수 있다.
 
-MC_dbSelectRecord 는 레코드 크기 단위로 데이터를 읽어오기 때문에 레코드 크기보 다 작은 데이터를 저장했다면, 이후 다시 읽어들인 문자 어레이에서 실제 데이터 뒤에 쓰레기값(garbage)이 들어 있을 수 있다.
+`MC_dbSelectRecord` 는 레코드 크기 단위로 데이터를 읽어오기 때문에 레코드 크기보 다 작은 데이터를 저장했다면, 이후 다시 읽어들인 문자 어레이에서 실제 데이터 뒤에 쓰레기값(garbage)이 들어 있을 수 있다.
 
 **프로토타입**
 
@@ -149,14 +148,20 @@ M_Int32 MC_dbInsertRecord(M_Int32 dbId, M_Byte* buf, M_Int32 len)
 
 **매개 변수**
 
-- `dbId` - 레코드를 추가할 데이터베이스 식별자 buf - 데이터가 저장되어 있는 버퍼
+- `dbId` - 레코드를 추가할 데이터베이스 식별자
+- `buf` - 데이터가 저장되어 있는 버퍼
 - `len` - 저장할 데이터의 크기
 
 **반환 값**
 
 성공
+- 레코드 식별자(0 보다 큰 정수)
 
 실패
+- `M_E_BADFD` - 데이터베이스 식별자가 잘못된 경우
+- `M_E_DATABIG` - 데이터베이스의 레코드 크기보다 더 큰 데이터를 저장하려 하는 경우
+- `M_E_INVALID` - len 이 0 이거나 음수인 경우, buf 가 NULL 인 경우
+- `M_E_ERROR` - 기타 데이터를 저장할 수 없는 경우
 
 **부작용**
 
@@ -164,73 +169,39 @@ M_Int32 MC_dbInsertRecord(M_Int32 dbId, M_Byte* buf, M_Int32 len)
 
 **참고 항목**
 
-레코드 식별자(0 보다 큰 정수)
+`MC_dbSelectRecord`, `MC_dbUpdateRecord`, `MC_dbDeleteRecord`
 
-M_E_BADFD - 데이터베이스 식별자가 잘못된 경우
+### MC_dbSelectRecord
 
-M_E_DATABIG - 데이터베이스의 레코드 크기보다 더 큰 데이터를 저장하려 하는 경우
-
-M_E_INVALID - len 이 0 이거나 음수인 경우, buf 가 NULL 인 경우 M_E_ERROR - 기타 데이터를 저장할 수 없는 경우
-
-```c
-MC_dbSelectRecord MC_dbUpdateRecord MC_dbDeleteRecord
-MC_dbSelectRecord 설명
-```
+**설명**
 
 특정 레코드 식별자에 저장된 데이터를 돌려준다.
 
-읽어들인 데이터는 버퍼에 복사되어 돌려진다. 이 함수를 호출한 이후에 버퍼의 내용을 바꾸더라도 데이터베이스에 저장된 레코드는 변하지 않는다. 버퍼의 크기 는 해당 데이터베이스의 레코드 크기보다 크거나 같아야 한다. 데이터베이스의 하 나의 레코드의 크기는 MC_dbGetRecordSize 함수로 알아올 수 있다.
+읽어들인 데이터는 버퍼에 복사되어 돌려진다. 이 함수를 호출한 이후에 버퍼의 내용을 바꾸더라도 데이터베이스에 저장된 레코드는 변하지 않는다. 버퍼의 크기 는 해당 데이터베이스의 레코드 크기보다 크거나 같아야 한다. 데이터베이스의 하 나의 레코드의 크기는 `MC_dbGetRecordSize` 함수로 알아올 수 있다.
 
 **프로토타입**
 
 ```c
-M_ Int32 MC_dbSelectRecord(M_Int32 dbId, M_Int32 recId, M_Byte* buf, M_Int32 len)
-```
-
-**매개 변수**
-
-- `dbId` - 데이터베이스 식별자 recId - 레코드 식별자
-- `buf` - 데이터를 받을 버퍼 len - 버퍼의 길이
-
-**반환 값**
-
-성공
-
-실패
-
-**부작용**
-
-없음
-
-**참고 항목**
-
-M_E_BADFD - 데이터베이스 식별자가 잘못된 경우 M_E_BADRECID - 해당 레코드 식별자가 존재하지 않는 경우
-
-M_E_INVALID - len 이 0 이거나 음수인 경우, buf 가 NULL 인 경우 M_E_SHORTBUF - 주어진 버퍼가 레코드 크기보다 작은 경우 M_E_ERROR - 기타 이유로 레코드를 읽어올 수 없는 경우
-
-```c
-MC_dbInsertRecord MC_dbUpdateRecord MC_dbDeleteRecord
-MC_dbUpdateRecord 설명
-```
-
-특정 레코드의 데이터의 내용을 바꾼다. 해당 레코드 식별자에 저장되어 있던 내 용을 새로운 내용으로 바꾼다.
-
-**프로토타입**
-
-```c
-M_ Int32 MC_dbUpdateRecord(M_Int32 dbId, M_Int32 recId, M_Byte* buf, M_Int32 len)
+M_Int32 MC_dbSelectRecord(M_Int32 dbId, M_Int32 recId, M_Byte* buf, M_Int32 len)
 ```
 
 **매개 변수**
 
 - `dbId` - 데이터베이스 식별자
-- `recId` - 데이터 내용을 변경시킬 레코드 식별자 buf - 새로이 저장할 데이터가 들어있는 버퍼 len - 버퍼의 크기
+- `recId` - 레코드 식별자
+- `buf` - 데이터를 받을 버퍼
+- `len` - 버퍼의 길이
 
 **반환 값**
 
 성공
-
+- 0
 실패
+- `M_E_BADFD` - 데이터베이스 식별자가 잘못된 경우
+- `M_E_BADRECID` - 해당 레코드 식별자가 존재하지 않는 경우
+- `M_E_INVALID` - len 이 0 이거나 음수인 경우, buf 가 NULL 인 경우
+- `M_E_SHORTBUF` - 주어진 버퍼가 레코드 크기보다 작은 경우
+- `M_E_ERROR` - 기타 이유로 레코드를 읽어올 수 없는 경우
 
 **부작용**
 
@@ -238,16 +209,50 @@ M_ Int32 MC_dbUpdateRecord(M_Int32 dbId, M_Int32 recId, M_Byte* buf, M_Int32 len
 
 **참고 항목**
 
-M_E_BADFD 데이터베이스 식별자가 잘못된 경우 M_E_BADRECID - 해당 레코드 식별자가 존재하지 않는 경우
+`MC_dbInsertRecord`, `MC_dbUpdateRecord`, `MC_dbDeleteRecord`
 
-M_E_DATABIG - 갱신하려는 데이터가 데이터베이스 생성시에 지정한 레코 드 크기보다 큰 경우
+### MC_dbUpdateRecord
 
-M_E_INVALID - len 이 0 이거나 음수인 경우, buf 가 NULL 인 경우 M_E_ERROR - 기타 이유로 레코드를 갱신할 수 없는 경우
+**설명**
+
+특정 레코드의 데이터의 내용을 바꾼다. 해당 레코드 식별자에 저장되어 있던 내용을 새로운 내용으로 바꾼다.
+
+**프로토타입**
 
 ```c
-MC_dbInsertRecord MC_dbSelectRecord MC_dbDeleteRecord
-MC_dbDeleteRecord 설명
+M_Int32 MC_dbUpdateRecord(M_Int32 dbId, M_Int32 recId, M_Byte* buf, M_Int32 len)
 ```
+
+**매개 변수**
+
+- `dbId` - 데이터베이스 식별자
+- `recId` - 데이터 내용을 변경시킬 레코드 식별자
+- `buf` - 새로이 저장할 데이터가 들어있는 버퍼
+- `len` - 버퍼의 크기
+
+**반환 값**
+
+성공
+- 0
+
+실패
+- `M_E_BADFD` 데이터베이스 식별자가 잘못된 경우
+- `M_E_BADRECID` - 해당 레코드 식별자가 존재하지 않는 경우
+- `M_E_DATABIG` - 갱신하려는 데이터가 데이터베이스 생성시에 지정한 레코드 크기보다 큰 경우
+- `M_E_INVALID` - len 이 0 이거나 음수인 경우, buf 가 NULL 인 경우
+- `M_E_ERROR` - 기타 이유로 레코드를 갱신할 수 없는 경우
+
+**부작용**
+
+없음
+
+**참고 항목**
+
+`MC_dbInsertRecord`, `MC_dbSelectRecord`, `MC_dbDeleteRecord`
+
+### MC_dbDeleteRecord
+
+**설명**
 
 레코드를 데이터베이스에서 삭제한다.
 
@@ -261,7 +266,8 @@ M_Int32 MC_dbDeleteRecord(M_Int32 dbId, M_Int32 recId)
 
 **매개 변수**
 
-- `dbId` - 데이터베이스 식별자 recId - 지울 레코드의 식별자
+- `dbId` - 데이터베이스 식별자
+- `recId` - 지울 레코드의 식별자
 
 **반환 값**
 
