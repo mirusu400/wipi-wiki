@@ -316,11 +316,9 @@ typedef struct _MTimer MCTimer
 
 타이머 설정에 사용되는 구조체형 선언
 
-### 참고항목
+**참고항목**
 
-```c
-MC_knlDefTimer, MC_knlSetTimer, MC_knlUnsetTimer
-```
+`MC_knlDefTimer, MC_knlSetTimer, MC_knlUnsetTimer`
 
 ### TIMERCB
 
@@ -339,11 +337,9 @@ typedef void (*TIMERCB)(MCTimer *tm, void* parm)
 - `tm` - 타이머 설정시 타이머 구조체 포인터
 - `parm` - 타이머 설정시 전달한 매개변수
 
-### 참고항목
+**참고항목**
 
-```c
-MC_knlDefTimer
-```
+`MC_knlDefTimer`
 
 ### MC_knlPrintk
 
@@ -978,14 +974,14 @@ M_Uint32 MC_knlCalloc(M_Int32 size)
 
 없음
 
-```c
-MC_knlFree
-```
+
+### MC_knlFree
 
 **프로토타입**
 
-
-### void MC_knlFree(M_Uint32 mID)
+```c
+void MC_knlFree(M_Uint32 mID)
+```
 
 **설명**
 
