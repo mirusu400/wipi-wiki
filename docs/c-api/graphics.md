@@ -2063,7 +2063,7 @@ M_Int32 MC_imSetCurrentMode (M_Int32 mode)
 
 없음
 
-### MC_imGetCurrentMode()
+### MC_imGetCurrentMode
 
 **프로토타입**
 
