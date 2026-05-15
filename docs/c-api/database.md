@@ -44,8 +44,11 @@ M_Int32 MC_dbOpenDataBase(M_Char* dataBaseName, M_Int32 recordSize, M_Boolean cr
 **반환 값**
 
 성공
+
 - 데이터베이스 식별자(0 보다 큰 정수)
+
 실패
+
 - `M_E_NOENT` - create 가 거짓인데 데이터베이스가 존재하지 않는 경우
 - `M_E_INVALID` - create 가 참인데 recordSize 가 0 이거나 음수인 경우, dataBaseName 이 NULL 인 경우, mode 가 위에서 기술한 셋 중 하나가 아닌 경우
 - `M_E_ERROR` - 기타 데이터베이스를 열 수 없는 경우
@@ -77,9 +80,11 @@ M_Int32 MC_dbCloseDataBase(M_Int32 dbId)
 **반환 값**
 
 성공
+
 - 0
 
 실패
+
 - `M_E_BADFD` - 데이터베이스 식별자가 잘못된 경우
 - `M_E_ERROR` - 기타 이유로 실패할 경우
 
@@ -113,9 +118,11 @@ M_Int32 MC_dbDeleteDataBase(M_Char* dataBaseName, M_Int32 mode)
 **반환 값**
 
 성공
+
 - 0
 
 실패
+
 - `M_E_NOENT` - 데이터베이스가 존재하지 않는 경우
 - `M_E_INUSE` - 데이터베이스가 닫혀 있지 않은 경우
 - `M_E_INVALID` - dataBaseName 이 NULL 이거나, mode 가 위에서 기술한 셋 중 하나가 아닌 경우
@@ -155,9 +162,11 @@ M_Int32 MC_dbInsertRecord(M_Int32 dbId, M_Byte* buf, M_Int32 len)
 **반환 값**
 
 성공
+
 - 레코드 식별자(0 보다 큰 정수)
 
 실패
+
 - `M_E_BADFD` - 데이터베이스 식별자가 잘못된 경우
 - `M_E_DATABIG` - 데이터베이스의 레코드 크기보다 더 큰 데이터를 저장하려 하는 경우
 - `M_E_INVALID` - len 이 0 이거나 음수인 경우, buf 가 NULL 인 경우
@@ -195,8 +204,11 @@ M_Int32 MC_dbSelectRecord(M_Int32 dbId, M_Int32 recId, M_Byte* buf, M_Int32 len)
 **반환 값**
 
 성공
+
 - 0
+
 실패
+
 - `M_E_BADFD` - 데이터베이스 식별자가 잘못된 경우
 - `M_E_BADRECID` - 해당 레코드 식별자가 존재하지 않는 경우
 - `M_E_INVALID` - len 이 0 이거나 음수인 경우, buf 가 NULL 인 경우
@@ -272,9 +284,11 @@ M_Int32 MC_dbDeleteRecord(M_Int32 dbId, M_Int32 recId)
 **반환 값**
 
 성공
+
 - 0
 
 실패
+
 - `M_E_BADFD` - 데이터베이스 식별자가 잘못된 경우
 - `M_E_BADRECID` - 해당 레코드 식별자가 존재하지 않는 경우
 - `M_E_ERROR` - 기타 이유로 레코드를 지울 수 없는 경우
@@ -368,13 +382,16 @@ M_Int32 MC_dbSortRecords(M_Int32 dbID, M_Int32* buf, M_Int32 len, M_Int32 (*comp
 - `filter` - 정렬에 사용할 레코드를 제한하는 함수 포인터, NULL이면 모든 레코드 를 정렬에 사용함 반환 값
 
 성공
+
 - 레코드 개수
 
 실패
+
 - `M_E_BADFD` - 데이터베이스 식별자가 잘못된 경우
 - `M_E_INVALID` - len 이 0 이거나 음수인 경우, buf 가 NULL 인 경우
 - `M_E_SHORTBUF` - 레코드 식별자를 받아올 버퍼가 너무 작은 경우
 - `M_E_ERROR` - 기타 이유로 실패한 경우
+
 **부작용**
 
 없음
@@ -404,9 +421,11 @@ M_Int32 MC_dbGetAccessMode(M_Char* dataBaseName)
 **반환 값**
 
 성공
+
 - `DIR_PRIVATE_ACCESS`, `DIR_SHARED_ACCESS`, `DIR_SYSTEM_ACCESS` 중 한가지 값
 
 실패
+
 - `M_E_NOENT` - 데이터베이스가 존재하지 않는 경우
 - `M_E_INVALID` - dataBaseName 이 NULL 인 경우
 - `M_E_ERROR` - 기타 이유로 실패한 경우
@@ -439,9 +458,11 @@ M_Int32 MC_dbGetNumberOfRecords(M_Int32 dbId)
 **반환 값**
 
 성공
+
 - 레코드 개수
 
 실패
+
 - `M_E_BADFD` - 데이터베이스 식별자가 잘못된 경우
 - `M_E_ERROR` - 기타 이유로 실패한 경우
 
@@ -473,9 +494,11 @@ M_Int32 MC_dbGetRecordSize(M_Int32 dbId)
 **반환 값**
 
 성공
+
 - 레코드의 크기(byte)
 
 실패
+
 - `M_E_BADFD` - 데이터베이스 식별자가 잘못된 경우
 - `M_E_ERROR` - 기타 이유로 실패한 경우
 
@@ -509,9 +532,11 @@ M_Int32 MC_dbListDataBases(M_Byte* buf, M_Int32 len)
 **반환 값**
 
 성공
+
 - 데이터베이스의 개수(데이터베이스가 하나도 없는 경우도 성공한 것으로 간주함)
 
 실패
+
 - `M_E_SHORTBUF` - 어레이를 받아오기에 버퍼가 너무 작은 경우
 - `M_E_INVALID` - len 이 0 이거나 음수인 경우, buf 가 NULL 인 경우
 - `M_E_ERROR` - 기타 이유로 실패한 경우
