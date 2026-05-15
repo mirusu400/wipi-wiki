@@ -272,8 +272,12 @@ M_Int32 MC_dbDeleteRecord(M_Int32 dbId, M_Int32 recId)
 **반환 값**
 
 성공
+- 0
 
 실패
+- `M_E_BADFD` - 데이터베이스 식별자가 잘못된 경우
+- `M_E_BADRECID` - 해당 레코드 식별자가 존재하지 않는 경우
+- `M_E_ERROR` - 기타 이유로 레코드를 지울 수 없는 경우
 
 **부작용**
 
@@ -281,12 +285,11 @@ M_Int32 MC_dbDeleteRecord(M_Int32 dbId, M_Int32 recId)
 
 **참고 항목**
 
-M_E_BADFD - 데이터베이스 식별자가 잘못된 경우 M_E_BADRECID - 해당 레코드 식별자가 존재하지 않는 경우 M_E_ERROR - 기타 이유로 레코드를 지울 수 없는 경우
+`MC_dbInsertRecord`, `MC_dbSelectRecord`, `MC_dbUpdateRecord`
 
-```c
-MC_dbInsertRecord MC_dbSelectRecord MC_dbUpdateRecord
-MC_dbListRecords 설명
-```
+### MC_dbListRecords
+
+**설명**
 
 데이터베이스에 저장된 레코드들의 레코드 식별자를 돌려준다.
 
@@ -301,13 +304,19 @@ M_Int32 MC_dbListRecords(M_Int32 dbID, M_Int32* buf, M_Int32 len)
 **매개 변수**
 
 - `dbId` - 데이터베이스 식별자
-- `buf` - 받아온 레코드 식별자를 저장할 버퍼 len - 버퍼의 크기
+- `buf` - 받아온 레코드 식별자를 저장할 버퍼
+- `len` - 버퍼의 크기
 
 **반환 값**
 
 성공
+- 레코드 개수
 
 실패
+- `M_E_BADFD` - 데이터베이스 식별자가 잘못된 경우
+- `M_E_INVALID` - len 이 0 이거나 음수인 경우, buf 가 NULL 인 경우
+- `M_E_SHORTBUF` - 레코드 식별자를 받아올 버퍼가 너무 작은 경우
+- `M_E_ERROR` - 기타 이유로 실패한 경우
 
 **부작용**
 
@@ -315,74 +324,28 @@ M_Int32 MC_dbListRecords(M_Int32 dbID, M_Int32* buf, M_Int32 len)
 
 **참고 항목**
 
-레코드 개수
+`MC_dbSortRecords`
 
-M_E_BADFD - 데이터베이스 식별자가 잘못된 경우
 
-M_E_INVALID - len 이 0 이거나 음수인 경우, buf 가 NULL 인 경우 M_E_SHORTBUF - 레코드 식별자를 받아올 버퍼가 너무 작은 경우 M_E_ERROR - 기타 이유로 실패한 경우
+### MC_dbSortRecords
 
-```c
-MC_dbSortRecords
-MC_dbSortRecords 설명
-```
+**설명**
 
 데이터베이스에 저장된 레코드들의 정렬된 레코드 식별자를 돌려준다. 각 레코드를 바이트별로 비교해 정렬한다.
 
-예를 들어 어떤 데이터베이스의 레코드 크기가 2 이고 아래와 같이 4 개의 레코드 가 저장되어 있다면,
+예를 들어 어떤 데이터베이스의 레코드 크기가 2 이고 아래와 같이 4 개의 레코드가 저장되어 있다면,
 
-============================
-
-| 레코드식별자 | 데이터 |
-
-============================
-
-|
-
-|
-
-0x33
-
-0x22
-
-|
-
-|
-
-|
-
-0x11
-
-0x22
-
-|
-
-|
-
-|
-
-0x22
-
-0xff
-
-|
-
-|
-
-|
-
-0x11
-
-0xff
-
-|
-
-============================
-
+| 레코드 식별자 | 데이터 |
+|:---:|:---:|
+| 0 | `0x33 0x22` |
+| 1 | `0x11 0x22` |
+| 2 | `0x22 0xff` |
+| 3 | `0x11 0xff` |
 *
 
-이 함수를 호출하면 매개변수로 받은 정수형 버퍼에 1, 3, 2, 0 순서로 레코드 식 별자가 저장되어 돌려지며 4(레코드 개수)가 반환된다(매개 변수인 compare 와 filter 를 모두 NULL 로 넣은 경우).
+이 함수를 호출하면 매개변수로 받은 정수형 버퍼에 1, 3, 2, 0 순서로 레코드 식별자가 저장되어 돌려지며 4(레코드 개수)가 반환된다(매개 변수인 compare 와 filter 를 모두 NULL 로 넣은 경우).
 
-응용 프로그램 작성자가 정렬 방법을 지정하거나 정렬에 사용할 레코드를 제한하 는 기능은 이 함수의 매개 변수를 사용해 구현할 수 있다.
+응용 프로그램 작성자가 정렬 방법을 지정하거나 정렬에 사용할 레코드를 제한하는 기능은 이 함수의 매개 변수를 사용해 구현할 수 있다.
 
 정렬할 때 두 개의 레코드의 순서를 정하는 방법을 compare 를 구현해 지정할 수 있다. compare 가 받는 매개 변수는 데이터베이스에 저장한 레코드이다. 이 함수 는 두 개의 레코드를 비교해서 첫번째 매개변수로 받은 레코드가 두번째 매개변수 로 받은 레코드보다 앞에 오면 0 보다 큰 정수를, 뒤에 오면 0 보다 작은 정수를, 두 개의 순서가 동일하면 0 을 반환해야 한다.
 
@@ -399,33 +362,30 @@ M_Int32 MC_dbSortRecords(M_Int32 dbID, M_Int32* buf, M_Int32 len, M_Int32 (*comp
 **매개 변수**
 
 - `dbId` - 데이터베이스 식별자
-
-### buf - 받아온 레코드 식별자들를 저장할 버퍼 len - 버퍼의 크기
-
-### compare – 두 레코드를 비교하기 위한 함수 포인터, NULL 이면 앞의 예제처 럼 각 byte 별로 올림차순으로 정렬됨
-
+- `buf` - 받아온 레코드 식별자들를 저장할 버퍼
+- `len` - 버퍼의 크기
+- `compare` – 두 레코드를 비교하기 위한 함수 포인터, NULL 이면 앞의 예제처 럼 각 byte 별로 올림차순으로 정렬됨
 - `filter` - 정렬에 사용할 레코드를 제한하는 함수 포인터, NULL이면 모든 레코드 를 정렬에 사용함 반환 값
 
 성공
+- 레코드 개수
 
 실패
-
+- `M_E_BADFD` - 데이터베이스 식별자가 잘못된 경우
+- `M_E_INVALID` - len 이 0 이거나 음수인 경우, buf 가 NULL 인 경우
+- `M_E_SHORTBUF` - 레코드 식별자를 받아올 버퍼가 너무 작은 경우
+- `M_E_ERROR` - 기타 이유로 실패한 경우
 **부작용**
 
 없음
 
 **참고 항목**
 
-레코드 개수
+`MC_dbListRecords`
 
-M_E_BADFD - 데이터베이스 식별자가 잘못된 경우
+### MC_dbGetAccessMode
 
-M_E_INVALID - len 이 0 이거나 음수인 경우, buf 가 NULL 인 경우 M_E_SHORTBUF - 레코드 식별자를 받아올 버퍼가 너무 작은 경우 M_E_ERROR - 기타 이유로 실패한 경우
-
-```c
-MC_dbListRecords
-MC_dbGetAccessMode 설명
-```
+**설명**
 
 데이터베이스의 접근 권한을 돌려 준다.
 
@@ -444,8 +404,12 @@ M_Int32 MC_dbGetAccessMode(M_Char* dataBaseName)
 **반환 값**
 
 성공
+- `DIR_PRIVATE_ACCESS`, `DIR_SHARED_ACCESS`, `DIR_SYSTEM_ACCESS` 중 한가지 값
 
-값 실패
+실패
+- `M_E_NOENT` - 데이터베이스가 존재하지 않는 경우
+- `M_E_INVALID` - dataBaseName 이 NULL 인 경우
+- `M_E_ERROR` - 기타 이유로 실패한 경우
 
 **부작용**
 
@@ -453,14 +417,12 @@ M_Int32 MC_dbGetAccessMode(M_Char* dataBaseName)
 
 **참고 항목**
 
-DIR_PRIVATE_ACCESS, DIR_SHARED_ACCESS, DIR_SYSTEM_ACCESS  중  한가지
+`MC_dbOpenDataBase`, `MC_fsOpen`
 
-M_E_NOENT - 데이터베이스가 존재하지 않는 경우 M_E_INVALID - dataBaseName 이 NULL 인 경우 M_E_ERROR - 기타 이유로 실패한 경우
 
-```c
-MC_dbOpenDataBase MC_fsOpen
-MC_dbGetNumberOfRecords 설명
-```
+### MC_dbGetNumberOfRecords
+
+**설명**
 
 데이터베이스에 저장된 레코드 개수를 돌려준다.
 
@@ -477,8 +439,11 @@ M_Int32 MC_dbGetNumberOfRecords(M_Int32 dbId)
 **반환 값**
 
 성공
+- 레코드 개수
 
 실패
+- `M_E_BADFD` - 데이터베이스 식별자가 잘못된 경우
+- `M_E_ERROR` - 기타 이유로 실패한 경우
 
 **부작용**
 
@@ -488,13 +453,10 @@ M_Int32 MC_dbGetNumberOfRecords(M_Int32 dbId)
 
 없음
 
-레코드 개수
 
-M_E_BADFD - 데이터베이스 식별자가 잘못된 경우 M_E_ERROR - 기타 이유로 실패한 경우
+### MC_dbGetRecordSize
 
-```c
-MC_dbGetRecordSize 설명
-```
+**설명**
 
 데이터베이스의 하나의 레코드 크기를 돌려준다.
 
@@ -511,8 +473,11 @@ M_Int32 MC_dbGetRecordSize(M_Int32 dbId)
 **반환 값**
 
 성공
+- 레코드의 크기(byte)
 
 실패
+- `M_E_BADFD` - 데이터베이스 식별자가 잘못된 경우
+- `M_E_ERROR` - 기타 이유로 실패한 경우
 
 **부작용**
 
@@ -520,18 +485,15 @@ M_Int32 MC_dbGetRecordSize(M_Int32 dbId)
 
 **참고 항목**
 
-레코드의 크기(byte)
+`MC_dbOpenDataBase`
 
-M_E_BADFD - 데이터베이스 식별자가 잘못된 경우 M_E_ERROR - 기타 이유로 실패한 경우
+### MC_dbListDataBases
 
-```c
-MC_dbOpenDataBase
-MC_dbListDataBases 설명
-```
+**설명**
 
 데이터베이스의 이름의 어레이를 돌려준다.
 
-DIR_PRIVATE_ACCESS 로 생성한 데이터베이스와 DIR_SHARED_ACCESS, DIR_SYSTEM_ACCESS 로 생성한 데이터베이스 중 응용프로그램이 접근 가능한 데이 터베이스의 이름을 돌려준다. 버퍼를 통해 돌려지는 각각의 데이터베이스는 NULL(\0)로 구분이 되며 리스트의 끝은 두개의 연속된 NULL 로 표현된다.
+`DIR_PRIVATE_ACCESS` 로 생성한 데이터베이스와 `DIR_SHARED_ACCESS`, `DIR_SYSTEM_ACCESS` 로 생성한 데이터베이스 중 응용프로그램이 접근 가능한 데이터베이스의 이름을 돌려준다. 버퍼를 통해 돌려지는 각각의 데이터베이스는 NULL(\0)로 구분이 되며 리스트의 끝은 두개의 연속된 NULL 로 표현된다.
 
 **프로토타입**
 
@@ -541,13 +503,19 @@ M_Int32 MC_dbListDataBases(M_Byte* buf, M_Int32 len)
 
 **매개 변수**
 
-- `buf` - 데이터베이스 이름을 저장할 버퍼 len - 버퍼의 크기
+- `buf` - 데이터베이스 이름을 저장할 버퍼
+- `len` - 버퍼의 크기
 
 **반환 값**
 
 성공
+- 데이터베이스의 개수(데이터베이스가 하나도 없는 경우도 성공한 것으로 간주함)
 
 실패
+- `M_E_SHORTBUF` - 어레이를 받아오기에 버퍼가 너무 작은 경우
+- `M_E_INVALID` - len 이 0 이거나 음수인 경우, buf 가 NULL 인 경우
+- `M_E_ERROR` - 기타 이유로 실패한 경우
+
 
 **부작용**
 
@@ -555,10 +523,4 @@ M_Int32 MC_dbListDataBases(M_Byte* buf, M_Int32 len)
 
 **참고 항목**
 
-데이터베이스의 개수(데이터베이스가 하나도 없는 경우도 성공한 것으로 간주함)
-
-M_E_SHORTBUF - 어레이를 받아오기에 버퍼가 너무 작은 경우 M_E_INVALID - len 이 0 이거나 음수인 경우, buf 가 NULL 인 경우 M_E_ERROR - 기타 이유로 실패한 경우
-
-```c
-MC_dbOpenDataBase MC_fsOpen
-```
+`MC_dbOpenDataBase`, `MC_fsOpen`
