@@ -831,13 +831,11 @@ M_Int32 MC_netSetWriteCB(M_Int32 fd, NETSOCKWRITECB cb, void *param)
 
 없음
 
+### MC_netHttpOpen
 
+**설명**
 
-```c
-MC_netHttpOpen 설명
-```
-
-HTTP 식별자를 생성한다. 이 함수로 HTTP 연결 식별자를 생성한 후에 다음 함수 들을 호출하여 필요한 값들을 설정하거나 읽어 온다. URL 문자열에 HTTP 서버의 IP 주소가 명시되어 있지 않으면 도메인 네임 서버로부터 IP 주소를 구해오게된다. 이 때 사용하는 도메인 네임 서버의 IP 주소는 MC_knlGetSystemProperty() 를 통 해 얻을 수 있다.
+HTTP 식별자를 생성한다. 이 함수로 HTTP 연결 식별자를 생성한 후에 다음 함수 들을 호출하여 필요한 값들을 설정하거나 읽어온다. URL 문자열에 HTTP 서버의 IP 주소가 명시되어 있지 않으면 도메인 네임 서버로부터 IP 주소를 구해오게된다. 이때 사용하는 도메인 네임 서버의 IP 주소는 MC_knlGetSystemProperty() 를 통해 얻을 수 있다.
 
 ```c
 MC_netHttpSetRequestMethod(), MC_netHttpGetRequestMethod(), MC_netHttpSetRequestProperty(), MC_netHttpGetRequestProperty(), MC_netHttpSetProxy(), MC_netHttpGetProxy().
@@ -857,7 +855,15 @@ M_Int32 MC_netHttpOpen(M_Byte* url)
 
 성공
 
+- HTTP 식별자
+
 실패
+
+- `M_E_INVALID` – URL 문자열이 잘 못 된 경우
+- `M_E_NOSPACE` - 더 이상 HTTP 식별자를 생성할 수 없을 때
+- `M_E_NOTCONN` - 인터넷 접근이 허용되어 있지 않은 경우
+- `M_E_ERROR` – 기타 에러
+
 
 **부작용**
 
@@ -865,19 +871,13 @@ M_Int32 MC_netHttpOpen(M_Byte* url)
 
 **참고 항목**
 
-HTTP 식별자
+`MC_knlGetSystemProperty`, `MC_netHttpSetRequestMethod`, `MC_netHttpGetRequestMethod`, `MC_netHttpSetRequestProperty`, `MC_netHttpGetRequestProperty`, `MC_netHttpSetProxy`, `MC_netHttpGetProxy`
 
-M_E_INVALID – URL 문자열이 잘 못 된 경우
+### MC_netHttpConnect
 
-M_E_NOSPACE - 더 이상 HTTP 식별자를 생성할 수 없을 때 M_E_NOTCONN - 인터넷 접근이 허용되어 있지 않은 경우 M_E_ERROR – 기타 에러
+**설명**
 
-```c
-MC_knlGetSystemProperty MC_netHttpSetRequestMethod MC_netHttpGetRequestMethod MC_netHttpSetRequestProperty MC_netHttpGetRequestProperty MC_netHttpSetProxy
-MC_netHttpGetProxy
-MC_netHttpConnect 설명
-```
-
-서버와 HTTP 연결을 시도한다. MC_netHttpOpen() 함수가 불려도 실제 서버와 HTTP 연결을 맺지 않고 이 함수가 불려야만 연결을 시도한다. 연결에 성공하거나 실패했을 경우 등록하는 콜백함수가 불린다. 이 함수가 불린 이후에는 다음 함수 들은 M_E_ERROR 를 리턴한다.
+서버와 HTTP 연결을 시도한다. `MC_netHttpOpen()` 함수가 불려도 실제 서버와 HTTP 연결을 맺지 않고 이 함수가 불려야만 연결을 시도한다. 연결에 성공하거나 실패했을 경우 등록하는 콜백함수가 불린다. 이 함수가 불린 이후에는 다음 함수 들은 `M_E_ERROR` 를 리턴한다.
 
 ```c
 MC_netHttpSetRequestMethod(), MC_netHttpGetRequestMethod(), MC_netHttpSetRequestProperty(), MC_netHttpGetRequestProperty(), MC_netHttpSetProxy(), MC_netHttpGetProxy().
@@ -891,14 +891,22 @@ M_Int32 MC_netHttpConnect(M_Int32 fd, NETHTTPCB cb, void *param)
 
 **매개 변수**
 
-- `fd` - HTTP 연결 식별자 cb – 콜백함수
+- `fd` - HTTP 연결 식별자
+- `cb` – 콜백함수
 - `param` - 콜백함수가 호출될 때 전달되는 매개변수
 
 **반환 값**
 
 성공
 
+- 0
+
 실패
+
+- `M_E_BADFD` - 잘못된 식별자
+- `M_E_NOTCONN` - 인터넷 접근이 불가능해진 경우
+- `M_E_INPROGRESS` – HTTP 서버에 이미 연결 시도 중인 경우
+- `M_E_ERROR` - 기타 에러
 
 **부작용**
 
@@ -906,19 +914,13 @@ M_Int32 MC_netHttpConnect(M_Int32 fd, NETHTTPCB cb, void *param)
 
 **참고 항목**
 
-M_E_BADFD - 잘 못된 식별자
+`MC_netHttpSetRequestMethod`, `MC_netHttpGetRequestMethod`, `MC_netHttpSetRequestProperty`, `MC_netHttpGetRequestProperty`, `MC_netHttpSetProxy`, `MC_netHttpGetProxy`
 
-M_E_NOTCONN - 인터넷 접근이 불가능해진 경우
+### MC_netHttpSetRequestMethod
 
-M_E_INPROGRESS – HTTP 서버에 이미 연결 시도 중인 경우 M_E_ERROR - 기타 에러
+**설명**
 
-```c
-MC_netHttpSetRequestMethod MC_netHttpGetRequestMethod MC_netHttpSetRequestProperty MC_netHttpGetRequestProperty MC_netHttpSetProxy
-MC_netHttpGetProxy
-MC_netHttpSetRequestMethod 설명
-```
-
-HTTP 요청 메쏘드(Request Method)를 설정한다. 요청 메쏘드는 "GET", "POST", "HEAD" 가 될 수 있다. 메쏘드가 "POST" 일 경우 전송할 메세지를 함께 명시해야 한다. 이 함수가 MC_netHttpConnect() 함수 이후에 불리면 M_E_ERROR 를 리턴한다.
+HTTP 요청 메쏘드(Request Method)를 설정한다. 요청 메쏘드는 "GET", "POST", "HEAD" 가 될 수 있다. 메쏘드가 "POST" 일 경우 전송할 메세지를 함께 명시해야 한다. 이 함수가 `MC_netHttpConnect()` 함수 이후에 불리면 `M_E_ERROR` 를 리턴한다.
 
 **프로토타입**
 
@@ -930,13 +932,20 @@ M_Int32 MC_netHttpSetRequestMethod(M_Int32 fd, M_Byte *method, M_Byte *msg, M_In
 
 - `fd` - HTTP 식별자
 - `method` - 요청 메쏘드 문자열
-- `msg` - 요청 메쏘드가 "POST" 일 경우 전송할 메시지 msglen - 메세지 길이
+- `msg` - 요청 메쏘드가 "POST" 일 경우 전송할 메시지
+- `msglen` - 메세지 길이
 
 **반환 값**
 
 성공
 
+- 0
+
 실패
+
+- `M_E_BADFD` - 잘 못된 식별
+- `M_E_INVALID` - 인식할 수 없는 요청 메쏘드일 경우나 POST 메쏘드 설정시 잘 못된 메시지일 경우
+- `M_E_ERROR` - 기타 에러
 
 **부작용**
 
@@ -944,18 +953,13 @@ M_Int32 MC_netHttpSetRequestMethod(M_Int32 fd, M_Byte *method, M_Byte *msg, M_In
 
 **참고 항목**
 
-M_E_BADFD - 잘 못된 식별
+`MC_netHttpConnect`
 
-M_E_INVALID - 인식할 수 없는 요청 메쏘드일 경우나 POST 메쏘드 설정시 잘 못된 메시지일 경우
+### MC_netHttpGetRequestMethod
 
-M_E_ERROR - 기타 에러
+**설명**
 
-```c
-MC_netHttpConnect
-MC_netHttpGetRequestMethod 설명
-```
-
-HTTP 요청 메쏘드(Request Method)를 복사해 온다. MC_netHttpSetRequestMethod() 로 요청 메쏘드를 설정하지 않았다면 디폴트로 "GET" 이 복사된다. 매개변수 buf 에 저장되는 요청 메쏘드 문자열의 마지막에는 NULL 문자가 포함되며 리턴하는 길이는 NULL 문자를 제외한 문자열의 길이다. 이 함수가 MC_netHttpConnect() 함수 이후에 불리면 M_E_ERROR 를 리턴한다.
+HTTP 요청 메쏘드(Request Method)를 복사해 온다. `MC_netHttpSetRequestMethod()` 로 요청 메쏘드를 설정하지 않았다면 디폴트로 "GET" 이 복사된다. 매개변수 buf 에 저장되는 요청 메쏘드 문자열의 마지막에는 NULL 문자가 포함되며 리턴하는 길이는 NULL 문자를 제외한 문자열의 길이다. 이 함수가 `MC_netHttpConnect()` 함수 이후에 불리면 `M_E_ERROR` 를 리턴한다.
 
 **프로토타입**
 
@@ -966,13 +970,20 @@ M_Int32 MC_netHttpGetRequestMethod(M_Int32 fd, M_Byte *buf, M_Int32 len)
 **매개 변수**
 
 - `fd` - HTTP 식별자
-- `buf` - 요청 메쏘드를 저장할 버퍼 len - 버퍼의 길이
+- `buf` - 요청 메쏘드를 저장할 버퍼
+- `len` - 버퍼의 길이
 
 **반환 값**
 
 성공
 
+- 버퍼에 저장된 요청 메쏘드 문자열의 길이
+
 실패
+
+- `M_E_BADFD` - 잘 못된 식별자
+- `M_E_INVALID` - 버퍼나 버퍼 길이가 잘 못 된 경우
+- `M_E_ERROR` - 기타 에러
 
 **부작용**
 
@@ -980,18 +991,13 @@ M_Int32 MC_netHttpGetRequestMethod(M_Int32 fd, M_Byte *buf, M_Int32 len)
 
 **참고 항목**
 
-버퍼에 저장된 요청 메쏘드 문자열의 길이
+`MC_netHttpConnect`
 
-M_E_BADFD - 잘 못된 식별자
+### MC_netHttpSetRequestProperty
 
-M_E_INVALID - 버퍼나 버퍼 길이가 잘 못 된 경우 M_E_ERROR - 기타 에러
+**설명**
 
-```c
-MC_netHttpConnect
-MC_netHttpSetRequestProperty 설명
-```
-
-HTTP 요청특성(Request Property)을 설정한다. 이 함수가 MC_netHttpConnect() 함 수 이후에 불리면 M_E_ERROR 를 리턴한다
+HTTP 요청특성(Request Property)을 설정한다. 이 함수가 `MC_netHttpConnect()` 함수 이후에 불리면 `M_E_ERROR` 를 리턴한다
 
 **프로토타입**
 
@@ -1001,13 +1007,20 @@ M_Int32 MC_netHttpSetRequestProperty(M_Int32 fd, M_Byte *key, M_Byte *value)
 
 **매개 변수**
 
-- `fd` - HTTP 식별자 key - 요청 특성 이름 value - 특성 값
+- `fd` - HTTP 식별자
+- `key` - 요청 특성 이름
+- `value` - 특성 값
 
 **반환 값**
 
 성공
 
+- 0
+
 실패
+
+- `M_E_BADFD` - 잘 못된 식별자
+- `M_E_ERROR` - 기타 에러
 
 **부작용**
 
@@ -1015,14 +1028,13 @@ M_Int32 MC_netHttpSetRequestProperty(M_Int32 fd, M_Byte *key, M_Byte *value)
 
 **참고 항목**
 
-M_E_BADFD - 잘 못된 식별자 M_E_ERROR - 기타 에러
+`MC_netHttpConnect`
 
-```c
-MC_netHttpConnect
-MC_netHttpGetRequestProperty 설명
-```
+### MC_netHttpGetRequestProperty 
 
-HTTP 요청특성(Request Property) 을 복사해 온다. 요청 특성 이름에 해당하는 값 이 설정되어 있지 않았거나 이 함수가 MC_netHttpConnect() 함수 이후에 불리면 M_E_ERROR 를 리턴한다.
+**설명**
+
+HTTP 요청특성(Request Property) 을 복사해 온다. 요청 특성 이름에 해당하는 값이 설정되어 있지 않았거나 이 함수가 `MC_netHttpConnect()` 함수 이후에 불리면 `M_E_ERROR` 를 리턴한다.
 
 **프로토타입**
 
@@ -1032,14 +1044,22 @@ M_Int32 MC_netHttpGetRequestProperty(M_Int32 fd, M_Byte *key, M_Byte *buf, M_Int
 
 **매개 변수**
 
-- `fd` - HTTP 식별자 key - 요청 특성 이름
-- `buf` - 값이 저장될 버퍼 len - 버퍼 길이
+- `fd` - HTTP 식별자
+- `key` - 요청 특성 이름
+- `buf` - 값이 저장될 버퍼
+- `len` - 버퍼 길이
 
 **반환 값**
 
 성공
 
+- 복사된 특성값의 길이
+
 실패
+
+- `M_E_BADFD` - 잘못된 식별자
+- `M_E_INVALID` - 버퍼나 버퍼길이가 잘 못 된 경우
+- `M_E_ERROR` - 기타 에러
 
 **부작용**
 
@@ -1047,18 +1067,13 @@ M_Int32 MC_netHttpGetRequestProperty(M_Int32 fd, M_Byte *key, M_Byte *buf, M_Int
 
 **참고 항목**
 
-복사된 특성값의 길이
+`MC_netHttpConnect`
 
-M_E_BADFD - 잘 못된 식별자
+### MC_netHttpSetProxy
 
-M_E_INVALID - 버퍼나 버퍼길이가 잘 못 된 경우 M_E_ERROR - 기타 에러
+**설명**
 
-```c
-MC_netHttpConnect
-MC_netHttpSetProxy 설명
-```
-
-프락시를 설정한다. 이 함수가 MC_netHttpConnect() 함수 이후에 불리면 M_E_ERROR 를 리턴한다.
+프락시를 설정한다. 이 함수가 `MC_netHttpConnect()` 함수 이후에 불리면 `M_E_ERROR` 를 리턴한다.
 
 **프로토타입**
 
@@ -1070,13 +1085,19 @@ M_Int32 MC_netHttpSetProxy(M_Int32 fd, M_Int32 proxyhost, M_Int16 proxyport)
 
 - `fd` - HTTP 식별자
 - `proxyhost` - 프락시 호스트 IP 주소. 값은 네트웍 바이트 순서(network byte ordering)이다.
-- `proxyport` - 프락시 포트 번호. 값은 네트웍 바이트 순서(network byte ordering) 이다
+- `proxyport` - 프락시 포트 번호. 값은 네트웍 바이트 순서(network byte ordering)이다
 
 **반환 값**
 
 성공
 
+- 0
+
 실패
+
+- `M_E_BADFD` - 잘 못된 식별자
+- `M_E_INVALID` – proxyhost 가 0 이거나 -1 일 경우
+- `M_E_ERROR` - 기타 에러
 
 **부작용**
 
@@ -1084,22 +1105,18 @@ M_Int32 MC_netHttpSetProxy(M_Int32 fd, M_Int32 proxyhost, M_Int16 proxyport)
 
 **참고 항목**
 
-M_E_BADFD - 잘 못된 식별자
+`MC_netHttpConnect`
 
-M_E_INVALID – proxyhost 가 0 이거나 -1 일 경우 M_E_ERROR - 기타 에러
+### MC_netHttpGetProxy
 
-```c
-MC_netHttpConnect
-MC_netHttpGetProxy 설명
-```
+**설명**
 
-프락시 호스트와 포트를 복사해 온다. 프락시를 지정하지 않았거나 이 함수가 MC_netHttpConnect() 함수 이후에 불리면 M_E_ERROR 를 리턴한다
+프락시 호스트와 포트를 복사해 온다. 프락시를 지정하지 않았거나 이 함수가 `MC_netHttpConnect()` 함수 이후에 불리면 `M_E_ERROR` 를 리턴한다
 
 **프로토타입**
 
 ```c
-M_Int32 MC_netHttpGetProxy(M_Int32 fd, M_Int32 *proxyhost, M_Int16
-*proxyport)
+M_Int32 MC_netHttpGetProxy(M_Int32 fd, M_Int32 *proxyhost, M_Int16 *proxyport)
 ```
 
 **매개 변수**
@@ -1112,7 +1129,13 @@ M_Int32 MC_netHttpGetProxy(M_Int32 fd, M_Int32 *proxyhost, M_Int16
 
 성공
 
+- 0
+
 실패
+
+- `M_E_BADFD` - 잘 못된 식별자
+- `M_E_INVALID` - 매개변수 proxyhost 나 proxyport 가 NULL 일 경우
+- `M_E_ERROR` - 기타 에러
 
 **부작용**
 
@@ -1120,20 +1143,20 @@ M_Int32 MC_netHttpGetProxy(M_Int32 fd, M_Int32 *proxyhost, M_Int16
 
 **참고 항목**
 
-M_E_BADFD - 잘 못된 식별자
+`MC_netHttpConnect`
 
-M_E_INVALID - 매개변수 proxyhost 나 proxyport 가 NULL 일 경우 M_E_ERROR - 기타 에러
+### MC_netHttpGetResponseCode
 
-```c
-MC_netHttpConnect
-MC_netHttpGetResponseCode 설명
+**설명**
+
+HTTP 서버의 응답코드를 리턴한다. 서버로 부터의 응답이 다음과 같을 때
+
+```
+HTTP/1.0 200 OK
+HTTP/1.0 404 Not Found
 ```
 
-HTTP 서버의 응답코드를 리턴한다. 서버로 부터의 응답이 다음과 같을 때 HTTP/1.0 200 OK
-
-HTTP/1.0 404 Not Found
-
-응답 코드는 각각 200, 400 이 된다. 이 함수가 MC_netHttpConnect() 에서 설정하 는 콜백함수가 불리기 전에 불리면 M_E_ERROR 를 리턴한다.
+응답 코드는 각각 200, 400 이 된다. 이 함수가 `MC_netHttpConnect()` 에서 설정하는 콜백함수가 불리기 전에 불리면 `M_E_ERROR` 를 리턴한다.
 
 **프로토타입**
 
@@ -1149,7 +1172,12 @@ M_Int32 MC_netHttpGetResponseCode(M_Int32 fd)
 
 성공
 
+- 응답코드
+
 실패
+
+- `M_E_BADFD` - 잘못된 식별자
+- `M_E_ERROR` - 기타 에러
 
 **부작용**
 
@@ -1157,20 +1185,20 @@ M_Int32 MC_netHttpGetResponseCode(M_Int32 fd)
 
 **참고 항목**
 
-응답코드
+`MC_netHttpConnect`
 
-M_E_BADFD - 잘 못된 식별자 M_E_ERROR - 기타 에러
+### MC_netHttpGetResponseMessage
 
-```c
-MC_netHttpConnect
-MC_netHttpGetResponseMessage 설명
+**설명**
+
+HTTP 서버의 응답메세지를 복사해 온다. 서버로 부터의 응답이 다음과 같을 때
+
+```
+HTTP/1.0 200 OK
+HTTP/1.0 404 Not Found
 ```
 
-HTTP 서버의 응답메세지를 복사해 온다. 서버로 부터의 응답이 다음과 같을 때 HTTP/1.0 200 OK
-
-HTTP/1.0 404 Not Found
-
-응답메세지는 "OK" 와 "Not Found" 가 된다. 이 함수가 MC_netHttpConnect() 에서 설정하는 콜백함수가 불리기 전에 불리면 M_E_ERROR 를 리턴한다.
+응답메세지는 "OK" 와 "Not Found" 가 된다. 이 함수가 `MC_netHttpConnect()` 에서 설정하는 콜백함수가 불리기 전에 불리면 `M_E_ERROR` 를 리턴한다.
 
 **프로토타입**
 
@@ -1187,7 +1215,13 @@ M_Int32 MC_netHttpGetResponseMessage(M_Int32 fd, M_Byte *buf, M_Int32 len)
 
 성공
 
+- 복사된 메세지 길이
+
 실패
+
+- `M_E_BADFD` - 잘 못된 식별자
+- `M_E_INVALID` - 버퍼나 버퍼 길이가 잘 못 된 경우
+- `M_E_ERROR` - 기타 에러
 
 **부작용**
 
@@ -1195,18 +1229,13 @@ M_Int32 MC_netHttpGetResponseMessage(M_Int32 fd, M_Byte *buf, M_Int32 len)
 
 **참고 항목**
 
-복사된 메세지 길이
+`MC_netHttpConnect`
 
-M_E_BADFD - 잘 못된 식별자
+### MC_netHttpGetHeaderField
 
-M_E_INVALID - 버퍼나 버퍼 길이가 잘 못 된 경우 M_E_ERROR - 기타 에러
+**설명**
 
-```c
-MC_netHttpConnect
-MC_netHttpGetHeaderField 설명
-```
-
-HTTP 서버의 응답중 헤더 값을 복사해 온다. 이 함수가 MC_netHttpConnect() 에서 설정하는 콜백함수가 불리기 전에 불리면 M_E_ERROR 를 리턴한다.
+HTTP 서버의 응답중 헤더 값을 복사해 온다. 이 함수가 `MC_netHttpConnect()` 에서 설정하는 콜백함수가 불리기 전에 불리면 `M_E_ERROR` 를 리턴한다.
 
 **프로토타입**
 
@@ -1216,14 +1245,22 @@ M_Int32 MC_netHttpGetHeaderField(M_Int32 fd, M_Byte *name, M_Byte *buf, M_Int32 
 
 **매개 변수**
 
-- `fd` - HTTP 식별자 name - 헤더 이름
-- `buf` - 헤더 값이 저장될 버퍼 len - 버퍼 길이
+- `fd` - HTTP 식별자
+- `name` - 헤더 이름
+- `buf` - 헤더 값이 저장될 버퍼
+- `len` - 버퍼 길이
 
 **반환 값**
 
 성공
 
+- 복사된 헤더 값 길이
+
 실패
+
+- `M_E_BADFD` - 잘 못된 식별자
+- `M_E_INVALID` - 버퍼나 버퍼 길이가 잘 못 된 경우
+- `M_E_ERROR` - 기타 에러
 
 **부작용**
 
@@ -1231,18 +1268,13 @@ M_Int32 MC_netHttpGetHeaderField(M_Int32 fd, M_Byte *name, M_Byte *buf, M_Int32 
 
 **참고 항목**
 
-복사된 헤더 값 길이
+`MC_netHttpConnect`
 
-M_E_BADFD - 잘 못된 식별자
+### MC_netHttpGetLength
 
-M_E_INVALID - 버퍼나 버퍼 길이가 잘 못 된 경우 M_E_ERROR - 기타 에러
+**설명**
 
-```c
-MC_netHttpConnect
-MC_netHttpGetLength 설명
-```
-
-컨텐츠의 길이를 리턴한다. 이 함수가 MC_netHttpConnect() 에서 설정하는 콜백함 수가 불리기 전에 불리면 M_E_ERROR 를 리턴한다
+컨텐츠의 길이를 리턴한다. 이 함수가 `MC_netHttpConnect()` 에서 설정하는 콜백함 수가 불리기 전에 불리면 `M_E_ERROR` 를 리턴한다
 
 **프로토타입**
 
@@ -1258,7 +1290,12 @@ M_Int32 MC_netHttpGetLength(M_Int32 fd)
 
 성공
 
+- 컨텐츠 길이
+
 실패
+
+- `M_E_BADFD` - 잘 못된 식별자
+- `M_E_ERROR` - 기타 에러
 
 **부작용**
 
@@ -1266,16 +1303,13 @@ M_Int32 MC_netHttpGetLength(M_Int32 fd)
 
 **참고 항목**
 
-컨텐츠 길이
+`MC_netHttpConnect`
 
-M_E_BADFD - 잘 못된 식별자 M_E_ERROR - 기타 에러
+### MC_netHttpGetType
 
-```c
-MC_netHttpConnect
-MC_netHttpGetType 설명
-```
+**설명**
 
-컨텐츠의 타입 문자열을 복사해 온다. 이 함수가 MC_netHttpConnect() 에서 설정 하는 콜백함수가 불리기 전에 불리면 M_E_ERROR 를 리턴한다.
+컨텐츠의 타입 문자열을 복사해 온다. 이 함수가 `MC_netHttpConnect()` 에서 설정 하는 콜백함수가 불리기 전에 불리면 `M_E_ERROR` 를 리턴한다.
 
 **프로토타입**
 
@@ -1286,13 +1320,20 @@ M_Int32 MC_netHttpGetType(M_Int32 fd, M_Byte *buf, M_Int32 len)
 **매개 변수**
 
 - `fd` - HTTP 식별자
-- `buf` - 컨텐츠 타입 문자열이 복사될 버퍼 len - 버퍼 길이
+- `buf` - 컨텐츠 타입 문자열이 복사될 버퍼
+- `len` - 버퍼 길이
 
 **반환 값**
 
 성공
 
+- 복사된 컨텐츠 타임 문자열 길이
+
 실패
+
+- `M_E_BADFD` - 잘 못된 식별자
+- `M_E_INVALID` - 버퍼나 버퍼 길이가 잘 못 된 경우
+- `M_E_ERROR` - 기타 에러
 
 **부작용**
 
@@ -1300,18 +1341,11 @@ M_Int32 MC_netHttpGetType(M_Int32 fd, M_Byte *buf, M_Int32 len)
 
 **참고 항목**
 
-복사된 컨텐츠 타임 문자열 길이
+`MC_netHttpConnect`
 
-M_E_BADFD - 잘 못된 식별자
+### MC_netHttpGetEncoding 설명
 
-M_E_INVALID - 버퍼나 버퍼 길이가 잘 못 된 경우 M_E_ERROR - 기타 에러
-
-```c
-MC_netHttpConnect
-MC_netHttpGetEncoding 설명
-```
-
-컨텐츠의 인코딩 문자열을 복사해 온다. 이 함수가 MC_netHttpConnect() 에서 설 정하는 콜백함수가 불리기 전에 불리면 M_E_ERROR 를 리턴한다.
+컨텐츠의 인코딩 문자열을 복사해 온다. 이 함수가 `MC_netHttpConnect()` 에서 설정하는 콜백함수가 불리기 전에 불리면 `M_E_ERROR` 를 리턴한다.
 
 **프로토타입**
 
@@ -1322,13 +1356,20 @@ M_Int32 MC_netHttpGetEncoding(M_Int32 fd, M_Byte *buf, M_Int32 len)
 **매개 변수**
 
 - `fd` - HTTP 식별자
-- `buf` - 컨텐츠 인코딩 문자열 복사될 버퍼 len - 버퍼 길이
+- `buf` - 컨텐츠 인코딩 문자열 복사될 버퍼
+- `len` - 버퍼 길이
 
 **반환 값**
 
 성공
 
+- 복사된 컨텐츠 인코딩 문자열 길이
+
 실패
+
+- `M_E_BADFD` - 잘 못된 식별자
+- `M_E_INVALID` - 버퍼나 버퍼 길이가 잘 못 된 경우
+- `M_E_ERROR` - 기타 에러
 
 **부작용**
 
@@ -1336,18 +1377,13 @@ M_Int32 MC_netHttpGetEncoding(M_Int32 fd, M_Byte *buf, M_Int32 len)
 
 **참고 항목**
 
-복사된 컨텐츠 인코딩 문자열 길이
+`MC_netHttpConnect`
 
-M_E_BADFD - 잘 못된 식별자
+### MC_netHttpClose
 
-M_E_INVALID - 버퍼나 버퍼 길이가 잘 못 된 경우 M_E_ERROR - 기타 에러
+**설명**
 
-```c
-MC_netHttpConnect
-MC_netHttpClose 설명
-```
-
-HTTP 연결 식별자 사용을 종료한다. 이 함수가 MC_netHttpConnect() 에서 설정하 는 콜백함수가 불리기 전에 불리면 콜백함수는 불리지 않는다.
+HTTP 연결 식별자 사용을 종료한다. 이 함수가 `MC_netHttpConnect()` 에서 설정하는 콜백함수가 불리기 전에 불리면 콜백함수는 불리지 않는다.
 
 **프로토타입**
 
@@ -1363,7 +1399,11 @@ M_Int32 MC_netHttpClose(M_Int32 fd)
 
 성공
 
+- 0
+
 실패
+
+- `M_E_BADFD` – 잘 못된 식별자
 
 **부작용**
 
@@ -1373,4 +1413,4 @@ M_Int32 MC_netHttpClose(M_Int32 fd)
 
 없음
 
-M_E_BADFD – 잘 못된 식별자
+
