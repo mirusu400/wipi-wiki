@@ -1,14 +1,14 @@
 # 5.1.8. PHONE
 
-전화 걸기에 관한 API 를 모은 것이다. 전화를 걸때는 전화번호 문자열을 넘겨 MC_phnCallPlace()를 호출한다.
+전화 걸기에 관한 API 를 모은 것이다. 전화를 걸때는 전화번호 문자열을 넘겨 `MC_phnCallPlace()`를 호출한다.
 
 **참고 항목**
 
 없음
 
-```c
-MC_phnCallPlace 설명
-```
+### MC_phnCallPlace
+
+**설명**
 
 전화를 건다.
 
@@ -26,7 +26,11 @@ M_Int32 MC_phnCallPlace(M_Byte* phonenumber)
 
 성공
 
+- 0
+
 실패
+
+- `M_E_ERROR`(전화를 걸 수 없음)
 
 **부작용**
 
@@ -35,5 +39,3 @@ M_Int32 MC_phnCallPlace(M_Byte* phonenumber)
 **참고 항목**
 
 없음
-
-M_E_ERROR(전화를 걸 수 없음)
