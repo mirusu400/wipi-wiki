@@ -4,7 +4,7 @@
 
 ### 컴포넌트 생성/소멸
 
-컴포넌트를 생성하기 위해서는 컴포넌트 클래스 구조체가 있어야 한다. 컴포넌트 클래스 구조체는 미리 정의되어 값들이 결정된 구조체로 MC_uicGetClass 함수를 통 하여 정의된 구조체를 가져올 수 있다. 컴포넌트 클래스 구조체는 각 컴포넌트 별 로 다르며, 이 컴포넌트 클래스 구조체를 매개 변수로 하여 MC_uicCreate 함수를 호출하면, 컴포넌트 클래스 구조체를 생성할 수 있다. 생성된 컴포넌트는 MC_uicDestroy 로 파괴 된다.
+컴포넌트를 생성하기 위해서는 컴포넌트 클래스 구조체가 있어야 한다. 컴포넌트 클래스 구조체는 미리 정의되어 값들이 결정된 구조체로  `  MC_uicGetClass` 함수를 통하여 정의된 구조체를 가져올 수 있다. 컴포넌트 클래스 구조체는 각 컴포넌트 별 로 다르며, 이 컴포넌트 클래스 구조체를 매개 변수로 하여 `MC_uicCreate` 함수를 호출하면, 컴포넌트 클래스 구조체를 생성할 수 있다. 생성된 컴포넌트는 `MC_uicDestroy` 로 파괴 된다.
 
 ### 좌표체계
 
@@ -14,57 +14,76 @@
 
 "C"에서 제공하는 사용자 인터페이스 컴포넌트는 컨테이너를 제공하고 있지 않기 때문에 컨테이너가 하는 역할을 각 응용 프로그램에서 해주어야 한다. 즉 응용 프 로그램에서 컴포넌트 마다 각 이벤트를 처리하는 함수를 불러주어야 한다.
 
-Clet 의 handleCletEvent 함수 내에서 생성된 각 컴포넌트를 매개 변수로 하여 MC_uicHandleEvent 함수를 호출해 주어야 한다. MC_uicHandleEvent 는 이벤트를 적절 히 처리하고, 이벤트 처리 여부를 돌려준다.
+Clet 의 `handleCletEvent` 함수 내에서 생성된 각 컴포넌트를 매개 변수로 하여 `MC_uicHandleEvent` 함수를 호출해 주어야 한다. `MC_uicHandleEvent` 는 이벤트를 적절 히 처리하고, 이벤트 처리 여부를 돌려준다.
 
-Clet 의 paintClet 함수 내에서는 컴포넌트마다 각 MC_uicPaint 함수를 호출해 주 어야 한다.
+Clet 의 paintClet 함수 내에서는 컴포넌트마다 각 `MC_uicPaint` 함수를 호출해 주 어야 한다.
 
 ### 콜백 함수와 이벤트 핸들러 함수
 
-MC_uicHandleEvent 에 의해서 이벤트가 처리될때 사용자가 MC_uicSetEventHandler 함수에 의해서 지정한 이벤트 핸들러 함수를 먼저 호출해 준다. 이 호출된 함수가 돌려주는 값에 따라서, MC_uicHandleEvent 함수는 계속 이벤트를 처리할지 안할지 여부를 결정한다. 만일 이벤트를 처리하게 되면, MC_uicHandleEvent 는 이벤트를 처리한 후에 해당되는 이벤트의 MC_uicCallbackProc 를 호출하도록 한다. 어떤 이 벤트에 대해서 콜백 함수를 사용할 수 있는지에 대해서는 컴포넌트 마다 다르므로 컴포넌트에 대한 문서를 참조하십시요.
+`MC_uicHandleEvent` 에 의해서 이벤트가 처리될때 사용자가 `MC_uicSetEventHandler` 함수에 의해서 지정한 이벤트 핸들러 함수를 먼저 호출해 준다. 이 호출된 함수가 돌려주는 값에 따라서, `MC_uicHandleEvent` 함수는 계속 이벤트를 처리할지 안할지 여부를 결정한다. 만일 이벤트를 처리하게 되면, `MC_uicHandleEvent` 는 이벤트를 처리한 후에 해당되는 이벤트의 `MC_uicCallbackProc` 를 호출하도록 한다. 어떤 이벤트에 대해서 콜백 함수를 사용할 수 있는지에 대해서는 컴포넌트 마다 다르므로 컴포넌트에 대한 문서를 참조하십시요.
 
 ### 텍스트 박스 컴포넌트
 
-텍스트 박스 컴포넌트는 MC_UicComponent 를 상속 받으며, 사용자에게 문자열을 보여주고, 해당 문자열을 변경할 수 있도록 해주는 컴포넌트이다. 텍스트 박스내 에 넣을수 있는 문자열은 MC_uicGetTextSize 로 알수가 있다. 기본적으로 저장할 수 있는 최대 값은 256 바이트이며, MC_uicSetTextSize 함수로 변경이 가능한다. 사용 가능한 함수는 다음과 같다.
+텍스트 박스 컴포넌트는 `MC_UicComponent` 를 상속 받으며, 사용자에게 문자열을 보여주고, 해당 문자열을 변경할 수 있도록 해주는 컴포넌트이다. 텍스트 박스내 에 넣을수 있는 문자열은 `MC_uicGetTextSize` 로 알수가 있다. 기본적으로 저장할 수 있는 최대 값은 256 바이트이며, `MC_uicSetTextSize` 함수로 변경이 가능한다. 사용 가능한 함수는 다음과 같다.
 
 ```c
 MC_uicInsertText MC_uicDeleteText MC_uicGetMaxTextSize MC_uicSetMaxTextSize MC_uicGetTextSize MC_uicGetText
+
+그외 컴포넌트에서 사용할 수 있는 함수
 ```
 
-그외 컴포넌트에서 사용할 수 있는 함수 사용 가능한 콜백 함수는 다음과 같다.
+사용 가능한 콜백 함수는 다음과 같다.
 
+```
 MC_UIC_CHANGE_CALLBACK : 내부 문자열이 변경되었을 경우 MC_UIC_KEY_CALLBACK : 키가 눌러졌을 경우
 
 그외 컴포넌트에서 사용할 수 콜백 함수
+```
 
 ### 날짜/시간 컴포넌트
 
-날짜/시간 컴포넌트는 MC_UicComponent 를 상속받으며, 사용자에게 날짜/시간을 보여주고, 그 날짜/시간을 입력받는 함수이다. MC_uicSetTime 함수에 의해서 날짜
+날짜/시간 컴포넌트는 `MC_UicComponent` 를 상속받으며, 사용자에게 날짜/시간을 보여주고, 그 날짜/시간을 입력받는 함수이다. `MC_uicSetTime` 함수에 의해서 날짜/시간을 지정할 수 있으며, 지정하지 않는다면 날짜/시간 컴포넌트를 생성한 시간 으로 지정된다. 날짜/시간 컴포넌트는 날짜나 시간,혹은 두 항목다 화면에 출력할 수 있으며, 이는 `MC_uicSetTimeMask` 함수로 가능한다.
 
-/시간을 지정할 수 있으며, 지정하지 않는다면 날짜/시간 컴포넌트를 생성한 시간 으로 지정된다. 날짜/시간 컴포넌트는 날짜나 시간,혹은 두 항목다 화면에 출력할 수 있으며, 이는 MC_uicSetTimeMask 함수로 가능한다.
-
-사용 가능한 함수는 다음과 같다. MC_uicSetTimeMask
+사용 가능한 함수는 다음과 같다. 
 
 ```c
-MC_uicSetTime MC_uicGetTime MC_uicSetTimeLong
+MC_uicSetTimeMask MC_uicSetTime MC_uicGetTime MC_uicSetTimeLong
+
+그외 컴포넌트에서 사용할 수 있는 함수
 ```
 
-그외 컴포넌트에서 사용할 수 있는 함수 사용 가능한 콜백 함수는 다음과 같다.
+사용 가능한 콜백 함수는 다음과 같다.
 
-MC_UIC_CHANGE_CALLBACK : 내부 시간이 변경되었을 경우 그외 컴포넌트에서 사용할 수 콜백 함수
+```
+MC_UIC_CHANGE_CALLBACK : 내부 시간이 변경되었을 경우
+
+그외 컴포넌트에서 사용할 수 콜백 함수
+```
 
 ### 메뉴 컴포넌트
 
-메뉴 컴포넌트는 MC_UicComponent 를 상속받으며, 화면에 메뉴를 출력하고, 사용 자로 부터 입력을 받다. 메뉴 상하/좌우키로 현재 선택 메뉴 항목을 변경하여 지 정하도록 한다.
+메뉴 컴포넌트는 `MC_UicComponent` 를 상속받으며, 화면에 메뉴를 출력하고, 사용자로 부터 입력을 받다. 메뉴 상하/좌우키로 현재 선택 메뉴 항목을 변경하여 지 정하도록 한다.
 
-사용 가능한 함수는 다음과 같다. MC_uicAddMenuItem MC_uicGetMenuItem MC_uicRemoveMenuItem MC_uicSetActiveMenuItem MC_uicGetActiveMenuItem
+사용 가능한 함수는 다음과 같다.
 
-그외 컴포넌트에서 사용할 수 있는 함수 사용 가능한 콜백 함수는 다음과 같다.
+```
+MC_uicAddMenuItem MC_uicGetMenuItem MC_uicRemoveMenuItem MC_uicSetActiveMenuItem MC_uicGetActiveMenuItem
 
-MC_UIC_CHANGE_CALLBACK : 내부 선택된 메뉴 항목이 변경되었을 경우 그외 컴포넌트에서 사용할 수 콜백 함수
+그외 컴포넌트에서 사용할 수 있는 함수
+```
+
+사용 가능한 콜백 함수는 다음과 같다.
+
+```
+MC_UIC_CHANGE_CALLBACK : 내부 선택된 메뉴 항목이 변경되었을 경우
+
+그외 컴포넌트에서 사용할 수 콜백 함수
+```
+
 
 ### 라벨 컴포넌트
 
-라벨 컴포넌트는 MC_UicComponent 를 상속받으며, 화면에 문자열을 출력해 주는 함수이다. 크기에 맞도록 문자열의 줄바꿈을 해준다. 이 컴포넌트는 다른 컴포넌 트와는 달리 이벤트에 대한 처리를 하지 않는다.
+라벨 컴포넌트는 `MC_UicComponent` 를 상속받으며, 화면에 문자열을 출력해 주는 함수이다. 크기에 맞도록 문자열의 줄바꿈을 해준다. 이 컴포넌트는 다른 컴포넌 트와는 달리 이벤트에 대한 처리를 하지 않는다.
 
 사용 가능한 함수는 다음과 같다.
 
@@ -74,13 +93,23 @@ MC_uicSetLabel
 
 ### 리스트 컴포넌트
 
-리스트 컴포넌트는 MC_UicComponent 를 상속받으며, 화면에 리스트를 출력하고, 사용자로 부터 입력을 받다. 메뉴 상하키로 메뉴 항목을 변경하여 지정하도록 한 다.
+리스트 컴포넌트는 `MC_UicComponent` 를 상속받으며, 화면에 리스트를 출력하고, 사용자로 부터 입력을 받다. 메뉴 상하키로 메뉴 항목을 변경하여 지정하도록 한 다.
 
-사용 가능한 함수는 다음과 같다. MC_uicAddListItem MC_uicGetListItem MC_uicRemoveListItem MC_uicSetActiveListItem MC_uicGetActiveListItem
+사용 가능한 함수는 다음과 같다. 
 
-그외 컴포넌트에서 사용할 수 있는 함수 사용 가능한 콜백 함수는 다음과 같다.
+```
+MC_uicAddListItem MC_uicGetListItem MC_uicRemoveListItem MC_uicSetActiveListItem MC_uicGetActiveListItem
 
-MC_UIC_CHANGE_CALLBACK : 내부 선택된 메뉴 항목이 변경되었을 경우 그외 컴포넌트에서 사용할 수 콜백 함수
+그외 컴포넌트에서 사용할 수 있는 함수
+```
+
+사용 가능한 콜백 함수는 다음과 같다.
+
+```
+MC_UIC_CHANGE_CALLBACK : 내부 선택된 메뉴 항목이 변경되었을 경우
+
+그외 컴포넌트에서 사용할 수 콜백 함수
+```
 
 ### 컴포넌트
 
@@ -92,15 +121,17 @@ MC_uicDestory MC_uicRepaint MC_uicPaint MC_uicGetClassName MC_uicIsInstance MC_u
 
 사용 가능한 콜백 함수는 다음과 같다.
 
-MC_UIC_SELECT_CALLBACK : 사용자가 "SELECT"버튼을 눌러서 무엇인가 선택했을 때 MC_UIC_PAINT_CALLBACK : 컴포넌트가 그려질때 MC_UIC_DESTORY_CALLBACK : 컴포넌 트가 소멸될때
+```
+MC_UIC_SELECT_CALLBACK : 사용자가 "SELECT"버튼을 눌러서 무엇인가 선택했을 때
+MC_UIC_PAINT_CALLBACK : 컴포넌트가 그려질때
+MC_UIC_DESTORY_CALLBACK : 컴포넌트가 소멸될때
+```
 
 **참고 항목**
 
 없음
 
-```c
-MC_UicComponent
-```
+### MC_UicComponent
 
 **프로토타입**
 
@@ -112,9 +143,7 @@ typedef M_Int32 MC_UicComponent
 
 컴포넌트 식별자
 
-```c
-MC_UicClass
-```
+### MC_UicClass
 
 **프로토타입**
 
@@ -126,9 +155,7 @@ typedef M_Int32 MC_UicClass
 
 컴포넌트 클래스 구조체 식별자
 
-```c
-MC_UicApplicationContext
-```
+### MC_UicApplicationContext
 
 **프로토타입**
 
@@ -140,9 +167,8 @@ typedef M_Int32 MC_UicApplicationContext
 
 응용 프로그램 컨택스트 식별자
 
-```c
-MC_UicCallbackProc
-```
+
+### MC_UicCallbackProc
 
 **프로토타입**
 
@@ -156,8 +182,9 @@ typedef void (*MC_UicCallbackProc)(MC_UicComponent cc, void* serverData, M_Int32
 
 **매개 변수**
 
-- `cc` — 콜백 함수를 호출하는 컴포넌트
-- `serverData` — 부르는 쪽에서 넘기는 데이타; 호출하는 쪽마다 다른다. clientData - 콜백 함수를
+- `cc` - 콜백 함수를 호출하는 컴포넌트
+- `serverData` - 부르는 쪽에서 넘기는 데이타; 호출하는 쪽마다 다른다.
+- `clientData` - 콜백 함수를
 
 **부작용**
 
@@ -167,9 +194,7 @@ typedef void (*MC_UicCallbackProc)(MC_UicComponent cc, void* serverData, M_Int32
 
 없음
 
-```c
-MC_UicEventHandlerProc
-```
+### MC_UicEventHandlerProc
 
 **프로토타입**
 
@@ -183,12 +208,14 @@ typedef M_Int32 (*MC_UicEventHandlerProc)(MC_UicComponent cc, M_Int32 type, M_In
 
 **매개 변수**
 
-- `cc` — 이벤트 핸들러를 호출하는 컴포넌트 type - 이벤트 타입.
-- `param1` — 이벤트 매개 변수 1 param2 - 이벤트 매개 변수 2
+- `cc` - 이벤트 핸들러를 호출하는 컴포넌트
+- `type` - 이벤트 타입.
+- `param1` - 이벤트 매개 변수 1
+- `param2` - 이벤트 매개 변수 2
 
 **반환 값**
 
-이벤트 처리 여부 1 이면 처리한 것이고, 0 이면 처리하지 않음을 의미
+- 이벤트 처리 여부 1 이면 처리한 것이고, 0 이면 처리하지 않음을 의미
 
 **부작용**
 
@@ -198,56 +225,49 @@ typedef M_Int32 (*MC_UicEventHandlerProc)(MC_UicComponent cc, M_Int32 type, M_In
 
 없음
 
-```c
-MC_UIC_MENU_COMPONENT
-```
+### MC_UIC_MENU_COMPONENT
 
 **프로토타입**
 
 ```c
-#define MC_UIC_MENU_COMPONENT	"MenuComponent"
+#define MC_UIC_MENU_COMPONENT "MenuComponent"
 ```
 
 **설명**
 
 메뉴 컴포넌트 클래스의 문자열, "MenuComponent"로 정의 되어 있다.
 
-```c
-MC_UIC_DATE_TIME_COMPONENT
-```
+### MC_UIC_DATE_TIME_COMPONENT
 
 **프로토타입**
 
 ```c
-#define MC_UIC_DATE_TIME_COMPONENT	"DateTimeComponent"
+#define MC_UIC_DATE_TIME_COMPONENT "DateTimeComponent"
 ```
 
 **설명**
 
 데이트, 타임 컴포넌트 클래스의 문자열, "DateTimeComponent"로 정의 되어 있다.
 
-```c
-MC_UIC_TEXT_COMPONENT
-```
+
+### MC_UIC_TEXT_COMPONENT
 
 **프로토타입**
 
 ```c
-#define MC_UIC_TEXT_COMPONENT	"TextComponent"
+#define MC_UIC_TEXT_COMPONENT "TextComponent"
 ```
 
 **설명**
 
 텍스트 컴포넌트 클래스의 문자열, "TextComponent"로 정의한다.
 
-```c
-MC_UIC_LABEL_COMPONENT
-```
+### MC_UIC_LABEL_COMPONENT
 
 **프로토타입**
 
 ```c
-#define MC_UIC_LABEL_COMPONENT  "LabelComponent"
+#define MC_UIC_LABEL_COMPONENT "LabelComponent"
 ```
 
 **설명**
@@ -261,86 +281,74 @@ MC_UIC_LIST_COMPONENT
 **프로토타입**
 
 ```c
-#define MC_UIC_LIST_COMPONENT	"ListComponent"
+#define MC_UIC_LIST_COMPONENT "ListComponent"
 ```
 
 **설명**
 
 리스트 컴포넌트 클래스의 문자열, "ListComponent"로 정의한다.
 
-```c
-MC_UIC_DESTROY_CALLBACK
-```
+### MC_UIC_DESTROY_CALLBACK
 
 **프로토타입**
 
 ```c
-#define MC_UIC_DESTORY_CALLBACK	1
+#define MC_UIC_DESTORY_CALLBACK 1
 ```
 
 **설명**
 
 컴포넌트가 소멸될 때 불리는 콜백 함수의 인덱스 1
 
-```c
-MC_UIC_PAINT_CALLBACK
-```
+### MC_UIC_PAINT_CALLBACK
 
 **프로토타입**
 
 ```c
-#define MC_UIC_PAINT_CALLBACK	2
+#define MC_UIC_PAINT_CALLBACK 2
 ```
 
 **설명**
 
 컴포넌트가 칠해질 때 불리는 콜백 함수의 인덱스, 상수 2 로 정의한다.
 
-```c
-MC_UIC_SELECT_CALLBACK
-```
+### MC_UIC_SELECT_CALLBACK
 
 **프로토타입**
 
 ```c
-#define MC_UIC_SELECT_CALLBACK	3
+#define MC_UIC_SELECT_CALLBACK 3
 ```
 
 **설명**
 
 컴포넌트의 특정 내용이 선택될 때 불리는 콜백 함수의 인덱스, 상수 3 으로 정의 한다.
 
-```c
-MC_UIC_CHANGE_CALLBACK
-```
+### MC_UIC_CHANGE_CALLBACK
 
 **프로토타입**
 
 ```c
-#define MC_UIC_CHANGE_CALLBACK	4
+#define MC_UIC_CHANGE_CALLBACK 4
 ```
 
 **설명**
 
-컴포넌트의 내부 내용이 변경될 때 불리는 콜백 함수의 인덱스, 상수 4 로 정의한 다.
+컴포넌트의 내부 내용이 변경될 때 불리는 콜백 함수의 인덱스, 상수 4 로 정의한다.
 
-```c
-MC_UIC_KEY_CALLBACK
-```
+### MC_UIC_KEY_CALLBACK
 
 **프로토타입**
 
 ```c
-#define MC_UIC_KEY_CALLBACK	5
+#define MC_UIC_KEY_CALLBACK 5
 ```
 
 **설명**
 
 컴포넌트에 사용자가 키를 눌렀을 때 불리는 콜백 함수의 인덱스, 상수 5 로 정의 한다
 
-```c
-MC_GRP_GRAY_TYPE
-```
+### MC_GRP_GRAY_TYPE
 
 **프로토타입**
 
@@ -352,9 +360,7 @@ MC_GRP_GRAY_TYPE
 
 흑백 타입. 상수값 (1 << 1).
 
-```c
-MC_GRP_COLOR_TYPE
-```
+### MC_GRP_COLOR_TYPE
 
 **프로토타입**
 
@@ -366,51 +372,44 @@ MC_GRP_COLOR_TYPE
 
 컬러 타입. 상수값 (1 << 2).
 
-```c
-MC_ALIGN_LEFT
-```
+### MC_ALIGN_LEFT
 
 **프로토타입**
 
 ```c
-#define MC_ALIGN_LEFT	0
+#define MC_ALIGN_LEFT 0
 ```
 
 **설명**
 
 라벨컴포넌트의 좌측정렬. 상수값 0.
 
-```c
-MC_ALIGN_RIGHT
-```
+### MC_ALIGN_RIGHT
 
 **프로토타입**
 
 ```c
-#define MC_ALIGN_RIGHT  1
+#define MC_ALIGN_RIGHT 1
 ```
 
 **설명**
 
 라벨컴포넌트의 우측정렬. 상수값 1.
 
-```c
-MC_ALIGN_ CENTER
-```
+
+### MC_ALIGN_CENTER
 
 **프로토타입**
 
 ```c
-#define MC_ALIGN_CENTER	2
+#define MC_ALIGN_CENTER 2
 ```
 
 **설명**
 
 라벨컴포넌트의 중앙정렬. 상수값 2.
 
-```c
-MC_uicCreateApplicationContext
-```
+### MC_uicCreateApplicationContext
 
 **프로토타입**
 
@@ -438,9 +437,7 @@ MC_UicApplicationContext MC_uicCreateApplicationContext()
 
 없음
 
-```c
-MC_uicGetClass
-```
+### MC_uicGetClass
 
 **프로토타입**
 
@@ -452,17 +449,16 @@ MC_UicClass MC_uicGetClass(M_Uint8* psz)
 
 컴포넌트 클래스 구조체를 가져온다.
 
-문자열에 대응하는 컴포넌트 클래스 구조체를 가져 온다. 현재 지원하는 컴포넌트 클래스 구조체의 문자열은 MC_UIC_MENU_COMPONENT, MC_UIC_DATE_TIME_COMPONENT, MC_UIC_TEXT_COMPONENT, MC_UIC_LABEL_COMPONENT, MC_UIC_LIST_COMPONENT 가 있다.
+문자열에 대응하는 컴포넌트 클래스 구조체를 가져 온다. 현재 지원하는 컴포넌트 클래스 구조체의 문자열은 `MC_UIC_MENU_COMPONENT`, `MC_UIC_DATE_TIME_COMPONENT`, `MC_UIC_TEXT_COMPONENT`, `MC_UIC_LABEL_COMPONENT`, `MC_UIC_LIST_COMPONENT` 가 있다.
 
 **매개 변수**
 
-- `psz` — [in] 컴포넌트 클래스를 나타내는 문자열
+- `psz` - [in] 컴포넌트 클래스를 나타내는 문자열
 
 **반환 값**
 
-컴포넌트 클래스 구조체
-
-매개변수(psz)값이 지원되는 컴포넌트 클래스 구조체의 문자열이 아닌 경우 M_E_ERROR 값을 반환
+- 컴포넌트 클래스 구조체
+- 매개변수(psz)값이 지원되는 컴포넌트 클래스 구조체의 문자열이 아닌 경우 `M_E_ERROR` 값을 반환
 
 **부작용**
 
@@ -472,9 +468,7 @@ MC_UicClass MC_uicGetClass(M_Uint8* psz)
 
 없음
 
-```c
-MC_uicCreate
-```
+### MC_uicCreate
 
 **프로토타입**
 
@@ -486,28 +480,34 @@ MC_UicComponent MC_uicCreate(MC_UicApplicationContext pac, MC_UicClass cls)
 
 컴포넌트를 생성한다.
 
-지정한 컴포넌트 클래스로부터 컴포넌트를 생성한다. MC_uicCreateApplicationContext 함수로 부 터 생성한 응용 프로그램 컨택스트(Application Context)와 MC_uicGetClass 함수로 가져온 클래스 구조체를 매개 변수로 넘긴다.
+지정한 컴포넌트 클래스로부터 컴포넌트를 생성한다. `MC_uicCreateApplicationContext` 함수로 부터 생성한 응용 프로그램 컨택스트(Application Context)와 `MC_uicGetClass` 함수로 가져온 클래스 구조체를 매개 변수로 넘긴다.
 
 **매개 변수**
 
-- `pac` — [in] 응용 프로그램 컨텍스트 cls - [in] 응용 프로그램 컨텍스트
+- `pac` - [in] 응용 프로그램 컨텍스트
+- `cls` - [in] 응용 프로그램 컨텍스트
 
 **반환 값**
 
-새로 생성된 컴포넌트 클래스 실패시
+성공
 
+- 새로 생성된 컴포넌트 클래스
+
+실패
+
+- `M_E_ERROR` - 부적합한 매개변수값 사용 및 기타 에러 발생시
+- `MC_UIC_E_OUT_OF_MEM` - 메모리 부족시
+ 
 **부작용**
 
 없음
 
-M_E_ERROR : 부적합한 매개변수값 사용 및 기타 에러 발생시 MC_UIC_E_OUT_OF_MEM : 메모리 부족시
 
 **참고 항목**
 
-```c
-MC_uicCreateApplicationContext
-MC_uicDestroy
-```
+`MC_uicCreateApplicationContext`
+
+### MC_uicDestroy
 
 **프로토타입**
 
@@ -523,7 +523,7 @@ void MC_uicDestroy(MC_UicComponent cc)
 
 **매개 변수**
 
-- `cc` — [in] 삭제할 컴포넌트
+- `cc` - [in] 삭제할 컴포넌트
 
 **부작용**
 
@@ -533,9 +533,7 @@ void MC_uicDestroy(MC_UicComponent cc)
 
 없음
 
-```c
-MC_uicRepaint
-```
+### MC_uicRepaint
 
 **프로토타입**
 
@@ -547,14 +545,15 @@ void MC_uicRepaint(MC_UicComponent cc, M_Int32 x, M_Int32 y, M_Int32 w, M_Int32 
 
 지정한 컴포넌트에 대해서 그리기 이벤트를 생성한다.
 
-지정한 컴포넌트 영역에 대해서 paintClet 함수가 호출될 수 있도록 내부 이벤트 를 생성한다. 만일 w, h 가 -1 이면, 지정된 (x, y)좌표에서 컴포넌트의 오른쪽 하 단부분까지가 그리기 이벤트가 발생하는 영역이된다.
+지정한 컴포넌트 영역에 대해서 `paintClet` 함수가 호출될 수 있도록 내부 이벤트 를 생성한다. 만일 w, h 가 -1 이면, 지정된 (x, y)좌표에서 컴포넌트의 오른쪽 하단부분까지가 그리기 이벤트가 발생하는 영역이된다.
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `x` — [in] 컴포넌트 내의 영역의 x 축 좌표(컴포넌트 좌표 체계) y - [in] 컴포넌트 내의 영역의 y 축 좌표(컴포넌트 좌표 체계) w - [in] 컴포넌트 내의 영역의 폭
-
-#### - [in] 컴포넌트 내의 영역의 높이
+- `cc` - [in] 컴포넌트
+- `x` - [in] 컴포넌트 내의 영역의 x 축 좌표(컴포넌트 좌표 체계)
+- `y` - [in] 컴포넌트 내의 영역의 y 축 좌표(컴포넌트 좌표 체계)
+- `w` - [in] 컴포넌트 내의 영역의 폭
+- `h` - [in] 컴포넌트 내의 영역의 높이
 
 **부작용**
 
@@ -562,11 +561,9 @@ void MC_uicRepaint(MC_UicComponent cc, M_Int32 x, M_Int32 y, M_Int32 w, M_Int32 
 
 **참고 항목**
 
-```c
-MC_grpRepaint
-MC_uicPaint
-MC_uicPaint
-```
+`MC_grpRepaint`, `MC_uicPaint`
+
+### MC_uicPaint
 
 **프로토타입**
 
@@ -578,12 +575,12 @@ void MC_uicPaint(MC_UicComponent cc, MC_GrpContext *pgc)
 
 지정한 컴포넌트를 그린다.
 
-실제 화면 프레임 버퍼에 컴포넌트의 내용을 그려준다. 이 함수는 응용 프로그램 의 paintClet 함수에서 각각의 컴포넌트 별로 호출되어야 한다. pgc 가 지정하는 클리핑 영역은 변경하지 않고 pgc 의 일부 내용은 컴포넌트에 따라서 변경 될 수 있다.
+실제 화면 프레임 버퍼에 컴포넌트의 내용을 그려준다. 이 함수는 응용 프로그램 의 paintClet 함수에서 각각의 컴포넌트 별로 호출되어야 한다. `pgc` 가 지정하는 클리핑 영역은 변경하지 않고 pgc 의 일부 내용은 컴포넌트에 따라서 변경 될 수 있다.
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `pgc` — [in] 사용할 그래픽 컨텍스트
+- `cc` - [in] 컴포넌트
+- `pgc` - [in] 사용할 그래픽 컨텍스트
 
 **부작용**
 
@@ -593,9 +590,7 @@ void MC_uicPaint(MC_UicComponent cc, MC_GrpContext *pgc)
 
 없음
 
-```c
-MC_uicGetClassName
-```
+### MC_uicGetClassName
 
 **프로토타입**
 
@@ -611,7 +606,7 @@ cc 가 가리키는 컴포넌트에 대응하는 클래스 이름을 "C"문자�
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
+- `cc` - [in] 컴포넌트
 
 **반환 값**
 
@@ -627,9 +622,7 @@ cc 가 가리키는 컴포넌트에 대응하는 클래스 이름을 "C"문자�
 
 없음
 
-```c
-MC_uicIsInstance
-```
+### MC_uicIsInstance
 
 **프로토타입**
 
@@ -643,8 +636,8 @@ M_Uint32 MC_uicIsInstance(MC_UicComponent cc, M_Uint8* pcls)
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `pcls` — [in] 컴포넌트 클래스 이름 문자열
+- `cc` - [in] 컴포넌트
+- `pcls` - [in] 컴포넌트 클래스 이름 문자열
 
 **반환 값**
 
@@ -658,9 +651,7 @@ M_Uint32 MC_uicIsInstance(MC_UicComponent cc, M_Uint8* pcls)
 
 없음
 
-```c
-MC_uicHandleEvent
-```
+### MC_uicHandleEvent
 
 **프로토타입**
 
@@ -674,12 +665,14 @@ M_Int32 MC_uicHandleEvent(MC_UicCompeont cc, M_Int32 type, M_Int32 param1, M_Int
 
 지정한 컴포넌트에게 이벤트를 처리할 것을 요청한다. 이벤트가 처리되었다면 1 을 돌려주고 그렇지 않으면 0 을 돌려준다.
 
-type 과 param1, param2 는 handleCletEvent 함수에서 넘어오는 이벤트 관련 매개 변수를 그대로 넘긴다.
+type 과 param1, param2 는 `handleCletEvent` 함수에서 넘어오는 이벤트 관련 매개 변수를 그대로 넘긴다.
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트 type - [in] 이벤트 타입
-- `param1` — [in] 이벤트 매개 변수 1 param2 - [in] 이벤트 매개 변수 2
+- `cc` - [in] 컴포넌트
+- `type` - [in] 이벤트 타입
+- `param1` - [in] 이벤트 매개 변수 1
+- `param2` - [in] 이벤트 매개 변수 2
 
 **반환 값**
 
@@ -693,9 +686,7 @@ type 과 param1, param2 는 handleCletEvent 함수에서 넘어오는 이벤트 
 
 없음
 
-```c
-MC_uicConfigure
-```
+### MC_uicConfigure
 
 **프로토타입**
 
@@ -707,22 +698,18 @@ void MC_uicConfigure(MC_UicComponent cc, M_Int32 x, M_Int32 y, M_Int32 w, M_Int3
 
 컴포넌트의 크기를 위치와 지정한다.
 
-지정된 컴포넌트를 (x, y)가 가르치는 위치에 두고,폭 w, 높이 h 로 크기를 결정 한다.mask & MC_UIC_POS_MASK가 0 이 아니면 (x, y)에 가르치는 위치로 이동이 되 며, mask & MC_UIC_SIZE_MASK 가 0 이 아니면 크기 (w, h)로 지정된다.
+지정된 컴포넌트를 (x, y)가 가르치는 위치에 두고,폭 w, 높이 h 로 크기를 결정 한다. `mask & MC_UIC_POS_MASK가` 0 이 아니면 (x, y)에 가르치는 위치로 이동이 되며, `mask & MC_UIC_SIZE_MASK` 가 0 이 아니면 크기 (w, h)로 지정된다.
 
 w 나 h 가 0 이하인 경우는 이 함수는 작동하지 않는다.
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-
-#### - [in] 컴포넌트의 화면상에서의 x 축 좌표 y - [in] 컴포넌트의 화면상에서의 y 축 좌표 w - [in] 컴포넌트의 폭
-
-- `h` — [in] 컴포넌트의 높이
-- `mask` — [in] 컴포넌트  크기만 변경할 것인지 높이만 변경할 것인지 여부;
-
-```c
-MC_UIC_SIZE_MASK 나 MC_UIC_POS_MASK 나 두 값이 OR 된 값
-```
+- `cc` - [in] 컴포넌트
+- `x` - [in] 컴포넌트의 화면상에서의 x 축 좌표
+- `y` - [in] 컴포넌트의 화면상에서의 y 축 좌표
+- `w` - [in] 컴포넌트의 폭
+- `h` - [in] 컴포넌트의 높이
+- `mask` - [in] 컴포넌트 크기만 변경할 것인지 높이만 변경할 것인지 여부; `MC_UIC_SIZE_MASK`나 `MC_UIC_POS_MASK`나 두 값이 OR 된 값
 
 **부작용**
 
@@ -732,9 +719,7 @@ MC_UIC_SIZE_MASK 나 MC_UIC_POS_MASK 나 두 값이 OR 된 값
 
 없음
 
-```c
-MC_uicGetGeometry
-```
+### MC_uicGetGeometry
 
 **프로토타입**
 
@@ -750,9 +735,11 @@ void MC_uicGetGeometry(MC_UicComponent cc, M_Int32* px, M_Int32* py, M_Int32* pw
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `px` — [out] 컴포넌트의 화면상의 x 값을 저장할 포인터 py - [out] 컴포넌트의 화면상의 y 값을 저장할 포인터 pw - [out] 컴포넌트의 폭을 저장할 포인터
-- `ph` — [out] 컴포넌트의 높이를 저장할 포인터
+- `cc` - [in] 컴포넌트
+- `px` - [out] 컴포넌트의 화면상의 x 값을 저장할 포인터
+- `py` - [out] 컴포넌트의 화면상의 y 값을 저장할 포인터
+- `pw` - [out] 컴포넌트의 폭을 저장할 포인터
+- `ph` - [out] 컴포넌트의 높이를 저장할 포인터
 
 **부작용**
 
@@ -762,9 +749,7 @@ void MC_uicGetGeometry(MC_UicComponent cc, M_Int32* px, M_Int32* py, M_Int32* pw
 
 없음
 
-```c
-MC_uicSetEnable
-```
+### MC_uicSetEnable
 
 **프로토타입**
 
@@ -782,8 +767,8 @@ enable 에 따라서 컴포넌트가 입력을 받거나 받을 수 없도록 �
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `enable` — [in] 1 이면 입력가능, 0 이면 입력 불가능
+- `cc` - [in] 컴포넌트
+- `enable` - [in] 1 이면 입력가능, 0 이면 입력 불가능
 
 **부작용**
 
@@ -793,14 +778,12 @@ enable 에 따라서 컴포넌트가 입력을 받거나 받을 수 없도록 �
 
 없음
 
-```c
-MC_uicSetCallback
-```
+### MC_uicSetCallback
 
 **프로토타입**
 
 ```c
-MC_UicCallbackProc MC_uicSetCallback(  MC_UicComponent  cc,  M_Int32 idx, MC_UicCallbackProc proc, M_Int32 clientData)
+MC_UicCallbackProc MC_uicSetCallback( MC_UicComponent cc, M_Int32 idx, MC_UicCallbackProc proc, M_Int32 clientData)
 ```
 
 **설명**
@@ -809,7 +792,7 @@ MC_UicCallbackProc MC_uicSetCallback(  MC_UicComponent  cc,  M_Int32 idx, MC_Uic
 
 특정 이벤트가 발생하면, 이벤트를 컴포넌트에서 다 처리하고 난 후에 콜백 함수 를 호출한다.
 
-clientData 는 콜백 함수의 세번째 매개 변수가 된다. 콜백 함수가 불려질 특정 이벤 트는 다음과 같다.
+`clientData` 는 콜백 함수의 세번째 매개 변수가 된다. 콜백 함수가 불려질 특정 이벤트는 다음과 같다.
 
 ```c
 MC_UIC_DESTROY_CALLBACK MC_UIC_PAINT_CALLBACK MC_UIC_SELECT_CALLBACK MC_UIC_CHANGE_CALLBACK MC_UIC_KEY_CALLBACK
@@ -817,13 +800,10 @@ MC_UIC_DESTROY_CALLBACK MC_UIC_PAINT_CALLBACK MC_UIC_SELECT_CALLBACK MC_UIC_CHAN
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `idx` — [in]	콜백	함수가	불려질	특정	이벤트	MC_UIC_PAINT_CALLBACK,
-
-```c
-MC_UIC_SELECT_CALLBACK
-```
-- `proc` — [in] 콜백 함수의 포인터 clientData - [in] 콜백 함수의 매개 변수
+- `cc` - [in] 컴포넌트
+- `idx` - [in] 콜백 함수가 불려질 특정 이벤트 `MC_UIC_PAINT_CALLBACK`,`MC_UIC_SELECT_CALLBACK`
+- `proc` - [in] 콜백 함수의 포인터
+- `clientData` - [in] 콜백 함수의 매개 변수
 
 **반환 값**
 
@@ -837,9 +817,7 @@ MC_UIC_SELECT_CALLBACK
 
 없음
 
-```c
-MC_uicSetEventHandler
-```
+### MC_uicSetEventHandler
 
 **프로토타입**
 
@@ -851,12 +829,12 @@ MC_UicEventHandlerProc MC_uicSetEventHandler( MC_UicComponent cc, MC_UicEventHan
 
 컴포넌트에 이벤트 핸들러를 지정한다.
 
-이벤트 핸들러가 지정되어 있으면, 컴포넌트의 모든 이벤트에 대해서 이벤트 핸들 러를 호출해 준다. 이벤트 핸들러의 결과 값에 따라서 이벤트를 계속 처리할지 안 할지 여부를 결정한다.
+이벤트 핸들러가 지정되어 있으면, 컴포넌트의 모든 이벤트에 대해서 이벤트 핸들러를 호출해 준다. 이벤트 핸들러의 결과 값에 따라서 이벤트를 계속 처리할지 안 할지 여부를 결정한다.
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `handler` — [in] 이벤트 핸들러
+- `cc` - [in] 컴포넌트
+- `handler` - [in] 이벤트 핸들러
 
 **반환 값**
 
@@ -870,9 +848,7 @@ MC_UicEventHandlerProc MC_uicSetEventHandler( MC_UicComponent cc, MC_UicEventHan
 
 없음
 
-```c
-MC_uicSetFont
-```
+### MC_uicSetFont
 
 **프로토타입**
 
@@ -888,8 +864,8 @@ fontid 가 지정하는 폰트 아이디로 컴포넌트의 폰트를 지정한�
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `fontid` — [in] MC_grpGetFont 의 반환 값으로 폰트 식별자.
+- `cc` - [in] 컴포넌트
+- `fontid` - [in] `MC_grpGetFont` 의 반환 값으로 폰트 식별자.
 
 **반환 값**
 
@@ -903,9 +879,7 @@ fontid 가 지정하는 폰트 아이디로 컴포넌트의 폰트를 지정한�
 
 없음
 
-```c
-MC_uicGetFont
-```
+### MC_uicGetFont
 
 **프로토타입**
 
@@ -919,7 +893,7 @@ M_Int32 MC_uicGetFont(MC_UicComponent cc)
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
+- `cc` - [in] 컴포넌트
 
 **반환 값**
 
@@ -933,9 +907,7 @@ M_Int32 MC_uicGetFont(MC_UicComponent cc)
 
 없음
 
-```c
-MC_uicSetFgColor
-```
+### MC_uicSetFgColor
 
 **프로토타입**
 
@@ -949,8 +921,8 @@ void MC_uicSetFgColor(MC_UicComponent cc, M_Int32 nColor);
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `nColor` — 색상값(0xRRGGBB)
+- `cc` - [in] 컴포넌트
+- `nColor` - 색상값(0xRRGGBB)
 
 **반환 값**
 
@@ -964,9 +936,7 @@ void MC_uicSetFgColor(MC_UicComponent cc, M_Int32 nColor);
 
 없음
 
-```c
-MC_uicSetBgColor
-```
+### MC_uicSetBgColor
 
 **프로토타입**
 
@@ -980,8 +950,8 @@ void MC_uicSetBgColor(MC_UicComponent cc, M_Int32 nColor);
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `nColor` — 색상값(0xRRGGBB)
+- `cc` - [in] 컴포넌트
+- `nColor` - 색상값(0xRRGGBB)
 
 **반환 값**
 
@@ -1011,8 +981,8 @@ void MC_uicSetLabel(MC_UicComponent cc, M_Uint8 *psz)
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `psz` — [in] 변경될 문자열
+- `cc` - [in] 컴포넌트
+- `psz` - [in] 변경될 문자열
 
 **반환 값**
 
@@ -1042,7 +1012,7 @@ M_Uint8* MC_uicGetLabel(MC_UicComponent cc)
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
+- `cc` - [in] 컴포넌트
 
 **반환 값**
 
@@ -1068,14 +1038,14 @@ M_Int32 MC_uicSetlabelAlignment(MC_UicComponent cc, M_Int32 align)
 
 라벨콤포넌트의 문자열 정렬방식을 설정합니다.
 
-MC_ALIGN_LEFT, MC_ALIGN_RIGHT, MC_ALIGN_CENTER 중 하나의 값을 사용할 수 있으 며 각각 좌측정렬, 우측정렬, 중앙정렬을 의미 합니다.
+`MC_ALIGN_LEFT`, `MC_ALIGN_RIGHT`, `MC_ALIGN_CENTER` 중 하나의 값을 사용할 수 있으며 각각 좌측정렬, 우측정렬, 중앙정렬을 의미 합니다.
 
 지정된 컴포넌트가 라벨 컴포넌트가 아니면 이 함수는 아무런 역할을 하지 않는다.
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `align` — [in] 라벨 컴포넌트의 문자열의 정렬방식 MC_ALIGN_LEFT, MC_ALIGN_RIGHT, MC_ALIGN_CENTER 중 하나를 사용합니다.
+- `cc` - [in] 컴포넌트
+- `align` - [in] 라벨 컴포넌트의 문자열의 정렬방식 `MC_ALIGN_LEFT`, `MC_ALIGN_RIGHT`, `MC_ALIGN_CENTER` 중 하나를 사용합니다.
 
 **반환 값**
 
@@ -1089,9 +1059,7 @@ MC_ALIGN_LEFT, MC_ALIGN_RIGHT, MC_ALIGN_CENTER 중 하나의 값을 사용할 �
 
 없음
 
-```c
-MC_uicSetTimeMask
-```
+### MC_uicSetTimeMask
 
 **프로토타입**
 
@@ -1103,14 +1071,14 @@ M_Int32 MC_uicSetTimeMask(MC_UicComponent cc, M_Int32 mask)
 
 타임 컴포넌트 형태를 지정한다.
 
-(mask	& MC_UIC_TIME_MASK)이	0 이	아니면 시간이	출력되고, (mask	& MC_UIC_DATE_MASK)이 0 이 아니면 날짜가 출력된다.
+`(mask & MC_UIC_TIME_MASK)`이 0 이 아니면 시간이 출력되고, `(mask & MC_UIC_DATE_MASK)`이 0 이 아니면 날짜가 출력된다.
 
 지정된 컴포넌트가 타임 컴포넌트가 아니면 이 함수는 아무런 역할을 하지 않는다.
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `mask` — [in] 타임 컴포넌트의 매스크, MC_UIC_TIME_MASK 나 MC_UIC_DATE_MASK 혹은 둘을 OR 한 값.
+- `cc` - [in] 컴포넌트
+- `mask` - [in] 타임 컴포넌트의 매스크, `MC_UIC_TIME_MASK` 나 `MC_UIC_DATE_MASK` 혹은 둘을 OR 한 값.
 
 **반환 값**
 
@@ -1124,9 +1092,7 @@ M_Int32 MC_uicSetTimeMask(MC_UicComponent cc, M_Int32 mask)
 
 없음
 
-```c
-MC_uicSetTime
-```
+### MC_uicSetTime
 
 **프로토타입**
 
@@ -1138,12 +1104,12 @@ void MC_uicSetTime(MC_UicComponent cc, struct tm* pd)
 
 타임 컴포넌트에 시간을 지정한다.
 
-지정된 컴포넌트가 타임 컴포넌트가 아니면 이 함수는 아무런 역할을 하지 않는다. 이때 pd 는 표준 C 라이브러리 time.h 에서 정의된 tm 구조체 이다.
+지정된 컴포넌트가 타임 컴포넌트가 아니면 이 함수는 아무런 역할을 하지 않는다. 이때 pd 는 표준 C 라이브러리 `time.h` 에서 정의된 tm 구조체 이다.
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `pd` — [in] 지정할 날짜. time.h 참조
+- `cc` - [in] 컴포넌트
+- `pd` - [in] 지정할 날짜. `time.h` 참조
 
 **부작용**
 
@@ -1153,9 +1119,7 @@ void MC_uicSetTime(MC_UicComponent cc, struct tm* pd)
 
 없음
 
-```c
-MC_uicSetTimeLong
-```
+### MC_uicSetTimeLong
 
 **프로토타입**
 
@@ -1171,8 +1135,8 @@ void MC_uicSetTimeLong(MC_UicComponent cc, time_t time)
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `time` — [in] 지정할 날짜와 시간. time.h 참조
+- `cc` - [in] 컴포넌트
+- `time` - [in] 지정할 날짜와 시간. `time.h` 참조
 
 **부작용**
 
@@ -1182,9 +1146,7 @@ void MC_uicSetTimeLong(MC_UicComponent cc, time_t time)
 
 없음
 
-```c
-MC_uicGetTime
-```
+### MC_uicGetTime
 
 **프로토타입**
 
@@ -1202,8 +1164,8 @@ void MC_uicGetTime(MC_UicComponet cc, struct tm* pd)
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `pd` — [out] 받아올 날짜.
+- `cc` - [in] 컴포넌트
+- `pd` - [out] 받아올 날짜.
 
 **부작용**
 
@@ -1213,9 +1175,7 @@ void MC_uicGetTime(MC_UicComponet cc, struct tm* pd)
 
 없음
 
-```c
-MC_uicAddMenuItem
-```
+### MC_uicAddMenuItem
 
 **프로토타입**
 
@@ -1231,12 +1191,13 @@ M_Int32 MC_uicAddMenuItem(MC_Component cc, M_Uint8* psz, MC_GrpImage img)
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `psz` — [in] 메뉴 아이템을 나타내는 문자열 img - [in] 메뉴 아이템의 이미지
+- `cc` - [in] 컴포넌트
+- `psz` - [in] 메뉴 아이템을 나타내는 문자열
+- `img` - [in] 메뉴 아이템의 이미지
 
 **반환 값**
 
-메뉴의 인덱스(0 부터 시작된다 .)
+메뉴의 인덱스(0 부터 시작된다.)
 
 **부작용**
 
@@ -1246,9 +1207,7 @@ M_Int32 MC_uicAddMenuItem(MC_Component cc, M_Uint8* psz, MC_GrpImage img)
 
 없음
 
-```c
-MC_uicGetMenuItem
-```
+### MC_uicGetMenuItem
 
 **프로토타입**
 
@@ -1264,14 +1223,22 @@ M_Int32 MC_uicGetMenuItem(MC_Component cc, M_Uint32 idx, M_Uint8* psz, M_Int32 b
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `idx` — [in] 가져올 메뉴 아이템의 인덱스
-- `psz` — [out] 메뉴 아이템을 나타나는 문자열이 복사될 버퍼 buflen - [in] 버퍼의 크기
-- `img` — [out] 메뉴 아이템의 이미지
+- `cc` - [in] 컴포넌트
+- `idx` - [in] 가져올 메뉴 아이템의 인덱스
+- `psz` - [out] 메뉴 아이템을 나타나는 문자열이 복사될 버퍼
+- `buflen` - [in] 버퍼의 크기
+- `img` - [out] 메뉴 아이템의 이미지
 
 **반환 값**
 
-#### 이면 성공 0 이하면 실패 M_E_SHOFTBUF: psz 으로 넘기는 버퍼 크기가 작은 경우
+성공
+
+- 1
+
+실패
+
+- 0 이하면 실패
+- `M_E_SHOFTBUF`: psz 으로 넘기는 버퍼 크기가 작은 경우
 
 **부작용**
 
@@ -1281,9 +1248,7 @@ M_Int32 MC_uicGetMenuItem(MC_Component cc, M_Uint32 idx, M_Uint8* psz, M_Int32 b
 
 없음
 
-```c
-MC_uicRemoveMenuItem
-```
+### MC_uicRemoveMenuItem
 
 **프로토타입**
 
@@ -1301,12 +1266,18 @@ idx 가 가리키는 메뉴 아이템을 삭제한다.
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `idx` — [in] 삭제할 메뉴 아이템의 인덱스
+- `cc` - [in] 컴포넌트
+- `idx` - [in] 삭제할 메뉴 아이템의 인덱스
 
 **반환 값**
 
-1 이면 성공 0 이면 실패
+성공
+
+- 1
+
+실패
+
+- 0
 
 **부작용**
 
@@ -1316,9 +1287,7 @@ idx 가 가리키는 메뉴 아이템을 삭제한다.
 
 없음
 
-```c
-MC_uicSetActiveMenuItem
-```
+### MC_uicSetActiveMenuItem
 
 **프로토타입**
 
@@ -1334,8 +1303,8 @@ M_Int32 MC_uicSetActiveMenuItem(MC_Component cc, M_Int32 idx)
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `idx` — [in] 메뉴 아이템의 인덱스
+- `cc` - [in] 컴포넌트
+- `idx` - [in] 메뉴 아이템의 인덱스
 
 **반환 값**
 
@@ -1349,9 +1318,7 @@ M_Int32 MC_uicSetActiveMenuItem(MC_Component cc, M_Int32 idx)
 
 없음
 
-```c
-MC_uicGetActiveMenuItem
-```
+### MC_uicGetActiveMenuItem
 
 **프로토타입**
 
@@ -1367,7 +1334,7 @@ M_Int32 MC_uicGetActiveMenuItem(MC_Component cc)
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
+- `cc` - [in] 컴포넌트
 
 **반환 값**
 
@@ -1383,9 +1350,7 @@ M_Int32 MC_uicGetActiveMenuItem(MC_Component cc)
 
 없음
 
-```c
-MC_uicInsertText
-```
+### MC_uicInsertText
 
 **프로토타입**
 
@@ -1397,7 +1362,7 @@ M_Int32 MC_uicInsertText(MC_Component cc, M_Int32 idx, M_Uint8* psz, M_Int32 len
 
 텍스트 컴포넌트에 문자열을 추가한다.
 
-cc 가 가리키는 텍스트 컴포넌트의 idx 부분부터 시작하여 psz 의 내용을 len 만큼 삽입한다. idx 가 0 이하 이면 맨 앞이 추가되고, M_CuicGetMaxTextSize()로 넘어 오는 값 이상 이면 맨 뒤에 추가가 된다.
+cc 가 가리키는 텍스트 컴포넌트의 idx 부분부터 시작하여 psz 의 내용을 len 만큼 삽입한다. idx 가 0 이하 이면 맨 앞이 추가되고, `M_CuicGetMaxTextSize()`로 넘어 오는 값 이상 이면 맨 뒤에 추가가 된다.
 
 문자열은 내부에서 복사되므로 이 함수가 종료되고 나서 psz 가 가리키는 내용은 변경되어도 된다.
 
@@ -1405,9 +1370,10 @@ cc 가 가리키는 텍스트 컴포넌트의 idx 부분부터 시작하여 psz 
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `idx` — [in] 문자열을 입력할 위치; 0 부터 맨 마지막 문자열까지 된다. psz - [in] 복사될 문자열
-- `len` — [in] 문자열의 길이
+- `cc` - [in] 컴포넌트
+- `idx` - [in] 문자열을 입력할 위치; 0 부터 맨 마지막 문자열까지 된다.
+- `psz` - [in] 복사될 문자열
+- `len` - [in] 문자열의 길이
 
 **반환 값**
 
@@ -1423,9 +1389,7 @@ cc 가 가리키는 텍스트 컴포넌트의 idx 부분부터 시작하여 psz 
 
 없음
 
-```c
-MC_uicDeleteText
-```
+### MC_uicDeleteText
 
 **프로토타입**
 
@@ -1443,12 +1407,13 @@ cc 가 가리키는 텍스트 컴포넌트의 idx 부분부터 시작하여 길�
 
 idx 가 내부 문자열의 범위를 벗어 나거나 len 이 0 보다 작으면 이 함수는 아무런 역할을 하지 않는다.
 
-지정된 컴포넌트가 텍스트 컴포넌트가 아니면 이 함수는 아무런 역할을 하지 않는 다.
+지정된 컴포넌트가 텍스트 컴포넌트가 아니면 이 함수는 아무런 역할을 하지 않는다.
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `idx` — [in] 삭제할 문자열의 시작 위치 len - [in] 문자열의 길이
+- `cc` - [in] 컴포넌트
+- `idx` - [in] 삭제할 문자열의 시작 위치
+- `len` - [in] 문자열의 길이
 
 **부작용**
 
@@ -1458,9 +1423,7 @@ idx 가 내부 문자열의 범위를 벗어 나거나 len 이 0 보다 작으�
 
 없음
 
-```c
-MC_uicGetMaxTextSize
-```
+### MC_uicGetMaxTextSize
 
 **프로토타입**
 
@@ -1470,13 +1433,13 @@ M_Int32 MC_uicGetMaxTextSize(MC_Component cc)
 
 **설명**
 
-텍스트 컴포넌트의 최대 문자열 크기를 얻어 온다. 바이트 단위의 최대 문자열 크기를 돌려준다.
+텍스트 컴포넌트의 최대 문자열 크기를 얻어온다. 바이트 단위의 최대 문자열 크기를 돌려준다.
 
-지정된 컴포넌트가 텍스트 컴포넌트가 아니면 이 함수는 아무런 역할을 하지 않는 다.
+지정된 컴포넌트가 텍스트 컴포넌트가 아니면 이 함수는 아무런 역할을 하지 않는다.
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
+- `cc` - [in] 컴포넌트
 
 **반환 값**
 
@@ -1490,9 +1453,7 @@ M_Int32 MC_uicGetMaxTextSize(MC_Component cc)
 
 없음
 
-```c
-MC_uicSetMaxTextSize
-```
+### MC_uicSetMaxTextSize
 
 **프로토타입**
 
@@ -1504,18 +1465,18 @@ M_Int32 MC_uicSetMaxTextSize(MC_Component cc, M_Int32 max)
 
 텍스트 컴포넌트의 최대 문자열 크기를 지정한다. 바이트 단위의 최대 문자열 크기를 지정한다.
 
-지정된 컴포넌트가 텍스트 컴포넌트가 아니면 이 함수는 아무런 역할을 하지 않는 다. 기본 크기는 256 바이트 이다.
+지정된 컴포넌트가 텍스트 컴포넌트가 아니면 이 함수는 아무런 역할을 하지 않는다. 기본 크기는 256 바이트 이다.
 
 만일 이함수를 부를때 내부 문자열이 새로 정의된 max 보다 작다면, 내부 버퍼의 내용은 max 크기로 짤려진다.
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `max` — [in] 최대 문자열 크기(바이트 단위)
+- `cc` - [in] 컴포넌트
+- `max` - [in] 최대 문자열 크기(바이트 단위)
 
 **반환 값**
 
-이전의 최대 문자열 크기; 메모리가 부족할때 M_E_NOMEMORY 가 돌려짐
+이전의 최대 문자열 크기; 메모리가 부족할때 `M_E_NOMEMORY` 가 돌려짐
 
 **부작용**
 
@@ -1525,9 +1486,7 @@ M_Int32 MC_uicSetMaxTextSize(MC_Component cc, M_Int32 max)
 
 없음
 
-```c
-MC_uicGetTextSize
-```
+### MC_uicGetTextSize
 
 **프로토타입**
 
@@ -1543,7 +1502,7 @@ M_Int32 MC_uicGetTextSize(MC_Component cc)
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
+- `cc` - [in] 컴포넌트
 
 **반환 값**
 
@@ -1557,9 +1516,7 @@ M_Int32 MC_uicGetTextSize(MC_Component cc)
 
 없음
 
-```c
-MC_uicGetText
-```
+### MC_uicGetText
 
 **프로토타입**
 
@@ -1571,17 +1528,18 @@ M_Int32 MC_uicGetText(MC_Component cc, M_Int32 idx, M_Uint8* pszBuf, M_Int32 len
 
 텍스트 컴포넌트의 내부의 문자열을 돌려준다.
 
-cc 가 가리키는 컴포넌트의 내부 문자열의 idx 의 부분 부터 pszBuf 에 len 만큼 복 사해준다.
+cc 가 가리키는 컴포넌트의 내부 문자열의 idx 의 부분 부터 pszBuf 에 len 만큼 복사해준다.
 
-idx 는 문자열의 범위를 벗어 나지 못하며, 만일 idx 가 0 보다 작은 경우에는 0 으 로 보정되며, idx 가 문자열 보다 큰경우에는 아무런 내용도 복사하지 않으며 0 을 돌려준다.
+idx 는 문자열의 범위를 벗어 나지 못하며, 만일 idx 가 0 보다 작은 경우에는 0 으로 보정되며, idx 가 문자열 보다 큰경우에는 아무런 내용도 복사하지 않으며 0 을 돌려준다.
 
-지정된 컴포넌트가 텍스트 컴포넌트가 아니면 이 함수는 아무런 역할을 하지 않는 다.
+지정된 컴포넌트가 텍스트 컴포넌트가 아니면 이 함수는 아무런 역할을 하지 않는다.
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `idx` — [in] 문자열의 시작 인덱스 psz - [out] 복사될 버퍼
-- `len` — [in] 버퍼의 크기
+- `cc` - [in] 컴포넌트
+- `idx` - [in] 문자열의 시작 인덱스
+- `psz` - [out] 복사될 버퍼
+- `len` - [in] 버퍼의 크기
 
 **반환 값**
 
@@ -1595,9 +1553,7 @@ idx 는 문자열의 범위를 벗어 나지 못하며, 만일 idx 가 0 보다 
 
 없음
 
-```c
-MC_uicAddListItem
-```
+### MC_uicAddListItem
 
 **프로토타입**
 
@@ -1615,8 +1571,9 @@ M_Int32 MC_uicAddListItem(MC_Component cc, M_Uint8* psz, MC_GrpImage img)
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `psz` — [in] 리스트 아이템을 나타내는 문자열 img - [in] 리스트 아이템의 이미지
+- `cc` - [in] 컴포넌트
+- `psz` - [in] 리스트 아이템을 나타내는 문자열
+- `img` - [in] 리스트 아이템의 이미지
 
 **반환 값**
 
@@ -1630,9 +1587,7 @@ M_Int32 MC_uicAddListItem(MC_Component cc, M_Uint8* psz, MC_GrpImage img)
 
 없음
 
-```c
-MC_uicGetListItem
-```
+### MC_uicGetListItem
 
 **프로토타입**
 
@@ -1648,14 +1603,22 @@ M_Int32 MC_uicGetListItem(MC_Component cc, M_Uint32 idx, M_Uint8* psz, M_Int32 b
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `idx` — [in] 가져올 리스트 아이템의 인덱스
-- `psz` — [out] 리스트 아이템을 나타나는 문자열이 복사될 버퍼 buflen - [in] 버퍼의 크기
-- `img` — [out] 리스트 아이템의 이미지
+- `cc` - [in] 컴포넌트
+- `idx` - [in] 가져올 리스트 아이템의 인덱스
+- `psz` - [out] 리스트 아이템을 나타나는 문자열이 복사될 버퍼
+- `buflen` - [in] 버퍼의 크기
+- `img` - [out] 리스트 아이템의 이미지
 
 **반환 값**
 
-1 이면 성공 0 이하면 실패 M_E_SHOFTBUF: psz 으로 넘기는 버퍼 크기가 작은 경우
+성공
+
+- 1
+
+실패
+
+- 0 이하면 실패
+- `M_E_SHOFTBUF` - psz 으로 넘기는 버퍼 크기가 작은 경우
 
 **부작용**
 
@@ -1665,9 +1628,8 @@ M_Int32 MC_uicGetListItem(MC_Component cc, M_Uint32 idx, M_Uint8* psz, M_Int32 b
 
 없음
 
-```c
-MC_uicRemoveListItem
-```
+
+### MC_uicRemoveListItem
 
 **프로토타입**
 
@@ -1685,12 +1647,18 @@ idx 가 가리키는 리스트 아이템을 삭제한다.
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `idx` — [in] 삭제할 리스트 아이템의 인덱스
+- `cc` - [in] 컴포넌트
+- `idx` - [in] 삭제할 리스트 아이템의 인덱스
 
 **반환 값**
 
-1 이면 성공 0 이면 실패
+성공
+
+- 1
+
+실패
+
+- 0
 
 **부작용**
 
@@ -1700,9 +1668,7 @@ idx 가 가리키는 리스트 아이템을 삭제한다.
 
 없음
 
-```c
-MC_uicSetActiveListItem
-```
+### MC_uicSetActiveListItem
 
 **프로토타입**
 
@@ -1714,12 +1680,12 @@ M_Int32 MC_uicSetActiveListItem(MC_Component cc, M_Int32 idx)
 
 지정된 리스트 아이템을 활성화시킨다.
 
-지정된 컴포넌트가 리스트 컴포넌트가 아니면 이 함수는 아무런 역할을 하지 않는 다. 만일 idx 값이 리스트 항목의 범위를 벗어 나면, 이 함수는 아무런 역할을 하 지 않는다. 만일 선택되지 않은 상태로 두려면 idx 을 -1 로 지정하시면 된다.
+지정된 컴포넌트가 리스트 컴포넌트가 아니면 이 함수는 아무런 역할을 하지 않는다. 만일 idx 값이 리스트 항목의 범위를 벗어 나면, 이 함수는 아무런 역할을 하지 않는다. 만일 선택되지 않은 상태로 두려면 idx 을 -1 로 지정하시면 된다.
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
-- `idx` — [in] 리스트 아이템의 인덱스
+- `cc` - [in] 컴포넌트
+- `idx` - [in] 리스트 아이템의 인덱스
 
 **반환 값**
 
@@ -1733,9 +1699,7 @@ M_Int32 MC_uicSetActiveListItem(MC_Component cc, M_Int32 idx)
 
 없음
 
-```c
-MC_uicGetActiveListItem
-```
+### MC_uicGetActiveListItem
 
 **프로토타입**
 
@@ -1751,13 +1715,17 @@ M_Int32 MC_uicGetActiveListItem(MC_Component cc)
 
 **매개 변수**
 
-- `cc` — [in] 컴포넌트
+- `cc` - [in] 컴포넌트
 
 **반환 값**
 
-활성화된 리스트 아이템의 인덱스
+셩공
 
--1 : 활성화된 리스트가 없는 경우
+- 활성화된 리스트 아이템의 인덱스
+
+실패
+
+- `-1` - 활성화된 리스트가 없는 경우
 
 **부작용**
 
