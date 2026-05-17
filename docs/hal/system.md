@@ -178,9 +178,7 @@ M_Int32 MH_sysGetInformation (M_Char* command, M_Char* buf, M_Int32 bufSize)
 - `buf` - [out] 버퍼
 - `butSize` - [out] 버퍼 크기
 
-표 안에 표가 있는 구조네요. `MEDIADEVICES`의 미리 정의된 문자열 목록은 별도 표로 빼는 게 가장 깔끔합니다. 메인 표는 그대로 두고, 그 행에서 보조 표를 참조하는 방식으로 구성했습니다.
-
-### command 목록
+#### command 목록
 
 | command | 비고 |
 |---|---|
@@ -206,7 +204,7 @@ M_Int32 MH_sysGetInformation (M_Char* command, M_Char* buf, M_Int32 bufSize)
 | `"VIBRATORLEVEL"` | 하드웨어가 지원하는 진동 세기의 단계를 반환한다. (최소 0, 최대 100) 예) `"3"` 3단계 지원, `"1"` 1단계 지원 |
 | `"VOLUMELEVEL"` | 하드웨어가 지원하는 볼륨 세기의 단계를 반환한다. (최소 0, 최대 100) 예) `"10"` 10단계 지원, `"4"` 4단계 지원 |
 
-### `MEDIADEVICES` - 미리 정의된 문자열
+#### `MEDIADEVICES` - 미리 정의된 문자열
 
 | 문자열 | device |
 |---|---|
