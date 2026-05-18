@@ -158,10 +158,10 @@ M_Int32 MH_IMAhandleInput(char key, M_Int32 type, char *buf1, M_Int32 *size1, ch
 
 - `key` - [in] 입력된 키값 (`MH_KeyCode`에 정의된 것, `MH_IMA_FLUSH`)
 - `type` - [in] 입력된 키 타입 (`MH_Event`에 정의된 것.)
-- `buf1` [out] 완성된 문자열버퍼
-- `size1` [in] 완성된 문자열 버퍼의 크기
-- `buf2` [out] 조합중인 문자열버퍼
-- `size2` [in] 조합중인 문자열 버퍼의 크기
+- `buf1` - [out] 완성된 문자열버퍼
+- `size1` - [in] 완성된 문자열 버퍼의 크기
+- `buf2` - [out] 조합중인 문자열버퍼
+- `size2` - [in] 조합중인 문자열 버퍼의 크기
 
 **반환 값**
 
