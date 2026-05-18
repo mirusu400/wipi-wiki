@@ -48,6 +48,9 @@ extra:
       link: https://github.com/mirusu400/wipi-wiki
   generator: false
 
+extra_css:
+  - stylesheets/extra.css
+
 plugins:
   - search:
       lang: ko
