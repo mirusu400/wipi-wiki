@@ -2,7 +2,7 @@
 
 `package javax.microedition.io`
 
-```
+```text
      void getViaStreamConnection(String url) throws IOException {
          StreamConnection c = null;
          InputStream s = null;

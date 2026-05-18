@@ -2,7 +2,7 @@
 
 `package javax.microedition.io`
 
-```
+```text
     datagram = connection.newDatagram(max);
  
     // Reset prepares the datagram for writing new message.

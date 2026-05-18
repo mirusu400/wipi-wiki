@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.db`
 
-```
+```text
 public static final int EQUIVALENT
 ```
 

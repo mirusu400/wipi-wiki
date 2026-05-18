@@ -2,7 +2,7 @@
 
 `package javax.microedition.io`
 
-```
+```text
    // Create the server listening socket for port 1234 
    ServerSocketConnection scn = (ServerSocketConnection)
                             Connector.open("socket://:1234");

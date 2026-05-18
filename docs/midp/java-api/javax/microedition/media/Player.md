@@ -2,7 +2,7 @@
 
 `package javax.microedition.media`
 
-```
+```text
  try {
      Player p = Manager.createPlayer(Manager.TONE_DEVICE_LOCATOR);
      p.start();

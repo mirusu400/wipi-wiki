@@ -2,7 +2,7 @@
 
 `package javax.microedition.lcdui.game`
 
-```
+```text
 java.lang.Object
   |
   +--javax.microedition.lcdui.game.LayerManager

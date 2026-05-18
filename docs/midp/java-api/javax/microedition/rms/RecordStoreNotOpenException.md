@@ -2,7 +2,7 @@
 
 `package javax.microedition.rms`
 
-```
+```text
 java.lang.Object
   |
   +--java.lang.Throwable

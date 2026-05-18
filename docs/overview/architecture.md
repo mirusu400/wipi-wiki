@@ -4,7 +4,7 @@
 
 Application Programs Basic API (MSF/MSP/WIPI-C) Extended API (CLDC Core API/MIDP)
 
-```
+```text
 ┌─────────────────────────────────────────────────────┐
 │                Application Programs                 │
 ├─────────────────────────────────────────────────────┤

@@ -2,7 +2,7 @@
 
 `package java.io`
 
-```
+```text
 public void write(int b)
            throws IOException
 ```

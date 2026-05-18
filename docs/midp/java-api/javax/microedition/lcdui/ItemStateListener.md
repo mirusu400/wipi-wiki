@@ -2,7 +2,7 @@
 
 `package javax.microedition.lcdui`
 
-```
+```text
 public void itemStateChanged(Item item)
 ```
 

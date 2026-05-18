@@ -2,7 +2,7 @@
 
 `package javax.microedition.media.control`
 
-```
+```text
 public void setMute(boolean mute)
 ```
 

@@ -2,7 +2,7 @@
 
 `package javax.microedition.io`
 
-```
+```text
 public void close()
            throws IOException
 ```

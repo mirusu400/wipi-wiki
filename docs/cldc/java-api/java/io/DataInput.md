@@ -2,7 +2,7 @@
 
 `package java.io`
 
-```
+```text
 public void readFully(byte[] b)
                throws IOException
 ```

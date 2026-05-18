@@ -2,7 +2,7 @@
 
 `package javax.microedition.pki`
 
-```
+```text
 java.lang.Object
   |
   +--java.lang.Throwable

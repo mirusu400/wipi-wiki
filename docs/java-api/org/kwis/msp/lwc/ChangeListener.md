@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.lwc`
 
-```
+```text
 public void changed(Component cmp,
                     Object o)
 ```

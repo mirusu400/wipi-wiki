@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.lwc`
 
-```
+```text
 public boolean grabKeyNotify(int type,
                              int chr,
                              Object obj)

@@ -2,7 +2,7 @@
 
 `package javax.microedition.rms`
 
-```
+```text
 public int numRecords()
 ```
 

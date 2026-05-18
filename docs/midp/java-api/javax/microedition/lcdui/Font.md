@@ -2,7 +2,7 @@
 
 `package javax.microedition.lcdui`
 
-```
+```text
 java.lang.Object
   |
   +--javax.microedition.lcdui.Font

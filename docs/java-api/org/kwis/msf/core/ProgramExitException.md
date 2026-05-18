@@ -2,7 +2,7 @@
 
 `package org.kwis.msf.core`
 
-```
+```text
 java.lang.Object
   |
   +--java.lang.Throwable

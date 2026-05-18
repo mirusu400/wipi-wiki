@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.db`
 
-```
+```text
 java.lang.Object
   |
   +--org.kwis.msp.db.DataFilterInteger

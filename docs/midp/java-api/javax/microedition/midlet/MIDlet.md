@@ -2,7 +2,7 @@
 
 `package javax.microedition.midlet`
 
-```
+```text
 java.lang.Object
   |
   +--javax.microedition.midlet.MIDlet

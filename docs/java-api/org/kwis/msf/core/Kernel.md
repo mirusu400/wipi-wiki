@@ -2,7 +2,7 @@
 
 `package org.kwis.msf.core`
 
-```
+```text
 java.lang.Object
   |
   +--org.kwis.msf.core.Kernel

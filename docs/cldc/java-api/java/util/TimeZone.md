@@ -2,7 +2,7 @@
 
 `package java.util`
 
-```
+```text
 java.lang.Object
   |
   +--java.util.TimeZone

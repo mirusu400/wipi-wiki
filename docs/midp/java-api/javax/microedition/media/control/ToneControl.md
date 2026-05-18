@@ -2,7 +2,7 @@
 
 `package javax.microedition.media.control`
 
-```
+```text
  sequence              = version *1tempo_definition *1resolution_definition 
 		             *block_definition 1*sequence_event
  

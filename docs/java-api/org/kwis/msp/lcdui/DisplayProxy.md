@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.lcdui`
 
-```
+```text
 java.lang.Object
   |
   +--org.kwis.msp.lcdui.DisplayProxy

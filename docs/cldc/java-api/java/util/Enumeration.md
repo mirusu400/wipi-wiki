@@ -2,7 +2,7 @@
 
 `package java.util`
 
-```
+```text
      for (Enumeration e = v.elements() ; e.hasMoreElements() ;) {
          System.out.println(e.nextElement());
      }

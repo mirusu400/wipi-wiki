@@ -2,7 +2,7 @@
 
 `package javax.microedition.lcdui`
 
-```
+```text
     ch.set(k, ch.getString(k), ch.getImage(k));
 ```
 

@@ -2,7 +2,7 @@
 
 `package java.lang`
 
-```
+```text
 java.lang.Object
   |
   +--java.lang.Thread

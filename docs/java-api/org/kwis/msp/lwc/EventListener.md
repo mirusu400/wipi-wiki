@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.lwc`
 
-```
+```text
 public boolean eventNotify(int type,
                            int arg1,
                            int arg2,

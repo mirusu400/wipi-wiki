@@ -2,7 +2,7 @@
 
 `package javax.microedition.io`
 
-```
+```text
  CommConnection cc = (CommConnection)
             Connector.open("comm:com0;baudrate=19200");
  int baudrate = cc.getBaudRate();

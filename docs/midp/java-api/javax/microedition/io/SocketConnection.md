@@ -2,7 +2,7 @@
 
 `package javax.microedition.io`
 
-```
+```text
    SocketConnection sc = (SocketConnection)
                          Connector.open("socket://host.com:79");
    sc.setSocketOption(SocketConnection.LINGER, 5);

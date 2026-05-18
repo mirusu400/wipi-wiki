@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.io`
 
-```
+```text
 java.lang.Object
   |
   +--org.kwis.msp.io.FileSystem

@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.db`
 
-```
+```text
 public boolean filter(byte[] data)
 ```
 

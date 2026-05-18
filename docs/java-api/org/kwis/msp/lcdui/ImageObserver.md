@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.lcdui`
 
-```
+```text
 public static final int FRAME_END
 ```
 

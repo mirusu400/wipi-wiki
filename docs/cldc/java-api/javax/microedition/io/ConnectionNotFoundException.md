@@ -2,7 +2,7 @@
 
 `package javax.microedition.io`
 
-```
+```text
 java.lang.Object
   |
   +--java.lang.Throwable

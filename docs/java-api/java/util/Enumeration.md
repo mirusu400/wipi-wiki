@@ -2,7 +2,7 @@
 
 `package java.util`
 
-```
+```text
 public boolean hasMoreElements()
 ```
 

@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.lcdui`
 
-```
+```text
 public void notifyTextChanged(char[] chText,
                               int length,
                               int pMode)

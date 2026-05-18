@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.handset`
 
-```
+```text
 java.lang.Object
   |
   +--org.kwis.msp.handset.BackLight

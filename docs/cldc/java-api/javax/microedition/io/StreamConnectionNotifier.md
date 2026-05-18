@@ -2,7 +2,7 @@
 
 `package javax.microedition.io`
 
-```
+```text
 public StreamConnection acceptAndOpen()
                                throws IOException
 ```

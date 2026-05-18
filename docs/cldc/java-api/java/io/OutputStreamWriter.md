@@ -2,7 +2,7 @@
 
 `package java.io`
 
-```
+```text
 java.lang.Object
   |
   +--java.io.Writer

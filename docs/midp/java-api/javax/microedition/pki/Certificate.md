@@ -2,7 +2,7 @@
 
 `package javax.microedition.pki`
 
-```
+```text
 public String getSubject()
 ```
 

@@ -2,7 +2,7 @@
 
 `package javax.microedition.rms`
 
-```
+```text
  RecordComparator c = new AddressRecordComparator();
  if (c.compare(recordStore.getRecord(rec1), recordStore.getRecord(rec2))
 	 == RecordComparator.PRECEDES)

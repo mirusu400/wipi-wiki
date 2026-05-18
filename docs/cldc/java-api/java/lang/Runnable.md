@@ -2,7 +2,7 @@
 
 `package java.lang`
 
-```
+```text
 public void run()
 ```
 

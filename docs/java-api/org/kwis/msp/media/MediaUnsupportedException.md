@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.media`
 
-```
+```text
 java.lang.Object
   |
   +--java.lang.Throwable

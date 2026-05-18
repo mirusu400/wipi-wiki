@@ -2,7 +2,7 @@
 
 `package org.kwis.msf.io`
 
-```
+```text
 java.lang.Object
   |
   +--org.kwis.msf.io.URL

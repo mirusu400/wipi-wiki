@@ -381,7 +381,7 @@ struct _fileInfo{
     M_Uint32    creationTime; // 파일이 생성된 시간을 1970 년 1 월 1 일 이후 초단위로 나타낸다.  
     M_Uint32    size;           // 파일의 크기 
  };
- ```
+```
 
 위 구조체에서 파일 특성을 표시하는 bit mask 의 경우는 아래의 예제와 같이 사 용할 수 있다.
 

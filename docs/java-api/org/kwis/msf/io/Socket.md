@@ -2,7 +2,7 @@
 
 `package org.kwis.msf.io`
 
-```
+```text
 public InputStream getInputStream()
                            throws IOException
 ```

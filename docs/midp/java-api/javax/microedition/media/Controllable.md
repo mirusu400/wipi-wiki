@@ -2,7 +2,7 @@
 
 `package javax.microedition.media`
 
-```
+```text
 public Control[] getControls()
 ```
 

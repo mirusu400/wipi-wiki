@@ -2,7 +2,7 @@
 
 `package javax.microedition.rms`
 
-```
+```text
  RecordFilter f = new DateRecordFilter(); // class implements RecordFilter
  if (f.matches(recordStore.getRecord(theRecordID)) == true)
    DoSomethingUseful(theRecordID);

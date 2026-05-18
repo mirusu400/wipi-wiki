@@ -2,7 +2,7 @@
 
 `package javax.microedition.media`
 
-```
+```text
 public static final String STARTED
 ```
 

@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.lwc`
 
-```
+```text
 public static final int FOCUS_CHANGE
 ```
 

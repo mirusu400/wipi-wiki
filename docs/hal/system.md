@@ -14,8 +14,9 @@ enum _MH_SUB_SERIAL_EVENT {
     MH_SERIAL_WRITE,  // SERIAL에 write 할 수 있다는 event
     MH_SERIAL_ERROR,    // 시리얼 H/W 에러
 };
+```
 
-정의된 세부 이벤트의 전달방법은 해당 모듈설명을 참고한다. 
+정의된 세부 이벤트의 전달방법은 해당 모듈설명을 참고한다.
 
 ```c
 enum _MH_Event {

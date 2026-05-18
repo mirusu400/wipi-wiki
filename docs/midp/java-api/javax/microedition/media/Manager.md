@@ -2,7 +2,7 @@
 
 `package javax.microedition.media`
 
-```
+```text
 java.lang.Object
   |
   +--javax.microedition.media.Manager

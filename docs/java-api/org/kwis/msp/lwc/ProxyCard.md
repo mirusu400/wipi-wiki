@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.lwc`
 
-```
+```text
 java.lang.Object
   |
   +--org.kwis.msp.lcdui.Card

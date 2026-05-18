@@ -2,7 +2,7 @@
 
 `package javax.microedition.io`
 
-```
+```text
    SecureConnection sc = (SecureConnection)
                          Connector.open("ssl://host.com:79");
    SecurityInfo info = sc.getSecurityInfo();

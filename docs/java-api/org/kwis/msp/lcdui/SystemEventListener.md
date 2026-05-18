@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.lcdui`
 
-```
+```text
 public void notifySystemEvent(int type,
                               int event,
                               int parm1,

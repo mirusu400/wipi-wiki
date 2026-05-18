@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.lwc`
 
-```
+```text
 public void action(Component cmp,
                    Object o)
 ```

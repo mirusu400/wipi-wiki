@@ -2,7 +2,7 @@
 
 `package org.kwis.msp.media`
 
-```
+```text
 public static final int ERROR
 ```
 

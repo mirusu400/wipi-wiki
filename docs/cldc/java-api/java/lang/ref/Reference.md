@@ -2,7 +2,7 @@
 
 `package java.lang.ref`
 
-```
+```text
 java.lang.Object
   |
   +--java.lang.ref.Reference

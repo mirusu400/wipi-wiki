@@ -2,7 +2,7 @@
 
 `package javax.microedition.io`
 
-```
+```text
      void getViaHttpsConnection(String url)
             throws CertificateException, IOException {
          HttpsConnection c = null;

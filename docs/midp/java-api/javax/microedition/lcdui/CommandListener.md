@@ -2,7 +2,7 @@
 
 `package javax.microedition.lcdui`
 
-```
+```text
 public void commandAction(Command c,
                           Displayable d)
 ```
