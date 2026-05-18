@@ -46,7 +46,7 @@ typedef struct MH_SerialEvent{
 
 이외의 제어키와 제어값에 대한 정의는 추가될 수 있다. 예를 들어 8 비트, 패리티없음, 115200 속도로 하드웨어 흐름제어를 하기 위해 포트를 열 경우 제어문자열은 다음과 같다.
 
-```
+```text
 ”baudrate=115200,parity=no,size=8,flow=hardware”
 ```
 

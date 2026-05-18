@@ -94,7 +94,6 @@ M_Int32 MH_pltStart(M_Int32 JavaC, M_Char* programID, M_Char* path, M_Char* args
 - `programID` - [in]  java 인 경우, 수행시킬 프로그램의 main class 이름을 가리킨다. C 인 경우, 수행시킬 프로그램을 지정할 수 있는 ID
 - `path` - [in] path 값은 수행시킬 프로그램의 독립된 file 을 가리킨다. null 이면 수행시킬 프로그램이 폰이미지안에 같이 포함되어 있는 것을 의미한다.
 - `args` - [in] 실행시킬 프로그램에 전달할 매개변수(전달할 매개변수가 없으면 0)
-```
 
 **반환 값**
 

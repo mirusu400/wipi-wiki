@@ -14,17 +14,21 @@ TCP/IP 인터넷 통신에 관련된 모듈이다. 인터넷 접근, TCP/UDP 소
 
 ### MC_AF_INET
 
+**설명**
+
+인터넷 도메인임을 가르키는 상수로 값은 2 이다.
+
 **프로토타입**
 
 ```c
 #define MC_AF_INET 2
 ```
 
+### MC_SOCKET_STREAM
+
 **설명**
 
-인터넷 도메인임을 가르키는 상수로 값은 2 이다.
-
-### MC_SOCKET_STREAM
+TCP 소켓 타입을 지정하는 값으로 1 이다
 
 **프로토타입**
 
@@ -32,21 +36,17 @@ TCP/IP 인터넷 통신에 관련된 모듈이다. 인터넷 접근, TCP/UDP 소
 #define MC_SOCKET_STREAM 1
 ```
 
+### MC_SOCKET_DGRAM
+
 **설명**
 
-TCP 소켓 타입을 지정하는 값으로 1 이다
-
-### MC_SOCKET_DGRAM
+UDP 소켓 타입을 지정하는 값으로 2 이다
 
 **프로토타입**
 
 ```c
 #define MC_SOCKET_DGRAM 2
 ```
-
-**설명**
-
-UDP 소켓 타입을 지정하는 값으로 2 이다
 
 ### NETCONNECTCB
 
@@ -1151,7 +1151,7 @@ M_Int32 MC_netHttpGetProxy(M_Int32 fd, M_Int32 *proxyhost, M_Int16 *proxyport)
 
 HTTP 서버의 응답코드를 리턴한다. 서버로 부터의 응답이 다음과 같을 때
 
-```
+```text
 HTTP/1.0 200 OK
 HTTP/1.0 404 Not Found
 ```
@@ -1193,7 +1193,7 @@ M_Int32 MC_netHttpGetResponseCode(M_Int32 fd)
 
 HTTP 서버의 응답메세지를 복사해 온다. 서버로 부터의 응답이 다음과 같을 때
 
-```
+```text
 HTTP/1.0 200 OK
 HTTP/1.0 404 Not Found
 ```
@@ -1343,7 +1343,9 @@ M_Int32 MC_netHttpGetType(M_Int32 fd, M_Byte *buf, M_Int32 len)
 
 `MC_netHttpConnect`
 
-### MC_netHttpGetEncoding 설명
+### MC_netHttpGetEncoding
+
+**설명**
 
 컨텐츠의 인코딩 문자열을 복사해 온다. 이 함수가 `MC_netHttpConnect()` 에서 설정하는 콜백함수가 불리기 전에 불리면 `M_E_ERROR` 를 리턴한다.
 

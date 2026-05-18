@@ -31,18 +31,21 @@ typedef struct _MH_DisplayInfo {
 ### MH_GRP_DIRECT_COLOR_TYPE
 
 
+**설명**
+
+팔레트를 사용하지 않는 경우의 컬러 타입. (1 << 0)로 정의한다.
+
 **프로토타입**
 
 ```c
 #define MH_GRP_DIRECT_COLOR_TYPE
 ```
 
+### MH_GRP_GRAY_TYPE
+
 **설명**
 
-팔레트를 사용하지 않는 경우의 컬러 타입. (1 << 0)로 정의한다.
-
-
-### MH_GRP_GRAY_TYPE
+흑백 타입. (1 << 1)로 정의한다.
 
 **프로토타입**
 
@@ -50,23 +53,17 @@ typedef struct _MH_DisplayInfo {
 #define MH_GRP_GRAY_TYPE
 ```
 
+### MH_GRP_COLOR_TYPE
+
 **설명**
 
-흑백 타입. (1 << 1)로 정의한다.
-
-
-### MH_GRP_COLOR_TYPE
+컬러 타입. (1 << 2)로 정의한다.
 
 **프로토타입**
 
 ```c
 #define MH_GRP_COLOR_TYPE
 ```
-
-**설명**
-
-컬러 타입. (1 << 2)로 정의한다.
-
 
 ### MH_fbGetDisplayInfo
 

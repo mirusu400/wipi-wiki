@@ -25,7 +25,7 @@ Clet 에서 사용할 수 있는 모든 API를 정의 한다. Clet은 다음의 
 
 ### handleCletEvent 
 
-```
+```c
 void CletHandleEvent(int type, int param1, int param2) 
 ```
 이벤트를 처리하는 함수이다. type에는 1 항에 정의된 이벤트가 올 수 있다. param1과 param2는 type의 값에 따라서 달라진다.

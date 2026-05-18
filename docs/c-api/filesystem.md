@@ -32,17 +32,21 @@
 
 ### MC_FILE_OPEN_RDONLY
 
+**설명**
+
+읽기만 가능. `MH_FILE_OPEN_RDONLY` 로 정의한다.
+
 **프로토타입**
 
 ```c
 #define MC_FILE_OPEN_RDONLY
 ```
 
+### MC_FILE_OPEN_WRONLY
+
 **설명**
 
-읽기만 가능. `MH_FILE_OPEN_RDONLY` 로 정의한다.
-
-### MC_FILE_OPEN_WRONLY
+쓰기만 가능. `MH_FILE_OPEN_WRONLY` 로 정의한다.
 
 **프로토타입**
 
@@ -50,11 +54,11 @@
 #define MC_FILE_OPEN_WRONLY
 ```
 
+### MC_FILE_OPEN_WRTRUNC
+
 **설명**
 
-쓰기만 가능. `MH_FILE_OPEN_WRONLY` 로 정의한다.
-
-### MC_FILE_OPEN_WRTRUNC
+쓰기만 가능하고 파일이 존재하면 파일 크기를 0 으로 만듬. `MH_FILE_OPEN_WRTRUNC` 로 정의한다.
 
 **프로토타입**
 
@@ -62,11 +66,11 @@
 #define MC_FILE_OPEN_WRTRUNC
 ```
 
+### MC_FILE_OPEN_RDWR
+
 **설명**
 
-쓰기만 가능하고 파일이 존재하면 파일 크기를 0 으로 만듬. `MH_FILE_OPEN_WRTRUNC` 로 정의한다.
-
-### MC_FILE_OPEN_RDWR
+읽기와 쓰기 모두 가능. `MH_FILE_OPEN_RDWR` 로 정의한다.
 
 **프로토타입**
 
@@ -74,11 +78,11 @@
 #define MC_FILE_OPEN_RDWR
 ```
 
+### MC_FILE_IS_DIR
+
 **설명**
 
-읽기와 쓰기 모두 가능. `MH_FILE_OPEN_RDWR` 로 정의한다.
-
-### MC_FILE_IS_DIR
+파일 attribute 중 디렉토리를 나타내는 bit. `MH_FILE_IS_DIR` 로 정의한다.
 
 **프로토타입**
 
@@ -86,11 +90,11 @@
 #define MC_FILE_IS_DIR
 ```
 
+### MC_MAX_FILENAME_LENGTH
+
 **설명**
 
-파일 attribute 중 디렉토리를 나타내는 bit. `MH_FILE_IS_DIR` 로 정의한다.
-
-### MC_MAX_FILENAME_LENGTH
+파일이름 최대 길이. `MH_MAX_FILENAME_LENGTH` 로 정의한다.
 
 **프로토타입**
 
@@ -98,12 +102,11 @@
 #define MC_MAX_FILENAME_LENGTH
 ```
 
+### MC_DIR_PRIVATE_ACCESS
+
 **설명**
 
-파일이름 최대 길이. `MH_MAX_FILENAME_LENGTH` 로 정의한다.
-
-
-### MC_DIR_PRIVATE_ACCESS
+자기 자신의 디렉토리로 접근. 1 로 정의한다.
 
 **프로토타입**
 
@@ -111,12 +114,11 @@
 #define MC_DIR_PRIVATE_ACCESS
 ```
 
+### MC_DIR_SHARED_ACCESS
+
 **설명**
 
-자기 자신의 디렉토리로 접근. 1 로 정의한다.
-
-
-### MC_DIR_SHARED_ACCESS
+공유 디렉토리로 접근. 2 로 정의한다.
 
 **프로토타입**
 
@@ -124,12 +126,11 @@
 #define MC_DIR_SHARED_ACCESS
 ```
 
+### MC_DIR_SYSTEM_ACCESS
+
 **설명**
 
-공유 디렉토리로 접근. 2 로 정의한다.
-
-
-### MC_DIR_SYSTEM_ACCESS
+시스템 디렉토리로 접근. 3 으로 정의한다.
 
 **프로토타입**
 
@@ -137,11 +138,11 @@
 #define MC_DIR_SYSTEM_ACCESS
 ```
 
+### MC_FILE_SEEK_SET
+
 **설명**
 
-시스템 디렉토리로 접근. 3 으로 정의한다.
-
-### MC_FILE_SEEK_SET
+파일의 처음을 기준으로 파일포인터의 위치를 설정. `MH_FILE_SEEK_SET` 로 정의한다.
 
 **프로토타입**
 
@@ -149,11 +150,11 @@
 #define MC_FILE_SEEK_SET
 ```
 
+### MC_FILE_SEEK_CUR
+
 **설명**
 
-파일의 처음을 기준으로 파일포인터의 위치를 설정. `MH_FILE_SEEK_SET` 로 정의한다.
-
-### MC_FILE_SEEK_CUR
+파일의 current position 을 기준으로 파일포인터의 위치를 설정. `MH_FILE_SEEK_CUR` 로 정의한다.
 
 **프로토타입**
 
@@ -161,21 +162,17 @@
 #define MC_FILE_SEEK_CUR
 ```
 
+### MC_FILE_SEEK_END
+
 **설명**
 
-파일의 current position 을 기준으로 파일포인터의 위치를 설정. `MH_FILE_SEEK_CUR` 로 정의한다.
-
-### MC_FILE_SEEK_END
+파일의 끝을 기준으로 파일포인터의 위치를 설정. `MH_FILE_SEEK_SET` 로 정의한다.
 
 **프로토타입**
 
 ```c
 #define MC_FILE_SEEK_SET
 ```
-
-**설명**
-
-파일의 끝을 기준으로 파일포인터의 위치를 설정. `MH_FILE_SEEK_SET` 로 정의한다.
 
 ### MC_fsOpen
 
@@ -677,7 +674,9 @@ M_Int32 MC_fsTotalSpace()
 
 없음
 
-### MC_fsAvailable 설명
+### MC_fsAvailable
+
+**설명**
 
 파일 시스템에서 남아있는 공간을 구한다
 

@@ -136,7 +136,9 @@ M_UInt32 MH_utilLocalCodeSizeToUnicodeChar(M_Uint16 *psz, M_Int32 len);
 
 없음
 
-### MH_utilGetUnicodeSizeInLocalCode 설명
+### MH_utilGetUnicodeSizeInLocalCode
+
+**설명**
 
 내부 로컬 코드 문자 버퍼을 유니코드 문자 버퍼 변환할 때 유니코드 문자 버퍼 크기를 M_Uint16 단위로 돌려준다.
 
