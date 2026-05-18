@@ -5,6 +5,10 @@
 
 ### MC_BackLight
 
+**설명**
+
+백라이트 제어 옵션을 나타내는 열거형
+
 **프로토타입**
 
 ```c
@@ -15,10 +19,6 @@ typedef enum _MC_BackLight MC_BackLight {
     MC_LIGHT_DEFAULT,  //사용자가 설정한 상태로 함
 } MC_BackLight;
 ```
-
-**설명**
-
-백라이트 제어 옵션을 나타내는 열거형
 
 ### MC_miscBackLight
 
@@ -67,7 +67,7 @@ LED on/off 를 설정한다. 각 bit 가 1 이면 on, 0 이면 off 를 나타낸
 예) 외장 LED 가 4 개 존재한다면 LSB BIT 부터 4 개를 사용한다.
 
 
-```
+```text
  *                          0 bit 
  *   +---------------------+ 
  *   |             |*|*|*|*| 

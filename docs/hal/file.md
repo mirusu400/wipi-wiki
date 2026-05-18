@@ -277,7 +277,9 @@ M_Int32 MH_fileRead (M_Int32 fd, M_Char* buf, M_Int32 size)
 
 없음
 
-### MH_fileRemove 설명
+### MH_fileRemove
+
+**설명**
 
 파일을 지운다. 이미 열려 있는 파일일 경우는 지울 수 없다.
 

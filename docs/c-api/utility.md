@@ -74,7 +74,9 @@ M_Int32 MC_utilNtohl(M_Int32 val)
 
 없음
 
-### MC_utilNtohs 설명
+### MC_utilNtohs
+
+**설명**
 
 M_Int16 타입의 값의 Network Byte Ordering 을 Host Byte Ordering 으로 전환한다.
 
