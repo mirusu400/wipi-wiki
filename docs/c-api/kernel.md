@@ -81,18 +81,21 @@ void startClet() {
 
 ### MC_PRGTYPE_JAVAAPP
 
+**설명**
+
+자바 애플리케이션. 1 로 정의 되어있다.
+
 **프로토타입**
 
 ```c
 #define MC_PRGTYPE_JAVAAPP
 ```
 
+### MC_PRGTYPE_CAPP
+
 **설명**
 
-자바 애플리케이션. 1 로 정의 되어있다.
-
-
-### MC_PRGTYPE_CAPP
+C 애플리케이션. 2 로 정의 되어있다.
 
 **프로토타입**
 
@@ -100,12 +103,11 @@ void startClet() {
 #define MC_PRGTYPE_CAPP
 ```
 
+### MC_PRGTYPE_CDLL
+
 **설명**
 
-C 애플리케이션. 2 로 정의 되어있다.
-
-
-### MC_PRGTYPE_CDLL
+C 동적로딩 라이브러리, 3 로 정의 되어있다.
 
 **프로토타입**
 
@@ -113,12 +115,11 @@ C 애플리케이션. 2 로 정의 되어있다.
 #define MC_PRGTYPE_CDLL
 ```
 
+### MC_PRGTYPE_JAVADLL
+
 **설명**
 
-C 동적로딩 라이브러리, 3 로 정의 되어있다.
-
-
-### MC_PRGTYPE_JAVADLL
+자바 동적로딩 라이브러리, 4 로 정의 되어있다.
 
 **프로토타입**
 
@@ -126,12 +127,11 @@ C 동적로딩 라이브러리, 3 로 정의 되어있다.
 #define MC_PRGTYPE_JAVADLL
 ```
 
+### MC_PRGTYPE_JAVASYSDLL
+
 **설명**
 
-자바 동적로딩 라이브러리, 4 로 정의 되어있다.
-
-
-### MC_PRGTYPE_JAVASYSDLL
+자바 시스템 라이브러리, 5 로 정의 되어있다.
 
 **프로토타입**
 
@@ -139,12 +139,11 @@ C 동적로딩 라이브러리, 3 로 정의 되어있다.
 #define MC_PRGTYPE_JAVASYSDLL
 ```
 
+### MC_DIR_SYS_READ_REQ_MASK
+
 **설명**
 
-자바 시스템 라이브러리, 5 로 정의 되어있다.
-
-
-### MC_DIR_SYS_READ_REQ_MASK
+`system directory read` 가능. 0x01 로 정의 되어있다.
 
 **프로토타입**
 
@@ -152,12 +151,12 @@ C 동적로딩 라이브러리, 3 로 정의 되어있다.
 #define MC_DIR_SYS_READ_REQ_MASK
 ```
 
-**설명**
-
-`system directory read` 가능. 0x01 로 정의 되어있다.
-
 ### MC_DIR_SYS_WRITE_REQ_MASK
 
+
+**설명**
+
+`system directory write` 가능. 0x02 로 정의 되어있다.
 
 **프로토타입**
 
@@ -165,12 +164,11 @@ C 동적로딩 라이브러리, 3 로 정의 되어있다.
 #define MC_DIR_SYS_WRITE_REQ_MASK
 ```
 
+### MC_DIR_SHARED_READ_REQ_MASK
+
 **설명**
 
-`system directory write` 가능. 0x02 로 정의 되어있다.
-
-
-### MC_DIR_SHARED_READ_REQ_MASK
+`shared directory read` 가능. 0x04 로 정의 되어있다.
 
 **프로토타입**
 
@@ -178,12 +176,11 @@ C 동적로딩 라이브러리, 3 로 정의 되어있다.
 #define MC_DIR_SHARED_READ_REQ_MASK
 ```
 
+### MC_DIR_SHARED_WRITE_REQ_MASK
+
 **설명**
 
-`shared directory read` 가능. 0x04 로 정의 되어있다.
-
-
-### MC_DIR_SHARED_WRITE_REQ_MASK
+`shared directory write` 가능. 0x08 로 정의 되어있다.
 
 **프로토타입**
 
@@ -191,11 +188,11 @@ C 동적로딩 라이브러리, 3 로 정의 되어있다.
 #define MC_DIR_SHARED_WRITE_REQ_MASK
 ```
 
+### MC_NETWORK_ACCESS_REQ_MASK
+
 **설명**
 
-`shared directory write` 가능. 0x08 로 정의 되어있다.
-
-### MC_NETWORK_ACCESS_REQ_MASK
+`network API` 사용 가능. 0x10 으로 정의 되어있다.
 
 **프로토타입**
 
@@ -203,12 +200,11 @@ C 동적로딩 라이브러리, 3 로 정의 되어있다.
 #define MC_NETWORK_ACCESS_REQ_MASK
 ```
 
+### MC_SERIAL_ACCESS_REQ_MASK
+
 **설명**
 
-`network API` 사용 가능. 0x10 으로 정의 되어있다.
-
-
-### MC_SERIAL_ACCESS_REQ_MASK
+`serial API` 사용 가능. 0x20 으로 정의 되어있다.
 
 **프로토타입**
 
@@ -216,12 +212,11 @@ C 동적로딩 라이브러리, 3 로 정의 되어있다.
 #define MC_SERIAL_ACCESS_REQ_MASK
 ```
 
+### MC_SYSTEM1_ACCESS_REQ_MASK
+
 **설명**
 
-`serial API` 사용 가능. 0x20 으로 정의 되어있다.
-
-
-### MC_SYSTEM1_ACCESS_REQ_MASK
+`system group1` 에 속한 API 사용가능(`system group1` 에 속할 API 들은 각 이통사가 정의) . 0x40 으로 정의 되어있다.
 
 **프로토타입**
 
@@ -229,12 +224,11 @@ C 동적로딩 라이브러리, 3 로 정의 되어있다.
 #define MC_SYSTEM1_ACCESS_REQ_MASK
 ```
 
+### MC_SYSTEM2_ACCESS_REQ_MASK
+
 **설명**
 
-`system group1` 에 속한 API 사용가능(`system group1` 에 속할 API 들은 각 이통사가 정의) . 0x40 으로 정의 되어있다.
-
-
-### MC_SYSTEM2_ACCESS_REQ_MASK
+`system group2` 에 속한 API 사용가능(`system group2` 에 속할 API 들은 각 이통사가 정의) . 0x80 으로 정의 되어있다.
 
 **프로토타입**
 
@@ -242,24 +236,19 @@ C 동적로딩 라이브러리, 3 로 정의 되어있다.
 #define MC_SYSTEM2_ACCESS_REQ_MASK
 ```
 
-**설명**
-
-`system group2` 에 속한 API 사용가능(`system group2` 에 속할 API 들은 각 이통사가 정의) . 0x80 으로 정의 되어있다.
-
-
 ### MC_GETDPTR
-
-**프로토타입**
-
-```c
-#define MC_GETDPTR(mID)
-```
 
 **설명**
 
 메모리식별자에서 포인터를 구한다.
 
 `MC_knlCalloc()`에서 할당한 메모리식별자에서 실제로 사용할 포인터를 구한다.
+
+**프로토타입**
+
+```c
+#define MC_GETDPTR(mID)
+```
 
 **매개 변수**
 
@@ -270,12 +259,6 @@ C 동적로딩 라이브러리, 3 로 정의 되어있다.
 포인터
 
 ### DECLARE_INDIRECTBUF
-
-**프로토타입**
-
-```c
-#define DECLARE_INDIRECTBUF(typeName, var)
-```
 
 **설명**
 
@@ -288,6 +271,12 @@ typedef struct type_name {
     INDIRECT_BUF_HEAD;	//  간접버퍼할당을  위해  플랫폼에서  제공하는 매크로
     char buf[1024];	// 사용자가 원하는 크기의 버퍼 설정
 };
+```
+
+**프로토타입**
+
+```c
+#define DECLARE_INDIRECTBUF(typeName, var)
 ```
 
 **매개 변수**
@@ -306,15 +295,15 @@ typedef struct type_name {
 
 ### MCTimer
 
+**설명**
+
+타이머 설정에 사용되는 구조체형 선언
+
 **프로토타입**
 
 ```c
 typedef struct _MTimer MCTimer
 ```
-
-**설명**
-
-타이머 설정에 사용되는 구조체형 선언
 
 **참고항목**
 
@@ -322,15 +311,15 @@ typedef struct _MTimer MCTimer
 
 ### TIMERCB
 
+**설명**
+
+`MC_knlDefTimer()`에 등록하는 콜백함수이다. 설정한 타이머가 만료되면 불린다.
+
 **프로토타입**
 
 ```c
 typedef void (*TIMERCB)(MCTimer *tm, void* parm)
 ```
-
-**설명**
-
-`MC_knlDefTimer()`에 등록하는 콜백함수이다. 설정한 타이머가 만료되면 불린다.
 
 **매개 변수**
 
@@ -343,15 +332,15 @@ typedef void (*TIMERCB)(MCTimer *tm, void* parm)
 
 ### MC_knlPrintk
 
+**설명**
+
+`format string` 을 stdout 으로 출력한다. `ISO/IEC 9899:1999(E) - Programming Languages – C` 의 printf 규격을 따른다.
+
 **프로토타입**
 
 ```c
 int MC_knlPrintk(M_Char* format, ...)
 ```
-
-**설명**
-
-`format string` 을 stdout 으로 출력한다. `ISO/IEC 9899:1999(E) - Programming Languages – C` 의 printf 규격을 따른다.
 
 **부작용**
 
@@ -364,17 +353,17 @@ int MC_knlPrintk(M_Char* format, ...)
 
 ### MC_knlSprintk
 
-**프로토타입**
-
-```c
-int MC_knlSprintk(M_Char* buf, M_Char* format, ...)
-```
-
 **설명**
 
 format string 을 buf 로 출력한다.
 
 `ISO/IEC 9899:1999(E) - Programming Languages – C` 의 sprintf 규격을 따른다.
+
+**프로토타입**
+
+```c
+int MC_knlSprintk(M_Char* buf, M_Char* format, ...)
+```
 
 **부작용**
 
@@ -387,12 +376,6 @@ format string 을 buf 로 출력한다.
 
 ### MC_knlGetExecNames
 
-**프로토타입**
-
-```c
-M_Int32 MC_knlGetExecNames(M_Char* prgName, M_Char* version, M_Char* vendor, M_Char* buf, M_Int32 bufSize)
-```
-
 **설명**
 
 플랫폼에 설치된 어플리케이션중 prgName(프로그램이름), version, vendor 와 일 치하는 어플리케이션 식별이름을 반환한다. 매개변수가 NULL 인 경우에는 아무것 이나 일치한다는 뜻 이다. 예를 들어 prgName, version, vendor 가 모두 NULL 인경\\우, 플랫폼에 설치된 모든 프로그램의 이름을 반환한다. 반환되는 이름은 null 로 끝나는 문자열의 리스트이다.
@@ -400,6 +383,12 @@ M_Int32 MC_knlGetExecNames(M_Char* prgName, M_Char* version, M_Char* vendor, M_C
 ```c
 예로서 두개의 일치하는 프로그램이 있을 경우
 예) "/1/1.jar,3\0/2/2.jar,2\0" 와같이 buf에 저장되어 반환될 수 있다.
+```
+
+**프로토타입**
+
+```c
+M_Int32 MC_knlGetExecNames(M_Char* prgName, M_Char* version, M_Char* vendor, M_Char* buf, M_Int32 bufSize)
 ```
 
 **매개 변수**
@@ -425,12 +414,6 @@ M_Int32 MC_knlGetExecNames(M_Char* prgName, M_Char* version, M_Char* vendor, M_C
 
 
 ### MC_knlExecute
-
-**프로토타입**
-
-```c
-M_Int32 MC_knlExecute(M_Char* execName, M_Int32 parmCnt, ...)
-```
 
 **설명**
 
@@ -468,6 +451,12 @@ public static void main(String[] args) {
 }
 ```
 
+**프로토타입**
+
+```c
+M_Int32 MC_knlExecute(M_Char* execName, M_Int32 parmCnt, ...)
+```
+
 **매개 변수**
 
 - `execName` - [in] 실행시킬 프로그램의 이름, MC_knlGetExecNames()에 의해 구해진다.
@@ -492,12 +481,6 @@ public static void main(String[] args) {
 없음
 
 ### MC_knlExit
-
-**프로토타입**
-
-```c
-void MC_knlExit(M_Int32 exitCode)
-```
 
 **설명**
 
@@ -531,6 +514,12 @@ void handleCletEvent(int type, int parm1, int parm2) {
 }
 ```
 
+**프로토타입**
+
+```c
+void MC_knlExit(M_Int32 exitCode)
+```
+
 **매개 변수**
 
 - `exitCode` - [in] 종료값
@@ -546,15 +535,15 @@ void handleCletEvent(int type, int parm1, int parm2) {
 
 ### MC_knlProgramStop
 
+**설명**
+
+수행중인 다른 응용 프로그램을 강제로 종료시킨다. 동적로딩라이브러리는 강제로 해제될 수 없고, 동적로딩라이브러리를 사용하는 모든 응용프로그램이 종료되면 자동으로 종료된다. 부모프로그램은 종료시킬 수 없고, 자식프로그램만 종료시킬 수 있다.
+
 **프로토타입**
 
 ```c
 M_Int32 MC_knlProgramStop(M_Int32 prgID)
 ```
-
-**설명**
-
-수행중인 다른 응용 프로그램을 강제로 종료시킨다. 동적로딩라이브러리는 강제로 해제될 수 없고, 동적로딩라이브러리를 사용하는 모든 응용프로그램이 종료되면 자동으로 종료된다. 부모프로그램은 종료시킬 수 없고, 자식프로그램만 종료시킬 수 있다.
 
 **매개 변수**
 
@@ -579,15 +568,15 @@ M_Int32 MC_knlProgramStop(M_Int32 prgID)
 
 ### MC_knlGetCurProgramID
 
+**설명**
+
+현재 수행되고 있는 자기 자신의 프로그램 식별자를 얻어 온다.
+
 **프로토타입**
 
 ```c
 M_Int32 MC_knlGetCurProgramID()
 ```
-
-**설명**
-
-현재 수행되고 있는 자기 자신의 프로그램 식별자를 얻어 온다.
 
 **반환 값**
 
@@ -604,15 +593,15 @@ M_Int32 MC_knlGetCurProgramID()
 
 ### MC_knlGetParentProgramID
 
+**설명**
+
+현재 수행되고 있는 프로그램의 부모 프로그램 식별자를 얻어 온다.
+
 **프로토타입**
 
 ```c
 M_Int32 MC_knlGetParentProgramID()
 ```
-
-**설명**
-
-현재 수행되고 있는 프로그램의 부모 프로그램 식별자를 얻어 온다.
 
 **반환 값**
 
@@ -629,15 +618,15 @@ M_Int32 MC_knlGetParentProgramID()
 
 ### MC_knlGeAppManagerID
 
+**설명**
+
+응용프로그램 관리자의 프로그램 ID 를 구한다.
+
 **프로토타입**
 
 ```c
 M_Int32 MC_knlGetAppManagerID()
 ```
-
-**설명**
-
-응용프로그램 관리자의 프로그램 ID 를 구한다.
 
 **반환 값**
 
@@ -654,15 +643,15 @@ M_Int32 MC_knlGetAppManagerID()
 
 ### MC_knlGetProgramInfo
 
+**설명**
+
+현재 동작중인 프로그램에 대한 정보를 얻는다. 반환값은 현재 동작중인 프로그램 의 수를 나타내고, 각 index 에 속한 값은 해당 index 에 해당하는 프로그램의 type 를 나타낸다. 예로소 buf[2]가 `MC_PRGTYPE_JAVADLL` 인경우 prgID 가 2 인 프로그램은 `java application DLL` 이다.
+
 **프로토타입**
 
 ```c
 M_Int32 MC_knlGetProgramInfo(M_Int32* buf, M_Int32 bufSize)
 ```
-
-**설명**
-
-현재 동작중인 프로그램에 대한 정보를 얻는다. 반환값은 현재 동작중인 프로그램 의 수를 나타내고, 각 index 에 속한 값은 해당 index 에 해당하는 프로그램의 type 를 나타낸다. 예로소 buf[2]가 `MC_PRGTYPE_JAVADLL` 인경우 prgID 가 2 인 프로그램은 `java application DLL` 이다.
 
 **매개 변수**
 
@@ -687,15 +676,15 @@ M_Int32 MC_knlGetProgramInfo(M_Int32* buf, M_Int32 bufSize)
 
 ### MC_knlGetAccessLevel
 
+**설명**
+
+프로그램의 접근 수준을 구한다. 반환값의 각 비트(bit)는 현재 프로그램이 접근 할 수 있는 API 들의 종류를 나타낸다. 각 비트(bit)의 의미는 `MC_DIR_SYS_READ_REQ_MASK`, `MC_DIR_SYS_WRITE_REQ_MASK`, `MC_DIR_SHARED_READ_REQ_MASK`, `MC_DIR_SHARED_WRITE_REQ_MASK`, `MC_NETWORK_ACCESS_REQ_MASK`, `MC_SERIAL_ACCESS_REQ_MASK`, `MC_SYSTEM1_ACCESS_REQ_MASK`, `MC_SYSTEM2_ACCESS_REQ_MASK` 마스크값에 따른다.
+
 **프로토타입**
 
 ```c
 M_Int32 MC_knlGetAccessLevel()
 ```
-
-**설명**
-
-프로그램의 접근 수준을 구한다. 반환값의 각 비트(bit)는 현재 프로그램이 접근 할 수 있는 API 들의 종류를 나타낸다. 각 비트(bit)의 의미는 `MC_DIR_SYS_READ_REQ_MASK`, `MC_DIR_SYS_WRITE_REQ_MASK`, `MC_DIR_SHARED_READ_REQ_MASK`, `MC_DIR_SHARED_WRITE_REQ_MASK`, `MC_NETWORK_ACCESS_REQ_MASK`, `MC_SERIAL_ACCESS_REQ_MASK`, `MC_SYSTEM1_ACCESS_REQ_MASK`, `MC_SYSTEM2_ACCESS_REQ_MASK` 마스크값에 따른다.
 
 **반환 값**
 
@@ -712,15 +701,15 @@ M_Int32 MC_knlGetAccessLevel()
 
 ### MC_knlGetProgramName
 
+**설명**
+
+현재 수행되고 있는 자기 자신의 프로그램 이름을 구한다. 구해지는 이름은 ADF 파일에 기술된 이름이다.
+
 **프로토타입**
 
 ```c
 M_Int32 MC_knlGetProgramName(M_Char* nameBuf, M_Int32 bufSize)
 ```
-
-**설명**
-
-현재 수행되고 있는 자기 자신의 프로그램 이름을 구한다. 구해지는 이름은 ADF 파일에 기술된 이름이다.
 
 **매개 변수**
 
@@ -746,15 +735,15 @@ M_Int32 MC_knlGetProgramName(M_Char* nameBuf, M_Int32 bufSize)
 
 ### MC_knlCreateSharedBuf
 
+**설명**
+
+공유 버퍼를 생성한다. 공유 버퍼는 프로그램간에 자료를 공유할 수 있도록 한다. 생성된 버퍼는 이 버퍼를 사용하는 모든 프로그램이 종료되면 자동으로 삭제된다.
+
 **프로토타입**
 
 ```c
 void* MC_knlCreateSharedBuf(const M_Char* name, M_Int32 size)
 ```
-
-**설명**
-
-공유 버퍼를 생성한다. 공유 버퍼는 프로그램간에 자료를 공유할 수 있도록 한다. 생성된 버퍼는 이 버퍼를 사용하는 모든 프로그램이 종료되면 자동으로 삭제된다.
 
 **매개 변수**
 
@@ -779,15 +768,15 @@ void* MC_knlCreateSharedBuf(const M_Char* name, M_Int32 size)
 
 ### MC_knlDestroyShareBuf
 
+**설명**
+
+생성된 공유버퍼를 파괴한다.
+
 **프로토타입**
 
 ```c
 M_Int32 MC_knlDestroySharedBuf(void* buf)
 ```
-
-**설명**
-
-생성된 공유버퍼를 파괴한다.
 
 **매개 변수**
 
@@ -813,15 +802,15 @@ M_Int32 MC_knlDestroySharedBuf(void* buf)
 
 ### MC_knlGetSharedBuf
 
+**설명**
+
+`name` 문자열로 생성된 공유 버퍼를 얻어 온다.
+
 **프로토타입**
 
 ```c
 void* MC_knlGetSharedBuf(const M_char* name)
 ```
-
-**설명**
-
-`name` 문자열로 생성된 공유 버퍼를 얻어 온다.
 
 **매개 변수**
 
@@ -845,15 +834,15 @@ void* MC_knlGetSharedBuf(const M_char* name)
 
 ### MC_knlGetSharedBufSize
 
+**설명**
+
+공유 버퍼 크기를 얻어 온다.
+
 **프로토타입**
 
 ```c
 M_Int32 MC_knlGetSharedBufSize(void* buf)
 ```
-
-**설명**
-
-공유 버퍼 크기를 얻어 온다.
 
 **매개 변수**
 
@@ -877,15 +866,15 @@ M_Int32 MC_knlGetSharedBufSize(void* buf)
 
 ### MC_knlResizeSharedBuf
 
+**설명**
+
+공유버퍼의 크기를 변경한다.
+
 **프로토타입**
 
 ```c
 void* MC_knlResizeSharedBuf(void* buf, M_Int32 size)
 ```
-
-**설명**
-
-공유버퍼의 크기를 변경한다.
 
 **매개 변수**
 
@@ -911,15 +900,15 @@ void* MC_knlResizeSharedBuf(void* buf, M_Int32 size)
 
 ### MC_knlAlloc
 
+**설명**
+
+힙에서 요청하는 크기만큼의 메모리를 할당한다. 할당된 메모리는 `MC_knlFree()`에서 해제해 주어야 재사용된다. 할당된 메모리를 프로그램 종료시까지 해제하지 않으면 프로그램 종료시 플랫폼에서 자동으로 해제한다. 할당된 메모리는 메모리 식별자로 사용시 `MC_GETDPTR()`를 이용하여 포인터를 구해와 사용해야 한다.
+
 **프로토타입**
 
 ```c
 M_Uint32 MC_knlAlloc(M_Int32 size)
 ```
-
-**설명**
-
-힙에서 요청하는 크기만큼의 메모리를 할당한다. 할당된 메모리는 `MC_knlFree()`에서 해제해 주어야 재사용된다. 할당된 메모리를 프로그램 종료시까지 해제하지 않으면 프로그램 종료시 플랫폼에서 자동으로 해제한다. 할당된 메모리는 메모리 식별자로 사용시 `MC_GETDPTR()`를 이용하여 포인터를 구해와 사용해야 한다.
 
 **매개 변수**
 
@@ -944,15 +933,15 @@ M_Uint32 MC_knlAlloc(M_Int32 size)
 
 ### MC_knlCalloc
 
+**설명**
+
+힙에서 요청하는 크기만큼의 메모리를 할당한다. 할당되는 영역은 0 으로 초기화 된다. 할당된 메모리는 `MC_knlFree()`에서 해제해 주어야 재사용된다. 할당된 메모리를 프로그램 종료시까지 해제하지 않으면 프로그램 종료시 플랫폼에서 자동으로 해제한다. 할당된 메모리는 메모리 식별자로 사용시 `MC_GETDPTR()`를 이용하여 포 인터를 구해와 사용해야 한다.
+
 **프로토타입**
 
 ```c
 M_Uint32 MC_knlCalloc(M_Int32 size)
 ```
-
-**설명**
-
-힙에서 요청하는 크기만큼의 메모리를 할당한다. 할당되는 영역은 0 으로 초기화 된다. 할당된 메모리는 `MC_knlFree()`에서 해제해 주어야 재사용된다. 할당된 메모리를 프로그램 종료시까지 해제하지 않으면 프로그램 종료시 플랫폼에서 자동으로 해제한다. 할당된 메모리는 메모리 식별자로 사용시 `MC_GETDPTR()`를 이용하여 포 인터를 구해와 사용해야 한다.
 
 **매개 변수**
 
@@ -977,15 +966,15 @@ M_Uint32 MC_knlCalloc(M_Int32 size)
 
 ### MC_knlFree
 
+**설명**
+
+`MC_knlCalloc()` 으로 할당한 메모리를 해제한다. 할당되지 않은 메모리를 해제할려고 하면 안된다.
+
 **프로토타입**
 
 ```c
 void MC_knlFree(M_Uint32 mID)
 ```
-
-**설명**
-
-`MC_knlCalloc()` 으로 할당한 메모리를 해제한다. 할당되지 않은 메모리를 해제할려고 하면 안된다.
 
 **매개 변수**
 
@@ -1002,15 +991,15 @@ void MC_knlFree(M_Uint32 mID)
 
 ### MC_knlGetTotalMemory
 
+**설명**
+
+total 메모리를 구한다.
+
 **프로토타입**
 
 ```c
 M_Int32 MC_knlGetTotalMemory()
 ```
-
-**설명**
-
-total 메모리를 구한다.
 
 **반환 값**
 
@@ -1027,15 +1016,15 @@ total 메모리(byte 단위)
 
 ### MC_knlGetFreeMemory
 
+**설명**
+
+free 메모리를 구한다. 컴팩션을 수행하고 free 메모리를 구해 반환한다. 명시적으로 메모리 컴팩션이 필요한 경우, 이 함수를 이용한다
+
 **프로토타입**
 
 ```c
 M_Int32 MC_knlGetFreeMemory()
 ```
-
-**설명**
-
-free 메모리를 구한다. 컴팩션을 수행하고 free 메모리를 구해 반환한다. 명시적으로 메모리 컴팩션이 필요한 경우, 이 함수를 이용한다
 
 **반환 값**
 
@@ -1094,12 +1083,6 @@ void startClet(int argc, char* argv[]) {
 
 ### MC_knlSetTimer
 
-**프로토타입**
-
-```c
-M_Int32 MC_knlSetTimer(MCTimer* tm, M_Int64 timeout, void* parm)
-```
-
 **설명**
 
 타이머를 설정한다.
@@ -1113,6 +1096,12 @@ M_Int32 MC_knlSetTimer(MCTimer* tm, M_Int64 timeout, void* parm)
 타이머는 플랫폼하단의 운영체제에서 지원하는 타이머 resolution 과 타이머 만료 시 다른 태스크가 수행될 경우
 
 어느정도의 오차는 발생할 수 있다.
+
+**프로토타입**
+
+```c
+M_Int32 MC_knlSetTimer(MCTimer* tm, M_Int64 timeout, void* parm)
+```
 
 **매개 변수**
 
@@ -1138,15 +1127,15 @@ M_Int32 MC_knlSetTimer(MCTimer* tm, M_Int64 timeout, void* parm)
 
 ### MC_knlUnsetTimer
 
+**설명**
+
+설정된 타이머를 취소한다. 타이머가 설정되지 않았을때는 무시된다.
+
 **프로토타입**
 
 ```c
 void MC_knlUnsetTimer(MCTimer* tm)
 ```
-
-**설명**
-
-설정된 타이머를 취소한다. 타이머가 설정되지 않았을때는 무시된다.
 
 **매개 변수**
 
@@ -1164,15 +1153,15 @@ void MC_knlUnsetTimer(MCTimer* tm)
 ### MC_knlCurrentTime
 
 
+**설명**
+
+현재의 시간을 구한다. 단위는 millisecond 이다.
+
 **프로토타입**
 
 ```c
 M_Int64 MC_knlCurrentTime()
 ```
-
-**설명**
-
-현재의 시간을 구한다. 단위는 millisecond 이다.
 
 **반환 값**
 
@@ -1190,12 +1179,6 @@ M_Int64 MC_knlCurrentTime()
 ### MC_knlGetSystemProperty
 
 
-**프로토타입**
-
-```c
-M_Int32 MC_knlGetSystemProperty(M_Char* id, M_Char* rtnBuf, M_Int32 bufSize)
-```
-
 **설명**
 
 단말기에 특화된 값을 읽어 온다. 패러미터로 올 수 있는 id 문자열은 HAL 문서 API 중 `MH_sysGetInformation()`에서 사용하는 문자열에 준하고, 또한 각 이통사나 벤더에 따라 추가 확장될 수 있다.
@@ -1203,6 +1186,11 @@ M_Int32 MC_knlGetSystemProperty(M_Char* id, M_Char* rtnBuf, M_Int32 bufSize)
 `"ESN", "NID", "SID", "BASELAT", "BASELONG", "CURRENTCH", "PHONENUMBER", "RSSILEVEL", "BATTERYLEVEL", "DATASERVICEMODE", "MAXSOCKETNUM", "MAXRSSILEVEL", "MAXSERIALNUM", "MAXBATTLEVEL", "MEDIADEVICES", "DNS",
 "VIBRATORLEVEL"` 등의 id 문자열이 온다. 이것은 탑재되는 단말기에 따라 달라 질 수 있다.
 
+**프로토타입**
+
+```c
+M_Int32 MC_knlGetSystemProperty(M_Char* id, M_Char* rtnBuf, M_Int32 bufSize)
+```
 
 **매개 변수**
 
@@ -1230,16 +1218,15 @@ M_Int32 MC_knlGetSystemProperty(M_Char* id, M_Char* rtnBuf, M_Int32 bufSize)
 
 ### MC_knlSetSystemProperty
 
+**설명**
+
+단말기에 특화된 값을 설정 한다. 패러미터로 올 수 있는 id, buf 문자열은 HAL 문서 API 중 `MH_sysSetInformation()`에서 사용하는 문자열에 준하고, 또한 각 이통사나 벤더에 따라 추가 확장될 수 있다.
+
 **프로토타입**
 
 ```c
 M_Int32 MC_knlSetSystemProperty(M_Char* id, M_Char* buf)
 ```
-
-**설명**
-
-단말기에 특화된 값을 설정 한다. 패러미터로 올 수 있는 id, buf 문자열은 HAL 문서 API 중 `MH_sysSetInformation()`에서 사용하는 문자열에 준하고, 또한 각 이통사나 벤더에 따라 추가 확장될 수 있다.
-
 
 **매개 변수**
 
@@ -1265,15 +1252,15 @@ M_Int32 MC_knlSetSystemProperty(M_Char* id, M_Char* buf)
 
 ### MC_knlGetResourceID
 
+**설명**
+
+프로그램과 연관된 리소스의 ID 를 얻어온다
+
 **프로토타입**
 
 ```c
 M_Int32 MC_knlGetResourceID(M_Char* resourceName, M_Int32* size)
 ```
-
-**설명**
-
-프로그램과 연관된 리소스의 ID 를 얻어온다
 
 **매개 변수**
 
@@ -1298,15 +1285,15 @@ M_Int32 MC_knlGetResourceID(M_Char* resourceName, M_Int32* size)
 
 ### MC_knlGetResource
 
+**설명**
+
+리소스 ID 에 해당하는 리소스를 읽어온다.
+
 **프로토타입**
 
 ```c
 M_Int32 MC_knlGetResource(M_Int32 resourceID, void* buf, M_Int32 bufSize)
 ```
-
-**설명**
-
-리소스 ID 에 해당하는 리소스를 읽어온다.
 
 **매개 변수**
 
