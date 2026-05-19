@@ -1,8 +1,16 @@
 # Build output
 site/
+dist/
+.astro/
 .cache/
 __pycache__/
 *.pyc
+
+# Node
+node_modules/
+.pnpm-store/
+npm-debug.log*
+pnpm-debug.log*
 
 # Vendored sources (PDF original + cloned JavaDoc HTML)
 # These are inputs for the conversion scripts; the converted Markdown

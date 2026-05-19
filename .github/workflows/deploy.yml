@@ -20,33 +20,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
-          fetch-depth: 0  # full history for git-revision plugin if added later
+          version: 10
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          python-version: "3.12"
-          cache: pip
+          node-version: "20"
+          cache: pnpm
 
-      - name: Install Python deps
-        run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - name: Build MkDocs site
-        run: mkdocs build --strict
-
-      - name: Generate llms.txt / llms-full.txt
-        run: python3 scripts/build_llms_txt.py site
-
-      # Optional: Pagefind index for better CJK search. Drop the leading "#"
-      # to enable. Pair with a custom search override in docs/overrides/ to
-      # actually use the index in the UI.
-      # - name: Set up Node (for Pagefind)
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: "20"
-      # - name: Build Pagefind index
-      #   run: npx -y pagefind --site site
+      - name: Build Astro site
+        run: pnpm build
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -54,7 +44,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: dist
 
   deploy:
     needs: build
