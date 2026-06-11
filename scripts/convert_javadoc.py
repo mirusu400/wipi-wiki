@@ -459,7 +459,7 @@ def convert_package_summary(html: str, pkg: str) -> tuple[str, list[str]]:
                 desc = re.sub(r"\s+", " ", text_of(tds[1])).strip()
                 if name:
                     classes.append(name)
-                    out.append(f"- [{name}]({name}.md) — {desc}")
+                    out.append(f"- [{name}]({name}) — {desc}")
 
     return collapse_ws("\n".join(out)) + "\n", classes
 
@@ -509,7 +509,7 @@ def main(src: str, dst: str) -> None:
         missing = set(classes) - set(present_classes)
         if missing:
             rewritten: list[str] = []
-            link_re = re.compile(r"^- \[([^\]]+)\]\(([^)]+)\.md\)(\s+—\s+.*)?$")
+            link_re = re.compile(r"^- \[([^\]]+)\]\(([^)]+?)(?:\.md)?\)(\s+—\s+.*)?$")
             for line in md.splitlines():
                 m = link_re.match(line)
                 if m and m.group(1) in missing:
@@ -535,14 +535,14 @@ def main(src: str, dst: str) -> None:
         if extra:
             present_classes = present_classes + extra
             md = md.rstrip() + "\n\n## 기타\n\n" + "\n".join(
-                f"- [{c}]({c}.md)" for c in extra
+                f"- [{c}]({c})" for c in extra
             ) + "\n"
 
         # Write package-level index
         pkg_index = dst_path / pkg.replace(".", "/") / "index.md"
         pkg_index.parent.mkdir(parents=True, exist_ok=True)
         pkg_index.write_text(md, encoding="utf-8")
-        index_lines.append(f"- [`{pkg}`]({pkg.replace('.', '/')}/index.md) "
+        index_lines.append(f"- [`{pkg}`]({pkg.replace('.', '/')}/) "
                            f"({len(present_classes)} classes)")
 
         # Convert each present class

@@ -13,6 +13,6 @@ JSR-118 규격 한국어 번역본입니다. WIPI 1.2.1 의 Java Extended API �
 | [보안 정책 — GSM/UMTS](security-gsm) | 권장 보안 정책 (GSM/UMTS 단말) |
 | [보안 정책 — RP](security-rp) | 권장 보안 정책 (Recommended Practice) |
 | [라이선스](license) | 규격 사용 라이선스 |
-| [Java API](java-api/index) | MIDP Java API — `javax.microedition.{lcdui, media, midlet, pki, rms, io}` 등 (10 패키지, 66 클래스) |
+| [Java API](java-api/) | MIDP Java API — `javax.microedition.{lcdui, media, midlet, pki, rms, io}` 등 (10 패키지, 66 클래스) |
 
 원본: `vendor/midpng-javadoc-final/`
