@@ -14,19 +14,19 @@ title: "WIPI Wiki"
 
 | 영역 | 내용 |
 |---|---|
-| [개요](overview/index.md) | 플랫폼의 목적·범위, 개념적 구조, 단말기 권장 사양 |
-| [HAL 규격](hal/index.md) | Handset Adaptation Layer — 단말기 추상화 계층 함수 정의 |
-| [C API](c-api/index.md) | WIPI-C 응용프로그래밍 인터페이스 (커널, 그래픽, 네트워크, DB, UI 등) |
-| [Java API](java-api/index.md) | WIPI Java (MSF / MSP) 패키지·클래스 레퍼런스 (135 classes) |
-| [부속서](appendix/index.md) | EUC-KR 확장, 보안 API, 미디어 확장, 참조 문헌 |
+| [개요](overview/index) | 플랫폼의 목적·범위, 개념적 구조, 단말기 권장 사양 |
+| [HAL 규격](hal/index) | Handset Adaptation Layer — 단말기 추상화 계층 함수 정의 |
+| [C API](c-api/index) | WIPI-C 응용프로그래밍 인터페이스 (커널, 그래픽, 네트워크, DB, UI 등) |
+| [Java API](java-api/index) | WIPI Java (MSF / MSP) 패키지·클래스 레퍼런스 (135 classes) |
+| [부속서](appendix/index) | EUC-KR 확장, 보안 API, 미디어 확장, 참조 문헌 |
 
 ---
 
 ## 빠른 진입점
 
-- `MC_*` 로 시작하는 함수가 궁금하다 → [C API](c-api/index.md)
-- `MH_*` 로 시작하는 함수가 궁금하다 → [HAL 규격](hal/index.md)
-- `org.kwis.*` 클래스가 궁금하다 → [Java API](java-api/index.md)
+- `MC_*` 로 시작하는 함수가 궁금하다 → [C API](c-api/index)
+- `MH_*` 로 시작하는 함수가 궁금하다 → [HAL 규격](hal/index)
+- `org.kwis.*` 클래스가 궁금하다 → [Java API](java-api/index)
 - 전체 규격서 PDF가 필요하다 → 원본은 무선 인터넷 표준화 포럼 자료를 참조
 
 ---

@@ -140,11 +140,11 @@ CLDC/MIDP가 선택 규격일 경우에는 3장의 주요 기능 규격을 선�
 
 ### 3.9.1. CLDC 지원
 
-CLDC 규격은 Sun Microsystems 사의 [CLDC 규격 1.1](../cldc/index.md) (JSR-139)을 기준으로 해야 하며, 플랫폼은 바이너리 코드의 실행을 기반으로 하고 있으므로, CLDC 규격에서 정의하는 버추얼머신의 기능은 플랫폼 엔진에서 수용해야 한다. 단, CLDC 규격에서 바이트코드와 코드 Verrification 처리는 플랫폼의 의미를 AOTC를 포함하는 것으로 해 석하여 처리하기로 규정한다. (이와 관련하여 CLDC 규격서 5.2.1.1 Verification process의 Phase 2: In -device verification에서 “In-device”의 정의를 플랫폼과 AOTC를 포함하는 것으로 한다.) CLDC를 지원할 경우 규격서 “5.2.1 Core System (java.lang)”, “5.2.2 High Level IO (java.io)”, “5.2.3 Utilities (java.util)”은 CLDC Core API와 호환되도록 대체한다.
+CLDC 규격은 Sun Microsystems 사의 [CLDC 규격 1.1](../cldc/index) (JSR-139)을 기준으로 해야 하며, 플랫폼은 바이너리 코드의 실행을 기반으로 하고 있으므로, CLDC 규격에서 정의하는 버추얼머신의 기능은 플랫폼 엔진에서 수용해야 한다. 단, CLDC 규격에서 바이트코드와 코드 Verrification 처리는 플랫폼의 의미를 AOTC를 포함하는 것으로 해 석하여 처리하기로 규정한다. (이와 관련하여 CLDC 규격서 5.2.1.1 Verification process의 Phase 2: In -device verification에서 “In-device”의 정의를 플랫폼과 AOTC를 포함하는 것으로 한다.) CLDC를 지원할 경우 규격서 “5.2.1 Core System (java.lang)”, “5.2.2 High Level IO (java.io)”, “5.2.3 Utilities (java.util)”은 CLDC Core API와 호환되도록 대체한다.
 
 ### 3.9.2. MIDP 지원
 
-MIDP 규격은 Sun Microsystems 사의 [MIDP 규격 2.0](../midp/index.md) (JSR-118)을 기준으로 해야한다.
+MIDP 규격은 Sun Microsystems 사의 [MIDP 규격 2.0](../midp/index) (JSR-118)을 기준으로 해야한다.
 
 ### 3.9.3. Extended API
 

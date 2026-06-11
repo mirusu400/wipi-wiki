@@ -6,8 +6,8 @@ title: "부속서"
 
 | 절 | 항목 |
 |---|---|
-| 6 | [참조 문헌](references.md) |
-| 7.1 | [한국어 EUC-KR 확장 문자셋](euc-kr-extended.md) |
-| 7.2 | [API 추가/삭제 기능 관련 API](api-management.md) |
-| 7.3 | [보안 관련 API](security.md) |
-| 7.4 | [Media 관련 API](media-ext.md) |
+| 6 | [참조 문헌](references) |
+| 7.1 | [한국어 EUC-KR 확장 문자셋](euc-kr-extended) |
+| 7.2 | [API 추가/삭제 기능 관련 API](api-management) |
+| 7.3 | [보안 관련 API](security) |
+| 7.4 | [Media 관련 API](media-ext) |
