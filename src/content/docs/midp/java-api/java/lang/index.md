@@ -62,4 +62,4 @@ title: "package java.lang"
 
 ## 기타
 
-- [IllegalStateException](IllegalStateException/)
+- [IllegalStateException](illegalstateexception/)

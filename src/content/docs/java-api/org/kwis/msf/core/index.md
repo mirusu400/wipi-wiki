@@ -4,9 +4,9 @@ title: "package org.kwis.msf.core"
 
 ## Class Summary
 
-- [Kernel](Kernel/) — 
-- [Shared](Shared/) — 
+- [Kernel](kernel/) — 
+- [Shared](shared/) — 
 
 ## Exception Summary
 
-- [ProgramExitException](ProgramExitException/) —
+- [ProgramExitException](programexitexception/) —

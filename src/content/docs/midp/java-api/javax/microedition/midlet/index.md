@@ -9,8 +9,8 @@ title: "package javax.microedition.midlet"
 
 ## Class Summary
 
-- [MIDlet](MIDlet/) — MIDlet 은 MID 프로필 응용 프로그램입니다.
+- [MIDlet](midlet/) — MIDlet 은 MID 프로필 응용 프로그램입니다.
 
 ## Exception Summary
 
-- [MIDletStateChangeException](MIDletStateChangeException/) — 요청된 MIDlet 상태 변경 신호가 실패했습니다.
+- [MIDletStateChangeException](midletstatechangeexception/) — 요청된 MIDlet 상태 변경 신호가 실패했습니다.
