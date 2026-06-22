@@ -18,8 +18,8 @@ title: "package java.util"
 - [Hashtable](../../../../cldc/java-api/java/util/Hashtable) — 이 클래스는 키를 값에 매핑하는 해시 테이블을 구현합니다.
 - [Random](../../../../cldc/java-api/java/util/Random) — 이 클래스의 인스턴스는 의사 난수 스트림을 생성하는 데 사용됩니다.
 - [Stack](../../../../cldc/java-api/java/util/Stack) — Stack 클래스는 LIFO (Last-In-First-Out) 객체 스택을 나타냅니다.
-- [Timer](Timer) — 스레드가 백그라운드 스레드에서 나중에 실행할 작업을 예약할 수 있는 기능입니다.
-- [TimerTask](TimerTask) — Timer 에서 한 번 실행되거나 반복 실행되도록 예약할 수 있는 작업
+- [Timer](Timer/) — 스레드가 백그라운드 스레드에서 나중에 실행할 작업을 예약할 수 있는 기능입니다.
+- [TimerTask](TimerTask/) — Timer 에서 한 번 실행되거나 반복 실행되도록 예약할 수 있는 작업
 - [TimeZone](../../../../cldc/java-api/java/util/TimeZone) — TimeZone 은 표준 시간대 오프셋을 나타내며 일광 절약 시간도 고려합니다.
 - [Vector](../../../../cldc/java-api/java/util/Vector) — Vector 클래스는 확장 가능한 객체 배열을 구현합니다.
 
