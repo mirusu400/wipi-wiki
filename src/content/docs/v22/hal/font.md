@@ -8,10 +8,10 @@ title: "2.6. 폰트"
 
 ```c
 typedef struct _MH_CharGlyphInfo {
-int lbear; // 문자의 왼쪽 베어(bear)
-int rbear; // 문자의 오른쪽 베어(bear)
-int width; // 문자의 화면상의 폭
-int height; // 문자의 화면상의 높이
+    int lbear; // 문자의 왼쪽 베어(bear)
+    int rbear; // 문자의 오른쪽 베어(bear)
+    int width; // 문자의 화면상의 폭
+    int height; // 문자의 화면상의 높이
 } MH_CharGlyphInfo;
 #define MH_FB_FT_SIZE_SMALL 8
 #define MH_FB_FT_SIZE_MEDIUM 0

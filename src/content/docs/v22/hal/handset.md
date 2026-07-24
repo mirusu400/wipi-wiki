@@ -10,10 +10,10 @@ title: "2.12. 핸드셋 디바이스"
 
 ```c
 typedef enum MH_DevBackLight {
-MH_LIGHT_ON = 0, // 백라이트를 켬
-MH_LIGHT_OFF, // 백라이트를 끔
-MH_LIGHT_ALWAYS_ON, // 백라이트를 항상 켬
-MH_LIGHT_DEFAULT // 사용자 설정상태로 둠
+    MH_LIGHT_ON = 0, // 백라이트를 켬
+    MH_LIGHT_OFF, // 백라이트를 끔
+    MH_LIGHT_ALWAYS_ON, // 백라이트를 항상 켬
+    MH_LIGHT_DEFAULT // 사용자 설정상태로 둠
 } MH_DevBackLight;
 ```
 

@@ -380,7 +380,11 @@ protected void layout()
 
 ### calcPreferredSize
 
-protected void calcPreferredSize(int w) 컴포넌트의 적절한 크기를 계산한다. Overrides calcPreferredSize in class Component
+```java
+protected void calcPreferredSize(int w)
+```
+
+컴포넌트의 적절한 크기를 계산한다. Overrides calcPreferredSize in class Component
 
 ---
 
@@ -631,7 +635,11 @@ ComboComponent는 팝업메뉴 기능을 제공하는 클래스이다. ComboComp
 
 ### ComboComponent
 
-public ComboComponent() ComboComponent의 인스턴스를 생성한다.
+```java
+public ComboComponent()
+```
+
+ComboComponent의 인스턴스를 생성한다.
 
 ## 메서드 상세
 
@@ -988,7 +996,13 @@ Command 컴포넌트. 등록된 하나 이상의 커맨드를 바 형태로 구�
 
 ## 생성자 상세
 
-CommandBarComponent public CommandBarComponent() 커맨드 바 컴포넌트를 생성한다.
+### CommandBarComponent
+
+```java
+public CommandBarComponent()
+```
+
+커맨드 바 컴포넌트를 생성한다.
 
 ## 메서드 상세
 
@@ -1538,7 +1552,11 @@ setEventListener(org.kwis.msp.lwc.EventListener, java.lang.Object)
 
 ### Component
 
-protected Component() 생성자이다. 상속된 컴포넌트에 의해서 사용된다.
+```java
+protected Component()
+```
+
+생성자이다. 상속된 컴포넌트에 의해서 사용된다.
 
 ## 메서드 상세
 
@@ -2103,7 +2121,11 @@ protected boolean useFrame
 
 ### ContainerComponent
 
-protected ContainerComponent() 생성자이다. 상속된 컴포넌트에 의해서 사용된다.
+```java
+protected ContainerComponent()
+```
+
+생성자이다. 상속된 컴포넌트에 의해서 사용된다.
 
 ## 메서드 상세
 

@@ -19,11 +19,11 @@ title: "2.14. 파일"
 #define MH_FILEMODE_WRONLY 0x20
 #define MH_FILEMODE_RDWR 0x30
 typedef struct _fileInfo MH_FileInfo {
-M_Int32 attrib // 파일 특성 bit mask (디렉토리 여부,
-// 읽기 전용)
-M_Uint32 creationTime // 파일이 생성된 시간을 초단위로 표현되며
-// UTC
-M_Uint32 size // 파일의 크기
+    M_Int32 attrib // 파일 특성 bit mask (디렉토리 여부,
+    // 읽기 전용)
+    M_Uint32 creationTime // 파일이 생성된 시간을 초단위로 표현되며
+    // UTC
+    M_Uint32 size // 파일의 크기
 };
 ```
 

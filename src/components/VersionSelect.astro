@@ -7,6 +7,7 @@
 
 const versions = [
   { label: 'v1.2.1', value: '', prefix: '' },
+  { label: 'v2.0', value: 'v20', prefix: '/v20' },
   { label: 'v2.2.0', value: 'v22', prefix: '/v22' },
 ];
 ---
@@ -55,7 +56,9 @@ const versions = [
       const path = window.location.pathname;
       const pathAfterBase = path.startsWith(base) ? path.slice(base.length) : path;
 
-      if (pathAfterBase.startsWith('/v22/') || pathAfterBase === '/v22') {
+      if (pathAfterBase.startsWith('/v20/') || pathAfterBase === '/v20') {
+        select.value = 'v20';
+      } else if (pathAfterBase.startsWith('/v22/') || pathAfterBase === '/v22') {
         select.value = 'v22';
       } else {
         select.value = '';
@@ -65,16 +68,28 @@ const versions = [
         if (!(e.currentTarget instanceof HTMLSelectElement)) return;
         const newVersion = e.currentTarget.value;
 
-        // Try to navigate to the equivalent page in the other version
-        let targetPath: string;
+        // Determine current version prefix
+        let currentPrefix = '';
+        if (pathAfterBase.startsWith('/v20/') || pathAfterBase === '/v20') {
+          currentPrefix = '/v20';
+        } else if (pathAfterBase.startsWith('/v22/') || pathAfterBase === '/v22') {
+          currentPrefix = '/v22';
+        }
 
-        if (newVersion === 'v22') {
-          // Switching from v1 to v22: prepend /v22/
-          targetPath = base + '/v22' + pathAfterBase;
+        // Strip current version prefix to get the base page path
+        let pagePath = pathAfterBase;
+        if (currentPrefix) {
+          pagePath = pathAfterBase.slice(currentPrefix.length) || '/';
+        }
+
+        // Build target path with new version prefix
+        let targetPath: string;
+        if (newVersion === '') {
+          // Switching to v1.2.1 (no prefix)
+          targetPath = base + pagePath;
         } else {
-          // Switching from v22 to v1: remove /v22 prefix
-          const stripped = pathAfterBase.replace(/^\/v2\.2\/?/, '/');
-          targetPath = base + stripped;
+          // Switching to v20 or v22
+          targetPath = base + '/' + newVersion + pagePath;
         }
 
         // Navigate (the target page may not exist; if it 404s, user sees that)

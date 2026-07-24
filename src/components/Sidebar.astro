@@ -2,8 +2,9 @@
 /**
  * Custom Sidebar override for Starlight.
  * Filters sidebar items based on the current page version:
+ * - Pages under /v20/ only see v2.0 sidebar groups
  * - Pages under /v22/ only see v2.2 sidebar groups
- * - All other pages only see v1 sidebar groups
+ * - All other pages only see v1.2.1 sidebar groups
  */
 import MobileMenuFooter from 'virtual:starlight/components/MobileMenuFooter';
 import SidebarPersister from '@astrojs/starlight/components/SidebarPersister.astro';
@@ -12,21 +13,26 @@ import SidebarSublist from '@astrojs/starlight/components/SidebarSublist.astro';
 const { sidebar } = Astro.locals.starlightRoute;
 
 const currentId = Astro.locals.starlightRoute.id;
-const isV2 = currentId.startsWith('v22/') || currentId === 'v22';
+const isV20 = currentId.startsWith('v20/') || currentId === 'v20';
+const isV22 = currentId.startsWith('v22/') || currentId === 'v22';
 
-function hasV2Link(entry: any): boolean {
+function getEntryVersion(entry: any): string {
   if (entry.type === 'link') {
-    return entry.href?.includes('/v22/') ?? false;
+    if (entry.href?.includes('/v20/')) return 'v20';
+    if (entry.href?.includes('/v22/')) return 'v22';
+    return 'v1';
   }
   if (entry.type === 'group' && entry.entries) {
-    return entry.entries.some((e: any) => hasV2Link(e));
+    if (entry.entries.some((e: any) => getEntryVersion(e) === 'v20')) return 'v20';
+    if (entry.entries.some((e: any) => getEntryVersion(e) === 'v22')) return 'v22';
+    return 'v1';
   }
-  return false;
+  return 'v1';
 }
 
+const currentVersion = isV20 ? 'v20' : isV22 ? 'v22' : 'v1';
 const filteredSidebar = sidebar.filter((entry) => {
-  const entryIsV2 = hasV2Link(entry);
-  return isV2 ? entryIsV2 : !entryIsV2;
+  return getEntryVersion(entry) === currentVersion;
 });
 ---
 

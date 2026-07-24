@@ -10,9 +10,9 @@ title: "2.11. 전화걸기"
 
 ```c
 typedef enum MH_SUB_CALL_EVENT {
-MH_CALLEV_INCOMING = 0, // 전화가 왔음을 알림
-MH_CALLEV_NOTIFY // MH_callPlace()를 수행후 전화종료
-// 상태를 알림
+    MH_CALLEV_INCOMING = 0, // 전화가 왔음을 알림
+    MH_CALLEV_NOTIFY // MH_callPlace()를 수행후 전화종료
+    // 상태를 알림
 } MH_SUB_CALL_EVENT;
 ```
 
@@ -20,10 +20,10 @@ MH_CALLEV_NOTIFY // MH_callPlace()를 수행후 전화종료
 
 ```c
 typedef struct MH_CallEvent{
-M_Int32 event; // 발생되는 Event, enum MH_SUB_CALL_EVENT값
-M_Int32 rtnCode; // 0 성공적으로 MH_callPlace()가 수행되고
-// 정상적으로 종료되었음
-// -1 MH_callPlace()가 성공적으로 수행되지 못함
+    M_Int32 event; // 발생되는 Event, enum MH_SUB_CALL_EVENT값
+    M_Int32 rtnCode; // 0 성공적으로 MH_callPlace()가 수행되고
+    // 정상적으로 종료되었음
+    // -1 MH_callPlace()가 성공적으로 수행되지 못함
 } MH_CallEvent;
 ```
 

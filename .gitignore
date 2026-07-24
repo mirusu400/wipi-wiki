@@ -16,6 +16,8 @@ pnpm-debug.log*
 # These are inputs for the conversion scripts; the converted Markdown
 # in docs/ is what gets committed.
 vendor/
+TTAK.KO-06.0036_R6.pdf
+TTAS.KO-06.0036_R3/
 
 # Local virtualenvs
 .venv/

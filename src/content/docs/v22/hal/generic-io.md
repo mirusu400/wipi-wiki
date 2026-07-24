@@ -69,13 +69,13 @@ DEVCONTROLFUN
 
 ```c
 typedef struct MH_IODevEvent {
-M_Int32 event; // 발생된 event, MH_SUB_IODEVICE_EVENT
-M_Char devname[MH_DEV_NAME_LEN]; // event가 발생한 장치 이름
-M_Uint16 devnum;
-M_Char cmd[MH_IO_COMMAND_MAX]; // 해당 컨트롤 커맨드
-M_Int32 error; // 디바이스별 추가되는 서브이벤트
-M_Uint32 param_sz; // param 사이즈
-void *param; // cmd 에 의해 요청한 데이터를 전달
+    M_Int32 event; // 발생된 event, MH_SUB_IODEVICE_EVENT
+    M_Char devname[MH_DEV_NAME_LEN]; // event가 발생한 장치 이름
+    M_Uint16 devnum;
+    M_Char cmd[MH_IO_COMMAND_MAX]; // 해당 컨트롤 커맨드
+    M_Int32 error; // 디바이스별 추가되는 서브이벤트
+    M_Uint32 param_sz; // param 사이즈
+    void *param; // cmd 에 의해 요청한 데이터를 전달
 } MH_IODevEvent;
 ```
 
@@ -85,14 +85,14 @@ void *param; // cmd 에 의해 요청한 데이터를 전달
 
 ```c
 typedef enum MH_SUB_IODEVICE_EVENT {
-MH_IODEVICEEV_CONNECT = 0,
-MH_IODEVICEEV_READ,
-MH_IODEVICEEV_WRITE,
-MH_IODEVICEEV_CLOSE,
-MH_IODEVICEEV_TIMEOUT,
-MH_IODEVICEEV_ERROR,
-MH_IODEVICEEV_OEMERROR,
-MH_IODEVICEEV_RESPONSE
+    MH_IODEVICEEV_CONNECT = 0,
+    MH_IODEVICEEV_READ,
+    MH_IODEVICEEV_WRITE,
+    MH_IODEVICEEV_CLOSE,
+    MH_IODEVICEEV_TIMEOUT,
+    MH_IODEVICEEV_ERROR,
+    MH_IODEVICEEV_OEMERROR,
+    MH_IODEVICEEV_RESPONSE
 } MH_SUB_IODEVICE_EVENT;
 ```
 
@@ -107,14 +107,14 @@ MH_IODEVICEEV_RESPONSE
 
 ```c
 typedef struct MH_IODevice {
-M_Char *devname;
-M_Char *devtype;
-M_Uint16 total_devnum;
-DEVOPENFUN open;
-DEVCLOSEFUN close;
-DEVREADFUN read;
-DEVWRITEFUN write;
-DEVCONTROLFUN control;
+    M_Char *devname;
+    M_Char *devtype;
+    M_Uint16 total_devnum;
+    DEVOPENFUN open;
+    DEVCLOSEFUN close;
+    DEVREADFUN read;
+    DEVWRITEFUN write;
+    DEVCONTROLFUN control;
 } MH_IODevice;
 ```
 
@@ -352,8 +352,8 @@ typedef M_Int32 (*DEVOPENFUN)(M_Uint16 devnum, void *param)
 
 ```c
 typedef struct MH_IrDAMode {
-M_Char aszMode[MH_IRDA_MODE_LEN]; // 모드 지정
-M_Uint32 nTime; // 연결 시도 시간
+    M_Char aszMode[MH_IRDA_MODE_LEN]; // 모드 지정
+    M_Uint32 nTime; // 연결 시도 시간
 } MH_IrDAMode;
 ```
 
@@ -480,8 +480,8 @@ typedef M_Int32 (*DEVOPENFUN)(M_Uint16 devnum, void *param)
 
 ```c
 typedef struct MH_CardOption {
-M_Byte *bATR; // ATR data pointer
-M_Uint16 wATRLen; // ATR data length
+    M_Byte *bATR; // ATR data pointer
+    M_Uint16 wATRLen; // ATR data length
 } MH_CardOption;
 ```
 

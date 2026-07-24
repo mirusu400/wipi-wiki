@@ -10,8 +10,8 @@ TCP/IP 인터넷 통신을 지원하는 함수들을 정의한 것이다. 플랫
 #define MH_AF_INET 2 // 인터넷 도메인임을 가리키는 상수
 // TCP/UDP 소켓을 구분하는 상수
 typedef enum MH_SOCKET_TYPE{
-MH_SOCKET_STREAM =1, // TCP SOCKET
-MH_SOCKET_DGRAM // UDP SOCKET
+    MH_SOCKET_STREAM =1, // TCP SOCKET
+    MH_SOCKET_DGRAM // UDP SOCKET
 } MH_SOCKET_TYPE;
 ```
 
@@ -19,12 +19,12 @@ MH_SOCKET_DGRAM // UDP SOCKET
 
 ```c
 typedef enum MH_SUB_NETWORK_EVENT {
-MH_NETEV_NETWORK_OPEN = 0x01, // 네트워크 연결 이벤트
-MH_NETEV_NETWORK_CLOSE = 0x02, // 네트워크 종료 이벤트
-MH_NETEV_SOCKET_CONNECT = 0x04, // SOCKET 연결이벤트
-MH_NETEV_SOCKET_CLOSE = 0x08, // SOCKET 종료 이벤트
-MH_NETEV_SOCKET_READ = 0x10, // SOCKET READ 이벤트
-MH_NETEV_SOCKET_WRITE = 0x20, // SOCKET WRITE 이벤트
+    MH_NETEV_NETWORK_OPEN = 0x01, // 네트워크 연결 이벤트
+    MH_NETEV_NETWORK_CLOSE = 0x02, // 네트워크 종료 이벤트
+    MH_NETEV_SOCKET_CONNECT = 0x04, // SOCKET 연결이벤트
+    MH_NETEV_SOCKET_CLOSE = 0x08, // SOCKET 종료 이벤트
+    MH_NETEV_SOCKET_READ = 0x10, // SOCKET READ 이벤트
+    MH_NETEV_SOCKET_WRITE = 0x20, // SOCKET WRITE 이벤트
 } MH_SUB_NETWORK_EVENT;
 ```
 
@@ -32,8 +32,8 @@ MH_NETEV_SOCKET_WRITE = 0x20, // SOCKET WRITE 이벤트
 
 ```c
 typedef struct MH_NetEvent {
-M_Int32 fd; // 소켓 식별자
-M_Int32 event; // 발생된 event, MH_SUB_NETWORK_EVENT값
+    M_Int32 fd; // 소켓 식별자
+    M_Int32 event; // 발생된 event, MH_SUB_NETWORK_EVENT값
 } MH_NetEvent;
 ```
 

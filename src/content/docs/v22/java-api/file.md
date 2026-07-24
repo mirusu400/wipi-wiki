@@ -344,7 +344,11 @@ PRIVATE_ACCESS public static final int PRIVATE_ACCESS 응용프로그램 자신�
 
 ## 생성자 상세
 
-FileSystem public FileSystem()
+### FileSystem
+
+```java
+public FileSystem()
+```
 
 ## 메서드 상세
 

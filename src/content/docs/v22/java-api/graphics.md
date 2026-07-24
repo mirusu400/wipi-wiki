@@ -2076,7 +2076,11 @@ TRAN_ROT90 public static final int TRAN_ROT90 이미지를 오른쪽으로 90도
 
 ## 생성자 상세
 
-Image protected Image()
+### Image
+
+```java
+protected Image()
+```
 
 ## 메서드 상세
 
@@ -2600,7 +2604,13 @@ InputMethodHandler는 사용자 키 입력에 따른 문자처리를 담당하�
 
 ## 생성자 상세
 
-InputMethodHandler public InputMethodHandler(int constraint) 주어진 입력제한자로 InputMethodHandler의 인스턴스를 생성한다. 입력제한자는 TextComponent 서 정의한 값을 받게 되고, 입력 제한자에 따라 현재 오토마타에서 지원하는 모드들 중 입력 가능한 모드가 결정된다. Throws IllegalArgumentException 입력 제한자 값이 잘못된 경우.
+### InputMethodHandler
+
+```java
+public InputMethodHandler(int constraint)
+```
+
+주어진 입력제한자로 InputMethodHandler의 인스턴스를 생성한다. 입력제한자는 TextComponent 서 정의한 값을 받게 되고, 입력 제한자에 따라 현재 오토마타에서 지원하는 모드들 중 입력 가능한 모드가 결정된다. Throws IllegalArgumentException 입력 제한자 값이 잘못된 경우.
 
 ## 메서드 상세
 
@@ -2717,7 +2727,11 @@ public void setSymbolPosition(int x,int y,int w, int h)
 protected Jlet()
 ```
 
-새로운 Jlet을 생성한다. 메쏘드 상세 설명 setActiveJlet
+새로운 Jlet을 생성한다.
+
+## 메서드 상세
+
+setActiveJlet
 
 ### setActiveJlet
 

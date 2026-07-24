@@ -7,12 +7,13 @@ Usage:
 
 Walks src/content/docs/ for all Markdown content and writes:
 
-  <site_dir>/llms.txt       — index of pages (title, URL, 1-line summary)
-  <site_dir>/llms-full.txt  — every doc concatenated with a header separator
+  <site_dir>/llms.txt            — index of all pages across all versions
+  <site_dir>/llms-full.txt       — every doc concatenated
+  <site_dir>/llms-v20-full.txt   — v2.0 docs only
+  <site_dir>/llms-v22-full.txt   — v2.2.0 docs only
 
 Also mirrors src/content/docs/**/*.md into <site_dir> so URLs in llms.txt
-that point at raw `.md` files resolve. Run AFTER `astro build` so this
-overwrites the public/ placeholders.
+that point at raw `.md` files resolve. Run AFTER `astro build`.
 """
 from __future__ import annotations
 
@@ -28,11 +29,32 @@ DOCS_DIR = REPO_ROOT / "src" / "content" / "docs"
 ASTRO_CONFIG = REPO_ROOT / "astro.config.mjs"
 
 SITE_NAME = "WIPI Wiki"
-SITE_DESCRIPTION = "WIPI 1.2.1 모바일 표준 플랫폼 API 레퍼런스"
+SITE_DESCRIPTION = (
+    "WIPI 모바일 표준 플랫폼 API 레퍼런스 — v1.2.1 / v2.0 / v2.2.0"
+)
+
+VERSIONS = {
+    "v1.2.1": {
+        "prefix": "",
+        "desc": "WIPI 1.2.1 (2005) — 939페이지 PDF + JavaDoc HTML 기반",
+        "sections": ["overview", "hal", "c-api", "java-api", "cldc", "midp", "appendix"],
+    },
+    "v2.0": {
+        "prefix": "v20",
+        "desc": "WIPI 2.0 (TTAS.KO-06.0036/R3, 2004) — 편별 PDF 6개, 총 1,291페이지",
+        "sections": ["v20/overview", "v20/hal", "v20/c-api", "v20/java-api",
+                      "v20/optional", "v20/appendix"],
+    },
+    "v2.2.0": {
+        "prefix": "v22",
+        "desc": "WIPI 2.2.0 (TTAK.KO-06.0036/R6, 2008) — 단일 PDF, 1,356페이지",
+        "sections": ["v22/overview", "v22/hal", "v22/c-api", "v22/java-api",
+                      "v22/optional", "v22/appendix"],
+    },
+}
 
 
 def detect_site_url() -> str:
-    """Parse astro.config.mjs for site + base. Fall back to known prod URL."""
     try:
         text = ASTRO_CONFIG.read_text(encoding="utf-8")
     except OSError:
@@ -44,8 +66,8 @@ def detect_site_url() -> str:
     return f"{site}/{base}".rstrip("/") if base else site
 
 
-def md_to_url(meta_url: str, rel: Path) -> str:
-    return f"{meta_url}/{rel.as_posix()}"
+def md_to_url(site_url: str, rel: Path) -> str:
+    return f"{site_url}/{rel.as_posix()}"
 
 
 def copy_md_into_site(site_dir: Path) -> int:
@@ -92,6 +114,24 @@ def extract_title_and_summary(md: str, fallback: str) -> tuple[str, str]:
     return title, summary
 
 
+def get_version(rel: Path) -> str:
+    top = rel.parts[0] if len(rel.parts) > 1 else ""
+    if top == "v20":
+        return "v2.0"
+    elif top == "v22":
+        return "v2.2.0"
+    return "v1.2.1"
+
+
+def get_section_key(rel: Path) -> str:
+    parts = rel.parts
+    if len(parts) <= 1:
+        return "Home"
+    if parts[0] in ("v20", "v22"):
+        return "/".join(parts[:2]) if len(parts) > 2 else parts[0]
+    return parts[0]
+
+
 def iter_md_files() -> list[Path]:
     return sorted(p for p in DOCS_DIR.rglob("*.md"))
 
@@ -103,33 +143,100 @@ def build_index(site_url: str) -> str:
     lines.append(f"> {SITE_DESCRIPTION}")
     lines.append("")
     lines.append(
-        "WIPI 1.2.1 (한국 무선 인터넷 표준 플랫폼, 2005년 KWISF 제정) 규격서를 "
-        "검색 가능한 Markdown 으로 재구성한 개발자 레퍼런스. 원본은 939페이지 한국어 PDF + "
-        "JavaDoc HTML. 모든 페이지가 순수 Markdown 이라 LLM 이 직접 grep / fetch 가능."
+        "WIPI (Wireless Internet Platform for Interoperability)는 한국 모바일 표준 플랫폼 규격이다. "
+        "이 위키는 v1.2.1, v2.0, v2.2.0 세 버전의 규격서를 검색 가능한 Markdown으로 재구성한 "
+        "개발자 레퍼런스이다. 모든 페이지가 순수 Markdown이라 LLM이 직접 grep/fetch 가능."
     )
     lines.append("")
-    lines.append("## LLM / Claude Code 사용 가이드")
+    lines.append("## 버전별 접근")
     lines.append("")
-    lines.append("### 네임스페이스로 어디를 볼지 결정")
+    lines.append("| 버전 | 규격서 | llms-full |")
+    lines.append("|---|---|---|")
+    lines.append(f"| v1.2.1 | [HAL]({site_url}/hal/system.md) [C API]({site_url}/c-api/kernel.md) [Java API]({site_url}/java-api/org/kwis/msf/core/Kernel.md) | `curl {site_url}/llms-full.txt` |")
+    lines.append(f"| v2.0 | [HAL]({site_url}/v20/hal/system.md) [C API]({site_url}/v20/c-api/kernel.md) [Java API]({site_url}/v20/java-api/kernel.md) | `curl {site_url}/llms-v20-full.txt` |")
+    lines.append(f"| v2.2.0 | [HAL]({site_url}/v22/hal/system.md) [C API]({site_url}/v22/c-api/kernel.md) [Java API]({site_url}/v22/java-api/kernel.md) | `curl {site_url}/llms-v22-full.txt` |")
     lines.append("")
-    lines.append("- `MC_xxx` — C API (응용 → 플랫폼). 12개 카테고리")
-    lines.append("- `MH_xxx` — HAL API (플랫폼 → 단말 기본SW). 15개 카테고리")
-    lines.append("- `org.kwis.*` — Java API. 11개 패키지, 135개 클래스")
+    lines.append("## 네임스페이스 가이드")
     lines.append("")
-    lines.append("### 빠른 조회 패턴")
+    lines.append("- `MC_xxx` — C API (응용 -> 플랫폼)")
+    lines.append("- `MH_xxx` — HAL API (플랫폼 -> 단말 기본SW)")
+    lines.append("- `org.kwis.*` — Java API")
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+
+    # Group files by version, then by section
+    all_files = iter_md_files()
+
+    for ver_name, ver_info in VERSIONS.items():
+        prefix = ver_info["prefix"]
+        lines.append(f"## {ver_name}")
+        lines.append("")
+        lines.append(f"> {ver_info['desc']}")
+        lines.append("")
+
+        sections: dict[str, list[tuple[str, str, str]]] = {}
+        for path in all_files:
+            rel = path.relative_to(DOCS_DIR)
+            if get_version(rel) != ver_name:
+                continue
+            sec_key = get_section_key(rel)
+            title, summary = extract_title_and_summary(
+                path.read_text(encoding="utf-8"), fallback=rel.stem
+            )
+            url = md_to_url(site_url, rel)
+            sections.setdefault(sec_key, []).append((title, url, summary))
+
+        for sec_key in ver_info["sections"]:
+            if sec_key not in sections:
+                continue
+            display = sec_key.split("/")[-1] if "/" in sec_key else sec_key
+            lines.append(f"### {display}")
+            lines.append("")
+            for title, url, summary in sections[sec_key]:
+                if summary:
+                    lines.append(f"- [{title}]({url}): {summary}")
+                else:
+                    lines.append(f"- [{title}]({url})")
+            lines.append("")
+
+        # Home/root files for this version
+        home_key = prefix if prefix else "Home"
+        if home_key in sections:
+            for title, url, summary in sections[home_key]:
+                if summary:
+                    lines.append(f"- [{title}]({url}): {summary}")
+                else:
+                    lines.append(f"- [{title}]({url})")
+            lines.append("")
+
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def build_version_index(site_url: str, ver_name: str) -> str:
+    """Build a standalone llms.txt for a single version."""
+    ver_info = VERSIONS[ver_name]
+    prefix = ver_info["prefix"]
+    lines: list[str] = []
+    lines.append(f"# WIPI Wiki — {ver_name}")
+    lines.append("")
+    lines.append(f"> {ver_info['desc']}")
+    lines.append("")
+    lines.append("## 네임스페이스 가이드")
+    lines.append("")
+    lines.append("- `MC_xxx` — C API (응용 -> 플랫폼)")
+    lines.append("- `MH_xxx` — HAL API (플랫폼 -> 단말 기본SW)")
+    lines.append("- `org.kwis.*` — Java API")
+    lines.append("")
+    pfx = f"/{prefix}" if prefix else ""
+    lines.append("### 빠른 조회")
     lines.append("")
     lines.append("```")
-    lines.append("# raw md fetch (HTML chrome 없음, 토큰 절약)")
-    lines.append(f"curl {site_url}/c-api/kernel.md")
-    lines.append(f"curl {site_url}/hal/system.md")
-    lines.append(f"curl {site_url}/java-api/org/kwis/msp/io/File.md")
-    lines.append("")
-    lines.append("# 전체 덤프")
-    lines.append(f"curl {site_url}/llms-full.txt")
+    lines.append(f"curl {site_url}{pfx}/hal/system.md")
+    lines.append(f"curl {site_url}{pfx}/c-api/kernel.md")
+    full_name = f"llms-{prefix}-full.txt" if prefix else "llms-full.txt"
+    lines.append(f"curl {site_url}/{full_name}")
     lines.append("```")
-    lines.append("")
-    lines.append("> 인덱스 링크는 모두 `.md` raw 파일. Starlight HTML 페이지(`/c-api/kernel/`)가 아니라 "
-                 "`/c-api/kernel.md` 를 가리킨다.")
     lines.append("")
     lines.append("---")
     lines.append("")
@@ -137,33 +244,47 @@ def build_index(site_url: str) -> str:
     sections: dict[str, list[tuple[str, str, str]]] = {}
     for path in iter_md_files():
         rel = path.relative_to(DOCS_DIR)
-        top = rel.parts[0] if len(rel.parts) > 1 else "Home"
+        if get_version(rel) != ver_name:
+            continue
+        sec_key = get_section_key(rel)
         title, summary = extract_title_and_summary(
             path.read_text(encoding="utf-8"), fallback=rel.stem
         )
         url = md_to_url(site_url, rel)
-        sections.setdefault(top, []).append((title, url, summary))
+        sections.setdefault(sec_key, []).append((title, url, summary))
 
-    section_order = ["Home", "overview", "hal", "c-api", "java-api", "cldc", "midp", "appendix"]
-    ordered_keys = [k for k in section_order if k in sections] + [
-        k for k in sections if k not in section_order
-    ]
-    for key in ordered_keys:
-        lines.append(f"## {key}")
+    for sec_key in ver_info["sections"]:
+        if sec_key not in sections:
+            continue
+        display = sec_key.split("/")[-1] if "/" in sec_key else sec_key
+        lines.append(f"## {display}")
         lines.append("")
-        for title, url, summary in sections[key]:
+        for title, url, summary in sections[sec_key]:
             if summary:
                 lines.append(f"- [{title}]({url}): {summary}")
             else:
                 lines.append(f"- [{title}]({url})")
         lines.append("")
+
+    home_key = prefix if prefix else "Home"
+    if home_key in sections:
+        for title, url, summary in sections[home_key]:
+            if summary:
+                lines.append(f"- [{title}]({url}): {summary}")
+            else:
+                lines.append(f"- [{title}]({url})")
+        lines.append("")
+
     return "\n".join(lines).rstrip() + "\n"
 
 
-def build_full() -> str:
+def build_full(version_filter: str | None = None) -> str:
     parts: list[str] = []
     for path in iter_md_files():
         rel = path.relative_to(DOCS_DIR)
+        ver = get_version(rel)
+        if version_filter and ver != version_filter:
+            continue
         parts.append(f"\n\n<!-- ===== {rel.as_posix()} ===== -->\n")
         parts.append(path.read_text(encoding="utf-8").rstrip())
         parts.append("\n")
@@ -184,11 +305,28 @@ def main(argv: list[str]) -> int:
     site_dir.mkdir(parents=True, exist_ok=True)
     site_url = (args.site_url or detect_site_url()).rstrip("/")
 
+    # Main index
     (site_dir / "llms.txt").write_text(build_index(site_url), encoding="utf-8")
+    print(f"wrote {site_dir / 'llms.txt'}")
+
+    # Full dumps
     (site_dir / "llms-full.txt").write_text(build_full(), encoding="utf-8")
+    print(f"wrote {site_dir / 'llms-full.txt'}")
+
+    for ver_name, ver_info in VERSIONS.items():
+        prefix = ver_info["prefix"]
+        if not prefix:
+            continue  # v1.2.1 uses the main llms.txt / llms-full.txt
+        (site_dir / f"llms-{prefix}.txt").write_text(
+            build_version_index(site_url, ver_name), encoding="utf-8"
+        )
+        print(f"wrote {site_dir / f'llms-{prefix}.txt'}")
+        (site_dir / f"llms-{prefix}-full.txt").write_text(
+            build_full(ver_name), encoding="utf-8"
+        )
+        print(f"wrote {site_dir / f'llms-{prefix}-full.txt'}")
+
     copied = copy_md_into_site(site_dir)
-    print(f"wrote {site_dir/'llms.txt'}")
-    print(f"wrote {site_dir/'llms-full.txt'}")
     print(f"copied {copied} raw .md files into {site_dir}")
     print(f"site_url: {site_url}")
     return 0

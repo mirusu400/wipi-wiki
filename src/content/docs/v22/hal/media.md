@@ -10,70 +10,70 @@ title: "2.17. 매체 처리기"
 
 ```c
 typedef enum _MH_mdaToneType {
-MH_SND_TONE_0 = 0, // DTMF for 0 key
-MH_SND_TONE_1, // DTMF for 1 key
-MH_SND_TONE_2, // DTMF for 2 key
-MH_SND_TONE_3, // DTMF for 3 key
-MH_SND_TONE_4, // DTMF for 4 key
-MH_SND_TONE_5, // DTMF for 5 key
-MH_SND_TONE_6, // DTMF for 6 key
-MH_SND_TONE_7, // DTMF for 7 key
-MH_SND_TONE_8, // DTMF for 8 key
-MH_SND_TONE_9, // DTMF for 9 key
-MH_SND_TONE_A, // DTMF for A key
-MH_SND_TONE_B, // DTMF for B key
-MH_SND_TONE_C, // DTMF for C key
-MH_SND_TONE_D, // DTMF for D key
-MH_SND_TONE_POUND, // DTMF for # key
-MH_SND_TONE_STAR, // DTMF for * key
-MH_SND_NOTE_A4, // 440.0 Hz -Piano Notes-
-MH_SND_NOTE_AS4, // 466.1 Hz
-MH_SND_NOTE_B4, // 493.8 Hz
-MH_SND_NOTE_C4, // 261.6 Hz
-MH_SND_NOTE_CS4, // 277.18 Hz
-MH_SND_NOTE_D4, // 293.6 Hz
-MH_SND_NOTE_DS4, // 311.1 Hz
-MH_SND_NOTE_E4, // 329.6 Hz
-MH_SND_NOTE_F4, // 349.2 Hz
-MH_SND_NOTE_FS4, // 369.9 Hz
-MH_SND_NOTE_G4, // 391.9 Hz
-MH_SND_NOTE_GS4, // 415.3 Hz
-MH_SND_NOTE_A5, // 880.0 Hz
-MH_SND_NOTE_AS5, // 932.2 Hz
-MH_SND_NOTE_B5, // 987.7 Hz
-MH_SND_NOTE_C5, // 523.2 Hz
-MH_SND_NOTE_CS5, // 554.3 Hz
-MH_SND_NOTE_D5, // 587.3 Hz
-MH_SND_NOTE_DS5, // 622.2 Hz
-MH_SND_NOTE_E5, // 659.2 Hz
-MH_SND_NOTE_F5, // 698.5 Hz
-MH_SND_NOTE_FS5, // 739.9 Hz
-MH_SND_NOTE_G5, // 784.0 Hz
-MH_SND_NOTE_GS5, // 830.6 Hz
-MH_SND_NOTE_A6, // 1760.0 Hz
-MH_SND_NOTE_AS6, // 1864.7 Hz
-MH_SND_NOTE_B6, // 1975.5 Hz
-MH_SND_NOTE_C6, // 1046.5 Hz
-MH_SND_NOTE_CS6, // 1108.7 Hz
-MH_SND_NOTE_D6, // 1174.6 Hz
-MH_SND_NOTE_DS6, // 1244.3 Hz
-MH_SND_NOTE_E6, // 1318.5 Hz
-MH_SND_NOTE_F6, // 1397.0 Hz
-MH_SND_NOTE_FS6, // 1479.9 Hz
-MH_SND_NOTE_G6, // 1568.0 Hz
-MH_SND_NOTE_GS6, // 1661.2 Hz
-MH_SND_NOTE_A7, // 3520.0 Hz
-MH_MDA_NOTE_AS7, // 3729.3 Hz
-MH_MDA_NOTE_B7, // 3951.0 Hz
-MH_SND_NOTE_C7, // 2093.1 Hz
-MH_SND_NOTE_CS7, // 2217.4 Hz
-MH_SND_NOTE_D7, // 2349.3 Hz
-MH_SND_NOTE_DS7, // 2489.1 Hz
-MH_SND_NOTE_E7, // 2637.0 Hz
-MH_SND_NOTE_F7, // 2793.7 Hz
-MH_SND_NOTE_FS, // 2959.9 Hz
-MH_SND_NOTE_G7, // 3135.9 Hz
-MH_SND_NOTE_GS7, // 3322.4 Hz
+    MH_SND_TONE_0 = 0, // DTMF for 0 key
+    MH_SND_TONE_1, // DTMF for 1 key
+    MH_SND_TONE_2, // DTMF for 2 key
+    MH_SND_TONE_3, // DTMF for 3 key
+    MH_SND_TONE_4, // DTMF for 4 key
+    MH_SND_TONE_5, // DTMF for 5 key
+    MH_SND_TONE_6, // DTMF for 6 key
+    MH_SND_TONE_7, // DTMF for 7 key
+    MH_SND_TONE_8, // DTMF for 8 key
+    MH_SND_TONE_9, // DTMF for 9 key
+    MH_SND_TONE_A, // DTMF for A key
+    MH_SND_TONE_B, // DTMF for B key
+    MH_SND_TONE_C, // DTMF for C key
+    MH_SND_TONE_D, // DTMF for D key
+    MH_SND_TONE_POUND, // DTMF for # key
+    MH_SND_TONE_STAR, // DTMF for * key
+    MH_SND_NOTE_A4, // 440.0 Hz -Piano Notes-
+    MH_SND_NOTE_AS4, // 466.1 Hz
+    MH_SND_NOTE_B4, // 493.8 Hz
+    MH_SND_NOTE_C4, // 261.6 Hz
+    MH_SND_NOTE_CS4, // 277.18 Hz
+    MH_SND_NOTE_D4, // 293.6 Hz
+    MH_SND_NOTE_DS4, // 311.1 Hz
+    MH_SND_NOTE_E4, // 329.6 Hz
+    MH_SND_NOTE_F4, // 349.2 Hz
+    MH_SND_NOTE_FS4, // 369.9 Hz
+    MH_SND_NOTE_G4, // 391.9 Hz
+    MH_SND_NOTE_GS4, // 415.3 Hz
+    MH_SND_NOTE_A5, // 880.0 Hz
+    MH_SND_NOTE_AS5, // 932.2 Hz
+    MH_SND_NOTE_B5, // 987.7 Hz
+    MH_SND_NOTE_C5, // 523.2 Hz
+    MH_SND_NOTE_CS5, // 554.3 Hz
+    MH_SND_NOTE_D5, // 587.3 Hz
+    MH_SND_NOTE_DS5, // 622.2 Hz
+    MH_SND_NOTE_E5, // 659.2 Hz
+    MH_SND_NOTE_F5, // 698.5 Hz
+    MH_SND_NOTE_FS5, // 739.9 Hz
+    MH_SND_NOTE_G5, // 784.0 Hz
+    MH_SND_NOTE_GS5, // 830.6 Hz
+    MH_SND_NOTE_A6, // 1760.0 Hz
+    MH_SND_NOTE_AS6, // 1864.7 Hz
+    MH_SND_NOTE_B6, // 1975.5 Hz
+    MH_SND_NOTE_C6, // 1046.5 Hz
+    MH_SND_NOTE_CS6, // 1108.7 Hz
+    MH_SND_NOTE_D6, // 1174.6 Hz
+    MH_SND_NOTE_DS6, // 1244.3 Hz
+    MH_SND_NOTE_E6, // 1318.5 Hz
+    MH_SND_NOTE_F6, // 1397.0 Hz
+    MH_SND_NOTE_FS6, // 1479.9 Hz
+    MH_SND_NOTE_G6, // 1568.0 Hz
+    MH_SND_NOTE_GS6, // 1661.2 Hz
+    MH_SND_NOTE_A7, // 3520.0 Hz
+    MH_MDA_NOTE_AS7, // 3729.3 Hz
+    MH_MDA_NOTE_B7, // 3951.0 Hz
+    MH_SND_NOTE_C7, // 2093.1 Hz
+    MH_SND_NOTE_CS7, // 2217.4 Hz
+    MH_SND_NOTE_D7, // 2349.3 Hz
+    MH_SND_NOTE_DS7, // 2489.1 Hz
+    MH_SND_NOTE_E7, // 2637.0 Hz
+    MH_SND_NOTE_F7, // 2793.7 Hz
+    MH_SND_NOTE_FS, // 2959.9 Hz
+    MH_SND_NOTE_G7, // 3135.9 Hz
+    MH_SND_NOTE_GS7, // 3322.4 Hz
 } MH_mdaToneType;
 ```
 
@@ -81,28 +81,28 @@ MH_SND_NOTE_GS7, // 3322.4 Hz
 
 ```c
 typedef enum _MH_MdaDevInfo {
-// 스트리밍 재생 지원
-MH_MDAINFO_STREAM_PLAY,
-// 전달하는 버퍼내용을 복사하지 않고 그대로 사용함
-MH_MDAINFO_CALL_BY_REFERENCE,
-// 재생 혹은 녹음/녹화 중 pause/resume을 지원하는 매체 처리기
-MH_MDAINFO_PAUSE_RESUME,
-// seek을 지원하는 매체 처리기
-MH_MDAINFO_SEEK,
-// 스트리밍 방식의 녹음 및 녹화를 지원하는 매체 처리기
-MH_MDAINFO_STREAM_RECORD,
-// 좌우 사운드 밸런스 지원
-MH_MDAINFO_BALANCE ,
-// 동시 연주 지원
-MH_MDAINFO_MIXING,
-// 동시 연주/동기 재생 지원
-MH_MDAINFO_MIXING_SYNC
-// 스트리밍 방식이 아닌 녹음/녹화를 지원
-MH_MDAINFO_RECORD
-// 재생 중 pause/resume을 지원하는 매체 처리기
-MH_MDAINFO_PLAY_PAUSE_RESUME
-// 녹음/녹화 중 pause/resume을 지원하는 매체 처리기
-MH_MDAINFO_RECORD_PAUSE_RESUME
+    // 스트리밍 재생 지원
+    MH_MDAINFO_STREAM_PLAY,
+    // 전달하는 버퍼내용을 복사하지 않고 그대로 사용함
+    MH_MDAINFO_CALL_BY_REFERENCE,
+    // 재생 혹은 녹음/녹화 중 pause/resume을 지원하는 매체 처리기
+    MH_MDAINFO_PAUSE_RESUME,
+    // seek을 지원하는 매체 처리기
+    MH_MDAINFO_SEEK,
+    // 스트리밍 방식의 녹음 및 녹화를 지원하는 매체 처리기
+    MH_MDAINFO_STREAM_RECORD,
+    // 좌우 사운드 밸런스 지원
+    MH_MDAINFO_BALANCE ,
+    // 동시 연주 지원
+    MH_MDAINFO_MIXING,
+    // 동시 연주/동기 재생 지원
+    MH_MDAINFO_MIXING_SYNC
+    // 스트리밍 방식이 아닌 녹음/녹화를 지원
+    MH_MDAINFO_RECORD
+    // 재생 중 pause/resume을 지원하는 매체 처리기
+    MH_MDAINFO_PLAY_PAUSE_RESUME
+    // 녹음/녹화 중 pause/resume을 지원하는 매체 처리기
+    MH_MDAINFO_RECORD_PAUSE_RESUME
 } MH_MdaDevInfo;
 ```
 
@@ -110,19 +110,19 @@ MH_MDAINFO_RECORD_PAUSE_RESUME
 
 ```c
 typedef enum MH_SUB_MEDIA_EVENT {
-MH_MDAEV_MEDIA_EMPTY, // 매체 처리기 재생버퍼가 비었음
-MH_MDAEV_TONE_EMPTY, // 톤 재생버퍼가 비었음
-MH_MDAEV_MEDIA_FULL, // 녹음/녹화 매체 처리기버퍼가
-// 다 찼음 MH_MDAEV_MEDIA_ERROR, //
-매체 처리기 문제가 발생
-// 했음
-MH_MDAEV_TONE_ERROR, // 톤 매체 재생기에 문제가 발생했음
-MH_MDAEV_OEM_ERROR, // OEM에 의한 매체 재생 또는
-// 녹음/녹화의 강제 종료가 발생했음
-MH_MDAEV_MEDIA_END // 매체 처리기 내부 버퍼의 데이터
-// 를 전부 재생하였음
-// MH_MDACTRL_SET_STOP_TIME에 의해 설정된 지점에서 멈춤
-MH_MDAEV_MEDIA_STOPED_AT_TIME
+    MH_MDAEV_MEDIA_EMPTY, // 매체 처리기 재생버퍼가 비었음
+    MH_MDAEV_TONE_EMPTY, // 톤 재생버퍼가 비었음
+    MH_MDAEV_MEDIA_FULL, // 녹음/녹화 매체 처리기버퍼가
+    // 다 찼음 MH_MDAEV_MEDIA_ERROR, //
+    매체 처리기 문제가 발생
+    // 했음
+    MH_MDAEV_TONE_ERROR, // 톤 매체 재생기에 문제가 발생했음
+    MH_MDAEV_OEM_ERROR, // OEM에 의한 매체 재생 또는
+    // 녹음/녹화의 강제 종료가 발생했음
+    MH_MDAEV_MEDIA_END // 매체 처리기 내부 버퍼의 데이터
+    // 를 전부 재생하였음
+    // MH_MDACTRL_SET_STOP_TIME에 의해 설정된 지점에서 멈춤
+    MH_MDAEV_MEDIA_STOPED_AT_TIME
 } MH_SUB_MEDIA_EVENT;
 ```
 
@@ -130,14 +130,14 @@ MH_MDAEV_MEDIA_STOPED_AT_TIME
 
 ```c
 typedef struct MH_MediaEvent{
-M_Int32 event; // MH_SUB_MEDIA_EVENT타입의 값
-M_Int32 devID; // 이벤트를 발생시킨 매체 처리기 식별자
-M_Int32 mdaID; // 이벤트를 발생시킨 매체 처리기 인스턴스 식별자.
-M_Int32 size; // MH_MDAEV_MEDIA_EMPTY ,
-// MH_MDAEV_TONE_EMPTY 인 경우, 매체 처리기
-// 내부 버퍼에 받아 들일 수 있는 데이터 양,
-// MH_MDAEV_MEDIA_FULL인 경우, 매체 처리기 내부
-// 버퍼에 녹음/녹화된 데이터 양
+    M_Int32 event; // MH_SUB_MEDIA_EVENT타입의 값
+    M_Int32 devID; // 이벤트를 발생시킨 매체 처리기 식별자
+    M_Int32 mdaID; // 이벤트를 발생시킨 매체 처리기 인스턴스 식별자.
+    M_Int32 size; // MH_MDAEV_MEDIA_EMPTY ,
+    // MH_MDAEV_TONE_EMPTY 인 경우, 매체 처리기
+    // 내부 버퍼에 받아 들일 수 있는 데이터 양,
+    // MH_MDAEV_MEDIA_FULL인 경우, 매체 처리기 내부
+    // 버퍼에 녹음/녹화된 데이터 양
 } MH_MediaEvent;
 ```
 
@@ -145,19 +145,19 @@ M_Int32 size; // MH_MDAEV_MEDIA_EMPTY ,
 
 ```c
 typedef enum MH_MdaControl {
-MH_MDACTRL_GET_MEDIA_TIME, // 미디어의 현재 재생
-// 시간을 얻는다.
-MH_MDACTRL_SET_SYNC, // 인스턴스간 동기 설정
-MH_MDACTRL_GET_SYNC, // 동기되는 인스턴스 얻어옴
-NH_MDACTRL_GET_STOP_TIME // 정지 재생 시점 얻어옴
-MH_MDACTRL_SET_STOP_TIME, // 비디오의 재생 정지
-// 지점을 설정한다.
-MH_MDACTRL_CAPTURE_IMAGE // 정지 영상을 캡쳐한다.
-MH_MDACTRL_GET_CAPTURE_IMAGE, // 캡쳐된 이미지 데이터를
-// 얻어온다.
-MH_MDACTRL_PREVIEW_START, // 카메라 프리뷰를 시작한다.
-MH_MDACTRL_PREVIEW_STOP, // 카메라 프리뷰를 정지한다.
-MH_MDACTRL_SET_MODE // 모드를 설정한다.
+    MH_MDACTRL_GET_MEDIA_TIME, // 미디어의 현재 재생
+    // 시간을 얻는다.
+    MH_MDACTRL_SET_SYNC, // 인스턴스간 동기 설정
+    MH_MDACTRL_GET_SYNC, // 동기되는 인스턴스 얻어옴
+    NH_MDACTRL_GET_STOP_TIME // 정지 재생 시점 얻어옴
+    MH_MDACTRL_SET_STOP_TIME, // 비디오의 재생 정지
+    // 지점을 설정한다.
+    MH_MDACTRL_CAPTURE_IMAGE // 정지 영상을 캡쳐한다.
+    MH_MDACTRL_GET_CAPTURE_IMAGE, // 캡쳐된 이미지 데이터를
+    // 얻어온다.
+    MH_MDACTRL_PREVIEW_START, // 카메라 프리뷰를 시작한다.
+    MH_MDACTRL_PREVIEW_STOP, // 카메라 프리뷰를 정지한다.
+    MH_MDACTRL_SET_MODE // 모드를 설정한다.
 }MH_MdaControl;
 ```
 
@@ -165,16 +165,16 @@ MH_MDACTRL_SET_MODE // 모드를 설정한다.
 
 ```c
 typedef enum _MH_MdaDevControl {
-// 최대 지원 인스턴스의 개수
-MH_MDADEVCTRL_GET_INSTANCE_COUNT = 1001,
-// 카메라의 전원 상태를 얻어온다.
-MH_MDADEVCTRL_DEVICE_GET_STATUS,
-// 카메라의 장착 여부를 탐지한다.
-MH_MDADEVCTRL_DEVICE_DETECT,
-// 카메라의 모델명을 얻는다
-MH_MDADEVCTRL_DEVICE_MODEL,.
-// OEM 에서 지원하는 모드의 이름리스트를 얻는다.
-MH_MDADEVCTRL_GET_MODE_LIST } MH_MdaDevControl;
+    // 최대 지원 인스턴스의 개수
+    MH_MDADEVCTRL_GET_INSTANCE_COUNT = 1001,
+    // 카메라의 전원 상태를 얻어온다.
+    MH_MDADEVCTRL_DEVICE_GET_STATUS,
+    // 카메라의 장착 여부를 탐지한다.
+    MH_MDADEVCTRL_DEVICE_DETECT,
+    // 카메라의 모델명을 얻는다
+    MH_MDADEVCTRL_DEVICE_MODEL,.
+    // OEM 에서 지원하는 모드의 이름리스트를 얻는다.
+    MH_MDADEVCTRL_GET_MODE_LIST } MH_MdaDevControl;
 ```
 
 #### 모드 컨트롤 명령
@@ -183,8 +183,8 @@ MH_MDADEVCTRL_GET_MODE_LIST } MH_MdaDevControl;
 
 ```c
 typedef enum _MH_MdaModeControl {
-MH_MDAMODECTRL_GET,
-MH_MDAMODECTRL_SET
+    MH_MDAMODECTRL_GET,
+    MH_MDAMODECTRL_SET
 } MH_MdaModeControl;
 ```
 
@@ -194,24 +194,24 @@ MH_MDAMODECTRL_SET
 
 ```c
 typedef enum _MH_MdaModePID{
-MH_MDAMODEPID_N_SAMPLE_PER_SEC,
-MH_MDAMODEPID_N_CHANNELS,
-MH_MDAMODEPID_N_BIT_PER_SAMPLE,
-MH_MDAMODEPID_BALANCE,
-MH_MDAMODEPID_POSITION_X,
-MH_MDAMODEPID_POSITION_Y,
-MH_MDAMODEPID_WIDTH,
-MH_MDAMODEPID_HEIGHT,
-MH_MDAMODEPID_AXIS,
-MH_MDAMODEPID_BRIGHT,
-MH_MDAMODEPID_MAGPOWER,
-MH_MDAMODEPID_RESOLUTION_X
-MH_MDAMODEPID_RESOLUTION_Y
-MH_MDAMODEPID_YUV_RESOLUTION_X,
-MH_MDAMODEPID_YUV_RESOLUTION Y,
-MH_MDAMODEPID_FRAMERATE,
-MH_MDAMODEPID_AXIS_PREVIEW,
-MH_MDAMODEPID_AXIS_RECORD
+    MH_MDAMODEPID_N_SAMPLE_PER_SEC,
+    MH_MDAMODEPID_N_CHANNELS,
+    MH_MDAMODEPID_N_BIT_PER_SAMPLE,
+    MH_MDAMODEPID_BALANCE,
+    MH_MDAMODEPID_POSITION_X,
+    MH_MDAMODEPID_POSITION_Y,
+    MH_MDAMODEPID_WIDTH,
+    MH_MDAMODEPID_HEIGHT,
+    MH_MDAMODEPID_AXIS,
+    MH_MDAMODEPID_BRIGHT,
+    MH_MDAMODEPID_MAGPOWER,
+    MH_MDAMODEPID_RESOLUTION_X
+    MH_MDAMODEPID_RESOLUTION_Y
+    MH_MDAMODEPID_YUV_RESOLUTION_X,
+    MH_MDAMODEPID_YUV_RESOLUTION Y,
+    MH_MDAMODEPID_FRAMERATE,
+    MH_MDAMODEPID_AXIS_PREVIEW,
+    MH_MDAMODEPID_AXIS_RECORD
 } MH_MdaModePID;
 ```
 

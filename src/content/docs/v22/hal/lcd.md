@@ -8,23 +8,23 @@ LCD화면에 프레임 버퍼의 내용을 출력하거나, 화면의 정보를 
 
 ```c
 typedef struct _MH_DisplayInfo MH_DisplayInfo {
-M_Int32 bpp; // 한 픽셀이 차지하는 비트 수
-M_Int32 depth; // 한 픽셀이 차지하는 유효한 비트 수 24bit인 경우에
-// bpp는 32가 되고, depth는 24가 될 수 있다.
-// 2의 depth승은 실제 화면에서 출력할 수 있는
-// 컬러의 색상이 된다.
-M_Int32 width; // 화면의 폭; 픽셀 단위
-M_Int32 height; // 화면의 높이; 픽셀 단위
-M_Int32 bpl; // 화면의 한 라인이 차지하는 바이트 수
-// 내부에 PADDING도 포함이 된다.
-M_Int32 colortype; // LCD가 GrayScale인지 TRUE COLOR인지를
-// 알려준다.
-M_Int32 redmask; // TRUE 컬러인 경우에 픽셀 값 내에 red값이
-// 쓰여지는 부분의 mask
-M_Int32 bluemask; // TRUE 컬러인 경우에 픽셀 값 내에 blue값이
-// 쓰여지는 부분의 mask
-M_Int32 greenmask; // TRUE 컬러인 경우에 픽셀 값 내에 green값이
-// 쓰여지는 부분의 mask
+    M_Int32 bpp; // 한 픽셀이 차지하는 비트 수
+    M_Int32 depth; // 한 픽셀이 차지하는 유효한 비트 수 24bit인 경우에
+    // bpp는 32가 되고, depth는 24가 될 수 있다.
+    // 2의 depth승은 실제 화면에서 출력할 수 있는
+    // 컬러의 색상이 된다.
+    M_Int32 width; // 화면의 폭; 픽셀 단위
+    M_Int32 height; // 화면의 높이; 픽셀 단위
+    M_Int32 bpl; // 화면의 한 라인이 차지하는 바이트 수
+    // 내부에 PADDING도 포함이 된다.
+    M_Int32 colortype; // LCD가 GrayScale인지 TRUE COLOR인지를
+    // 알려준다.
+    M_Int32 redmask; // TRUE 컬러인 경우에 픽셀 값 내에 red값이
+    // 쓰여지는 부분의 mask
+    M_Int32 bluemask; // TRUE 컬러인 경우에 픽셀 값 내에 blue값이
+    // 쓰여지는 부분의 mask
+    M_Int32 greenmask; // TRUE 컬러인 경우에 픽셀 값 내에 green값이
+    // 쓰여지는 부분의 mask
 };
 #define MH_FB_MAIN_LCD 1
 #define MH_FB_SUB_LCD 2

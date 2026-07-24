@@ -12,8 +12,8 @@ title: "2.1. 커널"
 
 ```c
 typedef struct _IndirectBuf {
-INDIRECT_BUF_HEAD;
-char buf[1024]
+    INDIRECT_BUF_HEAD;
+    char buf[1024]
 } IndirectBuf;
 char staticBuf[256]; // 고정(static)할당 buffer
 char imageBuf[1024];
@@ -23,35 +23,35 @@ char imageBuf[1024];
 
 ```c
 void startClet() {
-M_Byte* dynamicBuf;
-M_Uint32 mBufID;
-M_Int32 freeMemorySize;
-strcpy(staticBuf, "this is testing...\n");
-MC_knlPrintk("%s", staticBuf);
-mBufID = MC_knlCalloc(256); // mBufID는 메모리식별자
-dynamicBuf = MC_GETDPTR(mBufID); // 메모리식별자에서 포인터를 구해옴
-strcpy(dynamicBuf, "this is testing...\n");
-MC_knlPrintk("%s", dynamicBuf);
-freeMemorySize = MC_knlGetFreeMemory();// 컴팩션(compaction)이 일어남
-dynamicBuf = MC_GETDPTR(mBufID);
-// 컴팩션(compaction)이 일어 날 수 있으므로
-// 메모리식별자에서 다시 포인터를 구해옴
-MC_knlPrintk("%s", dynamicBuf);
-MC_knlFree(mBufID);
-...
-if ( (rID = MC_knlGetResourceID("test.gif", &rSize)) < 0 ) {
-MC_knlPrintk(resource not found\n");
-...
-}
-mBufID = MC_knlCalloc(rSize); // 동적할당을 이용한 리소스 얻기
-MC_knlGetResource(rID, mBufID, rSize);
-dynamicBuf = MC_GETDPTR(mBufID);
-memcpy(imageBuf, dynamicBuf, rSize);
-...
-MC_knlGetResource(rID, &idBuf, rSize);
-// DECLARE_INDIRECTBUF()로 할당된 간접버퍼를 통한 리소스 얻기
-memcpy(imageBuf, idBuf.buf, rSize);
-...
+    M_Byte* dynamicBuf;
+    M_Uint32 mBufID;
+    M_Int32 freeMemorySize;
+    strcpy(staticBuf, "this is testing...\n");
+    MC_knlPrintk("%s", staticBuf);
+    mBufID = MC_knlCalloc(256); // mBufID는 메모리식별자
+    dynamicBuf = MC_GETDPTR(mBufID); // 메모리식별자에서 포인터를 구해옴
+    strcpy(dynamicBuf, "this is testing...\n");
+    MC_knlPrintk("%s", dynamicBuf);
+    freeMemorySize = MC_knlGetFreeMemory();// 컴팩션(compaction)이 일어남
+    dynamicBuf = MC_GETDPTR(mBufID);
+    // 컴팩션(compaction)이 일어 날 수 있으므로
+    // 메모리식별자에서 다시 포인터를 구해옴
+    MC_knlPrintk("%s", dynamicBuf);
+    MC_knlFree(mBufID);
+    ...
+    if ( (rID = MC_knlGetResourceID("test.gif", &rSize)) < 0 ) {
+        MC_knlPrintk(resource not found\n");
+        ...
+    }
+    mBufID = MC_knlCalloc(rSize); // 동적할당을 이용한 리소스 얻기
+    MC_knlGetResource(rID, mBufID, rSize);
+    dynamicBuf = MC_GETDPTR(mBufID);
+    memcpy(imageBuf, dynamicBuf, rSize);
+    ...
+    MC_knlGetResource(rID, &idBuf, rSize);
+    // DECLARE_INDIRECTBUF()로 할당된 간접버퍼를 통한 리소스 얻기
+    memcpy(imageBuf, idBuf.buf, rSize);
+    ...
 }
 ```
 
@@ -265,8 +265,8 @@ system group2에 속한 API사용가능(system group2에 속할 API들은 각 �
 
 ```c
 typedef struct type_name {
-INDIRECT_BUF_HEAD; // 간접버퍼할당을 위해 플랫폼에서 제공하는 매크로
-char buf[1024]; // 사용자가 원하는 크기의 버퍼 설정
+    INDIRECT_BUF_HEAD; // 간접버퍼할당을 위해 플랫폼에서 제공하는 매크로
+    char buf[1024]; // 사용자가 원하는 크기의 버퍼 설정
 };
 ```
 
@@ -412,11 +412,11 @@ M_Int32 MC_knlExecute(M_Char* execName, M_Int32 parmCnt, ...)
 
 ```c
 void startClet(int argc, char* args[]) {
-args[0]; // 프로그램 이름(플랫폼이 전달함)
-args[1]; // "this parm1" 이 들어가 있음
-args[2]; // "20" 이 들어가 있음
-args[3]; // "this parm3" 이 들어가 있음
-args[4]; // "40" 이 들어가 있음
+    args[0]; // 프로그램 이름(플랫폼이 전달함)
+    args[1]; // "this parm1" 이 들어가 있음
+    args[2]; // "20" 이 들어가 있음
+    args[3]; // "this parm3" 이 들어가 있음
+    args[4]; // "40" 이 들어가 있음
 }
 ```
 
@@ -468,14 +468,14 @@ void MC_knlExit(M_Int32 exitCode)
 ```c
 void handleCletEvent(int type, int parm1, int parm2)
 switch(type) {
-case MV_CHILD_APP_DESTROY_EVENT :
-knlPrintk("exit code %d\n", param1); // 27을 출력함
-break;
-case XXX :
-...
-execute("B", ...);
-...
-break;
+    case MV_CHILD_APP_DESTROY_EVENT :
+    knlPrintk("exit code %d\n", param1); // 27을 출력함
+    break;
+    case XXX :
+    ...
+    execute("B", ...);
+    ...
+    break;
 }
 ```
 
@@ -483,11 +483,11 @@ break;
 
 ```c
 void handleCletEvent(int type, int parm1, int parm2) {
-...
-if ( xxx ) {
-MC_knlExit(27);
-return
-}
+    ...
+    if ( xxx ) {
+        MC_knlExit(27);
+        return
+    }
 }
 ```
 
@@ -1015,13 +1015,13 @@ void MC_knlDefTimer(MCTimer* tm, TIMERCB cb)
 
 ```c
 void TimerCb(MCTimer* ptm, void* parm) {
-MC_knlPrintk("timer occur %d\n", parm);
-MC_knlSetTimer(ptm, 1000L, (int)param+1);
+    MC_knlPrintk("timer occur %d\n", parm);
+    MC_knlSetTimer(ptm, 1000L, (int)param+1);
 }
 void startClet(int argc, char* argv[]) {
-MC_knlPrintk("start Clet!!!\n");
-MC_knlDefTimer(&tm, TimerCb);
-MC_knlSetTimer(&tm, 1000L, 0x1234);
+    MC_knlPrintk("start Clet!!!\n");
+    MC_knlDefTimer(&tm, TimerCb);
+    MC_knlSetTimer(&tm, 1000L, 0x1234);
 }
 ```
 

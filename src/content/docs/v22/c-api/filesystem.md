@@ -6,11 +6,11 @@ title: "2.3. 파일"
 
 ```c
 struct _fileInfo{
-M_Int32 attrib; // 파일의 특성을 표시한 bit mask들
-M_Uint32 creationTime; // 파일이 생성된 시간을 1970년 1월1
-일
-// 이후 초단위로 나타낸다.
-M_Uint32 size; // 파일의 크기
+    M_Int32 attrib; // 파일의 특성을 표시한 bit mask들
+    M_Uint32 creationTime; // 파일이 생성된 시간을 1970년 1월1
+    일
+    // 이후 초단위로 나타낸다.
+    M_Uint32 size; // 파일의 크기
 };
 ```
 

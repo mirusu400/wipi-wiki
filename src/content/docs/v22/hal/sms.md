@@ -10,8 +10,8 @@ SMS를 이용하여 문자 메시지를 보내기 위한 규격이다.
 
 ```c
 typedef enum MH_SUB_SMS_EVENT {
-MH_SMSEV_SEND_NOTIFY // 메시지가 전송 결과(성공 및 실패
-// 여부)를 전달함.
+    MH_SMSEV_SEND_NOTIFY // 메시지가 전송 결과(성공 및 실패
+    // 여부)를 전달함.
 } MH_SUB_SMS_EVENT;
 ```
 
@@ -19,9 +19,9 @@ MH_SMSEV_SEND_NOTIFY // 메시지가 전송 결과(성공 및 실패
 
 ```c
 typedef struct MH_SMSEvent {
-M_Int32 event; // MH_SUB_SMS_EVENT값
-M_Int32 parm1; // event가 MH_SMSEV_SEND_NOTIFY일 때 성공했을 경우 1
-//전송 실패시 -1
+    M_Int32 event; // MH_SUB_SMS_EVENT값
+    M_Int32 parm1; // event가 MH_SMSEV_SEND_NOTIFY일 때 성공했을 경우 1
+    //전송 실패시 -1
 } MH_SMSEvent;
 ```
 

@@ -10,7 +10,7 @@ title: "2.15. 부가 장치 제어"
 
 ```c
 typedef enum _MC_BackLight MC_BackLight {
-MC_LIGHT_ON = 0 // 백라이트 켬 MC_LIGHT_OFF, // 백라이트 끔 MC_LIGHT_ALWAYS_ON, // 백라이트 항상 켬 MC_LIGHT_DEFAULT, //사용자가 설정한 상태로 함 } MC_BackLight;
+    MC_LIGHT_ON = 0 // 백라이트 켬 MC_LIGHT_OFF, // 백라이트 끔 MC_LIGHT_ALWAYS_ON, // 백라이트 항상 켬 MC_LIGHT_DEFAULT, //사용자가 설정한 상태로 함 } MC_BackLight;
 ```
 
 **설명**

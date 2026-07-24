@@ -355,7 +355,22 @@ public class ProgramExitException extends java.lang.RuntimeException
 
 등록된 thread에게 특정 프로그램이 종료되었음을 알리는 exception
 
-생성자 상세 설명 ProgramExitException public ProgramExitException() ProgramExitException object를 생성 ProgramExitException public ProgramExitException(java.lang.String s) message를 가지고 ProgramExitException object를 생성 Class Shared java.lang.Object | +--org.kwis.msf.core.Shared public class Shared extends java.lang.Object 프로그램간에 memory shared를 제공하는 클래스 이다.. shared buffer의 size는 create시 정해 줄 수 있고, shared buffer를 사용하는 모든 프로그램이 종료되면 자동으로 free된다.
+생성자 상세 설명 ProgramExitException public ProgramExitException() ProgramExitException object를 생성 ProgramExitException public ProgramExitException(java.lang.String s) message를 가지고 ProgramExitException object를 생성
+
+---
+
+## Class Shared
+
+```text
+java.lang.Object
+  +--org.kwis.msf.core.Shared
+```
+
+```java
+public class Shared extends java.lang.Object
+```
+
+프로그램간에 memory shared를 제공하는 클래스 이다.. shared buffer의 size는 create시 정해 줄 수 있고, shared buffer를 사용하는 모든 프로그램이 종료되면 자동으로 free된다.
 
 *Methods inherited from class java.lang.Throwable: fillInStackTrace, getLocalizedMessage, getMessage, printStackTrace, printStackTrace, printStackTrace, toString*
 

@@ -10,9 +10,9 @@ title: "2.16. 시리얼 통신"
 
 ```c
 typedef enum MH_SUB_SERIAL_EVENT {
-MH_SERIALEV_READ = 0,// 수신할 수 있게 될 경우 전달되는 이벤트
-MH_SERIALEV_WRITE, // 전송할 수 있게 될 경우 전달되는 이벤트
-MH_SERIALEV_ERROR, // 시리얼 H/W 에러
+    MH_SERIALEV_READ = 0,// 수신할 수 있게 될 경우 전달되는 이벤트
+    MH_SERIALEV_WRITE, // 전송할 수 있게 될 경우 전달되는 이벤트
+    MH_SERIALEV_ERROR, // 시리얼 H/W 에러
 } MH_SUB_SERIAL_EVENT;
 ```
 
@@ -20,8 +20,8 @@ MH_SERIALEV_ERROR, // 시리얼 H/W 에러
 
 ```c
 typedef struct MH_SerialEvent {
-M_Int32 fd; // 포트식별자
-M_Int32 event; // 발생되는 Event, MH_SUB_SERIAL_EVENT값
+    M_Int32 fd; // 포트식별자
+    M_Int32 event; // 발생되는 Event, MH_SUB_SERIAL_EVENT값
 } MH_SerialEvent;
 ```
 

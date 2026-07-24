@@ -886,7 +886,15 @@ TCP/IP 인터넷 접근을 시도한다.
 
 **반환 값**
 
-현재 접근이 가능하다면 0을 돌려주고, 접근되어 있지 않은 상태에서 접근에 성공하면 1을 돌려준다. 만일 실패하면 -1을 돌려준다. disconnect public static void disconnect() TCP/IP 인터넷 접근을 종료한다. 이 함수가 호출된 후에는 TCP/IP 통신 소켓의 모든 I/O 기능이 불가능하게 된다.
+현재 접근이 가능하다면 0을 돌려주고, 접근되어 있지 않은 상태에서 접근에 성공하면 1을 돌려준다. 만일 실패하면 -1을 돌려준다.
+
+### disconnect
+
+```java
+public static void disconnect()
+```
+
+TCP/IP 인터넷 접근을 종료한다. 이 함수가 호출된 후에는 TCP/IP 통신 소켓의 모든 I/O 기능이 불가능하게 된다.
 
 ---
 
@@ -908,7 +916,19 @@ public class SchemeNotFoundException extends java.io.IOException
 
 *Methods inherited from class java.lang.Object: clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait*
 
-생성자 상세 설명 SchemeNotFoundException public SchemeNotFoundException() SchemeNotFoundException public SchemeNotFoundException(java.lang.String s)
+## 생성자 상세
+
+### SchemeNotFoundException
+
+```java
+public SchemeNotFoundException()
+```
+
+### SchemeNotFoundException
+
+```java
+public SchemeNotFoundException(java.lang.String s)
+```
 
 ---
 

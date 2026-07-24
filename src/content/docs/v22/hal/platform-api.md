@@ -36,9 +36,9 @@ title: "2.2. 플랫폼이 제공하는 API"
 
 ```c
 enum _MH_SUB_SERIAL_EVENT{
-MH_SERIAL_READ = 0, // READ 인터럽트가 발생한 경우
-MH_SERIAL_WRITE, // SERIAL에 write할 수 있다는 event
-MH_SERIAL_ERROR, // 시리얼 H/W 에러
+    MH_SERIAL_READ = 0, // READ 인터럽트가 발생한 경우
+    MH_SERIAL_WRITE, // SERIAL에 write할 수 있다는 event
+    MH_SERIAL_ERROR, // 시리얼 H/W 에러
 };
 ```
 
@@ -46,25 +46,25 @@ MH_SERIAL_ERROR, // 시리얼 H/W 에러
 
 ```c
 enum _MH_Event {
-MH_EXIT_EVENT = 1, // 시스템을 종료시켜주는 이벤트.
-MH_KEY_PRESSEVENT, // 키가 눌려 질 때 알려 주는 이벤트
-MH_KEY_RELEASEEVENT, // 키가 떼어 질 때 알려 주는 이벤트
-MH_KEY_REPEATEVENT, // 키를 누르고 있을 때 알려 주는 이벤트
-MH_TIMER_EVENT, // 타이머가 만료될 때 알려 주는 이벤트
-MH_SMS_EVENT, // SMS 메시지가 수신되었음을 알려 주는 이벤트
-MH_CALL_EVENT, // 전화가 왔음을 알려 주는 이벤트
-MH_ANN_EVENT, // 화면 표시 장치 정보가 변경 되었을 때
-// 알려주는 Event
-MH_NETWORK_EVENT, // 네트워크또는소켓의연결과 해제, 데이터
-// 쓰기 읽기 완료를 통지해 주는이벤트
-MH_SERIAL_EVENT, // 시리얼 읽기, 쓰기 및 에러 상태을 통지해
-// 주는 이벤트
-MH_MEDIA_EVENT, // 미디어 관련 버퍼의 상태 또는 재생
-// 상태를 통지해 주는 이벤트
-MH_IODEV_EVENT, // IO 장치의 연결과 해제,
-//데이터 쓰기 읽기완료를 통지해 주는이벤트.
-MH_GPS_EVENT // GPS 장치의 정보 수신 및
-// 상태를 통지해 주는 이벤트.
+    MH_EXIT_EVENT = 1, // 시스템을 종료시켜주는 이벤트.
+    MH_KEY_PRESSEVENT, // 키가 눌려 질 때 알려 주는 이벤트
+    MH_KEY_RELEASEEVENT, // 키가 떼어 질 때 알려 주는 이벤트
+    MH_KEY_REPEATEVENT, // 키를 누르고 있을 때 알려 주는 이벤트
+    MH_TIMER_EVENT, // 타이머가 만료될 때 알려 주는 이벤트
+    MH_SMS_EVENT, // SMS 메시지가 수신되었음을 알려 주는 이벤트
+    MH_CALL_EVENT, // 전화가 왔음을 알려 주는 이벤트
+    MH_ANN_EVENT, // 화면 표시 장치 정보가 변경 되었을 때
+    // 알려주는 Event
+    MH_NETWORK_EVENT, // 네트워크또는소켓의연결과 해제, 데이터
+    // 쓰기 읽기 완료를 통지해 주는이벤트
+    MH_SERIAL_EVENT, // 시리얼 읽기, 쓰기 및 에러 상태을 통지해
+    // 주는 이벤트
+    MH_MEDIA_EVENT, // 미디어 관련 버퍼의 상태 또는 재생
+    // 상태를 통지해 주는 이벤트
+    MH_IODEV_EVENT, // IO 장치의 연결과 해제,
+    //데이터 쓰기 읽기완료를 통지해 주는이벤트.
+    MH_GPS_EVENT // GPS 장치의 정보 수신 및
+    // 상태를 통지해 주는 이벤트.
 };
 ```
 
@@ -91,59 +91,59 @@ MH_GPS_EVENT // GPS 장치의 정보 수신 및
 
 ```c
 enum _MH_KeyCode{
-MH_KEY_0 = '0',
-MH_KEY_1 = '1',
-MH_KEY_2 = '2',
-MH_KEY_3 = '3',
-MH_KEY_4 = '4',
-MH_KEY_5 = '5',
-MH_KEY_6 = '6',
-MH_KEY_7 = '7',
-MH_KEY_8 = '8',
-MH_KEY_9 = '9',
-MH_KEY_ASTERISK = '*',
-MH_KEY_POUND = '#',
-MH_KEY_UP = -1,
-MH_KEY_DOWN = -2,
-MH_KEY_LEFT = -3,
-MH_KEY_RIGHT = -4,
-MH_KEY_SELECT = -5,
-MH_KEY_SOFT1 = -6,
-MH_KEY_SOFT2 = -7,
-MH_KEY_SOFT3 = -8,
-MH_KEY_SEND = -10,
-MH_KEY_END = -11,
-MH_KEY_POWER = -12,
-MH_KEY_SIDE_UP = -13,
-MH_KEY_SIDE_DOWN = -14,
-MH_KEY_SIDE_SEL = -15,
-MH_KEY_CLEAR = -16,
-MH_KEY_FLIPDOWN = -17,
-MH_KEY_FLIPUP = -18,
-MH_KEY_CAMERA = -19,
-MH_KEY_INVALID = 0
+    MH_KEY_0 = '0',
+    MH_KEY_1 = '1',
+    MH_KEY_2 = '2',
+    MH_KEY_3 = '3',
+    MH_KEY_4 = '4',
+    MH_KEY_5 = '5',
+    MH_KEY_6 = '6',
+    MH_KEY_7 = '7',
+    MH_KEY_8 = '8',
+    MH_KEY_9 = '9',
+    MH_KEY_ASTERISK = '*',
+    MH_KEY_POUND = '#',
+    MH_KEY_UP = -1,
+    MH_KEY_DOWN = -2,
+    MH_KEY_LEFT = -3,
+    MH_KEY_RIGHT = -4,
+    MH_KEY_SELECT = -5,
+    MH_KEY_SOFT1 = -6,
+    MH_KEY_SOFT2 = -7,
+    MH_KEY_SOFT3 = -8,
+    MH_KEY_SEND = -10,
+    MH_KEY_END = -11,
+    MH_KEY_POWER = -12,
+    MH_KEY_SIDE_UP = -13,
+    MH_KEY_SIDE_DOWN = -14,
+    MH_KEY_SIDE_SEL = -15,
+    MH_KEY_CLEAR = -16,
+    MH_KEY_FLIPDOWN = -17,
+    MH_KEY_FLIPUP = -18,
+    MH_KEY_CAMERA = -19,
+    MH_KEY_INVALID = 0
 };
 enum MH_CallState {
-MH_CS_IDLE = 0,
-MH_CS_CALLING,
-MH_CS_CALLED,
-MH_CS_CALLREJECTED,
-MH_CS_INCOMING, // 이때, 발신 번호가 매개변수로 전달 되어야 함
-MH_CS_OTHERCALL, // 통화 중 대기
-MH_CS_TRANSFERCALL, // 대기 통화로 전환
-MH_CS_END
+    MH_CS_IDLE = 0,
+    MH_CS_CALLING,
+    MH_CS_CALLED,
+    MH_CS_CALLREJECTED,
+    MH_CS_INCOMING, // 이때, 발신 번호가 매개변수로 전달 되어야 함
+    MH_CS_OTHERCALL, // 통화 중 대기
+    MH_CS_TRANSFERCALL, // 대기 통화로 전환
+    MH_CS_END
 }
 enum _MH_Annunciator{
-MH_ANN_RSSI, // 현재 RSSI 수준이 갱신 열거형의 경우 시작값 명시
-MH_ANN_BATT, // 현재 배터리 수준이 갱신
-MH_ANN_NOSERVICE, // 통화권 이탈
-MH_ANN_SILENTMODE, // 진동, 벨소리 모드
-MH_ANN_ALARM // 알람 설정 유무
+    MH_ANN_RSSI, // 현재 RSSI 수준이 갱신 열거형의 경우 시작값 명시
+    MH_ANN_BATT, // 현재 배터리 수준이 갱신
+    MH_ANN_NOSERVICE, // 통화권 이탈
+    MH_ANN_SILENTMODE, // 진동, 벨소리 모드
+    MH_ANN_ALARM // 알람 설정 유무
 }
 typedef _MH_Annunciator MH_Annunciator;
 struct _MH_AnnInfo{
-MH_Annunciator type; //Annunciator info type
-M_Int32 data;
+    MH_Annunciator type; //Annunciator info type
+    M_Int32 data;
 }
 typedef struct _MH_AnnInfo MH_AnnInfo;
 ```

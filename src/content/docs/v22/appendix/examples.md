@@ -15,9 +15,9 @@ WIPI에서는 표준으로 제정되어 단말기에 내장된 API외에 동적�
 ```c
 typedef struct _API3D
 {
-M_Int32 (*draw3DLine)(M_Int32 x, M_Int32 y, M_Int32 x2, M_Int32 y2);
-M_Int32 (*draw3DRect)(M_Int32 x, M_Int32 y, M_Int32 w, M_Int32 h);
-…
+    M_Int32 (*draw3DLine)(M_Int32 x, M_Int32 y, M_Int32 x2, M_Int32 y2);
+    M_Int32 (*draw3DRect)(M_Int32 x, M_Int32 y, M_Int32 w, M_Int32 h);
+    …
 }
 ```
 
@@ -39,17 +39,17 @@ API3D api3d = { dll_draw3DLine, dll_draw3DRect }; DemoInf demoinf = { … }; `MC
 
 ```c
 M_Int32 dll_init() {
-return(0);
+    return(0);
 }
 void dll_exit() {
 }
 M_Int32 dll_draw3DLine(M_Int32 x, M_Int32 y, M_Int32 x2, M_Int32 y2) {
-MC_knlPrintk(“draw3d line\n”);
-return(0);
+    MC_knlPrintk(“draw3d line\n”);
+    return(0);
 }
 M_Int32 dll_draw3DRect(M_Int32 x, M_Int32 y, M_Int32 w, M_Int32 h) {
-MC_knlPrintk(“draw3d rect\n”);
-return(0);
+    MC_knlPrintk(“draw3d rect\n”);
+    return(0);
 }
 ```
 
@@ -62,14 +62,14 @@ DLL을 개발하는 개발자는 DLL interface를 export해야 한다. export되
 ```c
 int startClet(int argc, char* argc[])
 {
-char buf[256];
-…
-rtn = MC_knlGetExecNames(“3d_library”, NULL, NULL, buf, sizeof(buf));
-rtn = MC_knlLoad(buf, 0);
-inf3d = MC_knlGetDLLInterface("“Fast3D", -1, -1, NULL, NULL);
-inf3d->draw3DLine (0, 0, 10, 10);
-rtn = int3d->draw3DRect (10, 10), 50, 60);
-…
+    char buf[256];
+    …
+    rtn = MC_knlGetExecNames(“3d_library”, NULL, NULL, buf, sizeof(buf));
+    rtn = MC_knlLoad(buf, 0);
+    inf3d = MC_knlGetDLLInterface("“Fast3D", -1, -1, NULL, NULL);
+    inf3d->draw3DLine (0, 0, 10, 10);
+    rtn = int3d->draw3DRect (10, 10), 50, 60);
+    …
 }
 ```
 
