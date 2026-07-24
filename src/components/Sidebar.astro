@@ -1,0 +1,39 @@
+---
+/**
+ * Custom Sidebar override for Starlight.
+ * Filters sidebar items based on the current page version:
+ * - Pages under /v22/ only see v2.2 sidebar groups
+ * - All other pages only see v1 sidebar groups
+ */
+import MobileMenuFooter from 'virtual:starlight/components/MobileMenuFooter';
+import SidebarPersister from '@astrojs/starlight/components/SidebarPersister.astro';
+import SidebarSublist from '@astrojs/starlight/components/SidebarSublist.astro';
+
+const { sidebar } = Astro.locals.starlightRoute;
+
+const currentId = Astro.locals.starlightRoute.id;
+const isV2 = currentId.startsWith('v22/') || currentId === 'v22';
+
+function hasV2Link(entry: any): boolean {
+  if (entry.type === 'link') {
+    return entry.href?.includes('/v22/') ?? false;
+  }
+  if (entry.type === 'group' && entry.entries) {
+    return entry.entries.some((e: any) => hasV2Link(e));
+  }
+  return false;
+}
+
+const filteredSidebar = sidebar.filter((entry) => {
+  const entryIsV2 = hasV2Link(entry);
+  return isV2 ? entryIsV2 : !entryIsV2;
+});
+---
+
+<SidebarPersister>
+  <SidebarSublist sublist={filteredSidebar} />
+</SidebarPersister>
+
+<div class="md:sl-hidden">
+  <MobileMenuFooter />
+</div>

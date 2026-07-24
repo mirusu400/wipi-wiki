@@ -1,0 +1,156 @@
+---
+/**
+ * Version switcher component for the WIPI Wiki header.
+ * Renders a dropdown that lets users switch between WIPI specification versions.
+ * Styled to match Starlight's native Select component.
+ */
+
+const versions = [
+  { label: 'v1.2.1', value: '', prefix: '' },
+  { label: 'v2.2.0', value: 'v22', prefix: '/v22' },
+];
+---
+
+<starlight-version-select>
+  <label>
+    <span class="sr-only">WIPI 버전 선택</span>
+    <svg
+      aria-hidden="true"
+      class="icon label-icon"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+    </svg>
+    <select autocomplete="off">
+      {versions.map(({ label, value }) => (
+        <option value={value}>{label}</option>
+      ))}
+    </select>
+    <svg
+      aria-hidden="true"
+      class="icon caret"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M7 10l5 5 5-5z" />
+    </svg>
+  </label>
+</starlight-version-select>
+
+<script>
+  class StarlightVersionSelect extends HTMLElement {
+    constructor() {
+      super();
+
+      const select = this.querySelector('select');
+      if (!select) return;
+
+      // Determine current version from URL path
+      const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+      const path = window.location.pathname;
+      const pathAfterBase = path.startsWith(base) ? path.slice(base.length) : path;
+
+      if (pathAfterBase.startsWith('/v22/') || pathAfterBase === '/v22') {
+        select.value = 'v22';
+      } else {
+        select.value = '';
+      }
+
+      select.addEventListener('change', (e) => {
+        if (!(e.currentTarget instanceof HTMLSelectElement)) return;
+        const newVersion = e.currentTarget.value;
+
+        // Try to navigate to the equivalent page in the other version
+        let targetPath: string;
+
+        if (newVersion === 'v22') {
+          // Switching from v1 to v22: prepend /v22/
+          targetPath = base + '/v22' + pathAfterBase;
+        } else {
+          // Switching from v22 to v1: remove /v22 prefix
+          const stripped = pathAfterBase.replace(/^\/v2\.2\/?/, '/');
+          targetPath = base + stripped;
+        }
+
+        // Navigate (the target page may not exist; if it 404s, user sees that)
+        window.location.href = targetPath;
+      });
+    }
+  }
+  customElements.define('starlight-version-select', StarlightVersionSelect);
+</script>
+
+<style>
+  @layer starlight.components {
+    starlight-version-select {
+      display: contents;
+    }
+
+    label {
+      --sl-label-icon-size: 0.875rem;
+      --sl-caret-size: 1.25rem;
+      --sl-inline-padding: 0.5rem;
+      --sl-select-width: 5.5em;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: var(--sl-color-gray-2);
+    }
+
+    label:hover {
+      color: var(--sl-color-white);
+    }
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .label-icon {
+      font-size: var(--sl-label-icon-size);
+      width: var(--sl-label-icon-size);
+      height: var(--sl-label-icon-size);
+      inset-inline-start: 0;
+    }
+
+    .caret {
+      font-size: var(--sl-caret-size);
+      width: var(--sl-caret-size);
+      height: var(--sl-caret-size);
+      inset-inline-end: 0;
+    }
+
+    select {
+      border: 0;
+      padding-block: 0.625rem;
+      padding-inline: calc(var(--sl-label-icon-size) + var(--sl-inline-padding) + 0.25rem)
+        calc(var(--sl-caret-size) + var(--sl-inline-padding) + 0.25rem);
+      margin-inline: calc(var(--sl-inline-padding) * -1);
+      width: calc(var(--sl-select-width) + var(--sl-inline-padding) * 2);
+      background-color: transparent;
+      text-overflow: ellipsis;
+      color: inherit;
+      cursor: pointer;
+      appearance: none;
+    }
+
+    option {
+      background-color: var(--sl-color-bg-nav);
+      color: var(--sl-color-gray-1);
+    }
+
+    @media (min-width: 50rem) {
+      select {
+        font-size: var(--sl-text-sm);
+      }
+    }
+  }
+</style>

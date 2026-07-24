@@ -1,0 +1,5 @@
+---
+title: "3. 기본 ERROR 반환 값"
+---
+
+에러 코드 값 설명 비고 `M_E_ERROR` 기타 에러 `M_E_BADFD` 잘못된 식별자 `M_E_BADFILENAME` 잘못된 파일 이름 `M_E_BADSEEKPOS` 잘못된 파일 위치 `M_E_EXIST` 해당 리소스가 이미 존재함 `M_E_BADFORMAT` 잘못된 포맷 `M_E_INPROGRESS` 오퍼레이션 수행 중 `M_E_INUSE` 현재 사용 중이거나 이미 사용 중 `M_E_INVALID` 매개변수가 잘못되었음 `M_E_ISCONN` 이미 연결이 설정되어 있음 `M_E_LONGNAME` 제한길이 초과 `M_E_NOENT` 내용 없음 `M_E_NOSPACE` 남은 공간이 없음 `M_E_NOTCONN` 연결이 설정되어 있지 않음 `M_E_NOTEMPTY` 비어있지 않음 `M_E_NOTSUP` 해당 서비스를 지원하지 않음 `M_E_NOMEMORY` 메모리 부족 `M_E_SHORTBUF` 버퍼가 작음 `M_E_WOULDBLOCK` would block 발생 `M_E_TIMEOUT` 타임아웃 `M_E_DATABIG` 데이터가 너무 큼 `M_E_BADRECID` 잘못된 레코드 식별자 `M_E_EOF` 파일의 끝 `M_E_ACCESS` 접근에러 `M_E_NORESOURCE` 리소스 부족 `M_E_NOTEXIST` 해당 파일/리소스 존재하지 않음 `M_E_BADVERSION` 애플리케이션 수행을 지원하지 못 하는 플랫폼 버전 `M_E_DEVCLOSE` IO 장치가 닫힌 경우 `M_E_OEMERROR` OEM의 사정에 의해 WIPI 어플리 케이션의 특정 동작이 중지되는 경우 `M_E_NOTSUPPORTTYPE` 해당 타입을 지원하지 않음 `M_E_NOTSUPPORTLOCK` 잠금을 지원하지 않음 `M_E_NOTSUPPORTPLOCK` 개별 잠금을 지원하지 않음 `M_E_NOTSUPPORTGLOCK` 그룹 잠금을 지원하지 않음 `M_E_MAXCOUNT`: 최대값을 벗어남 `M_E_ACCESSDENY` //설명추가 `M_E_NODELETE` //설명추가 `M_E_INVALIDSTATUS` //설명추가 `M_E_INCORRECTPASSWORD` //설명추가 `M_E_OEMERROR` //설명추가 `M_E_NOCARD` //설명추가 `M_E_NODEVICE` //설명추가 `M_E_NOTACTIVE` //설명추가
